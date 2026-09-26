@@ -30,12 +30,12 @@ export default function StatsCards({ stats }: Props) {
             className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 text-center group hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 animate-fadeInUp"
             style={{ animationDelay: `${index * 0.1}s` }}
           >
-            <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-linear-to-br from-blue-500 to-teal-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-xl bg-linear-to-br from-primary-500 to-secondary-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
               {iconName && (
                 <Icon name={iconName} className="w-8 h-8 text-white" />
               )}
             </div>
-            <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent mb-2">
+            <div className="text-4xl md:text-5xl font-bold bg-linear-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent mb-2">
               {stat.value}
             </div>
             <div className="text-sm font-medium text-gray-600">{stat.label}</div>

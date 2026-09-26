@@ -1,10 +1,11 @@
 ---
+import BrandWordmark from "../BrandWordmark.astro";
 import { Image } from 'astro:assets';
 import Button from '../ui/Button.astro';
 import heroBgImg from '@assets/photo-1586528116311-ad8dd3c8310d.jpg';
 ---
 
-<section class="relative h-screen min-h-[600px] flex items-center overflow-hidden">
+<section class="relative min-h-[600px] py-20 lg:py-24 flex items-center overflow-hidden">
   <!-- Background Image with Overlay -->
   <div class="absolute inset-0">
     <Image 
@@ -22,7 +23,7 @@ import heroBgImg from '@assets/photo-1586528116311-ad8dd3c8310d.jpg';
   <!-- Content -->
   <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl">
-      <div class="inline-flex items-center px-4 py-2 mb-6 bg-linear-to-r from-blue-600 to-teal-600 text-white text-sm font-semibold rounded-full shadow-lg">
+      <div class="inline-flex items-center px-4 py-2 mb-6 bg-linear-to-r from-primary-600 to-secondary-600 text-white text-sm font-semibold rounded-full shadow-lg">
         <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
           <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
         </svg>
@@ -31,9 +32,7 @@ import heroBgImg from '@assets/photo-1586528116311-ad8dd3c8310d.jpg';
       
       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
         Optimize Your Operations with
-        <span class="block text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400 mt-2">
-          AstroFlow
-        </span>
+        <span class="block mt-4"><BrandWordmark class="brand-wordmark-hero" /></span>
       </h1>
       
       <p class="text-xl md:text-2xl text-slate-200 mb-8 max-w-2xl leading-relaxed">
@@ -42,7 +41,7 @@ import heroBgImg from '@assets/photo-1586528116311-ad8dd3c8310d.jpg';
       </p>
       
       <div class="flex flex-col sm:flex-row gap-4 mb-12">
-        <Button href="/rfq" size="lg" class="bg-blue-600! hover:bg-blue-700! text-white! shadow-2xl!">
+        <Button href="/rfq" size="lg" class="bg-primary-600! hover:bg-primary-700! text-white! shadow-2xl!">
           Request a Quote
         </Button>
         <Button href="/capabilities" size="lg" variant="outline" class="border-2! border-white! text-white! hover:bg-white/10! shadow-2xl!">
@@ -53,20 +52,20 @@ import heroBgImg from '@assets/photo-1586528116311-ad8dd3c8310d.jpg';
       <!-- Quick Stats -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-white/20">
         <div class="group">
-          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">500+</div>
-          <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">Global Clients</div>
+          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-primary-200 mb-1">500+</div>
+          <div class="text-sm text-slate-300 group-hover:text-secondary-300 transition-colors">Global Clients</div>
         </div>
         <div class="group">
-          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">50M+</div>
-          <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">Units Shipped</div>
+          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-primary-200 mb-1">50M+</div>
+          <div class="text-sm text-slate-300 group-hover:text-secondary-300 transition-colors">Units Shipped</div>
         </div>
         <div class="group">
-          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">99.9%</div>
-          <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">On-Time</div>
+          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-primary-200 mb-1">99.9%</div>
+          <div class="text-sm text-slate-300 group-hover:text-secondary-300 transition-colors">On-Time</div>
         </div>
         <div class="group">
-          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-blue-200 mb-1">15+</div>
-          <div class="text-sm text-slate-300 group-hover:text-teal-300 transition-colors">Facilities</div>
+          <div class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-white to-primary-200 mb-1">15+</div>
+          <div class="text-sm text-slate-300 group-hover:text-secondary-300 transition-colors">Facilities</div>
         </div>
       </div>
     </div>

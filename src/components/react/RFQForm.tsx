@@ -23,7 +23,7 @@ export default function RFQForm() {
       {/* Contact Information */}
       <div>
         <div className="flex items-center mb-6">
-          <div className="w-10 h-10 rounded-lg bg-linear-to-br from-blue-600 to-teal-600 flex items-center justify-center mr-3">
+          <div className="w-10 h-10 rounded-lg bg-linear-to-br from-primary-600 to-secondary-600 flex items-center justify-center mr-3">
             <Icon name="lucide:user" className="w-5 h-5 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900">
@@ -173,20 +173,20 @@ export default function RFQForm() {
                 return (
                   <div
                     key={service.id}
-                    className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-blue-400 hover:bg-blue-50 transition-all cursor-pointer group"
+                    className="flex items-center space-x-3 p-4 border-2 border-gray-200 rounded-lg hover:border-primary-400 hover:bg-primary-50 transition-all cursor-pointer group"
                   >
                     <Checkbox.Root
                       id={service.id}
                       name="services"
                       value={service.id}
-                      className="w-5 h-5 flex items-center justify-center border-2 border-gray-300 rounded data-[state=checked]:bg-blue-600 data-[state=checked]:border-blue-600 transition-colors shrink-0"
+                      className="w-5 h-5 flex items-center justify-center border-2 border-gray-300 rounded data-[state=checked]:bg-primary-600 data-[state=checked]:border-primary-600 transition-colors shrink-0"
                     >
                       <Checkbox.Indicator>
                         <Icon name="lucide:check" className="w-4 h-4 text-white" />
                       </Checkbox.Indicator>
                     </Checkbox.Root>
-                    <div className="w-8 h-8 rounded-lg bg-gray-100 group-hover:bg-blue-100 flex items-center justify-center shrink-0 transition-colors">
-                      <Icon name={service.icon as IconName} className="w-4 h-4 text-gray-600 group-hover:text-blue-600 transition-colors" />
+                    <div className="w-8 h-8 rounded-lg bg-gray-100 group-hover:bg-primary-100 flex items-center justify-center shrink-0 transition-colors">
+                      <Icon name={service.icon as IconName} className="w-4 h-4 text-gray-600 group-hover:text-primary-600 transition-colors" />
                     </div>
                     <Label.Root
                       htmlFor={service.id}
@@ -214,7 +214,7 @@ export default function RFQForm() {
                   id="timeline"
                   name="timeline"
                   required
-                  className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition appearance-none bg-white"
+                  className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition appearance-none bg-white"
                 >
                   <option value="">Select timeline</option>
                   <option value="immediate">Immediate (Within 1 month)</option>
@@ -240,7 +240,7 @@ export default function RFQForm() {
                   id="volume"
                   name="volume"
                   placeholder="e.g., 10,000 units"
-                  className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  className="w-full px-4 py-2 pl-10 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition"
                 />
                 <Icon name="lucide:package" className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
@@ -270,7 +270,7 @@ export default function RFQForm() {
       <div className="pt-6">
         <button
           type="submit"
-          className="w-full bg-linear-to-r from-blue-600 to-teal-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:from-blue-700 hover:to-teal-700 transition-all duration-200 hover:shadow-xl active:scale-95 flex items-center justify-center space-x-2"
+          className="w-full bg-linear-to-r from-primary-600 to-secondary-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:from-primary-700 hover:to-secondary-700 transition-all duration-200 hover:shadow-xl active:scale-95 flex items-center justify-center space-x-2"
         >
           <span>Submit Request</span>
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

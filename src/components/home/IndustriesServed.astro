@@ -11,21 +11,21 @@ const industries: Industry[] = [
   {
     title: "Healthcare & Pharma",
     description: "Temperature-controlled storage, compliance management, and specialized handling for medical supplies and pharmaceuticals.",
-    iconGradient: "from-blue-500 to-blue-600",
+    iconGradient: "from-primary-500 to-primary-600",
     iconPath: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
     features: ["Cold chain logistics", "Regulatory compliance", "Sterile manufacturing"]
   },
   {
     title: "Technology & Electronics",
     description: "Precision handling, ESD protection, and rapid fulfillment for high-value electronic components and devices.",
-    iconGradient: "from-teal-500 to-teal-600",
+    iconGradient: "from-secondary-500 to-secondary-600",
     iconPath: "M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z",
     features: ["ESD-safe facilities", "Component assembly", "Global distribution"]
   },
   {
     title: "E-commerce & Retail",
     description: "Scalable fulfillment, same-day delivery options, and returns management for modern retail operations.",
-    iconGradient: "from-blue-600 to-teal-600",
+    iconGradient: "from-primary-600 to-secondary-600",
     iconPath: "M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z",
     features: ["Order fulfillment", "Peak season support", "Returns processing"]
   },
@@ -58,11 +58,11 @@ const checkmarkPath = "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a
 <section class="py-24 bg-linear-to-b from-slate-50 to-white">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-      <div class="inline-block px-4 py-2 mb-4 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
+      <div class="inline-block px-4 py-2 mb-4 bg-primary-100 text-primary-800 text-sm font-semibold rounded-full">
         Industries We Serve
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-        Solutions for <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600">Every Industry</span>
+        Solutions for <span class="text-transparent bg-clip-text bg-linear-to-r from-primary-600 to-secondary-600">Every Industry</span>
       </h2>
       <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
         Tailored logistics and manufacturing solutions designed to meet the unique challenges of your industry.
@@ -84,7 +84,7 @@ const checkmarkPath = "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a
           <ul class="space-y-2 text-sm text-slate-600">
             {industry.features.map((feature) => (
               <li class="flex items-center">
-                <svg class="w-4 h-4 text-teal-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-secondary-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d={checkmarkPath} clip-rule="evenodd" />
                 </svg>
                 {feature}
@@ -99,7 +99,7 @@ const checkmarkPath = "M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a
     <div class="text-center mt-16">
       <a 
         href="/use-cases" 
-        class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-linear-to-r from-blue-600 to-teal-600 hover:from-blue-700 hover:to-teal-700 rounded-lg shadow-lg hover:shadow-xl transition-all group"
+        class="inline-flex items-center px-8 py-4 text-base font-semibold text-white bg-linear-to-r from-primary-600 to-secondary-600 hover:from-primary-700 hover:to-secondary-700 rounded-lg shadow-lg hover:shadow-xl transition-all group"
       >
         View Industry Solutions
         <svg class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

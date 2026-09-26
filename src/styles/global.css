@@ -1,12 +1,38 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary-50: #fff1f2;
+  --color-primary-100: #ffe1e3;
+  --color-primary-200: #ffc7cc;
+  --color-primary-300: #ff9ba3;
+  --color-primary-400: #f86b77;
+  --color-primary-500: #ef4350;
+  --color-primary-600: #E62129;
+  --color-primary-700: #c71923;
+  --color-primary-800: #a51822;
+  --color-primary-900: #891923;
+  --color-primary-950: #4b080e;
+  --color-secondary-50: #eff3ff;
+  --color-secondary-100: #dfe7ff;
+  --color-secondary-200: #c6d4ff;
+  --color-secondary-300: #9eb7fa;
+  --color-secondary-400: #7393ed;
+  --color-secondary-500: #446ad5;
+  --color-secondary-600: #183BA3;
+  --color-secondary-700: #14328b;
+  --color-secondary-800: #132a70;
+  --color-secondary-900: #15275b;
+  --color-secondary-950: #0c1535;
+}
+
+
 /* Smooth scrolling */
 html {
   @apply scroll-smooth;
 }
 
 .nav-active {
-  @apply after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:bg-blue-300 hover:after:bg-transparent after:rounded-full;
+  @apply after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-1.5 after:h-1.5 after:bg-primary-300 hover:after:bg-transparent after:rounded-full;
 }
 
 /* Animations */
@@ -39,8 +65,29 @@ html {
 }
 
 .gradient-text {
-  background: linear-gradient(to right, #2563eb, #0d9488);
+  background: linear-gradient(to right, #E62129, #183BA3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+/* Frame the 1448 x 1086 artwork with padding around the full transparent wordmark. */
+.brand-wordmark {
+  position: relative;
+  display: inline-block;
+  width: 152px;
+  aspect-ratio: 1336 / 208;
+  overflow: hidden;
+  vertical-align: middle;
+}
+.brand-wordmark img {
+  position: absolute;
+  width: 108.3833%;
+  max-width: none;
+  height: auto;
+  left: -4.1916%;
+  top: -193.75%;
+}
+.brand-wordmark-hero {
+  width: min(100%, 460px);
+  max-width: 100%;
 }

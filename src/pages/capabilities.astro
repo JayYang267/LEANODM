@@ -110,7 +110,7 @@ const capabilities = [
 ];
 ---
 
-<BaseLayout title="Our Capabilities - AstroFlow">
+<BaseLayout title="Our Capabilities - LEANODM">
   <!-- Hero Section -->
   <section class="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden">
     <!-- Background Image with Overlay -->
@@ -128,7 +128,7 @@ const capabilities = [
     <!-- Content -->
     <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
       <div class="max-w-4xl mx-auto text-center">
-        <div class="inline-flex items-center px-4 py-2 mb-6 bg-linear-to-r from-blue-600 to-teal-600 text-white text-sm font-semibold rounded-full shadow-lg">
+        <div class="inline-flex items-center px-4 py-2 mb-6 bg-linear-to-r from-primary-600 to-secondary-600 text-white text-sm font-semibold rounded-full shadow-lg">
           <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
           </svg>
@@ -136,7 +136,7 @@ const capabilities = [
         </div>
         
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          Our <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400">
+          Our <span class="text-transparent bg-clip-text bg-linear-to-r from-primary-400 via-secondary-400 to-primary-400">
             Capabilities
           </span>
       </h1>
@@ -161,7 +161,7 @@ const capabilities = [
       {capabilities.map((capability, index) => (
         <div class={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
           <div class={`${index % 2 === 1 ? 'lg:col-start-2' : ''} animate-fadeInUp`}>
-            <div class="flex items-center justify-center w-16 h-16 rounded-xl bg-linear-to-br from-blue-500 to-teal-500 text-white mb-6 shadow-lg">
+            <div class="flex items-center justify-center w-16 h-16 rounded-xl bg-linear-to-br from-primary-500 to-secondary-500 text-white mb-6 shadow-lg">
               <div class="w-8 h-8" set:html={capability.icon.replace('w-12 h-12', 'w-8 h-8').replace('currentColor', 'white')} />
             </div>
             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -173,7 +173,7 @@ const capabilities = [
             <ul class="space-y-3">
               {capability.features.map((feature) => (
                 <li class="flex items-center space-x-3">
-                  <svg class="w-5 h-5 text-teal-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-secondary-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                   </svg>
                   <span class="text-gray-700">{feature}</span>
@@ -207,11 +207,11 @@ const capabilities = [
   <!-- Process Section -->
   <Section background="white">
     <div class="text-center mb-16">
-      <div class="inline-block px-4 py-2 mb-4 bg-blue-100 text-blue-800 text-sm font-semibold rounded-full">
+      <div class="inline-block px-4 py-2 mb-4 bg-primary-100 text-primary-800 text-sm font-semibold rounded-full">
         Our Approach
       </div>
       <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        Our <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600">Process</span>
+        Our <span class="text-transparent bg-clip-text bg-linear-to-r from-primary-600 to-secondary-600">Process</span>
       </h2>
       <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
         A streamlined approach to deliver exceptional results every time.
@@ -254,10 +254,10 @@ const capabilities = [
         }
       ].map((process, index) => (
         <Card hover class="text-center animate-fadeInUp group" style={`animation-delay: ${index * 0.1}s`}>
-          <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-linear-to-br from-blue-500 to-teal-500 text-white shadow-lg group-hover:scale-110 transition-transform">
+          <div class="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-xl bg-linear-to-br from-primary-500 to-secondary-500 text-white shadow-lg group-hover:scale-110 transition-transform">
             <div set:html={process.icon} />
           </div>
-          <div class="text-3xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-teal-600 mb-2">{process.step}</div>
+          <div class="text-3xl font-bold text-transparent bg-clip-text bg-linear-to-r from-primary-600 to-secondary-600 mb-2">{process.step}</div>
           <h3 class="text-xl font-bold text-gray-900 mb-3">{process.title}</h3>
           <p class="text-gray-600 leading-relaxed">{process.description}</p>
         </Card>
@@ -276,7 +276,7 @@ const capabilities = [
         width={2070}
         height={1380}
       />
-      <div class="absolute inset-0 bg-linear-to-r from-blue-900/95 to-teal-900/95"></div>
+      <div class="absolute inset-0 bg-linear-to-r from-primary-900/95 to-secondary-900/95"></div>
     </div>
 
     <!-- Content -->
@@ -286,14 +286,14 @@ const capabilities = [
           Get Started Today
         </div>
         <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-          Ready to Optimize with <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-teal-400">AstroFlow</span>?
+          Ready to Optimize with <span class="text-transparent bg-clip-text bg-linear-to-r from-primary-400 to-secondary-400">LEANODM</span>?
       </h2>
         <p class="text-xl md:text-2xl text-slate-200 mb-12 max-w-2xl mx-auto leading-relaxed">
           Let's discuss how our capabilities can transform your business and accelerate your growth.
       </p>
         
         <div class="flex flex-col sm:flex-row gap-6 justify-center">
-          <Button href="/rfq" size="lg" class="bg-blue-600! hover:bg-blue-700! text-white! shadow-2xl!">
+          <Button href="/rfq" size="lg" class="bg-primary-600! hover:bg-primary-700! text-white! shadow-2xl!">
           Request a Quote
         </Button>
           <Button href="/facilities" size="lg" variant="outline" class="border-2! border-white! text-white! hover:bg-white/10! shadow-2xl!">

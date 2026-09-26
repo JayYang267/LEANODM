@@ -24,7 +24,7 @@ export default function CapabilityAccordion({ capabilities }: Props) {
           <Accordion.Header>
             <Accordion.Trigger className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-gray-50 transition-colors group">
               <div className="flex items-center space-x-4">
-                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-linear-to-br from-blue-500 to-teal-500 text-white shadow-md shrink-0">
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-linear-to-br from-primary-500 to-secondary-500 text-white shadow-md shrink-0">
                   <div
                     className="w-6 h-6"
                     dangerouslySetInnerHTML={{ __html: capability.icon.replace('w-12 h-12', 'w-6 h-6').replace('currentColor', 'white') }}
@@ -47,7 +47,7 @@ export default function CapabilityAccordion({ capabilities }: Props) {
               {capability.features.map((feature, idx) => (
                 <li key={idx} className="flex items-center space-x-3">
                   <svg
-                    className="w-5 h-5 text-teal-500 shrink-0"
+                    className="w-5 h-5 text-secondary-500 shrink-0"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

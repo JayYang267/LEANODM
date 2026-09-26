@@ -1,0 +1,7 @@
+---
+interface Props { class?: string; }
+const { class: className = '' } = Astro.props;
+---
+<span class:list={['brand-wordmark', className]}>
+  <img src="/brand/leanodm-wordmark.png?v=6ad7eb93c931" alt="LEANODM" width="1448" height="1086" decoding="async" />
+</span>

@@ -80,7 +80,7 @@ export default function FeatureShowcase() {
                 transition={{ duration: 0.4, delay: index * 0.1 + 0.2 }}
                 className="absolute top-4 right-4 w-12 h-12 bg-white rounded-lg flex items-center justify-center shadow-lg"
               >
-                <Icon name={feature.icon} className="w-6 h-6 text-blue-600" />
+                <Icon name={feature.icon} className="w-6 h-6 text-primary-600" />
               </motion.div>
             </div>
 
