@@ -2,15 +2,15 @@
 
 日期：2026-09-28
 
-状态：设计审核稿；本文件不授权页面实现。
+状态：用户已批准全站架构，夜灯展示权重除外。本版记录该例外的修订方案，随产品概览页一并审核。仍处于全站设计阶段，不授权代码实现或具体文案撰写。
 
-配套文件：[首页规格](2026-09-28-leanodm-home-design.md)
+配套文件：[首页规格](2026-09-28-leanodm-home-design.md)、[产品概览页审核稿](2026-09-28-leanodm-products-overview-design.md)
 
 ## 1. 本轮目的与审核边界
 
-用户已认可上一轮首页的基本定位、H1 方向及模块顺序，同时明确要求扩大非玩具类塑胶电子产品的承接空间，并补齐完整导航。本轮将这些要求收敛为一套推荐方案，不再要求用户在产品、ODM 与精益文化之间选择。
+用户已批准全站架构与首页规格，要求降低夜灯的展示权重，以免访客将照明误判为核心业务。已批准的综合塑胶电子定位、导航主体与首页模块顺序继续沿用。
 
-本轮审核对象是：整合定位、导航层级、产品入口与首页更新。下列路由定义内容归属，不表示每个子页面的内容规格或实现已获批准。各页面仍须按用户指定的 12 项分别设计、审核。
+当前仅设计 `/products/`。关联修订为“三个重点品类＋补充应用”：保留四个初始品类地址与夜灯案例规划，取消夜灯与三个重点品类同等的展示权重。每页仍按用户指定的 12 项逐页审核；批准某一页不触发实施计划或代码阶段。
 
 ## 2. 已确认的设计依据
 
@@ -33,7 +33,7 @@
 
 > ODM & OEM Manufacturing for Plastic and Electronic Products
 
-玩具、文创、文具和夜灯是重点展示领域，不作为企业全部业务的限制清单。精益既有可直接访问的中心页，也在产品、工艺、质量和案例中以相关实践出现。
+玩具、文创礼品和文具是重点展示领域，夜灯属于已有跨品类应用经验。其他塑胶电子项目继续有明确入口。精益既有可直接访问的中心页，也在产品、工艺、质量和案例中以相关实践出现。
 
 ## 4. 桌面主导航
 
@@ -49,7 +49,7 @@
 
 | 主项 | 总览 URL | 采购商任务 | 下拉菜单内容 |
 | --- | --- | --- | --- |
-| Products | `/products/` | 找到匹配的产品领域 | Toys & Collectibles；Gifts & Branded Merchandise；Stationery；Night Lights；Explore All Products |
+| Products | `/products/` | 找到匹配的产品领域 | 主要组：Toys & Collectibles、Gifts & Branded Merchandise、Stationery；补充应用组：Night Lights；Explore All Products |
 | ODM & OEM | `/customization/` | 选择项目合作方式 | Existing Product Customization；Product Adaptation；New Product Development；OEM Manufacturing；How We Work；Project Fit & Working Principles |
 | Manufacturing | `/manufacturing/` | 判断厂内工艺与协同能力 | Tooling；Injection Molding；Electronics & SMT；Printing & Finishing；Assembly & Testing；Explore All Processes |
 | Quality | `/quality/` | 理解验收、测试及异常管理 | Incoming Inspection；Appearance Inspection；In-process Inspection；Product Testing；Traceability & Materials；Explore Our Quality System |
@@ -58,24 +58,22 @@
 
 Manufacturing 下拉按工艺族分组，具体的 SMT、UV 印刷、丝印等叶子页面通过工艺族和总览进入。展示标签不需要与内部目录名称完全相同；导航中的每个入口都有明确可访问的目标。
 
+Products 下拉中的补充应用组与主要组在排版上分开，夜灯保留可直接访问的文字链接，不使用同等大图或促销徽章。手机菜单保持相同层级和顺序。分组说明在文案阶段定稿，本轮只规定信息层级。
+
 Quality 中三个 Inspection 入口分别对应 `/quality/incoming-inspection/`、`/quality/appearance-inspection/`、`/quality/in-process-inspection/`；Product Testing 对应 `/quality/product-testing/`；Traceability & Materials 对应 `/quality/traceability/`，并由正文直接链接仓储管理；Explore Our Quality System 对应 `/quality/`。
 
 ## 5. 产品信息架构
 
-首版保留四个清楚的产品入口，顺序体现业务重点：
+保留四个初始品类页面，展示权重分为三个重点品类和一个补充应用：
 
 | 英文展示名 | URL | 页面责任 |
 | --- | --- | --- |
 | Toys & Collectibles | `/products/toys/` | 玩具、收藏玩偶及相关塑胶/电子产品制造主题 |
 | Gifts & Branded Merchandise | `/products/gifts/` | 面向品牌、文创与纪念品项目的产品开发制造主题 |
 | Stationery | `/products/stationery/` | 文具产品定制、改款与开发制造主题 |
-| Night Lights | `/products/night-lights/` | 夜灯产品的 OEM/ODM 制造需求，成为非玩具产品的明确入口 |
+| Night Lights | `/products/night-lights/` | 保留独立搜索与项目入口，以补充应用展示，不归入核心产品卡片组 |
 
-产品总览在四类卡片后提供一个项目入口：
-
-> Have a different plastic or electronic product in mind?
-
-其说明强调可以评估其他产品的结构、电子功能和制造要求，链接到 `/customization/` 与 `/contact/`。它不是一个名为 Other Products 的泛化 SEO 分类页。
+产品总览先显示三个重点品类卡片，再设置其他塑胶电子应用与项目评估模块。该模块用简短内容说明可评估其他产品的结构、电子功能和制造要求，保留指向夜灯品类的普通文字链接，并链接 `/customization/` 与 `/contact/`。本模块不是新增的 Other Products SEO 分类页，也不是灯具展区。具体文案留到全站设计完成后的文案阶段。
 
 可扩展的层次是：产品总览 → 品类中心 → 有独立采购意图的子品类 → 产品/方案详情。例如 `/products/toys/collectible-figures/` 可以承接收藏玩偶的独立需求。毛绒相关产品的细分名称在该品类的页面设计中按实际产品功能确定，不预设为自有完整毛绒缝制业务。
 
@@ -175,7 +173,7 @@ Electronics & SMT 菜单入口首先进入电子集成页，并直接提供 SMT 
 | 案例 | 评估相似项目的交付经验 | 具体产品＋生产问题或项目成果 | 对应产品页与项目咨询 |
 | 资源文章 | 解决采购或开发问题 | how to prepare an ODM product brief 等 | 模板、服务页、需求提交 |
 
-示例买家路径：夜灯制造商搜索 → 夜灯品类页 → 历史夜灯项目案例 → 相关质量/精益实践 → 夜灯项目询盘。另一条路径：玩具产品搜索 → 玩具品类页 → 新产品开发 → 开发流程与项目需求书 → 项目提交。
+主要示例买家路径：玩具产品搜索 → 玩具品类页 → 新产品开发 → 开发流程与项目需求书 → 项目提交。补充路径：夜灯制造商搜索 → 夜灯品类页 → 历史夜灯项目案例 → 相关质量/精益实践 → 夜灯项目询盘。后者保留独立价值，不决定全站视觉重心。
 
 产品页本身必须包含足够的合作范围、定制选项、适用工艺及相关证据，不能只是一组图片和回首页按钮。
 
@@ -207,8 +205,8 @@ Electronics & SMT 菜单入口首先进入电子集成页，并直接提供 SMT 
 
 设计验收检查：
 
-1. 四类产品均有清楚入口，其他塑胶电子项目也可提交。
-2. 一个夜灯项目同时能从品类、案例与相关管理实践找到，且全文不重复。
+1. 玩具、文创礼品和文具为三个重点入口；夜灯可从补充应用进入，其他塑胶电子项目也可提交。
+2. 夜灯品类与案例可被普通链接发现，但不占首页主案例位，不用百万套或 Amazon 信息形成全站主视觉。
 3. 精益管理在主导航与首页可见，并能连接具体客户收益。
 4. 首页、About、工厂页及案例的人数/地点/产量归属没有混用。
 5. 每个导航项均指向规划中的明确页面或栏目；移动端结构与桌面一致。
@@ -218,9 +216,18 @@ Electronics & SMT 菜单入口首先进入电子集成页，并直接提供 SMT 
 
 ## 11. 后续页面设计顺序
 
-导航及首页书面规格审核 → 产品总览 → 首批四个品类与通用产品详情模板 → ODM/OEM 总览及四条服务路径 → 制造与质量 → 精益中心与夜灯案例 → About/工厂 → Resources 与 Contact。
+1. 产品概览 `/products/`（当前唯一正在设计的页面）。
+2. 四个初始产品类别页面及可复用的产品详情模板；前三类为重点，夜灯作为补充应用。
+3. ODM/OEM 概览与服务路径。
+4. 制造能力。
+5. 质量管控。
+6. 精益生产。
+7. 电子小夜灯案例研究。
+8. 关于我们 / Xinyinhai 工厂。
+9. 资源中心。
+10. 联系我们。
 
-每页分别提供搜索意图、目标买家、主主题、目标、H1、模块顺序、内容、证据、CTA、内链、组件和手机要求。设计顺序不等于上线顺序；网站发布时实际询盘链路必须可用。
+每页分别提供搜索意图、目标买家、主主题、目标、建议 H1、模块顺序、内容要求、证据、CTA、内链、组件和手机要求。在用户审核当前页面后才进入下一页面。建议 H1 是设计项；其余正文、SEO 元描述、按钮文案与销售段落不在本阶段撰写。全站设计阶段仍未结束，不启动写实施计划或代码流程。设计顺序不等于上线顺序；网站发布时实际询盘链路必须可用。
 
 ## 12. 参考依据
 
