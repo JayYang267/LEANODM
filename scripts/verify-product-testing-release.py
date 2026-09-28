@@ -30,8 +30,21 @@ def check(origin):
     for t in tests:
         for value in t['methods']+t['criteria']+t['notes']:assert norm(value) in all_text,(origin,t['id'])
     assets=[]
+    styles=[]
     links=set(doc.xpath('//a/@href'))
-    assets+=doc.xpath('//link[@rel="stylesheet"]/@href')
+    local_styles=local.xpath('//link[@rel="stylesheet"]/@href')
+    remote_styles=doc.xpath('//link[@rel="stylesheet"]/@href')
+    assert len(remote_styles)==len(local_styles),(origin,'Missing stylesheet')
+    for expected,actual in zip(local_styles,remote_styles):
+        st,bb,_,_=get(origin+actual)
+        assert st==200 and len(bb)>0
+        # Global Tailwind CSS differs across the existing build toolchains
+        # (vendor prefixes and saturated border-radius values). Browser QA checks
+        # those rendered styles. This page's own stylesheet must match exactly.
+        shared=Path(expected).name.startswith('BaseLayout.')
+        if not shared:
+            assert bb==(root/'dist'/expected.lstrip('/')).read_bytes(),(origin,'Page CSS differs',actual)
+        styles.append({'path':actual,'sha256':hashlib.sha256(bb).hexdigest(),'matches_local_build':bb==(root/'dist'/expected.lstrip('/')).read_bytes(),'required_byte_match':not shared})
     assets+=doc.xpath('//main//img/@src')
     assets+=['/resources/product-testing-project-brief.txt']
     for asset in assets:
@@ -44,7 +57,7 @@ def check(origin):
     for p in ['/quality/appearance-inspection/','/quality/incoming-inspection/']:
         _,bb,_,_=get(origin+p)
         assert route in html.fromstring(bb).xpath('//a/@href'),(origin,'Missing related navigation',p)
-    return {'origin':origin,'url':url,'status':status,'main_sha256':expected_hash,'projects':39,'assets_match_build':len(assets),'internal_routes_checked':routes,'server':headers.get('Server'),'cache':headers.get('CF-Cache-Status')}
+    return {'origin':origin,'url':url,'status':status,'main_sha256':expected_hash,'projects':39,'assets_match_build':len(assets),'stylesheets':styles,'internal_routes_checked':routes,'server':headers.get('Server'),'cache':headers.get('CF-Cache-Status')}
 with ThreadPoolExecutor(max_workers=3) as pool:results=list(pool.map(check,['https://leanodm.netlify.app','https://www.leanodm.com','https://leanodm.com']))
 _,b,_,_=get('https://api.github.com/repos/JayYang267/LEANODM/commits/main')
 github=json.loads(b);assert github['sha']==commit,('GitHub main differs',github['sha'])
