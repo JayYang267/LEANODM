@@ -1,0 +1,644 @@
+{
+  "source": {
+    "title": "Product Appearance Inspection Common Defect Classification and Acceptance Criteria",
+    "organization": "Shenzhen Xinyinhai Electronics Co Ltd Dongguan Branch",
+    "filename": "鑫银海产品外观检验标准_英文翻译.docx",
+    "sha256": "4a7495f6c957732f961cd4efb4e52225f34273d7f0ea432fd0eb0e90fe9c38df"
+  },
+  "purpose": "To give operators and inspectors a comprehensive understanding of the company’s product appearance inspection standards and requirements, enable sound acceptance decisions, reduce component losses, and ensure that the quality of products manufactured by the company meets customer requirements.",
+  "scope": "Applicable to all products manufactured by the company and all externally purchased parts and components.",
+  "conditions": [
+    {
+      "label": "Lighting",
+      "value": "At least 300 lx",
+      "detail": "Illumination: Normal fluorescent lighting, with indoor illuminance of at least 300 lx."
+    },
+    {
+      "label": "Viewing distance",
+      "value": "30 cm",
+      "detail": "Viewing distance: Inspect by looking directly at the product from a distance of 30 cm."
+    },
+    {
+      "label": "Observation time",
+      "value": "3–5 seconds per surface",
+      "detail": "Observation time: Inspect each surface for 3–5 seconds."
+    }
+  ],
+  "surfaces": [
+    {
+      "class": "Class A",
+      "definition": "A surface directly visible under normal conditions of use."
+    },
+    {
+      "class": "Class B",
+      "definition": "A surface not directly visible under normal conditions of use."
+    },
+    {
+      "class": "Class C",
+      "definition": "An internal product surface that is not visible during normal visual observation."
+    }
+  ],
+  "severity": [
+    {
+      "code": "CR",
+      "name": "Critical defect",
+      "definition": "A defect that poses a risk to personal safety or may harm human health, such as sharp points, sharp edges, small parts or unsanitary conditions."
+    },
+    {
+      "code": "MA",
+      "name": "Major defect",
+      "definition": "An appearance defect that may make the product unsalable and is highly likely to cause consumer or distributor complaints or returns. Examples include short shots on the exterior of a product, fingerprints that cannot be wiped off the product surface, illegible printed content, and severe scratches."
+    },
+    {
+      "code": "MI",
+      "name": "Minor defect",
+      "definition": "A minor appearance defect that does not directly affect product sales; that is, a defect other than a CR or MA defect. Examples include slight oil stains, scuffs, weld lines and sink marks."
+    }
+  ],
+  "defects": [
+    {
+      "number": 1,
+      "id": "insects-hair-bloodstains",
+      "name": "Insects, hair and bloodstains",
+      "description": "Insects hair and bloodstains.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Not acceptable."
+        },
+        {
+          "surface": "Class B",
+          "text": "Not acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Not acceptable."
+        }
+      ],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/insect-contamination.webp",
+          "width": 469,
+          "height": 254,
+          "alt": "Small insect on a white insert inside a yellow product frame.",
+          "caption": "Insect contamination"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/hair-contamination.webp",
+          "width": 469,
+          "height": 246,
+          "alt": "A red circle marks a hair on clear material against a blue background.",
+          "caption": "Hair contamination"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/bloodstain-example.webp",
+          "width": 469,
+          "height": 245,
+          "alt": "A red circle marks a reddish stain on a printed music page, identified in the source as a bloodstain.",
+          "caption": "Bloodstain"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "drag-whitening",
+      "name": "Drag whitening",
+      "description": "Streak-like marks, generally on the sidewalls of a product, that resemble scratches and are accompanied by whitening.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Not acceptable."
+        },
+        {
+          "surface": "Class B",
+          "text": "Acceptable when limited to spots, haze or faint streaks that are not visible from 30 cm. Pronounced streaks that are visible from 30 cm are not acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [
+        "Slight drag whitening, appearing only as spots or haze, can be concealed by spray painting and need not be screened out before spray painting."
+      ],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/spot-drag-whitening.webp",
+          "width": 470,
+          "height": 319,
+          "alt": "A pink oval marks small white drag marks along the lower edge of a red molded surface.",
+          "caption": "Spot-like drag whitening"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/spot-haze-drag-whitening.webp",
+          "width": 470,
+          "height": 297,
+          "alt": "Two green circles mark spot-like and hazy whitening on a red molded edge.",
+          "caption": "Spot-like and hazy drag whitening"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "id": "dirt-oil-fingerprints",
+      "name": "Dirt, oil stains and fingerprints",
+      "description": "Spots, shiny oily marks, or marks left by contact with fingers.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Acceptable when the affected area is small, can be wiped clean easily, and is not visible from 30 cm. A large affected area that is difficult to wipe clean and is visible from 30 cm is not acceptable."
+        },
+        {
+          "surface": "Class B",
+          "text": "Acceptable when the affected area is small, can be wiped clean easily, and is visible only at an angle that catches reflected light. A large affected area that is difficult to wipe clean is not acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable, except for customers with special requirements."
+        }
+      ],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/dirt-contamination.webp",
+          "width": 470,
+          "height": 257,
+          "alt": "A red circle marks dark dirt spots beside a switch on a yellow plastic housing.",
+          "caption": "Dirt"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/oil-stain.webp",
+          "width": 470,
+          "height": 278,
+          "alt": "A pink circle marks a dark oily mark on a blue plastic hinge area.",
+          "caption": "Oil stain"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/fingerprint.webp",
+          "width": 470,
+          "height": 228,
+          "alt": "An orange circle marks a faint fingerprint on a glossy purple plastic surface.",
+          "caption": "Fingerprint"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "id": "flash-sharp-points-burrs",
+      "name": "Flash, sharp points and burrs",
+      "description": "Excess material in the form of thin fins, cone-shaped projections or strands on a component surface or edge.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Not acceptable if it protrudes above the product surface and can be felt by hand."
+        },
+        {
+          "surface": "Class B",
+          "text": "Not acceptable if it protrudes above the product surface and can be felt by hand."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable provided that it does not interfere with assembly or generate loose foreign material."
+        }
+      ],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/flash-excess-material.webp",
+          "width": 469,
+          "height": 241,
+          "alt": "A red oval marks a thin fin of excess plastic across an opening in a purple molded part.",
+          "caption": "Flash"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/sharp-point.webp",
+          "width": 469,
+          "height": 251,
+          "alt": "A red circle marks a small pointed projection on a turquoise surface.",
+          "caption": "Sharp point"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/edge-burr.webp",
+          "width": 469,
+          "height": 296,
+          "alt": "A red oval marks excess material along the curved edge of a purple plastic part.",
+          "caption": "Burr"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "surface-step-mismatch",
+      "name": "Surface step mismatch",
+      "description": "A step caused by a mismatch at a parting surface between two mold inserts or between the cavity and core halves due to machining tolerances, or by misalignment during ultrasonic welding.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Acceptable if the step is ≤ 0.25 mm and no sharp edge or sharp corner can be felt by hand."
+        },
+        {
+          "surface": "Class B",
+          "text": "Acceptable if the step is ≤ 0.25 mm and no sharp edge or sharp corner can be felt by hand."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/surface-step-mismatch.webp",
+          "width": 471,
+          "height": 577,
+          "alt": "A red oval marks a surface step along the side joint of a yellow plastic housing.",
+          "caption": "Surface step mismatch"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "weld-lines",
+      "name": "Weld lines",
+      "description": "Visible linear marks that generally cannot be felt as a raised or recessed area. They usually occur on parts with complex geometry or around through-hole features. Also known as knit lines or melt-joining lines.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Acceptable if visible only at an angle that catches reflected light, or if consistent with the customer reference sample."
+        },
+        {
+          "surface": "Class B",
+          "text": "Acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [
+        "In general, slight weld lines can be concealed by spray painting and need not be screened out."
+      ],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/weld-line-class-a.webp",
+          "width": 470,
+          "height": 334,
+          "alt": "A pink oval marks a thin weld line across a green molded surface, labelled Class A in the source.",
+          "caption": "Class A surface weld line"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/weld-line-class-b.webp",
+          "width": 470,
+          "height": 347,
+          "alt": "A pink oval marks a faint diagonal weld line on a turquoise surface, labelled Class B in the source.",
+          "caption": "Class B surface weld line"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "sink-marks",
+      "name": "Sink marks",
+      "description": "Depressions or pits, generally occurring at thick walls or reinforcing ribs.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Acceptable if not visible from 30 cm. Not acceptable if visible from 30 cm, or assess against the customer reference sample."
+        },
+        {
+          "surface": "Class B",
+          "text": "Assess against the established acceptance limit or the customer reference sample."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [
+        "Slight sink marks that do not affect spray painting or label application need not be screened out before those operations. Sink marks that affect screen printing, pad printing or label application are not acceptable."
+      ],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/severe-sink-mark.webp",
+          "width": 468,
+          "height": 334,
+          "alt": "A pink circle marks a depression near the hinge of a blue plastic product, labelled a severe sink mark.",
+          "caption": "Severe sink mark"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/slight-sink-mark.webp",
+          "width": 468,
+          "height": 308,
+          "alt": "A pink circle marks a shallow sink mark on the raised edge of a yellow molded housing.",
+          "caption": "Slight sink mark"
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "id": "short-shots",
+      "name": "Short shots",
+      "description": "Insufficient plastic material resulting in an incomplete part.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Not acceptable."
+        },
+        {
+          "surface": "Class B",
+          "text": "Not acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Assess according to whether functionality, strength, assembly or appearance is affected."
+        }
+      ],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/short-shot-assembly.webp",
+          "width": 470,
+          "height": 246,
+          "alt": "Pink circles mark incomplete yellow molded posts in the source example of a short shot affecting assembly.",
+          "caption": "Short shot affecting assembly"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/short-shot-appearance.webp",
+          "width": 470,
+          "height": 298,
+          "alt": "A red oval marks a missing notch of material at the lower edge of a black key marked 4.",
+          "caption": "Severe adverse effect on appearance"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/short-shot-assembly-safety.webp",
+          "width": 470,
+          "height": 246,
+          "alt": "A pink oval marks missing plastic beside a white mounting hole in the source example affecting assembly and safety.",
+          "caption": "Short shot affecting assembly and safety"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "gas-marks",
+      "name": "Gas marks",
+      "description": "Areas on the product surface that differ in color or luster from the surrounding areas.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Assess against the customer reference sample."
+        },
+        {
+          "surface": "Class B",
+          "text": "Assess against the customer reference sample."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [
+        "Need not be screened out on parts intended for spray painting."
+      ],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/gas-mark.webp",
+          "width": 469,
+          "height": 259,
+          "alt": "A red oval marks a pale irregular patch on a green plastic strip, labelled a gas mark.",
+          "caption": "Gas mark"
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "id": "gaps",
+      "name": "Gaps",
+      "description": "A gap resulting from interference between internal parts during assembly.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Acceptable if the gap is ≤ 0.25 mm and internal components are not visible. Intentionally designed cosmetic grooves are excluded."
+        },
+        {
+          "surface": "Class B",
+          "text": "Acceptable if the gap is ≤ 0.25 mm and internal components are not visible. Intentionally designed cosmetic grooves are excluded."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/assembled-parts-gap.webp",
+          "width": 471,
+          "height": 427,
+          "alt": "A black oval marks the gap along the joint between two pink housing parts.",
+          "caption": "Gap between assembled parts"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "scratches-impact-damage",
+      "name": "Scratches and impact damage",
+      "description": "Marks that are perceptible as raised or recessed areas, or marks that are not perceptible to the touch but show obvious whitening that differs from the component color. The marks are visually apparent.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "One scratch that is not perceptible to the touch is acceptable if its length is ≤ 5 mm and its width is ≤ 0.1 mm. Two such scratches are acceptable if spaced 30 mm apart. A scratch that is perceptible to the touch and visible from any angle is not acceptable."
+        },
+        {
+          "surface": "Class B",
+          "text": "One scratch that is not perceptible to the touch is acceptable if its length is ≤ 10 mm and its width is ≤ 0.25 mm. Two such scratches are acceptable if spaced 30 mm apart. A scratch that is perceptible to the touch and visible from any angle is not acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [
+        "Scratches with a raised or recessed profile cannot be concealed by spray painting and must be screened out before spray painting. Whitening from scratches with no raised or recessed profile can be concealed by spray painting and need not be screened out before spray painting."
+      ],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/tactile-scratch.webp",
+          "width": 470,
+          "height": 335,
+          "alt": "A pink oval marks a narrow white scratch on green plastic, identified in the source as perceptible to the touch.",
+          "caption": "Scratch perceptible to the touch"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/non-tactile-scratch.webp",
+          "width": 470,
+          "height": 348,
+          "alt": "A pink oval marks a faint scratch on red plastic, identified in the source as not perceptible to the touch.",
+          "caption": "Scratch not perceptible to the touch"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "off-color-specks-color-contamination",
+      "name": "Off-color specks and color contamination",
+      "description": "Specks or patches on the material surface whose color differs from the product color.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "One speck with a diameter of ≤ 0.3 mm is acceptable. Color contamination is acceptable if it is not visible from 30 cm; otherwise, it is not acceptable."
+        },
+        {
+          "surface": "Class B",
+          "text": "Two specks are acceptable if each has a diameter of < 0.5 mm and the distance between them is > 50 mm. Color contamination is acceptable if it is not visible from 30 cm; otherwise, it is not acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable."
+        }
+      ],
+      "additional": [
+        "Reject transparent parts with these defects. These defects need not be screened out on parts intended for spray painting."
+      ],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/black-speck-up-to-0-3-mm.webp",
+          "width": 470,
+          "height": 223,
+          "alt": "A pink circle marks one black speck on yellow plastic; the source annotation states 0.3 mm or smaller.",
+          "caption": "Black speck ≤ 0.3 mm"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/black-specks-over-0-5-mm.webp",
+          "width": 470,
+          "height": 212,
+          "alt": "Red circles mark black specks on yellow plastic; the source annotation states larger than 0.5 mm.",
+          "caption": "Black specks > 0.5 mm"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/color-contamination.webp",
+          "width": 470,
+          "height": 237,
+          "alt": "A red oval marks a faint off-color patch on a light-colored textured plastic surface.",
+          "caption": "Color contamination"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "deformation",
+      "name": "Deformation",
+      "description": "Twisting, inward depression, outward bowing or insufficient flatness.",
+      "criteria": [
+        {
+          "surface": "All surfaces (assembly assessment)",
+          "text": "Assess according to the overall assembly result. Any deformation that adversely affects assembly, functionality or safety is not acceptable.\n\nSlight deformation is acceptable if it has little effect on appearance and can be corrected by securing the deformed area with screws."
+        }
+      ],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/deformation-affecting-function.webp",
+          "width": 470,
+          "height": 267,
+          "alt": "A pink rectangle marks one distorted white key in a row, identified as affecting functionality.",
+          "caption": "Deformation affecting functionality"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/severe-deformation.webp",
+          "width": 470,
+          "height": 191,
+          "alt": "A row of molded white keys bows noticeably; the source identifies severe deformation affecting assembly and functionality.",
+          "caption": "Severe deformation affecting assembly and functionality"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/slight-deformation.webp",
+          "width": 470,
+          "height": 189,
+          "alt": "A row of molded white keys shows slight bowing, identified in the source as not affecting functionality or appearance.",
+          "caption": "Slight deformation with no effect on functionality or appearance"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "ejector-pressure-whitening",
+      "name": "Ejector and pressure whitening",
+      "description": "White spots or rings on the front surface opposite an ejector pin, or whitening caused by an uneven assembly fixture or excessive pressure.",
+      "criteria": [
+        {
+          "surface": "Class A",
+          "text": "Acceptable if the whitening is not visible from 30 cm and there is no obvious bulge on the component surface; otherwise, it is not acceptable."
+        },
+        {
+          "surface": "Class B",
+          "text": "Acceptable if the whitening is not visible from 30 cm and there is no obvious bulge on the component surface; otherwise, it is not acceptable."
+        },
+        {
+          "surface": "Class C",
+          "text": "Acceptable if there are no obvious cracks at corners or feature bases and product functionality, strength and assembly are not affected; otherwise, it is not acceptable."
+        }
+      ],
+      "additional": [
+        "On parts intended for spray painting, this defect need not be screened out if there is no obvious surface bulge and there are no cracks at corners or feature bases."
+      ],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/ejector-pin-whitening.webp",
+          "width": 468,
+          "height": 291,
+          "alt": "A pink circle marks a white spot at an ejector-pin location on a blue plastic housing.",
+          "caption": "Whitening at an ejector pin location"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/fixture-pressure-whitening.webp",
+          "width": 468,
+          "height": 292,
+          "alt": "A blue circle marks whitening beside a yellow curved strip on a red assembly, attributed to fixture pressure.",
+          "caption": "Whitening caused by assembly fixture pressure"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/whitening-feature-base-strength.webp",
+          "width": 468,
+          "height": 333,
+          "alt": "Pink arrows point to damaged and whitened areas at the base of a raised green plastic feature, labelled as reducing strength in use.",
+          "caption": "Reduced strength in use"
+        }
+      ]
+    },
+    {
+      "number": 15,
+      "id": "printed-text-graphics",
+      "name": "Blurred or incomplete printed text and graphics",
+      "description": "The photographic examples show incomplete printing, ink smearing and a missing portion of a graphic.",
+      "criteria": [],
+      "additional": [],
+      "images": [
+        {
+          "src": "/images/quality/appearance-inspection/incomplete-printing.webp",
+          "width": 471,
+          "height": 283,
+          "alt": "A red circle marks an incomplete character in black Japanese text on a white product label.",
+          "caption": "Incomplete printing"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/ink-smearing.webp",
+          "width": 471,
+          "height": 275,
+          "alt": "A red arrow points to smeared black ink in the first word of a printed address on a light plastic surface.",
+          "caption": "Ink smearing"
+        },
+        {
+          "src": "/images/quality/appearance-inspection/missing-graphic.webp",
+          "width": 471,
+          "height": 261,
+          "alt": "A red circle marks the upper part of a character graphic identified by the source as missing, beneath a turquoise frame.",
+          "caption": "Missing portion of a graphic"
+        }
+      ],
+      "sourceNote": "The source repeats the deformation description and acceptance paragraphs in this printing section. No print-specific acceptance limits can be verified from those paragraphs. The description above summarizes the three source photographs. The source separately lists illegible printed content as an example of a major defect (MA); this does not provide a complete printing acceptance rule."
+    }
+  ]
+}

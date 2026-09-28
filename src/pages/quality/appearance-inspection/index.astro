@@ -1,0 +1,249 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import standard from '../../../data/appearance-standard.json';
+import '../../../styles/appearance-inspection.css';
+
+const title = 'Product Appearance Inspection Standard | LEANODM';
+const description = 'Review Xinyinhai’s appearance inspection standard: 15 defect categories, original photographs, surface classes and measurable acceptance criteria.';
+const route = '/quality/appearance-inspection/';
+// Deployment identity is supplied separately from the factory's technical standard.
+const siteOrigin = import.meta.env.PUBLIC_SITE_URL?.replace(/\/$/, '');
+const contactHref = import.meta.env.PUBLIC_CONTACT_URL;
+const canonical = siteOrigin ? new URL(route, siteOrigin).href : undefined;
+const heroImage = standard.defects[4].images[0];
+const pages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
+const hasPage = (path: string) => pages.some((file) => {
+  const normalized = file.replace(/^\/src\/pages\//, '/').replace(/index\.astro$/, '').replace(/\.astro$/, '/');
+  return normalized === path;
+});
+const related = [
+  { href: '/quality/', label: 'Quality overview', detail: 'See how individual inspection and testing requirements fit together.' },
+  { href: '/quality/in-process-inspection/', label: 'In-process inspection', detail: 'Connect acceptance criteria with checks during production.' },
+  { href: '/quality/product-testing/', label: 'Product testing', detail: 'Review functional and product-specific testing alongside appearance.' },
+  { href: '/quality/inspector-training/', label: 'Inspector training', detail: 'Understand how inspection criteria are communicated to inspectors.' },
+  { href: '/manufacturing/injection-molding/', label: 'Injection molding', detail: 'Explore the manufacturing process behind many of these surface defects.' },
+].filter((item) => hasPage(item.href));
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  ...(hasPage('/quality/') ? [{ name: 'Quality', url: '/quality/' }] : []),
+  { name: 'Appearance inspection', url: route },
+];
+const schema = canonical && {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical,
+      name: 'Product Appearance Inspection Standard', description, inLanguage: 'en',
+      about: { '@type': 'Thing', name: 'Xinyinhai product appearance inspection standard' },
+      breadcrumb: { '@id': `${canonical}#breadcrumbs` },
+      image: new URL(heroImage.src, siteOrigin).href,
+    },
+    {
+      '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`,
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.url, siteOrigin).href,
+      })),
+    },
+  ],
+};
+const faqs = [
+  {
+    question: 'What does this appearance inspection standard cover?',
+    answer: 'The Xinyinhai standard applies to all products manufactured by the company and all externally purchased parts and components. It defines surface classes, inspection conditions, defect severity and 15 appearance defect categories.',
+  },
+  {
+    question: 'Are Class A, B and C the same as CR, MA and MI?',
+    answer: 'No. Class A, B and C describe how visible a surface is during normal use or observation. Critical (CR), Major (MA) and Minor (MI) describe the consequence of a defect. An internal surface is not automatically exempt from safety, strength or assembly requirements.',
+  },
+  {
+    question: 'What are the inspection lighting, distance and time?',
+    answer: 'The standard specifies normal fluorescent lighting with indoor illuminance of at least 300 lx, a direct viewing distance of 30 cm and 3–5 seconds of observation for each surface. Individual defect rules add conditions such as visibility only in reflected light.',
+  },
+  {
+    question: 'Are scratches always rejected?',
+    answer: 'No. The scratch criteria distinguish marks that can be felt from those that cannot. Class A allows one non-tactile scratch up to 5 mm long and 0.1 mm wide; Class B allows one up to 10 mm long and 0.25 mm wide. The source also specifies two such scratches spaced 30 mm apart. Read the full scratch criteria and spray-painting conditions before making an acceptance decision.',
+    href: '#scratches-impact-damage', label: 'Read the complete scratch criteria',
+  },
+  {
+    question: 'Can a customer reference sample affect the decision?',
+    answer: 'Yes, where the individual rule calls for it. The source refers to customer reference samples for Class A weld lines, Class A and B sink marks, and Class A and B gas marks. It also allows special customer requirements for Class C dirt, oil stains and fingerprints. These references are not a blanket exception for every defect.',
+    href: '#customer-requirements', label: 'See where reference samples apply',
+  },
+  {
+    question: 'Does spray painting make every appearance defect acceptable?',
+    answer: 'No. The standard makes specific screening exceptions for certain defects on parts intended for spray painting. Scratches with a raised or recessed profile must be screened out, and ejector or pressure whitening still has conditions concerning bulges and cracks. The exception under each defect must be read in full.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} technicalPage contactHref="#project-requirements">
+  <Fragment slot="head">
+    {canonical && <link rel="canonical" href={canonical} />}
+    {canonical && <meta property="og:url" content={canonical} />}
+    {siteOrigin && <meta property="og:image" content={new URL(heroImage.src, siteOrigin).href} />}
+    <meta property="og:image:alt" content={heroImage.alt} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />}
+  </Fragment>
+
+  <div class="appearance-page">
+    <section class="inspection-hero" aria-labelledby="page-title">
+      <div class="inspection-container">
+        <nav aria-label="Breadcrumb" class="inspection-breadcrumb">
+          <ol>
+            {breadcrumbs.map((item, i) => <li>{i < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}
+          </ol>
+        </nav>
+        <div class="inspection-hero-grid">
+          <div>
+            <p class="inspection-eyebrow">QUALITY / XINYINHAI FACTORY STANDARD</p>
+            <h1 id="page-title">Product Appearance Inspection Standard</h1>
+            <p class="inspection-lead">How Xinyinhai defines appearance defects, evaluates visible surfaces and sets acceptance criteria for the products it manufactures.</p>
+            <p class="inspection-intro">Explore the factory’s cosmetic inspection standard, with original defect photographs and the conditions behind each acceptance decision.</p>
+            <div class="inspection-hero-actions">
+              <Button href="#defect-library">Explore the 15 defect categories <span aria-hidden="true">↓</span></Button>
+              <a class="inspection-text-link" href="#inspection-conditions">Start with the inspection conditions</a>
+            </div>
+          </div>
+          <figure class="inspection-feature-figure">
+            <div class="inspection-figure-label"><span>FROM THE FACTORY STANDARD</span><span>05 / 15</span></div>
+            <img src={heroImage.src} alt={heroImage.alt} width={heroImage.width} height={heroImage.height} fetchpriority="high" decoding="async" />
+            <figcaption>
+              <strong>Surface step mismatch</strong>
+              <span>Class A &amp; B: ≤ 0.25 mm, with no sharp edge or sharp corner felt by hand.</span>
+              <a href="#surface-step-mismatch">View the complete criteria <span aria-hidden="true">↗</span></a>
+            </figcaption>
+          </figure>
+        </div>
+        <ul class="inspection-summary" aria-label="Standard overview">
+          <li><strong>15</strong><span>defect categories</span></li>
+          <li><strong>35</strong><span>original photographic examples</span></li>
+          <li><strong>A / B / C</strong><span>surface visibility classes</span></li>
+          <li><strong>CR / MA / MI</strong><span>defect severity classifications</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="inspection-container">
+      <section id="scope" class="inspection-section inspection-scope" aria-labelledby="scope-title">
+        <div><p class="inspection-eyebrow">01 / SCOPE</p><h2 id="scope-title">A shared basis for appearance decisions</h2></div>
+        <div>
+          <p>The standard gives operators and inspectors a consistent basis for acceptance decisions, helps reduce component losses and supports the customer’s quality requirements.</p>
+          <p><strong>Scope:</strong> {standard.scope}</p>
+          <p class="inspection-source">Source: <cite>{standard.source.title}</cite>, {standard.source.organization}. The photographs below are extracted from this factory document; their original defect markings are retained.</p>
+        </div>
+      </section>
+
+      <section id="inspection-conditions" class="inspection-section" aria-labelledby="conditions-title">
+        <p class="inspection-eyebrow">02 / INSPECTION CONDITIONS</p>
+        <h2 id="conditions-title">Set the viewing conditions. Identify the surface.</h2>
+        <p class="inspection-section-intro">Visibility limits have meaning only when the viewing conditions are clear. Apply these conditions together with the specific rule for each defect.</p>
+        <dl class="inspection-conditions">
+          <div><dt>Illumination</dt><dd><strong>≥ 300 <span>lx</span></strong><span>Normal fluorescent lighting; indoor illuminance of at least 300 lx.</span></dd></div>
+          <div><dt>Viewing distance</dt><dd><strong>30 <span>cm</span></strong><span>Look directly at the product from a distance of 30 cm.</span></dd></div>
+          <div><dt>Observation time</dt><dd><strong>3–5 <span>seconds</span></strong><span>Inspect each surface for 3–5 seconds.</span></dd></div>
+        </dl>
+        <div class="inspection-table-wrap">
+          <table class="inspection-table surface-table">
+            <caption>Surface classes in the Xinyinhai standard</caption>
+            <thead><tr><th scope="col">Surface class</th><th scope="col">Definition</th></tr></thead>
+            <tbody>{standard.surfaces.map((surface) => <tr><th scope="row">{surface.class}</th><td>{surface.definition}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p class="inspection-explainer">The same defect can have different acceptance criteria on different surfaces. Surface class describes visibility; it does not by itself determine whether a defect affects safety, assembly or functionality.</p>
+      </section>
+
+      <section id="defect-severity" class="inspection-section" aria-labelledby="severity-title">
+        <p class="inspection-eyebrow">03 / DEFECT SEVERITY</p>
+        <h2 id="severity-title">Critical, major and minor defects</h2>
+        <p class="inspection-section-intro">The standard distinguishes safety risk from the effect an appearance defect may have on product sales and customer acceptance. These examples describe severity; they do not assign one fixed severity to every instance of a defect.</p>
+        <div class="inspection-table-wrap">
+          <table class="inspection-table severity-table">
+            <caption>CR / MA / MI definitions and examples from the source standard</caption>
+            <thead><tr><th scope="col">Classification</th><th scope="col">Definition and examples</th></tr></thead>
+            <tbody>{standard.severity.map((severity) => <tr><th scope="row"><span class:list={['severity-code', `severity-${severity.code.toLowerCase()}`]}>{severity.code}</span><span>{severity.name}</span></th><td>{severity.definition}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="defect-library" class="inspection-section inspection-library" aria-labelledby="library-title">
+        <div class="inspection-library-heading">
+          <p class="inspection-eyebrow">04 / THE APPEARANCE STANDARD</p>
+          <h2 id="library-title">15 defects. The criteria behind each decision.</h2>
+          <p class="inspection-section-intro">Find a defect, compare its photographic examples and read the full acceptance rule for the applicable surface. Photographs illustrate the defect; they are not a dimensional measuring scale.</p>
+          <p class="inspection-library-note">Definitions, limits and exceptions below follow the factory document. The printing category contains an unresolved source error, identified in <a href="#printed-text-graphics">item 15</a>.</p>
+        </div>
+        <div class="inspection-library-grid">
+          <aside class="inspection-index">
+            <nav aria-label="Appearance defect index">
+              <p class="inspection-index-title">FIND A DEFECT</p>
+              <ol>
+                {standard.defects.map((defect) => <li><a href={`#${defect.id}`}><span aria-hidden="true">{String(defect.number).padStart(2, '0')}</span><span>{defect.name}</span></a></li>)}
+              </ol>
+              <a class="inspection-index-top" href="#inspection-conditions">↑ Inspection conditions</a>
+            </nav>
+          </aside>
+          <div class="inspection-defects">
+            {standard.defects.map((defect) => (
+              <article id={defect.id} class="inspection-defect" aria-labelledby={`${defect.id}-title`}>
+                <div class="inspection-defect-heading"><span class="inspection-defect-number" aria-hidden="true">{String(defect.number).padStart(2, '0')}</span><div><p class="inspection-source-section">SOURCE §6.{defect.number}</p><h3 id={`${defect.id}-title`}>{defect.name}</h3></div></div>
+                <p class="inspection-definition"><strong>What it is.</strong> {defect.description}</p>
+                <div class:list={['inspection-evidence', { 'single-image': defect.images.length === 1 }]}>
+                  {defect.images.map((photo) => <figure><a href={photo.src} aria-label={`Open original-size example: ${photo.caption}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}
+                </div>
+                {defect.criteria.length > 0 && <div class="inspection-table-wrap"><table class="inspection-table criteria-table">
+                  <caption>Acceptance criteria — {defect.name}</caption>
+                  <thead><tr><th scope="col">Applicable surface</th><th scope="col">Acceptance criteria</th></tr></thead>
+                  <tbody>{defect.criteria.map((criterion) => <tr><th scope="row">{criterion.surface}</th><td class:list={{ 'criterion-reject': criterion.text === 'Not acceptable.' }}>{criterion.text}</td></tr>)}</tbody>
+                </table></div>}
+                {defect.additional.length > 0 && <div class="inspection-additional"><h4>Additional requirements</h4>{defect.additional.map((requirement) => <p>{requirement}</p>)}</div>}
+                {defect.sourceNote && <div class="inspection-source-note"><h4>Source clarification</h4><p>{defect.sourceNote}</p></div>}
+                <a class="inspection-back" href="#defect-library">Back to defect index ↑</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="customer-requirements" class="inspection-section" aria-labelledby="customer-title">
+        <p class="inspection-eyebrow">05 / CUSTOMER REQUIREMENTS</p>
+        <h2 id="customer-title">Where the customer reference sample matters</h2>
+        <p class="inspection-section-intro">A reference sample provides a comparison where the rule calls for one. The standard identifies the following cases; it does not define a universal sample-approval procedure or a replacement tolerance for every defect.</p>
+        <div class="inspection-table-wrap"><table class="inspection-table">
+          <caption>Explicit customer-specific provisions in the factory standard</caption>
+          <thead><tr><th scope="col">Defect / surface</th><th scope="col">How the sample or requirement is used</th></tr></thead>
+          <tbody>
+            <tr><th scope="row"><a href="#weld-lines">Weld lines · A</a></th><td>Acceptable if visible only at an angle that catches reflected light, or if consistent with the customer reference sample.</td></tr>
+            <tr><th scope="row"><a href="#sink-marks">Sink marks · A / B</a></th><td>Class A: apply the 30 cm visibility rule, or assess against the customer reference sample. Class B: assess against the established acceptance limit or the customer reference sample.</td></tr>
+            <tr><th scope="row"><a href="#gas-marks">Gas marks · A / B</a></th><td>Assess against the customer reference sample.</td></tr>
+            <tr><th scope="row"><a href="#dirt-oil-fingerprints">Dirt, oil stains and fingerprints · C</a></th><td>Acceptable, except for customers with special requirements.</td></tr>
+          </tbody>
+        </table></div>
+        <div class="inspection-editorial"><h3>For your product discussion</h3><p>Identify the surfaces a user sees, point out appearance-sensitive areas and bring relevant reference photographs or samples. Discuss printing, painting, labels and assembly together: the source’s exceptions depend on the specific defect and the next operation.</p><p class="inspection-small">This is guidance for preparing a product discussion, not an additional factory acceptance rule.</p></div>
+      </section>
+
+      <section id="related-quality-controls" class="inspection-section" aria-labelledby="related-title">
+        <p class="inspection-eyebrow">06 / RELATED QUALITY CONTROLS</p>
+        <h2 id="related-title">Read appearance together with function and assembly</h2>
+        <p class="inspection-section-intro">A cosmetic decision does not settle every product risk. The standard explicitly connects <a href="#short-shots">short shots</a>, <a href="#deformation">deformation</a> and <a href="#ejector-pressure-whitening">ejector or pressure whitening</a> with functionality, strength, assembly or safety. <a href="#sink-marks">Sink marks</a> also have conditions for printing and label application.</p>
+        {related.length > 0 && <ul class="inspection-related">{related.map((item) => <li><a href={item.href}>{item.label} <span aria-hidden="true">↗</span></a><p>{item.detail}</p></li>)}</ul>}
+      </section>
+
+      <section id="frequently-asked-questions" class="inspection-section" aria-labelledby="faq-title">
+        <p class="inspection-eyebrow">07 / BUYER QUESTIONS</p>
+        <h2 id="faq-title">Appearance inspection FAQ</h2>
+        <div class="inspection-faqs">{faqs.map((faq) => <div><h3>{faq.question}</h3><p>{faq.answer}</p>{faq.href && <a class="inspection-text-link" href={faq.href}>{faq.label} →</a>}</div>)}</div>
+      </section>
+    </div>
+
+    <section id="project-requirements" class="inspection-project" aria-labelledby="project-title">
+      <div class="inspection-container inspection-project-grid">
+        <div><p class="inspection-eyebrow">YOUR PRODUCT / YOUR APPEARANCE REQUIREMENTS</p><h2 id="project-title">Make the appearance requirements clear before production.</h2><p>Share the product, the surfaces that matter and the defects you want to discuss. Include any reference samples, finish requirements and printing or assembly concerns.</p></div>
+        <div class="inspection-project-action">
+          {contactHref && <Button href={contactHref} size="lg">Discuss Appearance Standards for Your Project <span aria-hidden="true">↗</span></Button>}
+          <p>Bring your drawings, photographs or reference sample details.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

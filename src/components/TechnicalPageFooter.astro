@@ -1,0 +1,183 @@
+---
+import BrandWordmark from './BrandWordmark.astro';
+import { technicalPageNavigation } from './technicalPageNavigation';
+
+interface Props {
+  contactHref?: string;
+}
+
+const { contactHref = '#project-requirements' } = Astro.props;
+---
+
+<footer class="technical-footer">
+  <div class="technical-footer-inner">
+    <div class="technical-footer-grid">
+      <div class="technical-footer-brand">
+        <a href="/" aria-label="LEANODM home" class="technical-brand">
+          <img src="/brand/xinyinhai-symbol.png" alt="" width="44" height="44" />
+          <BrandWordmark />
+        </a>
+        <p>OEM &amp; ODM manufacturing for plastic and electronic products.</p>
+        <p class="technical-factory">Featured factory: Xinyinhai<br />Dongguan, China</p>
+      </div>
+      <nav aria-label="Footer appearance inspection">
+        <h2>Appearance inspection</h2>
+        <ul>
+          {technicalPageNavigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+        </ul>
+      </nav>
+      <div class="technical-footer-project">
+        <h2>Your project requirements</h2>
+        <p>Define reference samples, inspection conditions and acceptance criteria for your product.</p>
+        <a href={contactHref} class="technical-footer-contact">Discuss your project <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div class="technical-footer-bottom">
+      <p>&copy; {new Date().getFullYear()} LEANODM.</p>
+      <a href="/">Home</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .technical-footer {
+    background: #0f172a;
+    color: #cbd5e1;
+  }
+
+  .technical-footer-inner {
+    width: min(100%, 1280px);
+    margin-inline: auto;
+    padding: 3.5rem 1rem 1.5rem;
+  }
+
+  .technical-footer-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .technical-brand {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding: 0.5rem 0.75rem;
+    background: white;
+  }
+
+  .technical-brand > img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .technical-footer p {
+    max-width: 23rem;
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+
+  .technical-footer .technical-factory {
+    margin-top: 1rem;
+    color: #94a3b8;
+  }
+
+  .technical-footer h2 {
+    margin-bottom: 1rem;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.6;
+  }
+
+  .technical-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .technical-footer li a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .technical-footer a {
+    border-radius: 0.25rem;
+  }
+
+  .technical-footer a:hover {
+    color: #ff9ba3;
+  }
+
+  .technical-footer a:focus-visible {
+    outline: 3px solid #9eb7fa;
+    outline-offset: 4px;
+  }
+
+  .technical-footer-contact {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .technical-footer-contact span {
+    color: #f86b77;
+  }
+
+  .technical-footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 3rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+  }
+
+  .technical-footer-bottom a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    font-size: 0.875rem;
+  }
+
+  @media (min-width: 640px) {
+    .technical-footer-inner {
+      padding-inline: 1.5rem;
+    }
+
+    .technical-footer-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .technical-footer-brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .technical-footer-inner {
+      padding-inline: 2rem;
+    }
+
+    .technical-footer-grid {
+      grid-template-columns: 1.15fr 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .technical-footer-brand {
+      grid-column: auto;
+    }
+  }
+</style>

@@ -1,0 +1,224 @@
+---
+import BrandWordmark from './BrandWordmark.astro';
+import { technicalPageNavigation } from './technicalPageNavigation';
+
+interface Props {
+  contactHref?: string;
+}
+
+const { contactHref = '#project-requirements' } = Astro.props;
+---
+
+<header class="technical-header">
+  <div class="technical-header-inner">
+    <a href="/" aria-label="LEANODM home" class="technical-brand">
+      <img src="/brand/xinyinhai-symbol.png" alt="" width="44" height="44" />
+      <BrandWordmark />
+    </a>
+
+    <nav class="technical-desktop-nav" aria-label="Appearance inspection">
+      {technicalPageNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
+    </nav>
+    <a class="technical-contact technical-desktop-contact" href={contactHref}>Discuss your project</a>
+
+    <details class="technical-mobile-menu">
+      <summary>
+        <span>Menu</span>
+        <svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true">
+          <path d="m5 7.5 5 5 5-5" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </summary>
+      <nav class="technical-mobile-panel" aria-label="Appearance inspection mobile">
+        <a href="/">Home</a>
+        {technicalPageNavigation.map((item) => <a href={item.href}>{item.label}</a>)}
+        <a class="technical-contact" href={contactHref}>Discuss your project</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<script is:inline>
+  // Native details remains usable without JavaScript; this only closes it after
+  // navigation and adds Escape dismissal for keyboard users.
+  document.querySelectorAll('.technical-mobile-menu').forEach((menu) => {
+    menu.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a')) menu.open = false;
+    });
+    menu.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary')?.focus();
+      }
+    });
+  });
+</script>
+
+<style>
+  .technical-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    border-bottom: 1px solid #e2e8f0;
+    background: rgb(255 255 255 / 97%);
+    box-shadow: 0 1px 3px rgb(15 23 42 / 4%);
+    backdrop-filter: blur(12px);
+  }
+
+  .technical-header-inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: min(100%, 1280px);
+    min-height: 80px;
+    margin-inline: auto;
+    padding: 0.75rem 1rem;
+  }
+
+  .technical-brand {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+  }
+
+  .technical-brand > img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+
+  .technical-header a,
+  .technical-header summary {
+    border-radius: 0.375rem;
+  }
+
+  .technical-header a:focus-visible,
+  .technical-header summary:focus-visible {
+    outline: 3px solid #183ba3;
+    outline-offset: 4px;
+  }
+
+  .technical-desktop-nav,
+  .technical-desktop-contact {
+    display: none;
+  }
+
+  .technical-mobile-menu > summary {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    color: #334155;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    list-style: none;
+  }
+
+  .technical-mobile-menu > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .technical-mobile-menu[open] > summary svg {
+    transform: rotate(180deg);
+  }
+
+  .technical-mobile-panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
+    padding: 0.75rem 1rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: white;
+    box-shadow: 0 12px 20px rgb(15 23 42 / 8%);
+  }
+
+  .technical-mobile-panel > a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    padding: 0.75rem;
+    color: #334155;
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .technical-mobile-panel > a:hover,
+  .technical-desktop-nav > a:hover {
+    color: #c71923;
+    background: #fff1f2;
+  }
+
+  a.technical-contact {
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.75rem 1.125rem;
+    color: white;
+    background: #e62129;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  a.technical-contact:hover {
+    color: white;
+    background: #c71923;
+  }
+
+  .technical-mobile-panel > .technical-contact {
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 359px) {
+    .technical-brand :global(.brand-wordmark) {
+      width: 132px;
+    }
+  }
+
+  @media (min-width: 640px) {
+    .technical-header-inner {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1120px) {
+    .technical-header-inner {
+      padding-inline: 2rem;
+    }
+
+    .technical-desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .technical-desktop-nav > a {
+      display: flex;
+      min-height: 44px;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      color: #334155;
+      font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .technical-desktop-contact {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .technical-mobile-menu {
+      display: none;
+    }
+  }
+</style>
