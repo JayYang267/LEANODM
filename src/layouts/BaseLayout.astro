@@ -60,7 +60,7 @@ const {
     {technicalPage && <a class="technical-skip-link" href={`#${mainId}`}>Skip to content</a>}
     {technicalPage ? (
       <>
-        <LeanGlobalHeader contactHref={contactHref} contactLabel="Discuss Your Project" />
+        <LeanGlobalHeader contactHref={contactHref} contactLabel={technicalContactLabel ?? 'Discuss Your Project'} />
         <TechnicalPageHeader navigation={technicalNavigation} pageTitle={technicalPageTitle} />
       </>
     ) : <Header currentPathname={currentPathname} />}
