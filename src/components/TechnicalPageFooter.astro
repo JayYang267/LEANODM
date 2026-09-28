@@ -1,12 +1,27 @@
 ---
 import BrandWordmark from './BrandWordmark.astro';
+import { leanPrimaryNavigation, leanSecondaryNavigation } from './leanNavigation';
 import { technicalPageNavigation } from './technicalPageNavigation';
 
 interface Props {
   contactHref?: string;
+  navigation?: readonly { label: string; href: string }[];
+  pageTitle?: string;
+  contactLabel?: string;
 }
 
-const { contactHref = '#project-requirements' } = Astro.props;
+const {
+  contactHref = '#project-requirements',
+  navigation = technicalPageNavigation,
+  pageTitle = 'Appearance inspection',
+  contactLabel = 'Discuss your project',
+} = Astro.props;
+const pages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
+const hasPage = (path: string) => pages.some((file) => {
+  const normalized = file.replace(/^\/src\/pages\//, '/').replace(/index\.astro$/, '').replace(/\.astro$/, '/');
+  return normalized === path;
+});
+const isAvailable = (href: string) => href.startsWith('#') || hasPage(href);
 ---
 
 <footer class="technical-footer">
@@ -20,16 +35,28 @@ const { contactHref = '#project-requirements' } = Astro.props;
         <p>OEM &amp; ODM manufacturing for plastic and electronic products.</p>
         <p class="technical-factory">Featured factory: Xinyinhai<br />Dongguan, China</p>
       </div>
-      <nav aria-label="Footer appearance inspection">
-        <h2>Appearance inspection</h2>
+      <nav aria-label="LEANODM primary footer navigation">
+        <h2>LEANODM</h2>
         <ul>
-          {technicalPageNavigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          {leanPrimaryNavigation.map((item) => <li>{isAvailable(item.href) ? <a href={item.href}>{item.label}</a> : <span class="technical-footer-planned">{item.label} <small>Planned</small></span>}</li>)}
+        </ul>
+      </nav>
+      <nav aria-label="LEANODM secondary footer navigation">
+        <h2>Explore</h2>
+        <ul>
+          {leanSecondaryNavigation.map((item) => <li>{isAvailable(item.href) ? <a href={item.href}>{item.label}</a> : <span class="technical-footer-planned">{item.label} <small>Planned</small></span>}</li>)}
+        </ul>
+      </nav>
+      <nav aria-label={`Footer ${pageTitle.toLowerCase()} page navigation`}>
+        <h2>{pageTitle}</h2>
+        <ul>
+          {navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
         </ul>
       </nav>
       <div class="technical-footer-project">
         <h2>Your project requirements</h2>
         <p>Define reference samples, inspection conditions and acceptance criteria for your product.</p>
-        <a href={contactHref} class="technical-footer-contact">Discuss your project <span aria-hidden="true">↗</span></a>
+        <a href={contactHref} class="technical-footer-contact">{contactLabel} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
     <div class="technical-footer-bottom">
@@ -105,6 +132,24 @@ const { contactHref = '#project-requirements' } = Astro.props;
     line-height: 1.5;
   }
 
+  .technical-footer-planned {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    gap: 0.4rem;
+    color: #7f8ea3;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .technical-footer-planned small {
+    color: #66758a;
+    font-size: 0.6rem;
+    font-weight: 750;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
   .technical-footer a {
     border-radius: 0.25rem;
   }
@@ -172,7 +217,7 @@ const { contactHref = '#project-requirements' } = Astro.props;
     }
 
     .technical-footer-grid {
-      grid-template-columns: 1.15fr 1fr 1fr;
+      grid-template-columns: 1.15fr .8fr .8fr .9fr 1fr;
       gap: 3rem;
     }
 

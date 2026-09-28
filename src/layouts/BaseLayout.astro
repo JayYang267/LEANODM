@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '@components/Header.astro';
 import Footer from '@components/Footer.astro';
+import LeanGlobalHeader from '@components/LeanGlobalHeader.astro';
 import TechnicalPageHeader from '@components/TechnicalPageHeader.astro';
 import TechnicalPageFooter from '@components/TechnicalPageFooter.astro';
 import { SITE } from '@config/site';
@@ -12,6 +13,9 @@ interface Props {
   technicalPage?: boolean;
   contactHref?: string;
   mainId?: string;
+  technicalNavigation?: readonly { label: string; href: string }[];
+  technicalPageTitle?: string;
+  technicalContactLabel?: string;
 }
 
 const currentPathname = Astro.url.pathname;
@@ -22,6 +26,9 @@ const {
   technicalPage = false,
   contactHref = '#project-requirements',
   mainId = 'main-content',
+  technicalNavigation,
+  technicalPageTitle,
+  technicalContactLabel,
 } = Astro.props;
 ---
 
@@ -51,11 +58,16 @@ const {
   </head>
   <body class="flex min-h-screen flex-col bg-white font-sans text-neutral-900 antialiased">
     {technicalPage && <a class="technical-skip-link" href={`#${mainId}`}>Skip to content</a>}
-    {technicalPage ? <TechnicalPageHeader contactHref={contactHref} /> : <Header currentPathname={currentPathname} />}
+    {technicalPage ? (
+      <>
+        <LeanGlobalHeader contactHref={contactHref} contactLabel="Discuss Your Project" />
+        <TechnicalPageHeader navigation={technicalNavigation} pageTitle={technicalPageTitle} />
+      </>
+    ) : <Header currentPathname={currentPathname} />}
     <main id={technicalPage ? mainId : undefined} tabindex={technicalPage ? -1 : undefined} class="flex-1">
       <slot />
     </main>
-    {technicalPage ? <TechnicalPageFooter contactHref={contactHref} /> : <Footer />}
+    {technicalPage ? <TechnicalPageFooter contactHref={contactHref} navigation={technicalNavigation} pageTitle={technicalPageTitle} contactLabel={technicalContactLabel} /> : <Footer />}
   </body>
 </html>
 

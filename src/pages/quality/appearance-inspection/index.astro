@@ -17,13 +17,13 @@ const hasPage = (path: string) => pages.some((file) => {
   const normalized = file.replace(/^\/src\/pages\//, '/').replace(/index\.astro$/, '').replace(/\.astro$/, '/');
   return normalized === path;
 });
-const related = [
-  { href: '/quality/', label: 'Quality overview', detail: 'See how individual inspection and testing requirements fit together.' },
-  { href: '/quality/in-process-inspection/', label: 'In-process inspection', detail: 'Connect acceptance criteria with checks during production.' },
-  { href: '/quality/product-testing/', label: 'Product testing', detail: 'Review functional and product-specific testing alongside appearance.' },
-  { href: '/quality/inspector-training/', label: 'Inspector training', detail: 'Understand how inspection criteria are communicated to inspectors.' },
-  { href: '/manufacturing/injection-molding/', label: 'Injection molding', detail: 'Explore the manufacturing process behind many of these surface defects.' },
-].filter((item) => hasPage(item.href));
+const qualitySystem = [
+  { href: '/quality/incoming-inspection/', label: 'Incoming Inspection', detail: 'Material-specific checks before components enter production.' },
+  { href: route, label: 'Appearance Inspection', detail: 'Surface classes, cosmetic defects and acceptance criteria.', current: true },
+  { href: '/quality/in-process-inspection/', label: 'In-process Inspection', detail: 'Production-stage checks that connect process control with acceptance decisions.' },
+  { href: '/quality/product-testing/', label: 'Product Testing', detail: 'Functional and product-specific testing alongside appearance and assembly.' },
+  { href: '/quality/traceability/', label: 'Traceability', detail: 'Lot, sample and inspection records that support supplier evaluation.' },
+].map((item) => ({ ...item, available: item.current || hasPage(item.href) }));
 const breadcrumbs = [
   { name: 'Home', url: '/' },
   ...(hasPage('/quality/') ? [{ name: 'Quality', url: '/quality/' }] : []),
@@ -226,13 +226,25 @@ const faqs = [
         <p class="inspection-eyebrow">06 / RELATED QUALITY CONTROLS</p>
         <h2 id="related-title">Read appearance together with function and assembly</h2>
         <p class="inspection-section-intro">A cosmetic decision does not settle every product risk. The standard explicitly connects <a href="#short-shots">short shots</a>, <a href="#deformation">deformation</a> and <a href="#ejector-pressure-whitening">ejector or pressure whitening</a> with functionality, strength, assembly or safety. <a href="#sink-marks">Sink marks</a> also have conditions for printing and label application.</p>
-        {related.length > 0 && <ul class="inspection-related">{related.map((item) => <li><a href={item.href}>{item.label} <span aria-hidden="true">↗</span></a><p>{item.detail}</p></li>)}</ul>}
       </section>
 
       <section id="frequently-asked-questions" class="inspection-section" aria-labelledby="faq-title">
         <p class="inspection-eyebrow">07 / BUYER QUESTIONS</p>
         <h2 id="faq-title">Appearance inspection FAQ</h2>
         <div class="inspection-faqs">{faqs.map((faq) => <div><h3>{faq.question}</h3><p>{faq.answer}</p>{faq.href && <a class="inspection-text-link" href={faq.href}>{faq.label} →</a>}</div>)}</div>
+      </section>
+
+      <section id="quality-system" class="inspection-section inspection-quality-system" aria-labelledby="quality-system-title">
+        <p class="inspection-eyebrow">08 / QUALITY SYSTEM</p>
+        <h2 id="quality-system-title">Explore Our Quality System</h2>
+        <p class="inspection-section-intro">Use the appearance standard together with the adjacent quality topics buyers usually review during supplier evaluation.</p>
+        <div class="inspection-quality-links">
+          {qualitySystem.map((item) => (
+            item.available
+              ? <a href={item.href} aria-current={item.current ? 'page' : undefined}><span>{item.label}</span><p>{item.detail}</p>{item.current ? <small>Current page</small> : <small>Open topic <span aria-hidden="true">↗</span></small>}</a>
+              : <div class="inspection-quality-link-planned"><span>{item.label}</span><p>{item.detail}</p><small>Planned topic</small></div>
+          ))}
+        </div>
       </section>
     </div>
 
