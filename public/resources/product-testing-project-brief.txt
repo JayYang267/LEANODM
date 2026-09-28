@@ -1,0 +1,31 @@
+LEANODM — Product testing project brief
+
+Use this checklist to prepare a technical discussion. This file does not add
+acceptance criteria, certify a product, or record a completed test.
+
+1. PRODUCT AND APPLICABILITY
+Product / model / drawing revision:
+Intended users and age range, where applicable:
+Battery, sound, book, print and packaging configuration:
+Market-specific requirements and identified standards / editions:
+
+2. TEST SELECTION
+Relevant entries from /quality/product-testing/:
+Applicable stage codes (confirm the meaning of T1 / T2 / TN / PP / MP):
+Sample identification, quantities and reuse rules:
+Product variants and paper / synthetic-paper exceptions:
+
+3. AGREED METHODS AND CRITERIA
+Exact exposure, load, unit, duration, sequence and recovery conditions:
+Power state during exposure and during evaluation:
+Equipment / method settings required by the agreed protocol:
+Pass/fail criteria, measurement-only entries and approved visual references:
+Unresolved source wording and the approved clarification:
+
+4. REQUIRED RECORDS
+Sample and revision traceability:
+Test dates, actual conditions and measured values:
+Evaluation results, photographs where relevant and deviations:
+Reviewer and disposition:
+
+Reference page: https://www.leanodm.com/quality/product-testing/

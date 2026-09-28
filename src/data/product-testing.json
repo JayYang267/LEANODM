@@ -1,0 +1,967 @@
+{
+  "source": {
+    "title": "Product Test Plan",
+    "organization": "Shenzhen Xinyinhai Electronics Co., Ltd.",
+    "file": "产品测试评价计划表11.xlsx",
+    "sha256": "276b2061822715b82c7a2db2818137fbcc83001c9fb166ee3b3d2e47941c6efb",
+    "sheet": "Table 1"
+  },
+  "stages": [
+    "T1",
+    "T2",
+    "TN",
+    "PP",
+    "MP"
+  ],
+  "samples": [
+    "10",
+    "10",
+    "20",
+    "1C + 25",
+    "5"
+  ],
+  "groups": [
+    {
+      "id": "mechanical",
+      "name": "Mechanical & accessible-part safety",
+      "description": "Drops, torque, tension, compression, impact and product-specific accessibility checks.",
+      "tests": [
+        {
+          "id": "accessible-parts",
+          "name": "Accessible external parts",
+          "sourceRef": "Table 1!B4:I4",
+          "sourceBlock": "Left block",
+          "sourceNumber": 1,
+          "sourceRow": 4,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Check visually and by touch."
+          ],
+          "criteria": [
+            "Touchable areas must have no hazardous sharp points, sharp edges or similar hazards."
+          ],
+          "notes": []
+        },
+        {
+          "id": "unpackaged-drop",
+          "name": "Unpackaged product drop",
+          "sourceRef": "Table 1!B9:I10",
+          "sourceBlock": "Left block",
+          "sourceNumber": 6,
+          "sourceRow": 9,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "The source calls for both its ISO-labeled and EN-labeled methods. It does not identify standard numbers or editions.",
+            "ISO-labeled method: select the mechanically weaker orientation for the specified drops. Impact surface: approximately 3 mm vinyl polymer sheet attached to concrete at least 64 mm thick.",
+            "ISO-labeled method, intended for children under 36 months: 10 drops from 1.5 m. For ages 36–96 months (8 years) and mass below 4.5 kg: 4 drops, with height written as “1.08 ±5CM” in the source.",
+            "EN-labeled method, all ages below 14 years: 5 drops, with height written as “1.08 ± 5CM” in the source. Impact surface: a 4 mm steel plate covered with a 2 mm coating of Shore A hardness 75 ± 5."
+          ],
+          "criteria": [
+            "Breakage or deformation must not create hazardous small parts, small balls, hemispherical parts, sharp edges or sharp parts. Detached pieces must not become small parts. Small-part tensile strength must be maintained, and screw-retaining tabs must remain attached and secure."
+          ],
+          "notes": [
+            "Original height notation is retained. The source does not clearly distinguish the base-height unit from the tolerance unit; no conversion to metres is inferred."
+          ]
+        },
+        {
+          "id": "torque",
+          "name": "Torque followed by tension",
+          "sourceRef": "Table 1!B11:I11",
+          "sourceBlock": "Left block",
+          "sourceNumber": 7,
+          "sourceRow": 11,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Rotate 180° from the original position or reach the required torque of 0.45 N·m ± 0.02 N·m. Apply the maximum rotation or torque within 5 s, then hold for 10 s.",
+            "Perform once clockwise and once counterclockwise. Follow the torque test with the general tensile evaluation."
+          ],
+          "criteria": [
+            "Breakage or deformation must not create hazardous small parts, small balls, hemispherical parts, sharp edges or sharp parts. Detached pieces must not become small parts. Small-part tensile strength must be maintained, and screw-retaining tabs must remain attached and secure."
+          ],
+          "notes": []
+        },
+        {
+          "id": "tension",
+          "name": "General tensile test",
+          "sourceRef": "Table 1!B12:I12",
+          "sourceBlock": "Left block",
+          "sourceNumber": 8,
+          "sourceRow": 12,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "On the same component used for the torque test, apply 90 N ± 2 N uniformly, parallel to the component’s main axis and then perpendicular to it. Reach the force within 5 s and hold for 10 s in each direction.",
+            "The source then states: sample height below 2 mm; if the gap is less than 2 mm, no test is needed; for height 2–6 mm, apply 70 N; for L ≥ 6 mm, apply 90 N. Use the specified gauge to judge whether the part can be gripped."
+          ],
+          "criteria": [
+            "No deformation or damage at the tested part, no small parts, and normal operation."
+          ],
+          "notes": [
+            "Original size/load wording is retained, including “测试样品要求高度2mm以下”. The relationship between height and gap, the overlapping 6 mm boundary, the meaning of L and tolerance applicability to 70 N are not resolved by the source."
+          ]
+        },
+        {
+          "id": "destructive-tension",
+          "name": "Destructive tensile characterization",
+          "sourceRef": "Table 1!B13:I13",
+          "sourceBlock": "Left block",
+          "sourceNumber": 9,
+          "sourceRow": 13,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Apply a load greater than the standard tensile load to establish the force at which the tested part breaks."
+          ],
+          "criteria": [
+            "Record the breaking force after testing."
+          ],
+          "notes": [
+            "This is a recorded measurement; the source supplies no separate pass/fail threshold."
+          ]
+        },
+        {
+          "id": "compression",
+          "name": "Compression",
+          "sourceRef": "Table 1!B14:I14",
+          "sourceBlock": "Left block",
+          "sourceNumber": 10,
+          "sourceRow": 14,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Place the toy on a hard horizontal surface. Keep the disc’s flat contact face parallel to the sample surface. Apply the required force uniformly through the disc within 5 s and hold for 10 s.",
+            "Under 36 months: 114 ± 2.0 N. Ages 36–96 months: 136 ± 2.0 N."
+          ],
+          "criteria": [
+            "No hazardous small parts, spherical parts (small balls), hemispherical parts, sharp edges or sharp parts may be created. Required functionality must remain."
+          ],
+          "notes": [
+            "The source does not specify the disc diameter."
+          ]
+        },
+        {
+          "id": "stepping",
+          "name": "Stepping load",
+          "sourceRef": "Table 1!B15:I15",
+          "sourceBlock": "Left block",
+          "sourceNumber": 11,
+          "sourceRow": 15,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Place the assembled product stably on a tiled floor and have a person with body mass at least 60 kg step on it."
+          ],
+          "criteria": [
+            "No hazardous small parts, spherical parts (small balls), hemispherical parts, sharp edges or sharp parts may be created. Required functionality must remain."
+          ],
+          "notes": []
+        },
+        {
+          "id": "impact",
+          "name": "Impact",
+          "sourceRef": "Table 1!B16:I16",
+          "sourceBlock": "Left block",
+          "sourceNumber": 12,
+          "sourceRow": 16,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Place the toy on a horizontal rigid surface. Drop a cylindrical metal weight of 1 ± 0.02 kg and diameter 80 mm from a height of 100 ± 2 mm onto the sample.",
+            "One drop per location. Select the impact locations for the particular product."
+          ],
+          "criteria": [
+            "No hazardous small parts, spherical parts (small balls), hemispherical parts, sharp edges or sharp parts may be created. Required functionality must remain."
+          ],
+          "notes": []
+        },
+        {
+          "id": "gap-probes",
+          "name": "Gap and hole probes",
+          "sourceRef": "Table 1!B17:I17",
+          "sourceBlock": "Left block",
+          "sourceNumber": 13,
+          "sourceRow": 17,
+          "stages": [
+            "T1",
+            "T2",
+            "TN"
+          ],
+          "methods": [
+            "Measure gaps and holes using round rods."
+          ],
+          "criteria": [
+            "If a gap or hole admits a 5 mm round rod, it must also admit a rod of 14 mm diameter."
+          ],
+          "notes": []
+        },
+        {
+          "id": "bite",
+          "name": "Bite load",
+          "sourceRef": "Table 1!B18:I18",
+          "sourceBlock": "Left block",
+          "sourceNumber": 14,
+          "sourceRow": 18,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "The source describes products judged biteable by children under 3 years, with “outer dimension 3.2 cm” and height at least 6 mm.",
+            "Apply an 11 kg load and hold for 10 seconds."
+          ],
+          "criteria": [
+            "No hazardous small parts, spherical parts (small balls), hemispherical parts, sharp edges or sharp parts may be created. Required functionality must remain."
+          ],
+          "notes": [
+            "Original wording: “外形3.2cm, 高度6mm以上”. The direction and comparison operator for 3.2 cm are not stated. The 11 kg load is retained in the source unit without conversion to force."
+          ]
+        },
+        {
+          "id": "body-book-tension",
+          "name": "Body-to-book attachment tension",
+          "sourceRef": "Table 1!B20:I20",
+          "sourceBlock": "Left block",
+          "sourceNumber": 16,
+          "sourceRow": 20,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Apply a 3.0 ± 0.2 kg load to the product body in the perpendicular 90° direction."
+          ],
+          "criteria": [
+            "The body must not separate from the book."
+          ],
+          "notes": [
+            "The source states the load in kg and gives no holding time."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "electrical",
+      "name": "Battery, sound & electrostatic checks",
+      "description": "Battery installation, measured current, operating life, sound limits and reset behavior.",
+      "tests": [
+        {
+          "id": "reversed-battery",
+          "name": "Reversed battery installation",
+          "sourceRef": "Table 1!B5:I5",
+          "sourceBlock": "Left block",
+          "sourceNumber": 2,
+          "sourceRow": 5,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Insert the battery into the compartment with its positive and negative poles reversed."
+          ],
+          "criteria": [
+            "No heating, leakage or other abnormality with the battery reversed."
+          ],
+          "notes": []
+        },
+        {
+          "id": "battery-storage",
+          "name": "Correctly installed battery storage",
+          "sourceRef": "Table 1!B6:I6",
+          "sourceBlock": "Left block",
+          "sourceNumber": 3,
+          "sourceRow": 6,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Install the battery with correct polarity and leave it in the battery compartment for 1 month."
+          ],
+          "criteria": [
+            "No leakage or other abnormality with the battery correctly installed."
+          ],
+          "notes": []
+        },
+        {
+          "id": "alternative-batteries",
+          "name": "Alternative batteries",
+          "sourceRef": "Table 1!B7:I7",
+          "sourceBlock": "Left block",
+          "sourceNumber": 4,
+          "sourceRow": 7,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Use batteries available on the market."
+          ],
+          "criteria": [
+            "Normal operation after installation."
+          ],
+          "notes": [
+            "The source does not specify battery brands, sizes or a list of approved alternatives."
+          ]
+        },
+        {
+          "id": "operating-current",
+          "name": "Operating current",
+          "sourceRef": "Table 1!B8:I8",
+          "sourceBlock": "Left block",
+          "sourceNumber": 5,
+          "sourceRow": 8,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Measure current."
+          ],
+          "criteria": [
+            "Record sound-output current and standby current in mA; sleep current and power-off current in µA."
+          ],
+          "notes": [
+            "The source names the four quantities and units but supplies no numeric acceptance limits."
+          ]
+        },
+        {
+          "id": "sound-level",
+          "name": "Sound level",
+          "sourceRef": "Table 1!B19:I19",
+          "sourceBlock": "Left block",
+          "sourceNumber": 15,
+          "sourceRow": 19,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Measure at a distance of 50 cm from the sound source. Test every button; test the loudest button 5 times."
+          ],
+          "criteria": [
+            "Source notation: LPC peak < 115 dB and LPA < 85 dB, under the stated measurement conditions."
+          ],
+          "notes": [
+            "LPC peak and LPA are reproduced without expanding the undefined notation. Weighting, detector settings and the full acoustic method are not specified; no acoustic-compliance result is asserted."
+          ]
+        },
+        {
+          "id": "battery-life",
+          "name": "Battery operating life",
+          "sourceRef": "Table 1!L6:S6",
+          "sourceBlock": "Right block",
+          "sourceNumber": 3,
+          "sourceRow": 6,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Measure how long the battery actually operates."
+          ],
+          "criteria": [
+            "Record the operating time."
+          ],
+          "notes": [
+            "The source does not supply a minimum operating-time requirement."
+          ]
+        },
+        {
+          "id": "electrostatic",
+          "name": "Electrostatic tolerance",
+          "sourceRef": "Table 1!L20:S20",
+          "sourceBlock": "Right block",
+          "sourceNumber": 17,
+          "sourceRow": 20,
+          "stages": [
+            "TN"
+          ],
+          "methods": [
+            "Charge the keypad with a +15,000 V test voltage, then immediately apply −15,000 V.",
+            "Alternately apply ±15,000 V to all exterior locations."
+          ],
+          "criteria": [
+            "No reset, or if a reset occurs, the product can be started again."
+          ],
+          "notes": [
+            "The source does not specify the discharge mode, waveform, apparatus or number of discharges. This is a plan entry, not a complete ESD protocol or a result."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "durability",
+      "name": "Switch, button & book durability",
+      "description": "Repeated operation with the specified count or angle.",
+      "tests": [
+        {
+          "id": "switch-durability",
+          "name": "Switch durability",
+          "sourceRef": "Table 1!L4:S4",
+          "sourceBlock": "Right block",
+          "sourceNumber": 1,
+          "sourceRow": 4,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Planned count = uses per month × months of use × safety factor 3.",
+            "The source gives 2,700 operations for a spring-contact switch and 3,600 operations for a slide switch."
+          ],
+          "criteria": [
+            "Normal functional operation after testing."
+          ],
+          "notes": [
+            "Monthly use and service-life inputs are not supplied. These example counts are not a universal service-life rating."
+          ]
+        },
+        {
+          "id": "button-durability",
+          "name": "Button durability",
+          "sourceRef": "Table 1!L5:S5",
+          "sourceBlock": "Right block",
+          "sourceNumber": 2,
+          "sourceRow": 5,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Planned count = uses per month × months of use × safety factor 3. The source gives a button durability count of 5,400."
+          ],
+          "criteria": [
+            "Normal functional operation after testing."
+          ],
+          "notes": [
+            "Monthly use and service-life inputs are not supplied."
+          ]
+        },
+        {
+          "id": "book-durability",
+          "name": "Picture-book opening durability",
+          "sourceRef": "Table 1!L7:S7",
+          "sourceBlock": "Right block",
+          "sourceNumber": 4,
+          "sourceRow": 7,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Open the picture book to 180° and close it. Complete 100 cycles."
+          ],
+          "criteria": [
+            "No damage to the picture book; normal function."
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "name": "Temperature, humidity & corrosion",
+      "description": "Exposure sequences, recovery periods and post-exposure evaluation.",
+      "tests": [
+        {
+          "id": "temperature-operation",
+          "name": "Operation at specified temperatures",
+          "sourceRef": "Table 1!L8:S8",
+          "sourceBlock": "Right block",
+          "sourceNumber": 5,
+          "sourceRow": 8,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Operate for 10 minutes in each of the following environments: 0 °C, 10 °C, 20 °C, 30 °C and 40 °C."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": []
+        },
+        {
+          "id": "high-temperature-humidity",
+          "name": "High temperature and high humidity",
+          "sourceRef": "Table 1!L9:S9",
+          "sourceBlock": "Right block",
+          "sourceNumber": 6,
+          "sourceRow": 9,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Hold the powered-on product at 60 °C / 90% humidity for 100 hours.",
+            "For the paper picture-book / synthetic-paper sound-button portions, the source specifies 40 °C / 75% humidity instead.",
+            "After exposure, return to room temperature for 1 hour. Operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": []
+        },
+        {
+          "id": "high-temperature",
+          "name": "High temperature",
+          "sourceRef": "Table 1!L10:S10",
+          "sourceBlock": "Right block",
+          "sourceNumber": 7,
+          "sourceRow": 10,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Hold the powered-on product at 60 °C / 75% humidity for 100 hours.",
+            "For the paper picture-book / synthetic-paper sound-button portions, the source specifies 40 °C / 75% humidity instead.",
+            "After exposure, return to room temperature for 1 hour. Operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": [
+            "The source retains a humidity condition even though this row is titled high-temperature testing."
+          ]
+        },
+        {
+          "id": "low-temperature",
+          "name": "Low temperature",
+          "sourceRef": "Table 1!L11:S11",
+          "sourceBlock": "Right block",
+          "sourceNumber": 8,
+          "sourceRow": 11,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Hold the powered-on product continuously at −10 °C for 100 hours.",
+            "After exposure, return to room temperature for 1 hour. Operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": []
+        },
+        {
+          "id": "temperature-cycling",
+          "name": "Temperature cycling",
+          "sourceRef": "Table 1!L12:S12",
+          "sourceBlock": "Right block",
+          "sourceNumber": 9,
+          "sourceRow": 12,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "With power on, expose the product to −10 °C for 8 hours, then 60 °C for 8 hours, then room temperature for 8 hours. This sequence is 1 cycle; perform 4 cycles.",
+            "The source also gives 40 °C / 75% humidity for the paper picture-book / synthetic-paper sound-button portions, but does not identify which segment this replaces.",
+            "After exposure, return to room temperature for 1 hour. Operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": [
+            "Confirm how the paper / synthetic-paper exception is applied to the cycle before using that variant. No humidity is supplied for the general cycle."
+          ]
+        },
+        {
+          "id": "salt-spray",
+          "name": "Salt spray on screws and battery contacts",
+          "sourceRef": "Table 1!L21:S21",
+          "sourceBlock": "Right block",
+          "sourceNumber": 18,
+          "sourceRow": 21,
+          "stages": [
+            "TN"
+          ],
+          "methods": [
+            "For screws and battery contacts, use 5% salt solution in a 35 °C chamber. Spray for 8 hours, then stop for 16 hours. This is 1 cycle; perform 2 cycles."
+          ],
+          "criteria": [
+            "No rust."
+          ],
+          "notes": []
+        },
+        {
+          "id": "thermal-shock",
+          "name": "Thermal shock",
+          "sourceRef": "Table 1!L22:S22",
+          "sourceBlock": "Right block",
+          "sourceNumber": 19,
+          "sourceRow": 22,
+          "stages": [
+            "TN"
+          ],
+          "methods": [
+            "Hold at −20 °C for 10 minutes, then at 100 °C for 10 minutes. This is 1 cycle; perform 30 cycles.",
+            "Return to room temperature for 1 hour, then perform the power-on test."
+          ],
+          "criteria": [
+            "Stable powered operation."
+          ],
+          "notes": [
+            "The source specifies power-on evaluation after recovery; it does not say that power remains on during thermal-shock exposure."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "packaging",
+      "name": "Packaging & applied loads",
+      "description": "Carton, bundled-product and individual-product conditions remain separate.",
+      "tests": [
+        {
+          "id": "carton-vibration",
+          "name": "Outer-carton vibration",
+          "sourceRef": "Table 1!L13:S13",
+          "sourceBlock": "Right block",
+          "sourceNumber": 10,
+          "sourceRow": 13,
+          "stages": [
+            "PP"
+          ],
+          "methods": [
+            "Test a secured outer carton containing individual boxes or bags on a vibration tester. Use 5 mm amplitude at 1,000 cycles/minute for 20 minutes in each of the up/down, left/right and front/back directions.",
+            "Then operate electronic products for 10 minutes; operate other products correctly."
+          ],
+          "criteria": [
+            "No damage, marks or functional defect in the color box / PE bag.",
+            "No functional defect in rotating or sliding parts; no color or gloss defect; no inadequate tensile or other strength of small parts. Battery voltage, circuit voltage and other electrical characteristics must be within the applicable limits."
+          ],
+          "notes": [
+            "Electrical acceptance limits are referenced but not supplied. Amplitude is retained without inferring peak-to-peak or single-peak convention."
+          ]
+        },
+        {
+          "id": "carton-drop",
+          "name": "Outer-carton drop",
+          "sourceRef": "Table 1!L14:S14",
+          "sourceBlock": "Right block",
+          "sourceNumber": 11,
+          "sourceRow": 14,
+          "stages": [
+            "PP"
+          ],
+          "methods": [
+            "Secure the outer carton containing individual boxes or bags. Drop without an added load from 0.96 m onto each of the 6 faces: top, bottom, left, right, front and back.",
+            "Impact surface: 3 mm semi-rigid vinyl-resin flooring, type CT under the source’s JIS A 5705 reference, on concrete at least 64 mm thick.",
+            "Then operate electronic products for 10 minutes; operate other products correctly."
+          ],
+          "criteria": [
+            "No damage, marks or functional defect in the color box / PE bag.",
+            "No functional defect in rotating or sliding parts; no color or gloss defect; no inadequate tensile or other strength of small parts. Battery voltage, circuit voltage and other electrical characteristics must be within the applicable limits."
+          ],
+          "notes": [
+            "The source supplies no edition of JIS A 5705 or numeric electrical acceptance limits."
+          ]
+        },
+        {
+          "id": "carton-load",
+          "name": "Outer-carton stacking load",
+          "sourceRef": "Table 1!L15:S15",
+          "sourceBlock": "Right block",
+          "sourceNumber": 12,
+          "sourceRow": 15,
+          "stages": [
+            "PP"
+          ],
+          "methods": [
+            "Calculate N = 3.5 m ÷ outer-carton height, expressing both heights in the same unit.",
+            "At a stable 40 °C / 90% humidity, apply a load equal to (N − 1) × carton weight over the carton’s entire top surface for 100 hours.",
+            "After exposure, return to room temperature for 1 hour. Operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "Outer-carton length and depth: expansion or shrinkage within 5%.",
+            "Color-box length and depth: expansion or shrinkage within 5%.",
+            "No functional defect in rotating or sliding parts; no color or gloss defect; no inadequate tensile or other strength of small parts. Battery voltage, circuit voltage and other electrical characteristics must be within the applicable limits."
+          ],
+          "notes": [
+            "The source gives no rounding rule for N and no numeric electrical acceptance limits. No rounding or assumed carton weight is added."
+          ]
+        },
+        {
+          "id": "bundle-drop",
+          "name": "Bundled-product drop",
+          "sourceRef": "Table 1!L16:S16",
+          "sourceBlock": "Right block",
+          "sourceNumber": 13,
+          "sourceRow": 16,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Use a bundle of stacked samples with a reference height of at least 42 cm. Drop without an added load from 0.96 m onto each of the 6 faces: top, bottom, left, right, front and back.",
+            "Impact surface: 3 mm semi-rigid vinyl-resin flooring, type CT under the source’s JIS A 5705 reference, on concrete at least 64 mm thick.",
+            "Then operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": [
+            "The source attaches an unexplained “*2” marker to the bundle-height statement. It is not applied as a multiplier; confirm the bundle configuration."
+          ]
+        },
+        {
+          "id": "bundle-vibration",
+          "name": "Bundled-product vibration",
+          "sourceRef": "Table 1!L17:S17",
+          "sourceBlock": "Right block",
+          "sourceNumber": 14,
+          "sourceRow": 17,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Use a bundle of stacked samples with a reference height of at least 42 cm. On a vibration tester, use 5 mm amplitude at 1,000 cycles/minute for 20 minutes in each of 3 directions: up/down, left/right and front/back.",
+            "Then operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": [
+            "The source’s “*2” marker is undefined and is not applied as a multiplier. The amplitude convention is not specified. Confirm the bundle configuration."
+          ]
+        },
+        {
+          "id": "bundle-load",
+          "name": "Bundled-product load",
+          "sourceRef": "Table 1!L18:S18",
+          "sourceBlock": "Right block",
+          "sourceNumber": 15,
+          "sourceRow": 18,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Use a bundle of stacked samples with a reference height of at least 42 cm. Position the packaging face bearing the address and recipient name upward. Apply a 60 kg load from above for 100 hours.",
+            "Then operate electronic products for 10 minutes; operate other products normally."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": [
+            "The source’s “*2” marker is undefined and is not applied as a multiplier. Confirm the bundle configuration."
+          ]
+        },
+        {
+          "id": "individual-load",
+          "name": "Individual-product load",
+          "sourceRef": "Table 1!L19:S19",
+          "sourceBlock": "Right block",
+          "sourceNumber": 16,
+          "sourceRow": 19,
+          "stages": [
+            "TN",
+            "PP"
+          ],
+          "methods": [
+            "Apply a 10 kg load to the individual product for 24 hours, then operate it for 10 minutes."
+          ],
+          "criteria": [
+            "No abnormality during operation, in assembled components (including internal components), or in appearance."
+          ],
+          "notes": []
+        }
+      ]
+    },
+    {
+      "id": "surface",
+      "name": "Book bonding & printed surfaces",
+      "description": "Visual bond references, cross-cut adhesion, abrasion and pencil loading.",
+      "tests": [
+        {
+          "id": "book-lining-bond",
+          "name": "Book-cover lining bond",
+          "sourceRef": "Table 1!B21:I21",
+          "sourceBlock": "Left block",
+          "sourceNumber": 17,
+          "sourceRow": 21,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Apply strong adhesive tape to the reverse of the book cover and pull the picture book down to check the lining bond strength."
+          ],
+          "criteria": [
+            "Evaluate against the source’s OK / NG visual examples."
+          ],
+          "notes": [
+            "The source provides two small visual examples, with no written peel-force limit. Use the approved product reference to resolve appearance details."
+          ]
+        },
+        {
+          "id": "print-adhesion",
+          "name": "Printed-surface cross-cut adhesion",
+          "sourceRef": "Table 1!B22:I22",
+          "sourceBlock": "Left block",
+          "sourceNumber": 18,
+          "sourceRow": 22,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Make 100 squares at 1 mm spacing within a 1 cm × 1 cm printed area. Use 18 mm-wide transparent tape (3M transparent tape is named in the source), then peel at approximately 60° in 0.5–1 s."
+          ],
+          "criteria": [
+            "Original acceptance wording: “印刷100/5正常合格”. Literal English: “Print 100/5: normal / accepted.” The “100/5” notation is retained."
+          ],
+          "notes": [
+            "The source does not define “100/5”. It is not interpreted here as a percentage or a permitted number of detached squares."
+          ]
+        },
+        {
+          "id": "print-abrasion",
+          "name": "Printed-surface abrasion",
+          "sourceRef": "Table 1!B23:I23",
+          "sourceBlock": "Left block",
+          "sourceNumber": 19,
+          "sourceRow": 23,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Use a gauze-covered fixture with the source-specified loading of 500 g/cm² on the print. Move back and forth at 80 cm/s for 1,000 repetitions."
+          ],
+          "criteria": [
+            "No obvious scratching, smearing or color loss."
+          ],
+          "notes": [
+            "The source does not further define how a back-and-forth repetition is counted."
+          ]
+        },
+        {
+          "id": "print-pencil",
+          "name": "Printed-surface pencil loading",
+          "sourceRef": "Table 1!B24:I24",
+          "sourceBlock": "Left block",
+          "sourceNumber": 20,
+          "sourceRow": 24,
+          "stages": [
+            "T1",
+            "T2",
+            "TN",
+            "PP",
+            "MP"
+          ],
+          "methods": [
+            "Use a 2H pencil, drawn at 80 cm/s under a 1 kg load."
+          ],
+          "criteria": [
+            "No obvious scratching, smearing or color loss."
+          ],
+          "notes": []
+        }
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What does this product testing plan cover?",
+      "answer": "It contains 39 test projects covering mechanical safety, batteries and electrical behavior, repeated operation, environmental exposure, packaging and printed surfaces. Some entries specifically concern picture books, sound buttons or products for children. Applicability must be agreed for the actual product."
+    },
+    {
+      "question": "Are these completed test results or a certification?",
+      "answer": "No. The source is a test plan, not completed test records. It supplies methods, stage marks and evaluation criteria, but no sample results or certification evidence. It does not establish that every listed test is performed on every product or that the factory owns the named equipment."
+    },
+    {
+      "question": "What do T1, T2, TN, PP and MP mean here?",
+      "answer": "These are the stage codes written in the workbook. The source does not define their full names. A mark means that the source assigns that test to the code; a blank cell means no stage mark, not an exemption or an approval."
+    },
+    {
+      "question": "How are tests different from acceptance criteria?",
+      "answer": "A method states what is done to the sample. Evaluation criteria state what is checked afterward. Battery life and destructive tension require recording a measured value; the source does not give them a numeric pass/fail threshold."
+    },
+    {
+      "question": "Do the environmental temperatures apply to every product?",
+      "answer": "No. Each condition belongs to its named test. The source gives separate conditions for paper picture-book and synthetic-paper sound-button portions. Confirm the applicable variant and any unclear exception before using the plan for a product."
+    },
+    {
+      "question": "What should a buyer request for a technical review?",
+      "answer": "Identify the product and intended users, the applicable test entries and stage codes, the agreed methods and acceptance criteria, and the records required for the specific samples. Resolve source ambiguities before using an entry as an executable test or an acceptance decision."
+    }
+  ]
+}

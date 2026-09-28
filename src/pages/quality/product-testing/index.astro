@@ -1,0 +1,118 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import plan from '../../../data/product-testing.json';
+import '../../../styles/product-testing.css';
+
+const title = 'Product Testing & Evaluation Plan | LEANODM';
+const description = 'Review 39 product test projects: mechanical safety, durability, environmental exposure, packaging and print checks, with methods, stage marks and evaluation criteria.';
+const route = '/quality/product-testing/';
+const origin = new URL(import.meta.env.PUBLIC_SITE_URL || 'https://www.leanodm.com').origin;
+const canonical = new URL(route, origin).href;
+const tests = plan.groups.flatMap(group => group.tests);
+const navigation = [
+  { label: 'Plan overview', href: '#plan-overview' },
+  { label: 'Test examples', href: '#test-examples' },
+  { label: 'Full test library', href: '#test-library' },
+];
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality references', url: '#related-quality' }, { name: 'Product testing', url: route }];
+const schema = {
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', breadcrumb: { '@id': `${canonical}#breadcrumbs` }, about: { '@type': 'Thing', name: 'Xinyinhai product test plan' } },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, i) => ({ '@type': 'ListItem', position: i + 1, name: item.name, item: new URL(item.url, item.url.startsWith('#') ? canonical : origin).href })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: plan.faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} technicalPage technicalNavigation={navigation} technicalPageTitle="Product testing" contactHref="#project-requirements" technicalContactLabel="Prepare test brief">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="testing-page">
+    <section class="pt-hero" aria-labelledby="page-title">
+      <div class="pt-container">
+        <nav class="pt-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((b, i) => <li>{i < breadcrumbs.length - 1 ? <a href={b.url}>{b.name}</a> : <span aria-current="page">{b.name}</span>}</li>)}</ol></nav>
+        <div class="pt-hero-grid">
+          <div>
+            <p class="pt-eyebrow">QUALITY / PRODUCT EVALUATION</p>
+            <h1 id="page-title">Product Testing<br />&amp; Evaluation Plan</h1>
+            <p class="pt-lead">Understand the conditions behind a product test.</p>
+            <p class="pt-intro">Explore Xinyinhai’s planned checks for safety, function, durability and packaging. Read the method, applicable stage and evaluation criteria together.</p>
+            <div class="pt-actions"><a class="pt-button" href="#test-library">Explore all 39 test projects <span aria-hidden="true">↓</span></a><a class="pt-text-link" href="#plan-overview">How to read the plan ↗</a></div>
+          </div>
+          <div class="pt-plan-panel">
+            <div class="pt-panel-label"><span>FROM THE TEST PLAN</span><span>TN · PP</span></div>
+            <h2>High temperature &amp; humidity</h2>
+            <dl class="pt-hero-values"><div><dt>Temperature</dt><dd>60 <span>°C</span></dd></div><div><dt>Humidity</dt><dd>90 <span>%</span></dd></div><div><dt>Exposure</dt><dd>100 <span>h</span></dd></div></dl>
+            <ol class="pt-mini-sequence"><li><span>01</span>Powered-on exposure</li><li><span>02</span>1 h at room temperature</li><li><span>03</span>10 min operation for electronics</li></ol>
+            <div class="pt-panel-note"><p>Other products: normal operation after recovery. Paper picture-book / synthetic-paper sound-button portions: <strong>40 °C / 75% humidity</strong>.</p><p>Evaluate operation, assembled parts and appearance.</p><a href="#high-temperature-humidity">Read the complete entry ↗</a></div>
+          </div>
+        </div>
+        <p class="pt-plan-status"><strong>Plan reference.</strong> These are planned methods and criteria, not completed test records. Conditions belong to the individual test and product variant.</p>
+      </div>
+    </section>
+
+    <div class="pt-container">
+      <section id="plan-overview" class="pt-section" aria-labelledby="overview-title">
+        <div class="pt-heading"><div><p class="pt-eyebrow">01 / READ THE REQUIREMENT IN CONTEXT</p><h2 id="overview-title">One test entry.<br />Five things to review.</h2></div><p>The source includes picture books, sound buttons and age-specific toy checks. Product relevance must be established before selecting a method. The plan does not establish universal factory capability or compliance.</p></div>
+        <ol class="pt-reading-flow"><li><span>01</span><strong>Test project</strong><p>Identify the part, product or packaging.</p></li><li><span>02</span><strong>Method</strong><p>Read the load, exposure or operation.</p></li><li><span>03</span><strong>Conditions</strong><p>Keep units, exceptions and sequence.</p></li><li><span>04</span><strong>Stage</strong><p>Use only the source’s marked codes.</p></li><li><span>05</span><strong>Evaluation</strong><p>Separate pass criteria from recorded values.</p></li></ol>
+        <div class="pt-source-note"><strong>Source and scope.</strong> <cite>{plan.source.title}</cite>, {plan.source.organization}, worksheet “Table 1”. The workbook contains 20 projects in its left block and 19 in its right block. One drop project contains two methods. The six groups below are navigation aids; the original block and cell references remain with each entry. No revision or effective date is stated in the sheet.</div>
+        <div class="pt-stages-heading"><h3>Stage marks and sample notation</h3><p>Stage names are not expanded because the workbook does not define them. Blank cells are shown as <strong>No stage mark</strong>, never as an exemption. Sample quantities below are the source’s stage-level notation, not a quantity assigned to every test.</p></div>
+        <div class="pt-stage-wrap" role="region" aria-label="Stage and sample matrix" tabindex="0"><table class="pt-stage-table"><caption>Source stage matrix · sample row N23:R24</caption><thead><tr><th scope="col">Source code</th><th scope="col">Sample notation</th><th scope="col">Projects marked</th></tr></thead><tbody>{plan.stages.map((stage, i) => <tr><th scope="row">{stage}</th><td>{plan.samples[i]}</td><td>{tests.filter(t => t.stages.includes(stage)).length} of 39</td></tr>)}</tbody></table></div>
+        <p class="pt-small">PP is written as “1C + 25”. “C” is undefined, so no combined sample total is calculated. The row does not state whether samples are reused across tests.</p>
+      </section>
+
+      <section id="test-examples" class="pt-section" aria-labelledby="examples-title">
+        <div class="pt-heading"><div><p class="pt-eyebrow">02 / REPRESENTATIVE TESTS</p><h2 id="examples-title">Conditions change<br />what a result means.</h2></div><p>These examples show how to read the plan. The diagrams explain prescribed sequences; they are not measured curves, test results or equipment photographs.</p></div>
+        <div class="pt-cycle-card">
+          <div><p class="pt-eyebrow">TEMPERATURE CYCLING / TN · PP</p><h3>Follow the complete exposure sequence.</h3><p>Power on during exposure. Perform the sequence for <strong>4 cycles</strong>, then recover at room temperature for <strong>1 hour</strong>. Operate electronics for <strong>10 minutes</strong>; operate other products normally.</p></div>
+          <figure><ol class="pt-cycle"><li><span>LOW</span><strong>−10 °C</strong><em>8 hours</em></li><li><span>HIGH</span><strong>60 °C</strong><em>8 hours</em></li><li><span>ROOM</span><strong>Ambient</strong><em>8 hours</em></li></ol><figcaption>One prescribed cycle · schematic only, not to scale</figcaption></figure>
+          <p class="pt-cycle-note">The paper / synthetic-paper variant states <strong>40 °C / 75% humidity</strong> without identifying the substituted segment. Confirm the variant before use. After testing, operation, internal/external assembly and appearance must show no abnormality. <a href="#temperature-cycling">Full test entry ↗</a></p>
+        </div>
+        <div class="pt-example-grid">
+          <article><p class="pt-eyebrow">REPEATED OPERATION / T1 · T2 · TN · PP</p><h3>A count with a stated basis</h3><p class="pt-formula">Uses per month × months of use × 3</p><p>The source uses this safety-factor relationship for switch and button durability. For switches it lists <strong>2,700</strong> spring-contact operations and <strong>3,600</strong> slide-switch operations; the button count is <strong>5,400</strong>.</p><p>Evaluation: normal function afterward. The usage inputs are not supplied.</p><a href="#switch-durability">Switch method ↗</a><a href="#button-durability">Button method ↗</a></article>
+          <article><p class="pt-eyebrow">OUTER-CARTON LOAD / PP</p><h3>A load tied to carton height</h3><p class="pt-formula">N = 3.5 m ÷ carton height<br />Top load = (N − 1) × carton weight</p><p>Apply across the entire top at <strong>40 °C / 90% humidity for 100 hours</strong>, then recover for <strong>1 hour</strong>. Carton and color-box length/depth changes must remain <strong>within 5%</strong>.</p><p>Function, appearance, strength and electrical checks also apply. The source gives no rounding rule for N.</p><a href="#carton-load">Read all conditions and criteria ↗</a></article>
+        </div>
+      </section>
+
+      <section id="test-library" class="pt-section" aria-labelledby="library-title">
+        <div class="pt-heading"><div><p class="pt-eyebrow">03 / COMPLETE TEST LIBRARY</p><h2 id="library-title">39 projects.<br />The details stay attached.</h2></div><p>Open an entry for the full method, stage marks and evaluation criteria. Source notes identify missing settings and unresolved wording. All entries are readable without JavaScript.</p></div>
+        <nav class="pt-group-nav" aria-label="Test family navigation">{plan.groups.map((group, i) => <a href={`#${group.id}`}><span>0{i + 1} / {group.tests.length} PROJECTS</span><strong>{group.name}</strong><span aria-hidden="true">↘</span></a>)}</nav>
+        <aside class="pt-reading-note"><strong>Before applying an entry.</strong> The original plan names EN, ISO and JIS references without complete editions or methods. Where settings or acceptance wording are incomplete, the note identifies what needs agreement. This page does not establish a certification, a pass rate, equipment ownership or a universal product specification.</aside>
+        {plan.groups.map((group, i) => <section id={group.id} class="pt-family" aria-labelledby={`${group.id}-title`}>
+          <div class="pt-family-heading"><span aria-hidden="true">0{i + 1}</span><div><h3 id={`${group.id}-title`}>{group.name}</h3><p>{group.description}</p></div><a href="#test-library" aria-label="Back to test family navigation">↑ All groups</a></div>
+          <div class="pt-test-list">{group.tests.map(test => <details id={test.id} class="pt-test" data-source={test.sourceRef}>
+            <summary><h4>{test.name}</h4><span class="pt-summary-stages">{test.stages.join(' · ')}</span><span class="pt-plus" aria-hidden="true">+</span></summary>
+            <div class="pt-test-body">
+              <p class="pt-source-ref">{test.sourceBlock} · project {test.sourceNumber} · {test.sourceRef}</p>
+              <dl class="pt-test-stages" aria-label={`Stage marks for ${test.name}`}>{plan.stages.map(stage => <div class:list={{ 'is-marked': test.stages.includes(stage) }}><dt>{stage}</dt><dd>{test.stages.includes(stage) ? 'Marked' : 'No stage mark'}</dd></div>)}</dl>
+              <div class="pt-test-columns"><div><h5>Method &amp; conditions</h5><ul>{test.methods.map(method => <li>{method}</li>)}</ul></div><div class="pt-evaluation"><h5>Evaluation criteria</h5><ul>{test.criteria.map(criterion => <li>{criterion}</li>)}</ul></div></div>
+              {test.notes.length > 0 && <div class="pt-entry-notes"><h5>Source clarification</h5>{test.notes.map(note => <p>{note}</p>)}</div>}
+              {test.id === 'book-lining-bond' && <div class="pt-bond-examples"><figure><img src="/images/quality/product-testing/lining-bond-ok.png" width="109" height="114" alt="Small OK example from the workbook showing the book-cover lining after the adhesion check." loading="lazy" /><figcaption>Source visual reference: OK</figcaption></figure><figure><img src="/images/quality/product-testing/lining-bond-ng.png" width="116" height="115" alt="Small NG example from the workbook showing separated layers of the book-cover lining." loading="lazy" /><figcaption>Source visual reference: NG</figcaption></figure><p>Original embedded references from cell I21, shown at their native scale. They illustrate the source’s visual comparison and do not document a test completed for your product.</p></div>}
+              <a class="pt-back" href={`#${group.id}`}>↑ {group.name}</a>
+            </div>
+          </details>)}</div>
+        </section>)}
+      </section>
+
+      <section id="related-quality" class="pt-section" aria-labelledby="related-title"><p class="pt-eyebrow">04 / RELATED QUALITY CONTROLS</p><h2 id="related-title">Read the tests alongside<br />the inspection standards.</h2><div class="pt-related"><a href="/quality/appearance-inspection/"><h3>Appearance Inspection</h3><p>Surface classes, original defect examples and cosmetic acceptance criteria.</p><span>Explore the standard ↗</span></a><a href="/quality/incoming-inspection/"><h3>Incoming Inspection</h3><p>Material-specific checks, inspection methods and source defect classifications.</p><span>Explore the standard ↗</span></a></div></section>
+
+      <section id="faq" class="pt-section" aria-labelledby="faq-title"><p class="pt-eyebrow">05 / BUYER QUESTIONS</p><h2 id="faq-title">Product testing FAQ</h2><div class="pt-faq">{plan.faqs.map(faq => <details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></section>
+    </div>
+
+    <section id="project-requirements" class="pt-project" aria-labelledby="project-title"><div class="pt-container pt-project-grid"><div><p class="pt-eyebrow">YOUR PRODUCT / YOUR TEST BRIEF</p><h2 id="project-title">Make the test requirement<br />specific to your product.</h2><p>Prepare the product context, applicable methods and records needed for an engineering review.</p><a class="pt-button" href="/resources/product-testing-project-brief.txt" download="LEANODM-product-testing-brief.txt">Download the test planning brief <span aria-hidden="true">↓</span></a><p class="pt-small">A preparation checklist. It adds no acceptance requirements to the source plan.</p></div><ol><li><strong>Define the product</strong><span>Model, revision, intended users, parts and packaging.</span></li><li><strong>Select the conditions</strong><span>Test entries, stage codes, variants and exact units.</span></li><li><strong>Resolve open criteria</strong><span>Missing settings, source ambiguities and approved references.</span></li><li><strong>Specify the records</strong><span>Sample identification, measured values and evaluation evidence.</span></li></ol></div></section>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  // Optional deep-link enhancement; native disclosures work without JavaScript.
+  function openLinkedTest() {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target instanceof HTMLDetailsElement && target.classList.contains('pt-test')) target.open = true;
+  }
+  openLinkedTest();
+  window.addEventListener('hashchange', openLinkedTest);
+</script>
