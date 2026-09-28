@@ -1,0 +1,237 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import standardData from '../../../data/incoming-standard.json';
+import '../../../styles/incoming-inspection.css';
+
+interface Criterion {
+  item: string;
+  criterion: string;
+  severity: string;
+  method: string;
+  sourceRef: string;
+  note?: string;
+}
+interface Material {
+  id: string;
+  name: string;
+  sourceRef: string;
+  summary: string;
+  note?: string;
+  rows: Criterion[];
+}
+interface IncomingStandard {
+  source: { title: string; organization: string };
+  families: { id: string; name: string; description: string; icon: string; materials: Material[] }[];
+  evidence: { src: string; width: number; height: number; alt: string; title: string; reference: string; interpretation: string }[];
+  methods: { id: string; name: string; description: string; examples: string[] }[];
+  faqs: { question: string; answer: string }[];
+}
+
+const standard: IncomingStandard = standardData;
+const title = 'Incoming Material Inspection Standard (IQC) | LEANODM';
+const description = 'Explore the incoming material inspection standard: sampling reference, CR / MAJ / MIN classifications, inspection methods and criteria for 20 material types.';
+const route = '/quality/incoming-inspection/';
+const siteOrigin = new URL(import.meta.env.PUBLIC_SITE_URL || 'https://www.leanodm.com').origin;
+const canonical = new URL(route, siteOrigin).href;
+const navigation = [
+  { label: 'Inspection setup', href: '#inspection-conditions' },
+  { label: 'Material standards', href: '#material-standards' },
+  { label: 'Customer requirements', href: '#customer-requirements' },
+];
+const pages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
+const hasPage = (path: string) => pages.some((file) => {
+  const normalized = file.replace(/^\/src\/pages\//, '/').replace(/index\.astro$/, '').replace(/\.astro$/, '/');
+  return normalized === path;
+});
+const related = [
+  { href: '/quality/appearance-inspection/', label: 'Product appearance inspection', detail: 'Read the separate standard for surface classes, cosmetic defects and appearance criteria.' },
+  { href: '/quality/in-process-inspection/', label: 'In-process inspection', detail: 'Review the requirements applied during production.' },
+  { href: '/quality/product-testing/', label: 'Product testing', detail: 'Explore functional and product-specific test requirements.' },
+].filter((item) => hasPage(item.href));
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Quality standards', url: hasPage('/quality/') ? '/quality/' : '#quality-standards' },
+  { name: 'Incoming inspection', url: route },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical,
+      name: title, description, inLanguage: 'en',
+      about: { '@type': 'Thing', name: 'Xinyinhai incoming material inspection standard (IQC)' },
+      breadcrumb: { '@id': `${canonical}#breadcrumbs` },
+    },
+    {
+      '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`,
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem', position: index + 1, name: item.name,
+        item: new URL(item.url, item.url.startsWith('#') ? canonical : siteOrigin).href,
+      })),
+    },
+    {
+      '@type': 'FAQPage', '@id': `${canonical}#faq`,
+      mainEntity: standard.faqs.map((faq) => ({
+        '@type': 'Question', name: faq.question,
+        acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+      })),
+    },
+  ],
+};
+const materialCount = standard.families.reduce((total, family) => total + family.materials.length, 0);
+const familyIcons: Record<string, string> = {
+  packaging: 'M4 8 12 4l8 4v10l-8 4-8-4V8Zm0 0 8 4 8-4M12 12v10M8 6l8 4',
+  hardware: 'm14 4 1 4 4 1 2-2a7 7 0 0 1-8 9l-6 6-4-4 6-6a7 7 0 0 1 5-8Z',
+  electronics: 'M7 7h10v10H7V7Zm3 3h4v4h-4v-4M9 3v4m6-4v4M9 17v4m6-4v4M3 9h4m-4 6h4m10-6h4m-4 6h4',
+  'printed-materials': 'M5 3h11l4 4v14H5V3Zm11 0v5h4M8 12h9M8 16h9M8 8h4',
+  'soft-goods-other': 'M4 5h16v15H4V5Zm4 0v15M16 5v15M4 9h16M4 16h16M8 9l8 7m0-7-8 7',
+};
+const severityClass = (code: string) => ['CR', 'MAJ', 'MIN'].includes(code) ? code.toLowerCase() : 'review';
+const checklistHref = '/resources/incoming-inspection-project-brief.txt';
+---
+
+<BaseLayout title={title} description={description} technicalPage contactHref="#project-requirements" technicalNavigation={navigation} technicalPageTitle="Incoming inspection" technicalContactLabel="Prepare inspection brief">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="incoming-page">
+    <section id="inspection-conditions" class="iqc-hero" aria-labelledby="page-title">
+      <div class="iqc-container">
+        <nav aria-label="Breadcrumb" class="iqc-breadcrumb"><ol>{breadcrumbs.map((item, index) => <li>{index < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="iqc-hero-grid">
+          <div class="iqc-hero-copy">
+            <p class="iqc-eyebrow"><span></span> QUALITY CONTROL / INCOMING MATERIALS</p>
+            <h1 id="page-title">Incoming Material<br />Inspection Standard <span>(IQC)</span></h1>
+            <p class="iqc-lead">A common basis for checking materials before they enter production.</p>
+            <p class="iqc-intro">Explore the factory’s inspection conditions, sampling reference and material-specific criteria—from packaging and hardware to electronic components and fabrics.</p>
+            <div class="iqc-hero-actions">
+              <a class="iqc-button" href="#material-standards">Find your material <span aria-hidden="true">↓</span></a>
+              <a class="iqc-text-link" href="#sampling-severity">Read the sampling &amp; severity rules <span aria-hidden="true">↗</span></a>
+            </div>
+            <p class="iqc-hero-source">Factory document reference · {materialCount} material types · {standard.families.length} navigation groups</p>
+          </div>
+
+          <div class="iqc-control-panel" aria-labelledby="setup-title">
+            <div class="iqc-panel-heading"><h2 id="setup-title">Inspection setup</h2><span>SOURCE §4</span></div>
+            <dl class="iqc-primary-conditions">
+              <div><dt>Viewing distance</dt><dd>25–30 <span>cm</span></dd></div>
+              <div><dt>Viewing angle</dt><dd>45<span>°</span></dd></div>
+              <div><dt>Observation</dt><dd>5 <span>sec</span></dd></div>
+            </dl>
+            <div class="iqc-geometry" aria-hidden="true">
+              <svg viewBox="0 0 460 130" fill="none">
+                <path d="M41 27c15-19 36-19 51 0-15 19-36 19-51 0Z" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="67" cy="27" r="6" stroke="currentColor" stroke-width="1.6" />
+                <path d="m99 36 79 79" stroke="currentColor" stroke-dasharray="5 5" />
+                <path d="M118 115h290M130 121h266" stroke="currentColor" stroke-width="1.8" />
+                <path d="M140 115a38 38 0 0 1 11-27M131 28l79 79m-78-72-1-7 7 1m65 71 7 7-1-8" stroke="currentColor" />
+                <text x="230" y="49">VIEWING DISTANCE</text>
+                <text x="230" y="65">25–30 CM</text>
+                <text x="146" y="107">45°</text>
+                <text x="63" y="66" text-anchor="middle">VIEWER</text>
+                <text x="323" y="105" text-anchor="middle">MATERIAL SURFACE</text>
+              </svg>
+              <span>Viewing schematic · not to scale</span>
+            </div>
+            <dl class="iqc-secondary-conditions">
+              <div><dt>White lighting</dt><dd><strong>40 W / 1.5–2 m</strong><span>Light directed perpendicular to the surface. The lamp count is unclear in the source wording.</span></dd></div>
+              <div><dt>Inspector eyesight</dt><dd><strong>Unaided ≥ 0.7</strong><span>The source specifies unaided visual acuity of at least 0.7.</span></dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="iqc-container">
+      <section id="quality-standards" class="iqc-scope iqc-section" aria-labelledby="scope-title">
+        <div><p class="iqc-eyebrow">01 / THE BASIS FOR A DECISION</p><h2 id="scope-title">Check the material.<br />Keep the context.</h2></div>
+        <div>
+          <p>The source standard applies to incoming materials, including semi-finished and finished products. It provides a shared basis for acceptance or rejection using product quality standards, customer standards, and samples supplied by Engineering or QA.</p>
+          <p class="iqc-source">Source: <cite>{standard.source.title}</cite> · {standard.source.organization} · document TV-QM-S001 · effective 13 August 2021. The supplied file does not establish the current revision status. This page is an English reference to that factory document. Material groups and explanatory notes help navigation; source-specific conditions remain attached to each criterion.</p>
+        </div>
+      </section>
+
+      <section id="sampling-severity" class="iqc-section" aria-labelledby="sampling-title">
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">02 / SAMPLING &amp; DEFECT CLASSIFICATION</p><h2 id="sampling-title">Set the plan.<br />Understand the severity.</h2></div><p>Read the sampling reference together with the defect definitions and the individual material rule. A classification has meaning only in its stated context.</p></div>
+        <div class="iqc-sampling-grid">
+          <div class="iqc-sampling-card">
+            <p class="iqc-micro-label">SOURCE §5.1–5.2</p>
+            <h3>MIL-STD-105E</h3>
+            <p>Single sampling · normal inspection<br /><strong>General Inspection Level II</strong></p>
+            <dl class="iqc-aql"><div><dt>CR</dt><dd>0</dd></div><div><dt>MAJ</dt><dd>0.65</dd></div><div><dt>MIN</dt><dd>2.5</dd></div></dl>
+            <p class="iqc-card-note">These are the source’s stated acceptance quality level labels. They are not observed defect rates, pass rates or sample sizes.</p>
+            <p class="iqc-card-note">MIL-STD-105E is reproduced as a historical source reference. This page does not claim current certification or derive a lot acceptance decision.</p>
+          </div>
+          <div class="iqc-severity-list">
+            <article><span class="iqc-severity iqc-severity-cr">CR</span><div><h3>Critical</h3><p>Hazardous electrical, mechanical or appearance defects.</p></div></article>
+            <article><span class="iqc-severity iqc-severity-maj">MAJ</span><div><h3>Major</h3><p>Functional or structural failures, or appearance problems visible from <strong>50 cm or more</strong>.</p></div></article>
+            <article><span class="iqc-severity iqc-severity-min">MIN</span><div><h3>Minor</h3><p>Appearance defects visible to the unaided eye at <strong>25–30 cm and 45°, observed for 5 seconds</strong>, excluding appearance defects classified as CR.</p></div></article>
+            <p class="iqc-source">Definitions from source §6. The source’s row-level marks are reproduced below, including inconsistencies that need clarification.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="material-standards" class="iqc-section iqc-material-library" aria-labelledby="materials-title">
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">03 / MATERIAL STANDARDS</p><h2 id="materials-title">Find the checks for<br />your incoming material.</h2></div><p>{materialCount} material types, grouped for easy reference. Open a material to read its criteria, source classifications and inspection methods.</p></div>
+        <nav class="iqc-family-matrix" aria-label="Material family navigation">
+          {standard.families.map((family, index) => <a href={`#${family.id}`}><div class="iqc-family-icon"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={familyIcons[family.id] || familyIcons.packaging} /></svg><span aria-hidden="true">0{index + 1}</span></div><strong>{family.name}</strong><span>{family.materials.length} material types <span aria-hidden="true">↗</span></span></a>)}
+        </nav>
+        <div class="iqc-reading-note"><span class="iqc-note-marker" aria-hidden="true">i</span><div><h3>How to read these criteria</h3><p>Most rows describe a defect trigger. Some source rows state a requirement instead; their wording is retained or clarified. Blank, dual and inconsistent severity marks are identified in the relevant row. A missing classification is not an acceptance decision. Confirm unresolved points before applying the standard.</p><p><strong>Source notation:</strong> D = diameter · L = length · W = width · h = height · n = count · S = area. Numeric limits keep the source’s stated boundaries.</p></div></div>
+
+        <div class="iqc-families">
+          {standard.families.map((family, familyIndex) => <section id={family.id} class="iqc-family" aria-labelledby={`${family.id}-title`}>
+            <div class="iqc-family-heading"><span class="iqc-family-number" aria-hidden="true">0{familyIndex + 1}</span><div><h3 id={`${family.id}-title`}>{family.name}</h3><p>{family.description}</p></div><a href="#material-standards" aria-label="Back to material family navigation">↑ <span>All materials</span></a></div>
+            <div class="iqc-materials">
+              {family.materials.map((material) => <details id={material.id} class="iqc-material">
+                <summary><span class="iqc-material-summary"><strong>{material.name}</strong><span>{material.summary}</span></span><span class="iqc-material-meta">{material.rows.length} criteria</span><span class="iqc-disclosure" aria-hidden="true">+</span></summary>
+                <div class="iqc-material-content">
+                  <p class="iqc-material-source">{material.sourceRef}</p>
+                  {material.note && <p class="iqc-material-note"><strong>Source clarification.</strong> {material.note}</p>}
+                  <table class="iqc-criteria-table" role="table">
+                    <caption>Criteria and source classifications — {material.name}</caption>
+                    <thead role="rowgroup"><tr role="row"><th scope="col" role="columnheader">Inspection item</th><th scope="col" role="columnheader">Criterion / source wording</th><th scope="col" role="columnheader">Source class</th><th scope="col" role="columnheader">Method</th></tr></thead>
+                    <tbody role="rowgroup">{material.rows.map((row) => <tr role="row"><th scope="row" role="rowheader" data-label="Inspection item">{row.item}</th><td role="cell" data-label="Criterion"><span>{row.criterion}</span>{row.note && <p class="iqc-row-note"><strong>Source note:</strong> {row.note}</p>}<small class="iqc-row-ref">{row.sourceRef}</small></td><td role="cell" data-label="Source class"><span class:list={['iqc-severity', `iqc-severity-${severityClass(row.severity)}`]}>{row.severity || 'Unmarked'}</span></td><td role="cell" data-label="Method">{row.method}</td></tr>)}</tbody>
+                  </table>
+                </div>
+              </details>)}
+            </div>
+          </section>)}
+        </div>
+
+        <aside class="iqc-reading-note iqc-clarification"><span class="iqc-note-marker" aria-hidden="true">!</span><div><h3>Exemptions need to be read with the later material rows</h3><p>The source exempts non-product materials. It also provisionally exempts molding materials (胶料), color powder and 线 (thread/wire; exact scope unclear) because the factory states it cannot test them. Later tables list molding-material/color-powder and electrical-wire checks. This conflict is retained for clarification; the later rows do not establish a blanket exemption or a complete testing capability.</p></div></aside>
+      </section>
+
+      <section id="inspection-methods" class="iqc-section" aria-labelledby="methods-title">
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">04 / INSPECTION METHODS</p><h2 id="methods-title">Use the method<br />the material calls for.</h2></div><p>A visual comparison, a measurement and a functional test answer different questions. The method column above keeps that distinction visible.</p></div>
+        <div class="iqc-method-grid">{standard.methods.map((method, index) => <article id={method.id}><span class="iqc-method-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{method.name}</h3><p>{method.description}</p><ul>{method.examples.map((example) => <li>{example}</li>)}</ul></article>)}</div>
+      </section>
+
+      {standard.evidence.length > 0 && <section id="source-evidence" class="iqc-section" aria-labelledby="evidence-title">
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">05 / FROM THE SOURCE DOCUMENT</p><h2 id="evidence-title">See the original<br />inspection references.</h2></div><p>These excerpts come from the supplied factory document. The source markings support traceability; they do not resolve its ambiguous or inconsistent entries. In table excerpts, the severity columns run left to right: <strong>CR / MAJ / MIN</strong>.</p></div>
+        <div class="iqc-evidence-grid">{standard.evidence.map((evidence, index) => <figure><a class="iqc-evidence-image" href={evidence.src} aria-label={`Open source excerpt: ${evidence.title}`}><div class="iqc-evidence-label"><span>DOCUMENT EXCERPT / {String(index + 1).padStart(2, '0')}</span><span aria-hidden="true">↗</span></div><img src={evidence.src} alt={evidence.alt} width={evidence.width} height={evidence.height} loading="lazy" decoding="async" /></a><figcaption><span>{evidence.reference}</span><h3>{evidence.title}</h3><p>{evidence.interpretation}</p></figcaption></figure>)}</div>
+      </section>}
+
+      <section id="customer-requirements" class="iqc-section iqc-customer" aria-labelledby="customer-title">
+        <div><p class="iqc-eyebrow">06 / CUSTOMER REQUIREMENTS</p><h2 id="customer-title">Start with the requirements<br />for that customer’s product.</h2></div>
+        <div><p class="iqc-customer-rule">Where a customer has special requirements <strong>or</strong> requirements stricter than the factory standard, that customer’s products follow the customer’s requirements.</p><p class="iqc-source">Source §5.2. This provision applies to the relevant customer’s products.</p><p>Bring the applicable drawing, specification and approved reference sample into the discussion. Resolve unclear severity marks and agree the relevant checks before using the criteria for a lot decision.</p></div>
+      </section>
+
+      {related.length > 0 && <section id="related-quality-controls" class="iqc-section" aria-labelledby="related-title"><p class="iqc-eyebrow">RELATED QUALITY CONTROLS</p><h2 id="related-title">Explore Our Quality System</h2><div class="iqc-related">{related.map((item) => <a href={item.href}><div><h3>{item.label}</h3><p>{item.detail}</p></div><span aria-hidden="true">↗</span></a>)}</div></section>}
+
+      <section id="faq" class="iqc-section" aria-labelledby="faq-title">
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">07 / BUYER QUESTIONS</p><h2 id="faq-title">Incoming inspection FAQ</h2></div><p>Practical questions about the source standard, its scope and the way its requirements are presented.</p></div>
+        <div class="iqc-faqs">{standard.faqs.map((faq) => <details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div>
+      </section>
+    </div>
+
+    <section id="project-requirements" class="iqc-project" aria-labelledby="project-title">
+      <div class="iqc-container iqc-project-grid">
+        <div><p class="iqc-eyebrow">YOUR PRODUCT / YOUR INSPECTION BRIEF</p><h2 id="project-title">Discuss incoming material<br />requirements for your project.</h2><p>Prepare the details needed for a useful technical discussion. A written brief connects the material, the reference sample and the checks that matter to your product.</p><div class="iqc-project-actions"><a class="iqc-button" href={checklistHref} download="LEANODM-IQC-project-checklist.txt">Prepare Your Incoming Inspection Brief <span aria-hidden="true">↓</span></a></div><p class="iqc-project-note">Download a plain-text checklist to complete. This preparation guide adds no acceptance rules to the factory standard.</p></div>
+        <ol class="iqc-checklist"><li><span>01</span><div><strong>Identify the material</strong><p>Product, component, supplier and lot information.</p></div></li><li><span>02</span><div><strong>Bring the reference</strong><p>Drawing revision, customer specification and approved sample.</p></div></li><li><span>03</span><div><strong>Define the important checks</strong><p>Dimensions, appearance, assembly, function and required tests.</p></div></li><li><span>04</span><div><strong>Resolve the decision rules</strong><p>Sampling plan, classifications and source points needing clarification.</p></div></li></ol>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

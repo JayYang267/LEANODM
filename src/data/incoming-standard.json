@@ -1,0 +1,1821 @@
+{
+  "source": {
+    "title": "IQC Incoming Material Inspection Standard (IQC外来物料检验标准)",
+    "organization": "Xinyinhai",
+    "sha256": "79d6c7f041460221527d1e27a1fce9144cd2a065bf59a49dc55113ccafb01f8b",
+    "originalFile": "IQC外来物料检验标准.doc"
+  },
+  "families": [
+    {
+      "id": "packaging",
+      "name": "Packaging",
+      "description": "Cartons, printed packs and protective packaging.",
+      "icon": "package",
+      "materials": [
+        {
+          "id": "outer-cartons",
+          "name": "Outer cartons",
+          "sourceRef": "Table 2, rows 2–22",
+          "summary": "Paperboard, folding, dimensions and weight, shipping marks, joints, printing, damage, deformation and stains.",
+          "note": "The source generally specifies double-wall corrugated board unless otherwise required. Joint grading and strict dimensional boundaries need project confirmation.",
+          "rows": [
+            {
+              "item": "Paperboard",
+              "criterion": "Paperboard quality or the number of corrugated layers does not meet the customer requirements. Unless otherwise specified, outer cartons are generally double-wall corrugated cartons.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 2, row 2"
+            },
+            {
+              "item": "Folding resistance",
+              "criterion": "Cracking occurs after folding back and forth 10 times.",
+              "severity": "MAJ",
+              "method": "Visual inspection / actual measurement",
+              "sourceRef": "Table 2, row 3"
+            },
+            {
+              "item": "Dimensions and weight",
+              "criterion": "Dimensional deviation from the shipping-mark requirements: L > 12.5 mm; H > 6.4 mm; W > 4.5 mm.",
+              "severity": "MAJ",
+              "method": "Tape measure / electronic scale",
+              "sourceRef": "Table 2, row 4",
+              "note": "Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Dimensions and weight",
+              "criterion": "The carton is too large or too small during a product trial fit, or the packed quantity does not match the reference documentation.",
+              "severity": "MAJ",
+              "method": "Tape measure / electronic scale",
+              "sourceRef": "Table 2, row 5",
+              "note": "The criterion calls for a trial fit; the method column itself lists only tape measure / electronic scale."
+            },
+            {
+              "item": "Dimensions and weight",
+              "criterion": "The carton does not meet the engineering weight requirement of 400 g ± 10 g; for a weight greater than 400 g, follow the sample-making requirement.",
+              "severity": "MAJ",
+              "method": "Tape measure / electronic scale",
+              "sourceRef": "Table 2, row 6",
+              "note": "The source uses grams, not g/m². No grammage interpretation is added."
+            },
+            {
+              "item": "Shipping marks and graphics",
+              "criterion": "Shipping marks are not printed in the designated area.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 7"
+            },
+            {
+              "item": "Shipping marks and graphics",
+              "criterion": "Shipping-mark text or graphics are incorrect or missing.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 8"
+            },
+            {
+              "item": "Shipping marks and graphics",
+              "criterion": "The vertical positions of the front and side shipping marks do not align.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 9"
+            },
+            {
+              "item": "Shipping marks and graphics",
+              "criterion": "Shipping marks on one face are not positioned symmetrically left-to-right or top-to-bottom.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 10"
+            },
+            {
+              "item": "Joint strength",
+              "criterion": "The carton joint is loose or does not meet customer requirements.",
+              "severity": "CR / MAJ — unresolved",
+              "method": "Visual inspection",
+              "sourceRef": "Table 2, row 11",
+              "note": "Both CR and MAJ are marked in this source row. Their priority or applicability is unresolved and must be confirmed for the project."
+            },
+            {
+              "item": "Carton staples",
+              "criterion": "Carton staples are arranged untidily or spaced unevenly.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "Table 2, row 12"
+            },
+            {
+              "item": "Printing",
+              "criterion": "The shipping-mark barcode is unclear or cannot be scanned, or there is no space for the self-adhesive barcode label.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 13",
+              "note": "Scanning is specified in the criterion; the method column lists visual inspection / limit sample."
+            },
+            {
+              "item": "Printing",
+              "criterion": "Shipping-mark printing is blurred but remains readable.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 14",
+              "note": "The source marks this outer-carton condition MAJ; the corresponding inner-carton condition is MIN. The difference is preserved."
+            },
+            {
+              "item": "Printing",
+              "criterion": "Shipping-mark printing is blurred and unreadable.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 15"
+            },
+            {
+              "item": "Printing",
+              "criterion": "The shipping-mark print color is incorrect.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 16"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage exposes the product.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 17"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage does not expose the product.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 18"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Carton deformation or creasing seriously affects packing or transport.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 19"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Carton deformation or creasing does not affect packing, transport or appearance.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 20"
+            },
+            {
+              "item": "Stains",
+              "criterion": "Stains affect the shipping marks, but the marks remain clearly readable.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 21"
+            },
+            {
+              "item": "Stains",
+              "criterion": "Stains make the shipping marks unclear or unreadable.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 22"
+            }
+          ]
+        },
+        {
+          "id": "inner-cartons",
+          "name": "Inner cartons",
+          "sourceRef": "Table 2, rows 23–37; Table 3, rows 2–6",
+          "summary": "Paperboard, dimensional deviations, lining and identification, shipping marks, joints, printing, damage, deformation, stains and folding.",
+          "note": "The source generally specifies single-wall corrugated board unless otherwise required. Joint grading and gaps between dimensional bands need project confirmation.",
+          "rows": [
+            {
+              "item": "Paperboard",
+              "criterion": "Paperboard quality or the number of corrugated layers does not meet the customer requirements. Unless otherwise specified, inner cartons are generally single-wall corrugated cartons.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 23"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensional deviation: L > 12.5 mm; H > 6.4 mm; W > 4.5 mm.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 24",
+              "note": "Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensional deviation: 6.8 mm < L < 12.5 mm; 3.2 mm < H < 6.4 mm; 2.8 mm < W < 4.5 mm.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 25",
+              "note": "Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "The carton is too large or too small during a product trial fit, or the packed quantity does not match the reference documentation.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 26",
+              "note": "The criterion calls for a trial fit; the method column lists visual inspection / limit sample."
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Packaging identification does not match the actual contents; the paperboard is damp.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 2, row 27"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "There is text on the inner lining paper.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 2, row 28"
+            },
+            {
+              "item": "Shipping marks and graphics",
+              "criterion": "Shipping marks are not printed in the designated area.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 29"
+            },
+            {
+              "item": "Shipping marks and graphics",
+              "criterion": "Shipping-mark text or graphics are incorrect or missing.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 30"
+            },
+            {
+              "item": "Joint",
+              "criterion": "The carton joint is loose, or the stapling does not meet customer requirements.",
+              "severity": "CR / MAJ — unresolved",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 31",
+              "note": "Both CR and MAJ are marked in this source row. Their priority or applicability is unresolved and must be confirmed for the project."
+            },
+            {
+              "item": "Printing",
+              "criterion": "The shipping-mark barcode is unclear or cannot be scanned, or there is no space for the self-adhesive barcode label, where applicable.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 32",
+              "note": "Scanning is specified in the criterion; the method column lists visual inspection / limit sample."
+            },
+            {
+              "item": "Printing",
+              "criterion": "Shipping-mark printing is blurred but remains readable.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 33",
+              "note": "The source marks this inner-carton condition MIN; the corresponding outer-carton condition is MAJ. The difference is preserved."
+            },
+            {
+              "item": "Printing",
+              "criterion": "Shipping-mark printing is blurred and unreadable.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 34"
+            },
+            {
+              "item": "Printing",
+              "criterion": "The shipping-mark print color is incorrect.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 2, row 35"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage exposes the product.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 2, row 36"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage does not expose the product.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "Table 2, row 37"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Carton deformation or creasing seriously affects packing or transport.",
+              "severity": "MAJ",
+              "method": "Visual inspection / actual measurement",
+              "sourceRef": "Table 3, row 2"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Carton deformation or creasing does not affect packing, transport or appearance.",
+              "severity": "MIN",
+              "method": "Visual inspection / actual measurement",
+              "sourceRef": "Table 3, row 3"
+            },
+            {
+              "item": "Stains",
+              "criterion": "Stains affect the shipping marks, but the marks remain clearly readable.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 4"
+            },
+            {
+              "item": "Stains",
+              "criterion": "Stains make the shipping marks unclear or unreadable.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 5"
+            },
+            {
+              "item": "Folding resistance",
+              "criterion": "Cracking occurs after folding back and forth 10 times.",
+              "severity": "MAJ",
+              "method": "Visual inspection / actual measurement",
+              "sourceRef": "Table 3, row 6"
+            }
+          ]
+        },
+        {
+          "id": "color-boxes",
+          "name": "Color boxes",
+          "sourceRef": "Table 3, rows 7–23",
+          "summary": "Paperboard and fit, text and graphics, color, printing and varnish, damage, stains, joints and barcode-label checks.",
+          "note": "The color-difference limit requires an agreed measurement method. The large surface-damage row has no inspection method stated.",
+          "rows": [
+            {
+              "item": "Paperboard",
+              "criterion": "The paperboard does not meet requirements.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 7"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions do not meet requirements, or the product trial fit fails.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 8",
+              "note": "The criterion calls for a trial fit; the method column lists only visual inspection."
+            },
+            {
+              "item": "Text and graphics",
+              "criterion": "Text or graphics are incorrect.",
+              "severity": "MAJ",
+              "method": "Visual inspection / reference documentation / sample",
+              "sourceRef": "Table 3, row 9"
+            },
+            {
+              "item": "Text and graphics",
+              "criterion": "Text or graphics are missing from the printing.",
+              "severity": "MAJ",
+              "method": "Visual inspection / reference documentation / sample",
+              "sourceRef": "Table 3, row 10"
+            },
+            {
+              "item": "Color",
+              "criterion": "Color does not match the sample, or the color difference from the PANTONE reference is ΔE > 0.8.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 11",
+              "note": "This is the source’s stated limit. It gives no color-difference formula, instrument, illuminant, observer or measurement settings. Agree the measurement method before applying ΔE > 0.8."
+            },
+            {
+              "item": "Printing",
+              "criterion": "Printed text or graphics cannot be clearly distinguished.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 12"
+            },
+            {
+              "item": "Printing",
+              "criterion": "Print-quality condition: text or graphics remain recognizable.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 13",
+              "note": "The source assigns MIN to this readable-print condition without stating another defect qualifier. It is not presented as a blanket rejection of correctly printed text."
+            },
+            {
+              "item": "Printing",
+              "criterion": "Obvious oil stains seriously affect appearance.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 14"
+            },
+            {
+              "item": "Printing",
+              "criterion": "Obvious oil stains have a slight effect on appearance.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 15"
+            },
+            {
+              "item": "Printing",
+              "criterion": "The gloss or matte level of the print varnish does not meet customer requirements.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 16"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage makes the product visible.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 17"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Surface-layer damage: 3.2 mm × 3.2 mm < S < 6.4 mm × 6.4 mm.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 18",
+              "note": "Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Damage (item heading blank in source)",
+              "criterion": "Surface-layer damage is greater than 6.4 mm × 6.4 mm.",
+              "severity": "MAJ",
+              "method": "Not specified in source",
+              "sourceRef": "Table 3, row 19",
+              "note": "The source leaves the item heading and the unmerged method cell blank. The damage description supplies the context. Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Stains",
+              "criterion": "Stains cover graphics or text so they cannot be read.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 20"
+            },
+            {
+              "item": "Stains",
+              "criterion": "Stains cover graphics or text, but they remain readable.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 21"
+            },
+            {
+              "item": "Joint",
+              "criterion": "The joint is inadequately bonded and comes loose.",
+              "severity": "MAJ",
+              "method": "Visual inspection / actual measurement",
+              "sourceRef": "Table 3, row 22"
+            },
+            {
+              "item": "Barcode number",
+              "criterion": "The serial-number label gives no result when scanned; severe trimming defects cut off text content.",
+              "severity": "MAJ",
+              "method": "Visual inspection / actual measurement",
+              "sourceRef": "Table 3, row 23",
+              "note": "The source item is headed barcode number but its criterion says serial-number label. Scanning is in the criterion; the method column lists visual inspection / actual measurement."
+            }
+          ]
+        },
+        {
+          "id": "hang-tags",
+          "name": "Header cards and hang tags",
+          "sourceRef": "Table 3, rows 24–32",
+          "summary": "Material, text and graphics, readability, damage, hanger-hole cutting and fold creases.",
+          "note": "The source’s OR-based damage rules overlap in some cases and leave equality boundaries unresolved. Confirm the project classification before applying them.",
+          "rows": [
+            {
+              "item": "Material",
+              "criterion": "Material does not meet requirements.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 24"
+            },
+            {
+              "item": "Text and graphics",
+              "criterion": "Text or graphics are incorrect.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 25"
+            },
+            {
+              "item": "Text and graphics",
+              "criterion": "Graphics or text cannot be clearly distinguished.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 26"
+            },
+            {
+              "item": "Text and graphics",
+              "criterion": "Print-quality condition: graphics or text remain recognizable.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 27",
+              "note": "The source assigns MIN to this readable-print condition without stating another defect qualifier. It is not presented as a blanket rejection of correctly printed text."
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage prevents characters or graphics from being seen clearly.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 28"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage area S > 3.2 mm × 3.2 mm OR length L > 6.4 mm.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 29",
+              "note": "The source uses OR in both the MAJ and MIN damage rules, so different area and length results can overlap. Confirm the project decision and precedence; no priority is inferred. Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage area S < 3.2 mm × 3.2 mm OR length L < 6.4 mm.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 30",
+              "note": "The source uses OR in both the MAJ and MIN damage rules, so different area and length results can overlap. Confirm the project decision and precedence; no priority is inferred. Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Die cutting",
+              "criterion": "Die cutting is defective: the hanger hole is not cut through.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 31"
+            },
+            {
+              "item": "Die cutting",
+              "criterion": "The fold crease is missing.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 32"
+            }
+          ]
+        },
+        {
+          "id": "polybags",
+          "name": "Polybags",
+          "sourceRef": "Table 3, rows 33–45",
+          "summary": "Material and color, dimensions and thickness, opening size, warning/perforation conditions, marking language, print, damage, sealing and edges.",
+          "note": "The safety-related CR entries are source-specific factory criteria and do not establish regulatory compliance. The importing-country language entry has no severity marked.",
+          "rows": [
+            {
+              "item": "Material",
+              "criterion": "Material does not meet requirements.",
+              "severity": "MAJ",
+              "method": "Not specified in source",
+              "sourceRef": "Table 3, row 33"
+            },
+            {
+              "item": "Color",
+              "criterion": "The bag color is incorrect.",
+              "severity": "MAJ",
+              "method": "Not specified in source",
+              "sourceRef": "Table 3, row 34"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Specified dimensions do not meet requirements.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample / caliper measurement",
+              "sourceRef": "Table 3, row 35"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Bag thickness < 0.038 mm, with no perforations AND no printed warning.",
+              "severity": "CR",
+              "method": "Visual inspection / limit sample / caliper measurement",
+              "sourceRef": "Table 3, row 36",
+              "note": "Both absent safeguards are required by the source wording: no perforations AND no printed warning. This is a factory-source criterion, not a statement of regulatory compliance."
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "The bag opening is 7 inches (17.78 cm) or more, with no perforations AND no printed warning.",
+              "severity": "CR",
+              "method": "Visual inspection / limit sample / caliper measurement",
+              "sourceRef": "Table 3, row 37",
+              "note": "The source says 7 inches (17.78 cm) or more. Both absent safeguards are retained together. This is a factory-source criterion, not a statement of regulatory compliance."
+            },
+            {
+              "item": "Marking text and graphics",
+              "criterion": "Marking text or graphics are incorrect or missing.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 38"
+            },
+            {
+              "item": "Marking text and graphics",
+              "criterion": "The marking text does not use the importing country’s language.",
+              "severity": "Not marked",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 39",
+              "note": "The source leaves all severity columns blank; no grade is inferred."
+            },
+            {
+              "item": "Printing",
+              "criterion": "Printed text or graphics cannot be clearly distinguished.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 40"
+            },
+            {
+              "item": "Printing",
+              "criterion": "Print-quality condition: text or graphics remain recognizable.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 41",
+              "note": "The source assigns MIN to this readable-print condition without stating another defect qualifier. It is not presented as a blanket rejection of correctly printed text."
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage area S > 6.4 mm × 6.4 mm OR length L > 25.4 mm.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 42",
+              "note": "The area and length alternatives are joined by OR in the source. If their results fall into different severity bands, confirm the project decision. Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage area 3.2 mm × 3.2 mm < S < 6.4 mm × 6.4 mm OR length 6.4 mm < L < 25.4 mm.",
+              "severity": "MIN",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 43",
+              "note": "The area and length alternatives are joined by OR in the source. If their results fall into different severity bands, confirm the project decision. Strict inequalities are retained. Exact boundary values and cases outside the listed bands are not assigned an acceptance decision here; confirm the project rule."
+            },
+            {
+              "item": "Sealing",
+              "criterion": "Heat-pressed or shrink sealing is defective.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample",
+              "sourceRef": "Table 3, row 44"
+            },
+            {
+              "item": "Edges",
+              "criterion": "Wavy wrinkles or burrs occur at both ends of the bag, with L > 1/2 of that length.",
+              "severity": "MAJ",
+              "method": "Tape measure / actual measurement",
+              "sourceRef": "Table 3, row 45",
+              "note": "The reference length for “that length” is not precisely defined in the source. Confirm the measurement reference before applying the ratio."
+            }
+          ]
+        },
+        {
+          "id": "blister-packaging",
+          "name": "Blister packaging",
+          "sourceRef": "Table 3, rows 48–58",
+          "summary": "Material and fit, dimensions, deformation, punctures, liquid residue, blister-to-card sealing, black specks and exposed sharp edges.",
+          "note": "The puncture notation and seal-test references require project confirmation before a measurable acceptance rule can be applied.",
+          "rows": [
+            {
+              "item": "Material",
+              "criterion": "Material is incorrect.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 48"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions seriously affect the packed product; assess primarily by actual trial fit.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit / measurement",
+              "sourceRef": "Table 3, row 49"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "The blister extends beyond the card dimensions, or its thickness does not match the sample.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit / measurement",
+              "sourceRef": "Table 3, row 50"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "The actual article or its shape is incorrect.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit / measurement",
+              "sourceRef": "Table 3, row 51"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Deformation seriously affects the packed product.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 52"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Deformation affects appearance.",
+              "severity": "MIN",
+              "method": "Visual inspection / sample",
+              "sourceRef": "Table 3, row 53"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Puncture defect described in the source as “diameter D > 1 × 1 mm”.",
+              "severity": "MIN",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "Table 3, row 54",
+              "note": "The original notation is 穿孔直径D>1×1mm. It combines diameter D with two-dimensional notation. The measurement geometry and intended limit are unresolved; no diameter or area conversion is invented."
+            },
+            {
+              "item": "Oil or liquid residue",
+              "criterion": "Touching reveals an unidentified liquid, or yellow oil stains are present.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 55",
+              "note": "Touch is stated in the criterion; the method column lists only visual inspection."
+            },
+            {
+              "item": "Seal integrity",
+              "criterion": "With 3 pounds-force applied to the blister and card, separation exceeds 80%, OR the discontinuous portions total more than 1/2.",
+              "severity": "MAJ",
+              "method": "Visual inspection / testing",
+              "sourceRef": "Table 3, row 56",
+              "note": "The source states 3 pounds-force, more than 80% separation and a total over 1/2 for discontinuities. It does not define the percentage/length reference or full test procedure; confirm these before applying the rule."
+            },
+            {
+              "item": "Black specks",
+              "criterion": "Black specks are clearly visible, numerous and concentrated.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "Table 3, row 57"
+            },
+            {
+              "item": "Sharp edges and corners",
+              "criterion": "After the product and blister are assembled, an edge is exposed, or sharp edges at other corners scratch the hand.",
+              "severity": "CR",
+              "method": "Visual inspection and wiping",
+              "sourceRef": "Table 3, row 58"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "name": "Hardware",
+      "description": "Mechanical fit, finish, dimensions and function.",
+      "icon": "settings",
+      "materials": [
+        {
+          "id": "springs",
+          "name": "Springs",
+          "sourceRef": "T3R59–T3R66",
+          "summary": "Dimensions, end geometry, surface condition and force are assessed together with assembly and function.",
+          "rows": [
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions do not meet the specification.",
+              "severity": "MAJ",
+              "method": "Visual inspection / caliper",
+              "sourceRef": "T3R59"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Deformation affects assembly and function.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample comparison",
+              "sourceRef": "T3R60"
+            },
+            {
+              "item": "Rust",
+              "criterion": "Surface rust cannot be wiped off by hand.",
+              "severity": "MAJ",
+              "method": "Visual inspection / wiping",
+              "sourceRef": "T3R61"
+            },
+            {
+              "item": "Gloss",
+              "criterion": "Insufficient gloss does not meet the customer requirement.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample comparison",
+              "sourceRef": "T3R62"
+            },
+            {
+              "item": "Spring ends",
+              "criterion": "The direction of the spring end does not meet the requirement.",
+              "severity": "MAJ",
+              "method": "Visual inspection / touch",
+              "sourceRef": "T3R63",
+              "note": "The regional source term “耳度” is rendered as spring ends; the end orientation must follow the applicable specification."
+            },
+            {
+              "item": "Spring ends",
+              "criterion": "Sharp corners or edges at the spring-end opening. The source allows this item to be disregarded if the defect is covered and not exposed.",
+              "severity": "CR",
+              "method": "Visual inspection / touch",
+              "sourceRef": "T3R64",
+              "note": "This is a narrow exception in the spring row, not a general permission to accept exposed sharp features."
+            },
+            {
+              "item": "Oil contamination",
+              "criterion": "Wiping by hand leaves obvious oil stains. The source allows this item to be disregarded if the defect is covered and not exposed.",
+              "severity": "MAJ",
+              "method": "Visual inspection / touch",
+              "sourceRef": "T3R65"
+            },
+            {
+              "item": "Spring force",
+              "criterion": "Trial fitting affects function, or the force does not meet the customer requirement.",
+              "severity": "MAJ",
+              "method": "Visual inspection / test",
+              "sourceRef": "T3R66"
+            }
+          ]
+        },
+        {
+          "id": "key-rings",
+          "name": "Key rings",
+          "sourceRef": "T3R67–T3R75",
+          "summary": "Compare the supplied ring with the customer sample, assess fit and plating, and apply the referenced test instruction.",
+          "rows": [
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions differ from customer or specification requirements and affect function or assembly.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T3R67"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions differ from customer or specification requirements without affecting function or assembly.",
+              "severity": "MIN",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T3R68"
+            },
+            {
+              "item": "Color",
+              "criterion": "Color differs from the customer sample.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample comparison",
+              "sourceRef": "T3R69"
+            },
+            {
+              "item": "Sharp edges / corners",
+              "criterion": "Sharp edges or corners scratch the hand.",
+              "severity": "MAJ",
+              "method": "Visual inspection / touch",
+              "sourceRef": "T3R70",
+              "note": "The source marks this row MAJ, although its general CR definition includes hazardous mechanical defects. Confirm classification for the actual hazard; do not use this row to downgrade a safety defect."
+            },
+            {
+              "item": "Ring size",
+              "criterion": "The same type of key ring fitted to the same item has inconsistent ring sizes.",
+              "severity": "MAJ",
+              "method": "Visual inspection / physical check",
+              "sourceRef": "T3R71"
+            },
+            {
+              "item": "Plating loss",
+              "criterion": "Plating loss exceeds 5% of the area of a conspicuous part.",
+              "severity": "MAJ",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "T3R72"
+            },
+            {
+              "item": "Plating loss",
+              "criterion": "Plating loss exceeds 5% of the area of a less conspicuous part.",
+              "severity": "MIN",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "T3R73"
+            },
+            {
+              "item": "Function",
+              "criterion": "The key ring cannot be used normally.",
+              "severity": "MAJ",
+              "method": "Visual inspection / physical check",
+              "sourceRef": "T3R74"
+            },
+            {
+              "item": "Test",
+              "criterion": "Failure of the referenced salt-spray test.",
+              "severity": "MAJ",
+              "method": "Visual inspection / test",
+              "sourceRef": "T3R75",
+              "note": "The source writes “盐物”, interpreted as a typographical error for salt spray. The referenced test instruction is not supplied; duration, solution and acceptance conditions are not specified here."
+            }
+          ]
+        },
+        {
+          "id": "screws-nuts",
+          "name": "Screws and nuts",
+          "sourceRef": "T3R76–T4R7",
+          "summary": "Dimensional and finish checks are combined with thread condition and actual mating fit.",
+          "rows": [
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions do not meet customer or specification requirements.",
+              "severity": "MAJ",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "T3R76"
+            },
+            {
+              "item": "Function",
+              "criterion": "Trial fitting with the product affects function.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T3R77"
+            },
+            {
+              "item": "Rust",
+              "criterion": "Surface rust cannot be wiped off by hand.",
+              "severity": "MAJ",
+              "method": "Visual inspection / wiping",
+              "sourceRef": "T3R78"
+            },
+            {
+              "item": "Gloss",
+              "criterion": "Insufficient gloss does not meet the customer requirement.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample comparison",
+              "sourceRef": "T3R79"
+            },
+            {
+              "item": "Plating loss",
+              "criterion": "Plating loss exceeds 5% of the area of a conspicuous part.",
+              "severity": "MAJ",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "T3R80"
+            },
+            {
+              "item": "Plating loss",
+              "criterion": "Plating loss exceeds 5% of the area of a less conspicuous part.",
+              "severity": "MIN",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "T3R81"
+            },
+            {
+              "item": "Oil contamination",
+              "criterion": "Wiping by hand leaves obvious oil stains.",
+              "severity": "MAJ",
+              "method": "Visual inspection / wiping",
+              "sourceRef": "T3R82"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Deformation affects assembly or performance.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample / tape measure / physical check",
+              "sourceRef": "T3R83"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Deformation does not affect assembly or performance.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample / tape measure / physical check",
+              "sourceRef": "T3R84"
+            },
+            {
+              "item": "Fit / assembly",
+              "criterion": "Screws are broken, have damaged heads or have stripped threads.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T4R2"
+            },
+            {
+              "item": "Fit / assembly",
+              "criterion": "Requirement: matching screws and nuts must fit together properly.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T4R3"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Requirement: screw heads must be free of foreign material obstructing them.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T4R4"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Requirement: no cracks, deformation, missing material, absent threads or incomplete threads.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T4R5"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "The thread direction is incorrect.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample comparison",
+              "sourceRef": "T4R6"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Stripped or damaged screw threads.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample comparison",
+              "sourceRef": "T4R7"
+            }
+          ]
+        },
+        {
+          "id": "magnets",
+          "name": "Magnets",
+          "sourceRef": "T4R8–T4R18",
+          "summary": "Sample comparison, crack dimensions, mating fit and magnetic force address different requirements.",
+          "rows": [
+            {
+              "item": "Material",
+              "criterion": "Material differs from the sample or customer requirement.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample comparison",
+              "sourceRef": "T4R8"
+            },
+            {
+              "item": "Appearance / color",
+              "criterion": "Overall appearance or color differs from the sample.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample comparison",
+              "sourceRef": "T4R9"
+            },
+            {
+              "item": "Appearance / color",
+              "criterion": "The surface is uneven.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample comparison",
+              "sourceRef": "T4R10"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions differ from customer or specification requirements and affect function or assembly.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T4R11"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions differ from customer or specification requirements without affecting function or assembly.",
+              "severity": "MIN",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T4R12"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Deformation seriously affects the product being fitted.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T4R13"
+            },
+            {
+              "item": "Deformation",
+              "criterion": "Deformation affects appearance.",
+              "severity": "MIN",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T4R14"
+            },
+            {
+              "item": "Cracks",
+              "criterion": "Crack defect area S ≥ 2.5 mm × 2.5 mm, or length L ≥ 5 mm.",
+              "severity": "MAJ",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "T4R15"
+            },
+            {
+              "item": "Cracks",
+              "criterion": "Crack defect area 1.3 mm × 1.3 mm ≤ S < 2.5 mm × 2.5 mm, or length 2.5 mm ≤ L < 5 mm.",
+              "severity": "MIN",
+              "method": "Visual inspection / measurement",
+              "sourceRef": "T4R16"
+            },
+            {
+              "item": "Magnetic force",
+              "criterion": "Magnetic force, when paired with the actual product, does not meet customer or specification requirements.",
+              "severity": "MAJ",
+              "method": "Visual inspection / test",
+              "sourceRef": "T4R17"
+            },
+            {
+              "item": "Damage",
+              "criterion": "Damage clearly affects appearance or assembly function.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T4R18"
+            }
+          ]
+        },
+        {
+          "id": "general-hardware",
+          "name": "General hardware",
+          "sourceRef": "T5R2–T5R26",
+          "summary": "Inspect material identity, assembly fit, paint, plating, screen printing and scratches.",
+          "rows": [
+            {
+              "item": "Material",
+              "criterion": "Material differs from the sample.",
+              "severity": "MAJ",
+              "method": "Visual inspection / sample comparison",
+              "sourceRef": "T5R2"
+            },
+            {
+              "item": "Dimensional tolerance",
+              "criterion": "Dimensions exceed tolerance and prevent assembly.",
+              "severity": "MAJ",
+              "method": "Visual inspection / physical check",
+              "sourceRef": "T5R3"
+            },
+            {
+              "item": "Dimensional tolerance",
+              "criterion": "Dimensions exceed tolerance without affecting assembly.",
+              "severity": "MAJ",
+              "method": "Visual inspection / physical check",
+              "sourceRef": "T5R4"
+            },
+            {
+              "item": "Packaging",
+              "criterion": "Package identification does not match the contents, or materials are mixed.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T5R5"
+            },
+            {
+              "item": "Assembly",
+              "criterion": "The part cannot be assembled with its mating item.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T5R6"
+            },
+            {
+              "item": "Assembly",
+              "criterion": "The fit with the mating item is too tight or too loose.",
+              "severity": "MAJ",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T5R7"
+            },
+            {
+              "item": "Assembly",
+              "criterion": "The fit with the mating item is slightly loose or tight.",
+              "severity": "MIN",
+              "method": "Visual inspection / trial fit",
+              "sourceRef": "T5R8"
+            },
+            {
+              "item": "Paint / surface",
+              "criterion": "Severe paint loss, oxidation, burrs or deformation.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample comparison",
+              "sourceRef": "T5R9"
+            },
+            {
+              "item": "Paint / surface",
+              "criterion": "Slight paint loss, oxidation, burrs or deformation.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample comparison",
+              "sourceRef": "T5R10"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Blocked punched holes, flash or burrs affect assembly.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample comparison",
+              "sourceRef": "T5R11"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Blocked screw holes, stripped threads, misalignment or flash affect assembly.",
+              "severity": "MIN",
+              "method": "Visual inspection / limit sample comparison",
+              "sourceRef": "T5R12",
+              "note": "The source marks this assembly-affecting row MIN, in tension with the general MAJ definition. Classification requires confirmation; the defect is not presented as acceptable."
+            },
+            {
+              "item": "Electroplating",
+              "criterion": "Bubbles are visible at the stated normal viewing distance of 25 cm.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample / measurement",
+              "sourceRef": "T5R13"
+            },
+            {
+              "item": "Electroplating",
+              "criterion": "The surface appears dull, rough or insufficiently glossy at 25 cm.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample / measurement",
+              "sourceRef": "T5R14"
+            },
+            {
+              "item": "Electroplating",
+              "criterion": "Plating loss area > 1 mm².",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample / measurement",
+              "sourceRef": "T5R15"
+            },
+            {
+              "item": "Electroplating",
+              "criterion": "Plating loss area < 1 mm², with a total of ≥ 3 spots.",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample / measurement",
+              "sourceRef": "T5R16",
+              "note": "The following source row also marks plating loss below 1 mm² MAJ without a count condition. These overlapping entries do not establish a count-based acceptance exception."
+            },
+            {
+              "item": "Electroplating",
+              "criterion": "Plating loss area < 1 mm².",
+              "severity": "MAJ",
+              "method": "Visual inspection / limit sample / measurement",
+              "sourceRef": "T5R17",
+              "note": "The source marks both > 1 mm² and < 1 mm² as MAJ. Exactly 1 mm² is not assigned by these inequalities; no boundary has been inferred."
+            },
+            {
+              "item": "Screen printing",
+              "criterion": "Screen-print color differs noticeably from the sample.",
+              "severity": "MAJ",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R18"
+            },
+            {
+              "item": "Screen printing",
+              "criterion": "Printed text or its position is incorrect.",
+              "severity": "MAJ",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R19"
+            },
+            {
+              "item": "Screen printing",
+              "criterion": "Obvious screen-print ink on the character surface, or unclear text.",
+              "severity": "MAJ",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R20"
+            },
+            {
+              "item": "Screen printing",
+              "criterion": "Obvious incomplete, broken or ragged character strokes.",
+              "severity": "MAJ",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R21"
+            },
+            {
+              "item": "Screen printing",
+              "criterion": "Slight incomplete, broken or ragged character strokes.",
+              "severity": "MAJ",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R22"
+            },
+            {
+              "item": "Scratches",
+              "criterion": "Two shallow scratches longer than 3 mm.",
+              "severity": "MIN",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R23",
+              "note": "Source mark: MIN. The shorter-shallow-scratch row is marked MAJ; this inconsistent ordering remains unresolved. Confirm classification rather than using it as an acceptance limit."
+            },
+            {
+              "item": "Scratches",
+              "criterion": "At least 2 shallow scratches shorter than 3 mm.",
+              "severity": "MAJ",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R24",
+              "note": "Source mark: MAJ. The longer-shallow-scratch row is marked MIN. Exactly 3 mm is not covered; no severity correction or boundary has been invented."
+            },
+            {
+              "item": "Scratches",
+              "criterion": "At least 1 deep scratch longer than 1 mm.",
+              "severity": "MIN",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R25",
+              "note": "Source mark: MIN. The shorter-deep-scratch row is marked MAJ; this inconsistent ordering remains unresolved."
+            },
+            {
+              "item": "Scratches",
+              "criterion": "More than 1 deep scratch shorter than 1 mm.",
+              "severity": "MAJ",
+              "method": "Visual comparison / limit sample",
+              "sourceRef": "T5R26",
+              "note": "Source mark: MAJ. The longer-deep-scratch row is marked MIN. Exactly 1 mm is not covered; classification requires confirmation."
+            }
+          ],
+          "note": "Several source severity marks are inconsistent with the general definitions or with adjacent rows. The marks below are attributed to the document and qualified; they are not silently corrected."
+        }
+      ]
+    },
+    {
+      "id": "electronics",
+      "name": "Electronics",
+      "description": "Boards, wires, contacts and cable ties.",
+      "icon": "cpu",
+      "materials": [
+        {
+          "id": "pcba",
+          "name": "PCBA",
+          "sourceRef": "T5R31–T5R34",
+          "summary": "Printed circuit board assemblies combine visual checks with functional/current tests and a separate solderability check.",
+          "rows": [
+            {
+              "item": "Dimensions",
+              "criterion": "Requirement: dimensions must meet the design requirement.",
+              "severity": "MAJ",
+              "method": "Comparison / trial use",
+              "sourceRef": "T5R31"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Check for missing soldered components and poor solder joints; compare component arrangement with the signed sample; check cleanliness, solder residue, lifted copper, board deformation and correct switch alignment.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T5R32"
+            },
+            {
+              "item": "Functional test",
+              "criterion": "Check applicable functions, operating current, standby current and power-off current, where applicable, using the relevant test instruction.",
+              "severity": "CR",
+              "method": "Test instruction",
+              "sourceRef": "T5R33",
+              "note": "CR is the mark in this test row. The source supplies no numerical current limits or product-specific test instruction; this is not a claim that every possible functional deviation is a safety defect."
+            },
+            {
+              "item": "Solderability",
+              "criterion": "Requirement: complete tin wetting within 2 seconds using a 60 W soldering iron.",
+              "severity": "MAJ",
+              "method": "Soldering iron",
+              "sourceRef": "T5R34",
+              "note": "The source specifies iron power and wetting time, not soldering temperature, alloy or flux."
+            }
+          ]
+        },
+        {
+          "id": "wires-plug-contacts",
+          "name": "Wires and plug/contact pieces",
+          "sourceRef": "T5R35–T5R38",
+          "summary": "The source groups electric wires with “带插头触摸片”, translated here as plug/contact pieces; confirm the exact part against its drawing.",
+          "rows": [
+            {
+              "item": "Dimensions",
+              "criterion": "Requirement: dimensions must meet the design requirement.",
+              "severity": "MAJ",
+              "method": "Comparison / trial use",
+              "sourceRef": "T5R35"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Check color.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "T5R36"
+            },
+            {
+              "item": "Copper core count / function",
+              "criterion": "Compare copper core count or function with the signed sample and trial fit.",
+              "severity": "MAJ",
+              "method": "Comparison / trial use",
+              "sourceRef": "T5R37"
+            },
+            {
+              "item": "Solderability",
+              "criterion": "Requirement: complete tin wetting within 2 seconds using a 60 W soldering iron.",
+              "severity": "MAJ",
+              "method": "Soldering iron",
+              "sourceRef": "T5R38",
+              "note": "The source specifies iron power and wetting time, not soldering temperature, alloy or flux."
+            }
+          ],
+          "note": "The general text calls “线” temporarily inspection-exempt, but this table lists wire checks. Whether “线” covers these wires or another thread/wire material is not resolved. These are documented criteria, not a blanket claim that all wire shipments are tested or exempt."
+        },
+        {
+          "id": "cable-ties",
+          "name": "Cable ties",
+          "sourceRef": "T5R39–T5R40",
+          "summary": "Compare dimensions with the signed sample and check appearance and locking.",
+          "rows": [
+            {
+              "item": "Dimensions",
+              "criterion": "Compare dimensions with the signed sample.",
+              "severity": "MAJ",
+              "method": "Comparison / trial use",
+              "sourceRef": "T5R39"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Check color and whether the tie locks completely.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "T5R40",
+              "note": "Both color and complete locking are grouped under MIN in the source. A locking failure may conflict with the general MAJ functional definition; confirm the applicable classification."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "printed-materials",
+      "name": "Printed materials",
+      "description": "Manuals, stickers, legibility and adhesion.",
+      "icon": "file-text",
+      "materials": [
+        {
+          "id": "manuals",
+          "name": "Instruction manuals",
+          "sourceRef": "T4R19–T4R32",
+          "summary": "Paper, typography, page registration, trimming, binding and accompanying documents are covered.",
+          "rows": [
+            {
+              "item": "Paper",
+              "criterion": "Paper does not meet design or customer requirements.",
+              "severity": "MAJ",
+              "method": "Visual comparison",
+              "sourceRef": "T4R19"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Dimensions do not meet the design requirement.",
+              "severity": "MAJ",
+              "method": "Standard sample comparison",
+              "sourceRef": "T4R20"
+            },
+            {
+              "item": "Paper thickness",
+              "criterion": "Paper thickness does not meet design or customer requirements.",
+              "severity": "MAJ",
+              "method": "Visual comparison",
+              "sourceRef": "T4R21"
+            },
+            {
+              "item": "Printed text",
+              "criterion": "Text is incorrect or unclear; font size or position differs from the design; character strokes are missing, broken or distorted.",
+              "severity": "MAJ",
+              "method": "Visual comparison",
+              "sourceRef": "T4R22"
+            },
+            {
+              "item": "Print color",
+              "criterion": "Cover, page or ink colors differ from the sample or specified color code.",
+              "severity": "MAJ",
+              "method": "Visual comparison",
+              "sourceRef": "T4R23"
+            },
+            {
+              "item": "Book sections",
+              "criterion": "Requirement: book sections must be flat and orderly, without obvious splayed wrinkles, hard creases, folded corners, incomplete pages or dirt.",
+              "severity": "MAJ",
+              "method": "Visual inspection / vernier caliper / ruler",
+              "sourceRef": "T4R24"
+            },
+            {
+              "item": "Book sections",
+              "criterion": "Requirement: page numbers and page order must be correct. Measured from the page-number center, position error must be ≤ 2.0 mm between adjacent pages and ≤ 4.0 mm throughout the book; image registration error must be ≤ 1.0 mm.",
+              "severity": "MAJ",
+              "method": "Visual inspection / vernier caliper / ruler",
+              "sourceRef": "T4R25"
+            },
+            {
+              "item": "Book sections",
+              "criterion": "Requirement: cuts/notches in the book sections must be correctly arranged, cut through and located on the fold line.",
+              "severity": "MAJ",
+              "method": "Visual inspection / vernier caliper / ruler",
+              "sourceRef": "T4R26"
+            },
+            {
+              "item": "Finished trimming",
+              "criterion": "Requirement: finished trimming skew must be ≤ 1.0 mm, with no severe blade marks, joined uncut pages or severe damage at the trimmed head.",
+              "severity": "MAJ",
+              "method": "Not specified in source",
+              "sourceRef": "T4R27"
+            },
+            {
+              "item": "Finished appearance",
+              "criterion": "Requirement: the finished manual must be neat, with no indentations or stains.",
+              "severity": "MIN",
+              "method": "Not specified in source",
+              "sourceRef": "T4R28"
+            },
+            {
+              "item": "Adhesive binding",
+              "criterion": "Requirement: appropriate adhesive viscosity; adhesive must penetrate to the innermost sheets and bond securely. Plant-based adhesives are prohibited by this source.",
+              "severity": "MAJ",
+              "method": "Not specified in source",
+              "sourceRef": "T4R29"
+            },
+            {
+              "item": "Adhesive binding",
+              "criterion": "Requirement: no adhesive overflow; the spine must be straight, without voids, wrinkles, discoloration or damage.",
+              "severity": "MIN",
+              "method": "Not specified in source",
+              "sourceRef": "T4R30"
+            },
+            {
+              "item": "Saddle stitching",
+              "criterion": "Requirement: no defective, missing or double staples; binding must be flat and clean, with flat, secure staple legs and staples placed on the fold line.",
+              "severity": "MAJ",
+              "method": "Not specified in source",
+              "sourceRef": "T4R31"
+            },
+            {
+              "item": "Packaging",
+              "criterion": "Requirement: packaging must be neat, complete and undamaged, protect the product, and include the production date and an inspection pass certificate.",
+              "severity": "MAJ",
+              "method": "Not specified in source",
+              "sourceRef": "T4R32"
+            }
+          ],
+          "note": "Rows worded as positive requirements are labeled “Requirement”. Their source mark identifies the associated inspection item; meeting the requirement is not itself a defect."
+        },
+        {
+          "id": "stickers",
+          "name": "Stickers",
+          "sourceRef": "T5R27–T5R30",
+          "summary": "Check specified dimensions, appearance, adhesion and packaging documentation.",
+          "rows": [
+            {
+              "item": "Dimensions",
+              "criterion": "Requirement: dimensions must meet the design requirement.",
+              "severity": "MAJ",
+              "method": "Tape measure or caliper",
+              "sourceRef": "T5R27"
+            },
+            {
+              "item": "Appearance",
+              "criterion": "Requirement: no color difference, foreign material or ragged edges.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "T5R28"
+            },
+            {
+              "item": "Adhesion",
+              "criterion": "Requirement: adhesion must be good when compared and tried in use.",
+              "severity": "MAJ",
+              "method": "Comparison / trial use",
+              "sourceRef": "T5R29"
+            },
+            {
+              "item": "Packaging",
+              "criterion": "Requirement: sound packaging, accompanied by the production date and an inspection pass certificate.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T5R30"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "soft-goods-other",
+      "name": "Soft goods & other materials",
+      "description": "Fabric, sewn parts, molding material, color powder and PVC balls.",
+      "icon": "layers",
+      "materials": [
+        {
+          "id": "resin-color-powder",
+          "name": "Molding materials and color powder",
+          "sourceRef": "T5R41",
+          "summary": "The table records appearance, batch and report-age checks, subject to an unresolved exemption statement.",
+          "rows": [
+            {
+              "item": "Appearance",
+              "criterion": "The table lists checks for cloudy color, batch identity and whether relevant test reports are within one year.",
+              "severity": "CR",
+              "method": "Visual inspection",
+              "sourceRef": "T5R41",
+              "note": "Source mark: CR, but the general text temporarily exempts color powder and molding material because the factory cannot test them. This listed document/appearance check does not establish routine testing, chemical validation or an exemption policy."
+            }
+          ],
+          "note": "Inspection applicability needs confirmation: the general clause temporarily exempts these materials because the factory cannot test them, while this table lists checks. No routine material-performance or chemical-testing claim is made."
+        },
+        {
+          "id": "fabrics",
+          "name": "Fabrics",
+          "sourceRef": "T5R42–T5R46",
+          "summary": "Appearance, dimensions, weight, rubbing color fastness and seam pull-test preparation are specified.",
+          "rows": [
+            {
+              "item": "Appearance",
+              "criterion": "Check color, intact packaging and complete labels.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T5R42"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Check fabric width, pile length where applicable, and quantity.",
+              "severity": "MAJ",
+              "method": "Tape measure",
+              "sourceRef": "T5R43"
+            },
+            {
+              "item": "Fabric weight",
+              "criterion": "Check that fabric weight meets the requirement.",
+              "severity": "MAJ",
+              "method": "Electronic scale",
+              "sourceRef": "T5R44"
+            },
+            {
+              "item": "Color fastness",
+              "criterion": "Requirement: dry-rubbing color fastness ≥ grade 4 and wet-rubbing color fastness ≥ grade 4.",
+              "severity": "CR",
+              "method": "Dry/wet rubbing tester",
+              "sourceRef": "T5R45",
+              "note": "The source does not identify a test-method standard or grading scale beyond these values."
+            },
+            {
+              "item": "Pull test",
+              "criterion": "Prepare seams in both warp and weft directions at 10–12 stitches per inch with a 4 mm seam allowance. Apply the test load over 5 seconds and hold for 10 seconds.",
+              "severity": "CR",
+              "method": "Force gauge",
+              "sourceRef": "T5R46",
+              "note": "The target force and pass/fail force are missing. These preparation and timing conditions are not a complete executable pull-test specification."
+            }
+          ]
+        },
+        {
+          "id": "sewn-parts",
+          "name": "Sewn semi-finished parts",
+          "sourceRef": "T5R47–T5R49",
+          "summary": "Appearance follows the signed sample; fit, stitch density and seam allowance are separate checks.",
+          "rows": [
+            {
+              "item": "Appearance",
+              "criterion": "Requirement: appearance must match the signed sample.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T5R47"
+            },
+            {
+              "item": "Dimensions",
+              "criterion": "Trial fit the sewn semi-finished part.",
+              "severity": "MAJ",
+              "method": "Comparison / trial use",
+              "sourceRef": "T5R48"
+            },
+            {
+              "item": "Stitch density / seam allowance",
+              "criterion": "Requirement: 10–12 stitches per inch and a seam allowance of at least 5 mm; nonconformance is marked MIN.",
+              "severity": "MIN",
+              "method": "Ruler",
+              "sourceRef": "T5R49"
+            }
+          ],
+          "note": "The ≥ 5 mm seam allowance here applies to sewn incoming parts. The 4 mm allowance in the fabric pull-test row is specimen preparation; they are different applications."
+        },
+        {
+          "id": "pvc-balls",
+          "name": "PVC balls",
+          "sourceRef": "T5R50–T5R52",
+          "summary": "Check surface appearance, weight and visible air retention after standing.",
+          "rows": [
+            {
+              "item": "Appearance",
+              "criterion": "Check color, surface cleanliness and bubbles.",
+              "severity": "MIN",
+              "method": "Visual inspection",
+              "sourceRef": "T5R50"
+            },
+            {
+              "item": "Weight",
+              "criterion": "Check weight against the requirement; the source adds “exceeds 2%”.",
+              "severity": "MAJ",
+              "method": "Electronic scale",
+              "sourceRef": "T5R51",
+              "note": "The nominal weight, deviation direction and calculation basis are not given. The 2% phrase is retained as unresolved, not converted into a ±2% tolerance."
+            },
+            {
+              "item": "Air retention",
+              "criterion": "Requirement: after standing for at least 8 hours, no obvious indentation or collapse; otherwise classified MAJ.",
+              "severity": "MAJ",
+              "method": "Visual inspection",
+              "sourceRef": "T5R52"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "src": "/images/quality/incoming-inspection/evidence-sampling-and-exemption.webp",
+      "width": 1300,
+      "height": 1002,
+      "title": "Inspection conditions, sampling and applicability",
+      "reference": "Rendered source page 1, §§4–7",
+      "alt": "Chinese internal IQC standard excerpt showing viewing conditions, MIL-STD-105E sampling, CR 0, MAJ 0.65, MIN 2.5 and the inspection-exemption clause.",
+      "interpretation": "The document states the viewing conditions and acceptance levels together with the customer-specific clause. Its general exemption statement must be read alongside the later material table."
+    },
+    {
+      "src": "/images/quality/incoming-inspection/evidence-electronics.webp",
+      "width": 1300,
+      "height": 225,
+      "title": "PCBA: appearance, function and solderability",
+      "reference": "Rendered source page 6, PCBA rows T5R31–T5R34",
+      "alt": "Original PCBA table excerpt showing appearance checks, operating and standby currents, and a 60 W soldering iron with a 2-second wetting check.",
+      "interpretation": "The PCBA rows separate visual condition, functional/current checks and solderability. The functional-test row is marked CR; solderability is marked MAJ. The source does not provide numerical current limits. The excerpt's severity columns run left to right: CR, MAJ, MIN."
+    },
+    {
+      "src": "/images/quality/incoming-inspection/evidence-materials-and-fabric.webp",
+      "width": 1300,
+      "height": 565,
+      "title": "Fabric, sewn parts and PVC balls",
+      "reference": "Rendered source page 7, rows T5R39–T5R52",
+      "alt": "Original material table excerpt including molding materials and color powder, dry and wet color fastness grade 4, fabric pull-test preparation, sewn parts and PVC ball air retention.",
+      "interpretation": "Dry and wet rubbing each require at least grade 4. The fabric seam test uses 10–12 stitches per inch, a 4 mm allowance, a 5-second loading period and a 10-second hold. The required force is absent. The same excerpt records a different seam allowance for sewn parts and at least 8 hours for PVC-ball observation. The excerpt's severity columns run left to right: CR, MAJ, MIN."
+    }
+  ],
+  "methods": [
+    {
+      "id": "visual",
+      "name": "Visual inspection",
+      "description": "Review the material-specific appearance item under the stated viewing conditions. Some rows also call for wiping or touch.",
+      "examples": [
+        "Carton markings and damage",
+        "PCBA cleanliness and solder-joint appearance",
+        "PVC ball color and surface"
+      ]
+    },
+    {
+      "id": "sample",
+      "name": "Reference & limit samples",
+      "description": "Compare with the engineering/QA, customer, signed or limit sample when the relevant row requires it.",
+      "examples": [
+        "Color boxes and printed graphics",
+        "Magnet appearance",
+        "Signed samples for sewn parts"
+      ]
+    },
+    {
+      "id": "measurement",
+      "name": "Measurement",
+      "description": "Use the tool named in the source row: tape measure, caliper or ruler. Keep units and strict inequality boundaries as written.",
+      "examples": [
+        "Carton dimensions",
+        "Manual page registration",
+        "Sewn-part stitch density"
+      ]
+    },
+    {
+      "id": "trial-fit",
+      "name": "Trial fit",
+      "description": "Assess the component with its mating part or product where the criterion calls for fitting or trial use.",
+      "examples": [
+        "Screws and nuts",
+        "Springs and magnets",
+        "Wires and sewn parts"
+      ]
+    },
+    {
+      "id": "functional",
+      "name": "Functional test",
+      "description": "Use the relevant product requirement or referenced instruction. A named test does not supply missing operating limits.",
+      "examples": [
+        "PCBA function and currents",
+        "Spring force",
+        "Magnetic force in the actual product"
+      ]
+    },
+    {
+      "id": "barcode",
+      "name": "Barcode scan",
+      "description": "The criteria identify unreadable or unscannable codes. Some method columns list visual/sample checks or physical checks rather than a named scanner.",
+      "examples": [
+        "Outer and inner carton barcodes",
+        "Color-box serial-number labels"
+      ]
+    },
+    {
+      "id": "weight",
+      "name": "Weight check",
+      "description": "Compare with the specified weight using an electronic scale where listed. Confirm any missing nominal value or unclear deviation rule.",
+      "examples": [
+        "Outer carton engineering weight",
+        "Fabric weight",
+        "PVC ball weight"
+      ]
+    },
+    {
+      "id": "solderability",
+      "name": "Solderability test",
+      "description": "The PCBA and wire rows specify complete tin wetting within 2 seconds using a 60 W soldering iron.",
+      "examples": [
+        "PCBA solderability",
+        "Wires and plug/contact pieces"
+      ]
+    },
+    {
+      "id": "pull",
+      "name": "Pull & seam checks",
+      "description": "Apply only the conditions specified for that material. Fabric loading times do not establish a missing target force.",
+      "examples": [
+        "Blister-to-card separation under 3 lbf",
+        "Fabric seams: 5-second loading, 10-second hold"
+      ]
+    },
+    {
+      "id": "rubbing",
+      "name": "Rubbing color fastness",
+      "description": "The fabric row names a dry/wet rubbing tester and requires at least grade 4 in each condition.",
+      "examples": [
+        "Dry rubbing ≥ grade 4",
+        "Wet rubbing ≥ grade 4"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is incoming quality control (IQC)?",
+      "answer": "Incoming quality control evaluates purchased materials and components against defined requirements before their intended use in manufacturing. This page presents Xinyinhai’s internal incoming inspection standard for incoming materials, including semi-finished and finished products."
+    },
+    {
+      "question": "What sampling plan and acceptance levels does this IQC standard name?",
+      "answer": "The source names MIL-STD-105E, single normal sampling inspection, General Inspection Level II, with CR 0, MAJ 0.65 and MIN 2.5. These are the source’s acceptance-level entries, not reported defect rates. This page does not calculate lot-specific sample sizes or acceptance/rejection numbers."
+    },
+    {
+      "question": "How do critical, major and minor defects differ?",
+      "answer": "CR covers hazardous electrical, mechanical or appearance faults. MAJ covers functional or structural faults, or appearance problems visible at 50 cm or farther. MIN covers appearance defects visible at 25–30 cm, 45° and 5 seconds, excluding appearance-related CR defects. Inconsistent material-table marks are identified beside the relevant rows."
+    },
+    {
+      "question": "Are molding materials, color powder and wires inspection-exempt?",
+      "answer": "The source is inconsistent. Its general clause temporarily exempts molding materials (胶料), color powder and “线” because the factory cannot test them, while later rows list molding-material/color-powder checks and electrical-wire checks. The exact meaning of “线” and the applicable inspection scope require confirmation; the page does not claim universal exemption or routine testing."
+    },
+    {
+      "question": "What does PCBA incoming inspection check?",
+      "answer": "The PCBA section covers design dimensions, component and solder-joint appearance, cleanliness, board condition and switch alignment. It also lists relevant function and current checks, plus complete tin wetting within 2 seconds using a 60 W soldering iron. Numerical current limits must come from the applicable test instruction."
+    },
+    {
+      "question": "Can customer requirements override the general factory standard?",
+      "answer": "Yes. The source says that where a customer has special requirements or requirements stricter than the factory standard, that customer’s products follow the customer requirements. The standard also references product quality standards and samples supplied by Engineering or QA."
+    },
+    {
+      "question": "Does this page provide a complete pull-test instruction for fabric?",
+      "answer": "No. The source specifies warp and weft seam preparation at 10–12 stitches per inch, a 4 mm seam allowance, loading over 5 seconds and holding for 10 seconds. It does not state the target force or pass/fail force, so those must be confirmed before the test can be executed as an acceptance instruction."
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+LEANODM — Incoming Material Inspection Project Brief
+Reference: https://www.leanodm.com/quality/incoming-inspection/
+
+Use this checklist to prepare your material requirements for a discussion
+with your existing LEANODM / Xinyinhai project contact. This file does not
+submit information, approve materials or establish a new factory standard.
+
+1. PRODUCT AND MATERIAL
+   Product / project name:
+   Material or component name and part number:
+   Drawing / specification revision:
+   Intended use and destination market:
+
+2. REFERENCE DOCUMENTS
+   Customer specifications and special requirements:
+   Engineering or QA reference sample identification:
+   Artwork, color reference and packaging instructions:
+   Relevant test reports and applicable revision / date:
+
+3. ACCEPTANCE REQUIREMENTS TO AGREE
+   Critical dimensions, units and tolerances:
+   Functional requirements and product-specific test limits:
+   Appearance limits and reference / limit samples:
+   Mating parts required for trial fitting:
+   Barcode content and readability requirements, where applicable:
+   Defect classifications and any source-table discrepancies to resolve:
+   Lot definition, sampling plan and acceptance numbers to confirm:
+
+4. MATERIAL-SPECIFIC OPEN POINTS, IF APPLICABLE
+   Resin / color powder / wire inspection applicability:
+   Color-difference measurement method and settings:
+   Fabric pull-test target force and pass/fail requirement:
+   PVC ball nominal weight and interpretation of the source's 2% phrase:
+   Salt-spray test instruction and conditions:
+   Any dimensional boundary not explicitly covered by the source:
+
+5. REVIEW BEFORE USE
+   Identify which customer requirements are special or stricter than the
+   general factory standard. Confirm unresolved items with the responsible
+   project team before using them as an acceptance instruction.
+
+Prepared by:
+Date / revision:
