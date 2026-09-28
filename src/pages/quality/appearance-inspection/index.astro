@@ -189,7 +189,7 @@ const faqs = [
                 <div class="inspection-defect-heading"><span class="inspection-defect-number" aria-hidden="true">{String(defect.number).padStart(2, '0')}</span><div><p class="inspection-source-section">SOURCE §6.{defect.number}</p><h3 id={`${defect.id}-title`}>{defect.name}</h3></div></div>
                 <p class="inspection-definition"><strong>What it is.</strong> {defect.description}</p>
                 <div class:list={['inspection-evidence', { 'single-image': defect.images.length === 1 }]}>
-                  {defect.images.map((photo) => <figure><a href={photo.src} aria-label={`Open original-size example: ${photo.caption}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}
+                  {defect.images.map((photo) => <figure><a href={photo.src} aria-label={`Open original-size example: ${photo.caption}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading={defect.number <= 3 ? 'eager' : 'lazy'} decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}
                 </div>
                 {defect.criteria.length > 0 && <div class="inspection-table-wrap"><table class="inspection-table criteria-table">
                   <caption>Acceptance criteria — {defect.name}</caption>
