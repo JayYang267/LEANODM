@@ -1,0 +1,13 @@
+---
+import type { SoundBookProduct } from '../../data/products/types';
+interface Props { product: SoundBookProduct }
+const { product: p } = Astro.props;
+const first = p.gallery[0];
+const group = `reference-${p.id}`;
+---
+<div class="sb-detail-gallery">
+  <div class="sb-detail-image-surface"><span class="sb-photo-label">{p.statusLabel} · {p.shownLanguages.join(' + ')} printing</span><a class="sb-detail-main" href={first.src} data-main-image data-lightbox={group} data-width={first.width} data-height={first.height} data-title={first.label} data-caption={first.caption} data-source="Xinyinhai company presentation · historical product reference"><img src={first.src} alt={first.alt} width={first.width} height={first.height} loading="eager" fetchpriority="high" decoding="async" /><span class="sb-detail-enlarge">Enlarge image <span aria-hidden="true">↗</span></span></a></div>
+  {p.gallery.length > 1 && <div class="sb-detail-thumbnails" aria-label="Views of this reference">{p.gallery.map((item, index) => <a href={item.src} data-gallery-thumb data-src={item.src} data-width={item.width} data-height={item.height} data-alt={item.alt} data-caption={item.caption} data-label={item.label} aria-label={`Show ${item.label.toLowerCase()}`} aria-current={index === 0 ? 'true' : undefined}><img src={item.src} alt="" width={item.width} height={item.height} loading="lazy" /><span>{item.label}</span></a>)}</div>}
+  <p class="sb-detail-caption" data-gallery-caption>{first.caption}</p>
+  <div hidden>{p.gallery.map(item => <a href={item.src} data-lightbox={group} data-width={item.width} data-height={item.height} data-title={item.label} data-caption={item.caption}>{item.label}</a>)}</div>
+</div>

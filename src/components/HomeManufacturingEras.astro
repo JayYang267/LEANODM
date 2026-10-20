@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import { manufacturingEras } from '../data/home';
+import volumeConcept from '../assets/home/manufacturing-eras/value-for-money-concept-v1.png';
+import precisionConcept from '../assets/home/manufacturing-eras/exceptional-quality-concept-v1.png';
+import leanAssembly from '../assets/home/xinyinhai-assembly.png';
+import '../styles/home-manufacturing-eras.css';
+
+const images = [
+  { image: volumeConcept, alt: 'Concept image of simple electronic product housings prepared for high-volume assembly' },
+  { image: precisionConcept, alt: 'Concept image of a refined electronic product under precision optical inspection' },
+  { image: leanAssembly, alt: 'Organized assembly lines and material flow in the Xinyinhai production workshop' },
+];
+---
+<ol class="xyh-manufacturing-eras" id="manufacturing-eras" aria-label="China manufacturing approaches" data-manufacturing-eras data-default-era="2" data-active-era="2">
+  {manufacturingEras.map((era, index) => <li class:list={['xyh-era-card', { 'is-active': index === 2 }]} data-era-card>
+    <div class="xyh-era-media">
+      <Image src={images[index].image} alt={images[index].alt} widths={[360, 640, Math.min(960, images[index].image.width)]} sizes="(max-width: 980px) 90vw, 52vw" loading="lazy" format="webp" quality={85} />
+    </div>
+    <div class="xyh-era-copy">
+      <h3><button type="button" id={`manufacturing-era-trigger-${index + 1}`} data-era-trigger aria-expanded="true" aria-controls={`manufacturing-era-detail-${index + 1}`}>{era.title}</button></h3>
+      <div class="xyh-era-detail" id={`manufacturing-era-detail-${index + 1}`} role="region" aria-labelledby={`manufacturing-era-trigger-${index + 1}`} data-era-detail><p>{era.text}</p></div>
+    </div>
+  </li>)}
+</ol>

@@ -1,0 +1,37 @@
+---
+interface Props { kind: 'fixture' | 'layers' | 'inspection'; }
+const { kind } = Astro.props;
+---
+{kind === 'fixture' && <svg viewBox="0 0 560 340" role="img" aria-label="Positioning schematic: a plastic part sits inside a locating fixture; fixed reference edges establish its orientation and intended print area.">
+  <rect x="100" y="45" width="340" height="244" rx="5" fill="#e4ebf4" stroke="#97aecb" stroke-width="2" />
+  <path d="M120 65h58v12h-46v42h-12zm290 0h12v54h-12zm-290 174h12v30h46v12h-58zm290 0h12v42h-58v-12h46z" fill="#183ba3" />
+  <rect x="146" y="93" width="250" height="155" rx="24" fill="white" stroke="#142a46" stroke-width="2" />
+  <rect x="194" y="137" width="157" height="65" rx="2" fill="#eff3ff" stroke="#183ba3" stroke-dasharray="5 4" />
+  <path d="M212 169h35m-17-17v34M265 157h65m-65 12h50m-50 12h60" stroke="#183ba3" stroke-width="3" />
+  <path d="M271 105v-53m0 0-6 8m6-8 6 8" stroke="#bd1d2b" stroke-width="2" />
+  <path d="M139 73 64 30M397 200l81 23M350 135l128-49" fill="none" stroke="#506178" />
+  <g class="sp-diagram-labels" fill="#142a46" font-size="14" font-family="Arial,sans-serif"><text x="24" y="23">Reference edge</text><text x="408" y="79">Print area</text><text x="450" y="245">Plastic part</text><text x="270" y="319" text-anchor="middle">Defined orientation · supported location</text></g>
+  <g class="sp-diagram-numbers" fill="#183ba3" font-size="26" font-family="Arial,sans-serif" font-weight="700"><text x="39" y="27">1</text><text x="481" y="82">2</text><text x="482" y="252">3</text></g>
+</svg>}
+{kind === 'fixture' && <div class="sp-mobile-legend" aria-hidden="true"><span><b>1</b>Reference edge</span><span><b>2</b>Print area</span><span><b>3</b>Plastic part</span></div>}
+{kind === 'layers' && <svg viewBox="0 0 640 280" role="img" aria-label="Layer registration schematic: a base graphic, a surface graphic and the aligned result share the same reference crosshairs. Illustrative artwork only.">
+  <g fill="#f3f6fa" stroke="#c0cde0"><rect x="10" y="34" width="180" height="190" rx="8"/><rect x="230" y="34" width="180" height="190" rx="8"/><rect x="450" y="34" width="180" height="190" rx="8"/></g>
+  <g stroke="#91a4bf" stroke-width="1.5"><path d="M27 59h18m-9-9v18M155 198h18m-9-9v18M247 59h18m-9-9v18M375 198h18m-9-9v18M467 59h18m-9-9v18M595 198h18m-9-9v18" /></g>
+  <rect x="47" y="87" width="106" height="89" rx="15" fill="#d9e3f4" stroke="#183ba3"/>
+  <rect x="267" y="87" width="106" height="89" rx="15" fill="none" stroke="#8b9fba" stroke-dasharray="4 4"/>
+  <rect x="487" y="87" width="106" height="89" rx="15" fill="#d9e3f4" stroke="#183ba3"/>
+  <g stroke="#183ba3" stroke-width="6" fill="none" stroke-linecap="round"><path d="M292 144v-26h26m-17 26v-15h26M512 144v-26h26m-17 26v-15h26"/></g>
+  <g fill="#bd1d2b"><circle cx="344" cy="132" r="7"/><circle cx="564" cy="132" r="7"/></g>
+  <g stroke="#506178" fill="none"><path d="M201 128h18m-6-5 6 5-6 5M421 128h18m-6-5 6 5-6 5" /></g>
+  <g class="sp-diagram-labels" fill="#142a46" font-size="15" font-family="Arial,sans-serif" text-anchor="middle"><text x="100" y="256">01 / Base layer</text><text x="320" y="256">02 / Surface layer</text><text x="540" y="256">03 / Aligned result</text></g>
+</svg>}
+{kind === 'layers' && <div class="sp-mobile-legend sp-layer-legend" aria-hidden="true"><span><b>01</b>Base layer</span><span><b>02</b>Surface layer</span><span><b>03</b>Aligned result</span></div>}
+{kind === 'inspection' && <svg viewBox="0 0 480 300" role="img" aria-label="Visual inspection schematic: compare a printed part with its approved reference; check print location, color, clarity, registration and surface condition.">
+  <g fill="white" stroke="#9fb5d3" stroke-width="2"><rect x="22" y="44" width="190" height="178" rx="13"/><rect x="268" y="44" width="190" height="178" rx="13"/></g>
+  <g stroke="#809abc" stroke-dasharray="4 5"><path d="M116 45v177m247-177v177M23 133h188m58 0h188"/></g>
+  <g fill="#183ba3"><rect x="60" y="98" width="114" height="70" rx="8"/><rect x="306" y="98" width="114" height="70" rx="8"/></g>
+  <g fill="none" stroke="white" stroke-width="4" stroke-linecap="round"><path d="m88 133 16 15 35-35m195 20 16 15 35-35"/></g>
+  <path d="M225 133h29m-6-6 6 6-6 6m-17-6-6 6 6 6" fill="none" stroke="#b8cce7" stroke-width="2"/>
+  <g class="sp-diagram-labels" fill="#d5e2f1" font-family="Arial,sans-serif" font-size="15" text-anchor="middle"><text x="117" y="255">Approved reference</text><text x="363" y="255">Printed part</text></g>
+</svg>}
+{kind === 'inspection' && <div class="sp-mobile-legend sp-inspection-legend" aria-hidden="true"><span>Approved reference</span><span>Printed part</span></div>}

@@ -1,0 +1,132 @@
+/* Homepage process cards, with a shared visual rhythm from request to delivery. */
+.xyh-work .xyh-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  align-items: stretch;
+}
+
+.xyh-work .xyh-steps > li {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+  min-width: 0;
+  min-height: 446px;
+  padding: 0 22px 28px;
+  border: 0;
+  background: #eaf2fd;
+}
+
+.xyh-work .xyh-steps > li::after {
+  content: none;
+}
+
+.xyh-work .xyh-step-number {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 25px;
+  background: var(--blue);
+  color: #fff;
+  font-size: 25px;
+  line-height: 1;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.xyh-work .xyh-step-copy h3 {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: clamp(16px, 1.3vw, 18px);
+  line-height: 1.35;
+  letter-spacing: -.025em;
+  white-space: normal;
+}
+
+.xyh-work .xyh-step-copy p {
+  color: #465872;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.xyh-work .xyh-step-art {
+  flex: 0 0 auto;
+  align-self: center;
+  width: calc(100% + 10px);
+  max-width: 240px;
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.xyh-step-art svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+/* Blend the illustration sheet margins into the card background. */
+.xyh-workflow-illustration[data-step="03"],
+.xyh-workflow-illustration[data-step="04"],
+.xyh-workflow-illustration[data-step="05"] {
+  mix-blend-mode: darken;
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .xyh-work .xyh-steps {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .xyh-work .xyh-steps > li {
+    grid-column: span 2;
+    min-height: 430px;
+    padding-inline: 24px;
+  }
+
+  .xyh-work .xyh-steps > li:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .xyh-work .xyh-step-copy h3 {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 760px) {
+  .xyh-work .xyh-steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+
+  .xyh-work .xyh-steps > li {
+    min-height: 395px;
+    padding: 0 28px 26px;
+  }
+
+  .xyh-work .xyh-step-number {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 22px;
+    font-size: 24px;
+  }
+
+  .xyh-work .xyh-step-copy h3 {
+    font-size: 21px;
+  }
+
+  .xyh-work .xyh-step-copy p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .xyh-work .xyh-step-art {
+    max-width: 225px;
+    padding-top: 20px;
+  }
+}

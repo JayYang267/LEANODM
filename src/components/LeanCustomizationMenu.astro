@@ -1,0 +1,91 @@
+---
+import { Icon } from 'astro-iconset/components';
+import type { LeanCustomizationNavigationItem } from './leanNavigation';
+
+interface Props {
+  links: readonly LeanCustomizationNavigationItem[];
+  pathname: string;
+}
+const { links, pathname } = Astro.props;
+const businessLinks = links.filter(link => link.group === 'business');
+const guideLinks = links.filter(link => link.group === 'guide');
+const isCurrent = (href: string) => pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+---
+
+<div class="lean-customization-content">
+  <div class="lean-business-heading">
+    <p class="lean-business-title">Core business models</p>
+    <p class="lean-business-intro">Choose the route that fits your product.</p>
+  </div>
+  <ul class="lean-business-grid" aria-label="Core business models">
+    {businessLinks.map(link => (
+      <li>
+        <a class="lean-business-card" href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+          <span class="lean-business-icon" aria-hidden="true"><Icon name={`lucide:${link.icon}`} /></span>
+          <span class="lean-business-copy">
+            <span class="lean-business-label">{link.label}</span>
+            <span class="lean-business-description">{link.description}</span>
+            {isCurrent(link.href) && <span class="lean-business-current">Current page</span>}
+          </span>
+          <span class="lean-business-arrow" aria-hidden="true"><Icon name="lucide:arrow-up-right" /></span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  {guideLinks.length > 0 && <div class="lean-cooperation-guides">
+    <p class="lean-guides-label">Working together</p>
+    <ul class="lean-guides-links" aria-label="Cooperation guides">
+      {guideLinks.map(link => <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}<span aria-hidden="true">→</span></a></li>)}
+    </ul>
+  </div>}
+</div>
+
+<style>
+  .lean-customization-content { color:#162c48; }
+  .lean-business-heading { padding:22px 24px 16px; }
+  .lean-business-title { margin:0; color:#162c48; font-size:18px; line-height:1.4; font-weight:700; letter-spacing:-.02em; }
+  .lean-business-intro { margin:4px 0 0; color:#63718a; font-size:13px; line-height:1.5; }
+  .lean-business-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; list-style:none; margin:0; padding:0 24px 24px; }
+  .lean-business-grid li { min-width:0; }
+  .lean-business-grid .lean-business-card { position:relative; display:flex; align-items:flex-start; gap:12px; height:100%; min-height:126px; padding:19px 30px 19px 16px; border:1px solid #dfe6f0; border-radius:8px; background:#fff; color:#162c48; transition:border-color 150ms ease,background 150ms ease; }
+  .lean-business-icon { display:flex; flex:0 0 36px; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; background:#f0f4fc; color:#183ba3; }
+  .lean-business-icon :global(svg) { width:20px; height:20px; stroke-width:1.7; }
+  .lean-business-copy { display:block; min-width:0; }
+  .lean-business-label { display:block; color:inherit; font-size:15px; font-weight:700; line-height:1.45; }
+  .lean-business-description { display:block; margin-top:7px; color:#5c6c82; font-size:12px; font-weight:400; line-height:1.6; }
+  .lean-business-arrow { position:absolute; top:20px; right:12px; display:flex; color:#8391a5; }
+  .lean-business-arrow :global(svg) { width:15px; height:15px; }
+  .lean-business-current { display:inline-flex; align-items:center; gap:5px; margin-top:8px; color:#183ba3; font-size:10px; font-weight:650; line-height:1.4; }
+  .lean-business-current::before { content:''; width:4px; height:4px; border-radius:50%; background:currentColor; }
+  .lean-business-grid .lean-business-card[aria-current='page'] { border-color:#aebfe9; background:#f1f5ff; color:#183ba3; }
+  .lean-business-card[aria-current='page'] .lean-business-icon { background:#e0e9ff; }
+  .lean-business-card[aria-current='page'] .lean-business-arrow { color:#183ba3; }
+  .lean-business-grid .lean-business-card:hover { border-color:#9eb4e7; background:#f6f8ff; color:#183ba3; }
+  .lean-business-grid .lean-business-card:focus-visible { outline:3px solid #183ba3; outline-offset:2px; }
+  .lean-cooperation-guides { display:flex; align-items:center; gap:20px; padding:10px 24px; border-top:1px solid #e3e8f0; background:#f7f9fc; border-radius:0 0 10px 10px; }
+  .lean-guides-label { flex:0 0 auto; margin:0; color:#67758b; font-size:11px; font-weight:500; line-height:1.5; }
+  .lean-guides-links { display:flex; align-items:center; flex-wrap:wrap; column-gap:20px; list-style:none; margin:0; padding:0; }
+  .lean-guides-links a { display:flex; align-items:center; gap:9px; min-height:44px; padding:6px 0; color:#56657a; font-size:12px; font-weight:500; line-height:1.5; }
+  .lean-guides-links a span { color:#7e8ba0; }
+  .lean-guides-links a:hover,.lean-guides-links a[aria-current='page'] { color:#183ba3; background:transparent; text-decoration:underline; text-underline-offset:4px; }
+  @media (max-width:1119px) {
+    .lean-business-heading { padding:10px 0 14px; }
+    .lean-business-title { font-size:16px; }
+    .lean-business-grid { padding:0 0 16px; gap:10px; }
+    .lean-business-grid .lean-business-card { min-height:116px; }
+    .lean-cooperation-guides { display:block; padding:12px 14px 8px; border:1px solid #e3e8f0; border-radius:6px; }
+    .lean-guides-label { font-size:11px; }
+    .lean-guides-links { column-gap:24px; }
+    .lean-guides-links a { font-size:13px; }
+  }
+  @media (max-width:639px) {
+    .lean-business-grid { grid-template-columns:1fr; }
+    .lean-business-grid .lean-business-card { min-height:92px; padding:15px 32px 15px 14px; }
+    .lean-business-label { font-size:14px; }
+    .lean-business-description { margin-top:4px; }
+    .lean-business-arrow { top:17px; }
+    .lean-guides-links { display:block; }
+    .lean-guides-links a { justify-content:space-between; font-size:12px; }
+  }
+  @media (prefers-reduced-motion:reduce) { .lean-business-grid .lean-business-card { transition:none; } }
+</style>

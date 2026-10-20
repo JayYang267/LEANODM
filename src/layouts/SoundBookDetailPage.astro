@@ -1,0 +1,44 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import HomeFooter from '../components/market/HomeFooter.astro';
+import ImageLightbox from '../components/ImageLightbox.astro';
+import SoundBookGallery from '../components/products/SoundBookGallery.astro';
+import SoundBookCard from '../components/products/SoundBookCard.astro';
+import SoundBookInquiry from '../components/products/SoundBookInquiry.astro';
+import SoundBookEvidence from '../components/products/SoundBookEvidence.astro';
+import SoundBookCooperation from '../components/products/SoundBookCooperation.astro';
+import SoundBookFaq from '../components/products/SoundBookFaq.astro';
+import { SOUND_BOOK_BASE, soundBookPath, relatedSoundBooks, inquiryProducts, soundBookStatusNotes } from '../data/products/sound-book-catalog';
+import type { SoundBookProduct } from '../data/products/types';
+import { SITE } from '../config/site';
+import '../styles/product-manufacturing.css';
+import '../styles/sound-book-catalog.css';
+interface Props { product: SoundBookProduct }
+const { product: p } = Astro.props;
+const path = soundBookPath(p);
+const canonical = new URL(path, SITE.url).href;
+const title = `${p.name} | Customization Reference | LEANODM`;
+const image = p.gallery[0];
+const schema = { '@context':'https://schema.org','@graph':[
+  { '@type':'WebPage', '@id':canonical+'#webpage', url:canonical, name:title, description:p.summary, isPartOf:{'@id':SITE.url+'/#website'}, about:{'@id':SITE.url+'/#xinyinhai'}, breadcrumb:{'@id':canonical+'#breadcrumbs'}, primaryImageOfPage:{'@type':'ImageObject',url:new URL(image.src,SITE.url).href,caption:image.caption} },
+  { '@type':'BreadcrumbList','@id':canonical+'#breadcrumbs',itemListElement:[{ '@type':'ListItem',position:1,name:'Home',item:SITE.url+'/'},{'@type':'ListItem',position:2,name:'Sound books',item:new URL(SOUND_BOOK_BASE,SITE.url).href},{'@type':'ListItem',position:3,name:p.name,item:canonical}] },
+] };
+---
+<BaseLayout title={title} description={p.summary}>
+  <Fragment slot="head"><meta name="robots" content="noindex,follow" /><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL(image.src,SITE.url).href} /><meta property="og:image:alt" content={image.alt} /><meta name="twitter:image" content={new URL(image.src,SITE.url).href} /><script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')} /></Fragment>
+  <div class="sb-page sb-catalog-page sb-detail-page" data-product-page>
+    <div class="sb-container"><nav class="sb-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href={SOUND_BOOK_BASE} data-inquiry-navigation>Sound books</a><span aria-hidden="true">/</span><span aria-current="page">{p.name}</span></nav>
+      <section class="sb-detail-hero" aria-labelledby="product-title"><SoundBookGallery product={p} /><div class="sb-detail-brief"><p class="sb-eyebrow">{p.style}</p><h1 id="product-title">{p.name}</h1><p class="sb-detail-lead">{p.summary}</p><ul class="sb-detail-features">{p.features.map(feature=><li>{feature}</li>)}</ul><div class="sb-detail-edition"><span>Printed edition in the photograph</span><strong>{p.shownLanguages.join(' + ')}</strong><p>Choose your requested print and audio languages in the inquiry. The reference image does not verify audio languages.</p></div><a class="sb-btn sb-primary-cta" href="#inquiry" data-product-inquiry={p.id}>Discuss this format <span aria-hidden="true">↗</span></a><a class="sb-text-link" href={`${SOUND_BOOK_BASE}#languages`} data-inquiry-navigation>Explore language concepts <span aria-hidden="true">↗</span></a><p class="sb-reference-boundary">{soundBookStatusNotes[p.status]}</p></div></section>
+    </div>
+    <nav class="sb-section-nav" aria-label="Format page sections"><div class="sb-container"><a href="#format-details">Format details</a><a href="#customization">Customization</a><a href="#manufacturing">Manufacturing</a><a href="#faq">Questions</a><a href="#related-formats">Other formats</a><a href="#inquiry" class="sb-nav-inquiry">Project inquiry ↗</a></div></nav>
+    <section id="format-details" class="sb-section"><div class="sb-container sb-detail-spec-layout"><div><p class="sb-eyebrow">THIS REFERENCE</p><h2>Understand the format<br />before choosing the scope.</h2><table class="sb-visible-specs"><caption>Visible reference details</caption><tbody>{p.confirmedSpecs.map(row=><tr><th scope="row">{row.label}</th><td>{row.value}</td></tr>)}</tbody></table></div><div class="sb-assessment-list"><h3>What a project assessment resolves</h3>{p.evaluation.map(item=><article><h4>{item.label}</h4><p>{item.text}</p></article>)}</div></div></section>
+    <section id="customization" class="sb-section sb-detail-customization"><div class="sb-container"><div class="sb-section-heading"><div><p class="sb-eyebrow">CUSTOMIZE THIS FORMAT</p><h2>Keep the useful structure.<br />Define your own content.</h2></div><p>Use these areas to prepare a brief. A new control layout, housing or playback function can require engineering, samples and tooling work.</p></div><div class="sb-detail-custom-grid">{[['Printed content',p.customization.print],['Audio content',p.customization.audio],['Structure & interaction',p.customization.engineering]].map(([label,items])=><article><h3>{label}</h3><ul>{(items as readonly string[]).map(item=><li><label><input type="checkbox" name="customization" value={item} />{item}</label></li>)}</ul></article>)}</div><div class="sb-inquiry-prompt"><strong>Useful questions for this format</strong><ul>{p.inquiryPrompts.map(prompt=><li>{prompt}</li>)}</ul></div></div></section>
+    <SoundBookEvidence compact keys={p.evidenceKeys} />
+    <SoundBookCooperation compact />
+    <SoundBookFaq compact />
+    <section id="related-formats" class="sb-section sb-related-section"><div class="sb-container"><div class="sb-section-heading"><div><p class="sb-eyebrow">COMPARE THE STRUCTURE</p><h2>Other sound book formats</h2></div><a class="sb-text-link" href={`${SOUND_BOOK_BASE}#formats`} data-inquiry-navigation>Browse the collection <span aria-hidden="true">↗</span></a></div><div class="sb-style-grid sb-related-grid">{relatedSoundBooks(p).map(product=><SoundBookCard product={product} />)}</div></div></section>
+    <section id="inquiry" class="sb-section sb-inquiry"><div class="sb-container sb-inquiry-grid"><div><p class="sb-eyebrow">YOUR FORMAT, YOUR PROJECT</p><h2>Discuss this reference<br />and the changes you need.</h2><p>The reference is selected for discussion and can be changed below. Choose languages and a project route only when they match your brief.</p><ul class="sb-inquiry-outputs"><li>Suitable starting design and development scope</li><li>Sample stages, MOQ basis and quotation items</li><li>Audio, book and engineering questions to resolve</li></ul><a class="sb-text-link" href="mailto:quotes@leanodm.com">quotes@leanodm.com ↗</a></div><SoundBookInquiry productName={p.name} productPath={path} products={inquiryProducts} initialProductId={p.id} /></div></section>
+    <ImageLightbox /><div class="sb-mobile-inquiry"><span>{p.name}<small>{p.statusLabel} · Project discussion</small></span><a href="#inquiry" data-product-inquiry={p.id}>Discuss this format ↗</a></div>
+  </div><HomeFooter slot="footer" />
+</BaseLayout>
+<script>import '../scripts/product-manufacturing';</script>

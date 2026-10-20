@@ -1,0 +1,13 @@
+---
+interface Props {
+  label: string;
+  steps: ReadonlyArray<{ name: string; detail: string }>;
+  start?: number;
+  variant?: 'default' | 'compact';
+}
+const { label, steps, start = 1, variant = 'default' } = Astro.props;
+---
+<div class:list={['ap-flow', `ap-flow-${variant}`]}>
+  <p class="ap-flow-label">{label}</p>
+  <ol start={start}>{steps.map((step, index) => <li><span class="ap-flow-number" aria-hidden="true">{String(start + index).padStart(2, '0')}</span><div><h3>{step.name}</h3><p>{step.detail}</p></div></li>)}</ol>
+</div>

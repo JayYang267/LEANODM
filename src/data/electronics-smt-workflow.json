@@ -1,0 +1,811 @@
+{
+  "maintenance": [
+    {
+      "equipment": "Pick-and-place machine",
+      "group": "SMT",
+      "item": "Body sheet metal",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Pick-and-place machine",
+      "group": "SMT",
+      "item": "Nozzle / prism",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Pick-and-place machine",
+      "group": "SMT",
+      "item": "Rails",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Pick-and-place machine",
+      "group": "SMT",
+      "item": "X/Y/R/Z axes",
+      "cycle": "Half-yearly",
+      "months": [
+        6,
+        12
+      ]
+    },
+    {
+      "equipment": "Pick-and-place machine",
+      "group": "SMT",
+      "item": "Overall maintenance",
+      "cycle": "Annually",
+      "months": [
+        12
+      ]
+    },
+    {
+      "equipment": "Reflow oven",
+      "group": "SMT",
+      "item": "Body sheet metal",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Reflow oven",
+      "group": "SMT",
+      "item": "Internal cleaning",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Reflow oven",
+      "group": "SMT",
+      "item": "Chain lubrication",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automatic solder-paste printer",
+      "group": "SMT",
+      "item": "Body sheet metal",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automatic solder-paste printer",
+      "group": "SMT",
+      "item": "Rail maintenance",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automatic solder-paste printer",
+      "group": "SMT",
+      "item": "Lead-screw maintenance",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automated optical inspection system",
+      "group": "SMT",
+      "item": "Body sheet metal",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automated optical inspection system",
+      "group": "SMT",
+      "item": "Camera-lens cleaning",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automated optical inspection system",
+      "group": "SMT",
+      "item": "X/Y-axis cleaning",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automated optical inspection system",
+      "group": "SMT",
+      "item": "Rail screw-hole cleaning",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Automated optical inspection system",
+      "group": "SMT",
+      "item": "Positioning rail",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Bonding machine",
+      "group": "Related process",
+      "item": "Body sheet metal",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Bonding machine",
+      "group": "Related process",
+      "item": "Internal cleaning",
+      "cycle": "Half-yearly",
+      "months": [
+        6,
+        12
+      ]
+    },
+    {
+      "equipment": "Bonding machine",
+      "group": "Related process",
+      "item": "Rail maintenance",
+      "cycle": "Half-yearly",
+      "months": [
+        6,
+        12
+      ]
+    },
+    {
+      "equipment": "Bonding machine",
+      "group": "Related process",
+      "item": "Overall maintenance",
+      "cycle": "Annually",
+      "months": [
+        12
+      ]
+    },
+    {
+      "equipment": "Die-bonding machine",
+      "group": "Related process",
+      "item": "Body sheet metal",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Die-bonding machine",
+      "group": "Related process",
+      "item": "X/Y-axis worktable",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Die-bonding machine",
+      "group": "Related process",
+      "item": "Dispensing valve",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Encapsulation dispensing machine",
+      "group": "Related process",
+      "item": "Body sheet metal",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Encapsulation dispensing machine",
+      "group": "Related process",
+      "item": "X/Y axes",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "equipment": "Encapsulation dispensing machine",
+      "group": "Related process",
+      "item": "Dispensing valve",
+      "cycle": "Monthly",
+      "months": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "name": "Single-sided SMT",
+      "steps": [
+        "PCB intake",
+        "PCB appearance inspection",
+        "Screen-print red adhesive",
+        "Adhesive-print inspection",
+        "Load the board feeder",
+        "Automatically stencil-print solder paste",
+        "Solder-paste-print inspection",
+        "Place components",
+        "Pre-oven QC inspection",
+        "Reflow soldering / curing",
+        "AOI inspection",
+        "Rack the boards"
+      ]
+    },
+    {
+      "name": "Double-sided SMT A",
+      "steps": [
+        "PCB intake",
+        "PCB appearance inspection",
+        "Screen-print red adhesive",
+        "Adhesive-print inspection",
+        "Load the board feeder",
+        "Automatically stencil-print solder paste",
+        "Solder-paste-print inspection",
+        "Place components",
+        "Pre-oven QC inspection",
+        "Reflow soldering / curing",
+        "Rack the boards"
+      ]
+    },
+    {
+      "name": "Double-sided SMT B",
+      "steps": [
+        "Load the board feeder",
+        "Automatically stencil-print solder paste",
+        "Solder-paste-print inspection",
+        "Place components",
+        "Pre-oven QC inspection",
+        "Reflow soldering / curing",
+        "AOI inspection",
+        "Rack the boards"
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "route": "Single-sided",
+      "gate": "PCB appearance inspection",
+      "branch": "N",
+      "action": "Notify IQC for disposition",
+      "returns_to": null
+    },
+    {
+      "route": "Single-sided",
+      "gate": "Adhesive-print inspection",
+      "branch": "N",
+      "action": "Wash the board",
+      "returns_to": "Screen-print red adhesive"
+    },
+    {
+      "route": "Single-sided",
+      "gate": "Solder-paste-print inspection",
+      "branch": "N",
+      "action": "Wash the board",
+      "returns_to": "Screen-print red adhesive"
+    },
+    {
+      "route": "Single-sided",
+      "gate": "Pre-oven QC inspection",
+      "branch": "N",
+      "action": "Notify technical staff for improvement, then assess correction",
+      "returns_to": null
+    },
+    {
+      "route": "Single-sided",
+      "gate": "Correction assessment",
+      "branch": "Y",
+      "action": "Proceed to reflow soldering / curing",
+      "returns_to": "Reflow soldering / curing"
+    },
+    {
+      "route": "Single-sided",
+      "gate": "Correction assessment",
+      "branch": "N",
+      "action": "Remove the already placed components, then wash the board",
+      "returns_to": "Screen-print red adhesive"
+    },
+    {
+      "route": "Single-sided",
+      "gate": "AOI inspection",
+      "branch": "N",
+      "action": "Repair",
+      "returns_to": "AOI inspection (reinspection)"
+    },
+    {
+      "route": "Double-sided A",
+      "gate": "PCB appearance inspection",
+      "branch": "N",
+      "action": "Notify IQC for disposition",
+      "returns_to": null
+    },
+    {
+      "route": "Double-sided A",
+      "gate": "Adhesive-print inspection",
+      "branch": "N",
+      "action": "Wash the board",
+      "returns_to": "Screen-print red adhesive"
+    },
+    {
+      "route": "Double-sided A",
+      "gate": "Solder-paste-print inspection",
+      "branch": "N",
+      "action": "Wash the board",
+      "returns_to": "Screen-print red adhesive"
+    },
+    {
+      "route": "Double-sided A",
+      "gate": "Pre-oven QC inspection",
+      "branch": "N",
+      "action": "Notify technical staff for improvement, then assess correction",
+      "returns_to": null
+    },
+    {
+      "route": "Double-sided A",
+      "gate": "Correction assessment",
+      "branch": "Y",
+      "action": "Proceed to reflow soldering / curing",
+      "returns_to": "Reflow soldering / curing"
+    },
+    {
+      "route": "Double-sided A",
+      "gate": "Correction assessment",
+      "branch": "N",
+      "action": "Remove the already placed components, then wash the board",
+      "returns_to": "Screen-print red adhesive"
+    },
+    {
+      "route": "Double-sided B",
+      "gate": "Solder-paste-print inspection",
+      "branch": "N",
+      "action": "Wash the board",
+      "returns_to": "Load the board feeder"
+    },
+    {
+      "route": "Double-sided B",
+      "gate": "Pre-oven QC inspection",
+      "branch": "N",
+      "action": "Notify technical staff for improvement, then assess correction",
+      "returns_to": null
+    },
+    {
+      "route": "Double-sided B",
+      "gate": "Correction assessment",
+      "branch": "Y",
+      "action": "Proceed to reflow soldering / curing",
+      "returns_to": "Reflow soldering / curing"
+    },
+    {
+      "route": "Double-sided B",
+      "gate": "Correction assessment",
+      "branch": "N",
+      "action": "Remove the already placed components, then wash the board",
+      "returns_to": "Load the board feeder"
+    },
+    {
+      "route": "Double-sided B",
+      "gate": "AOI inspection",
+      "branch": "N",
+      "action": "Repair",
+      "returns_to": "AOI inspection (reinspection)"
+    }
+  ],
+  "gates": [
+    {
+      "node": "Prepare process technical documentation",
+      "next": "PCB appearance inspection",
+      "decision": null,
+      "exception": null,
+      "branch": null
+    },
+    {
+      "node": "PCB appearance inspection",
+      "next": "PCB installation inspection",
+      "decision": "OK",
+      "exception": "Return to warehouse",
+      "branch": "NG"
+    },
+    {
+      "node": "PCB installation inspection",
+      "next": "Screen-print inspection",
+      "decision": "OK",
+      "exception": "Return to warehouse; the condition is not labelled and cannot be stated as NG",
+      "branch": "Unlabelled right branch"
+    },
+    {
+      "node": "Screen-print inspection",
+      "next": "Component placement inspection",
+      "decision": "OK",
+      "exception": "Return to warehouse",
+      "branch": "NG"
+    },
+    {
+      "node": "Component placement inspection",
+      "next": "Post-oven QC appearance inspection",
+      "decision": "OK",
+      "exception": "Correct / adjust",
+      "branch": "NG"
+    },
+    {
+      "node": "Post-oven QC appearance inspection",
+      "next": "Confirm depaneling result",
+      "decision": "OK",
+      "exception": "Correct / adjust / return to warehouse",
+      "branch": "NG"
+    },
+    {
+      "node": "Confirm depaneling result",
+      "next": "Packaging",
+      "decision": "OK",
+      "exception": "Feed back to IQC",
+      "branch": "NG"
+    },
+    {
+      "node": "Packaging",
+      "next": "ERP warehouse entry",
+      "decision": null,
+      "exception": null,
+      "branch": null
+    },
+    {
+      "node": "ERP warehouse entry",
+      "next": "End of documented chart",
+      "decision": null,
+      "exception": null,
+      "branch": null
+    }
+  ],
+  "printer": [
+    "Switch on power",
+    "Open the DSA software",
+    "Run the system self-check",
+    "Set the rail width",
+    "Install and align the stencil",
+    "Set the squeegee",
+    "Load stencil-cleaning paper and set the cleaning frequency",
+    "Add solder paste",
+    "Click Run",
+    "Confirm print quality",
+    "Production"
+  ],
+  "preflight": {
+    "feeder": {
+      "steps": [
+        "Remove PCBs from the board slots",
+        "Switch on machine power",
+        "Click Manual",
+        "Click Start",
+        "Click Width adjustment",
+        "Click Widen or Narrow repeatedly",
+        "Confirm the board fits",
+        "Click Return",
+        "Click Reset",
+        "Click Return",
+        "Click Automatic",
+        "Click Start",
+        "Feed the board into the automatic solder-paste printer"
+      ],
+      "exceptions": [
+        {
+          "gate": "Confirm the board fits",
+          "branch": "NG",
+          "action": null,
+          "return_to": "Click Widen or Narrow repeatedly"
+        }
+      ]
+    },
+    "printer": {
+      "steps": [
+        "Switch on power",
+        "Open the DSA software",
+        "Run the system self-check",
+        "Set the rail width",
+        "Install and align the stencil",
+        "Set the squeegee",
+        "Add solder paste",
+        "Click Run",
+        "Confirm print quality",
+        "Transfer the board to the placement machine"
+      ],
+      "exceptions": [
+        {
+          "gate": "System self-check",
+          "branch": "NG",
+          "action": "Switch off power, technical repair, restart at Switch on power",
+          "return_to": "Switch on power"
+        },
+        {
+          "gate": "Confirm print quality",
+          "branch": "NG",
+          "action": "Fine-adjust the stencil and confirm print quality again",
+          "return_to": "Confirm print quality"
+        }
+      ]
+    },
+    "placement": {
+      "steps": [
+        "Prepare components",
+        "Load components into feeders",
+        "Install feeders in the placement machine",
+        "Switch on placement-machine power",
+        "Run the system self-check",
+        "Set the rail width",
+        "Set up placement coordinates",
+        "Click Production",
+        "Click F2",
+        "Press the START switch",
+        "Confirm placement quality",
+        "Production"
+      ],
+      "exceptions": [
+        {
+          "gate": "Run the system self-check",
+          "branch": "NG",
+          "action": "Switch off power, technical repair, return to Switch on placement-machine power",
+          "return_to": null
+        },
+        {
+          "gate": "Confirm placement quality",
+          "branch": "NG",
+          "action": null,
+          "return_to": "Set up placement coordinates"
+        }
+      ]
+    }
+  }
+}

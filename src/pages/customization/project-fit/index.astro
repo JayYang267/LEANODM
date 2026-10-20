@@ -1,0 +1,79 @@
+---
+import CustomizationPage from '../../../layouts/CustomizationPage.astro';
+import CustomizationSection from '../../../components/CustomizationSection.astro';
+import CustomizationTable from '../../../components/CustomizationTable.astro';
+import CustomizationIcon from '../../../components/CustomizationIcon.astro';
+import CustomizationFlow from '../../../components/CustomizationFlow.astro';
+import { page } from '../../../data/customization/project-fit';
+
+const outcomes = [
+  ['A suitable starting point', 'A clear purpose, authorized inputs and a scope that can be evaluated.', 'Identify the service route and define the next technical or commercial review.'],
+  ['Clarification is needed', 'Incomplete drawings, uncertain permissions, missing reports or an unverified concern.', 'Request the relevant information. Pause the affected work if the unresolved issue could create a material risk.'],
+  ['A change could make it workable', 'A correctable design issue, unsuitable material, unrealistic assumption or unclear responsibility.', 'Agree the correction and its verification before committing to the affected stage.'],
+  ['The request cannot proceed', 'A confirmed request for infringement, unsafe release, deception or misuse that remains unresolved.', 'Decline the affected work; serious or repeated conduct may end the cooperation.'],
+];
+const assetSteps = [
+  { label: 'BEFORE WORK STARTS', title: 'Confirm the authorized inputs', text: 'Identify who controls the design, brand and supplied content. Clarify any restrictions on production, modifications or target markets. Material taken unlawfully from a previous employer or competitor cannot be used to develop a project.', icon: 'file-check-2' },
+  { label: 'DURING THE PROJECT', title: 'Protect the agreed assets', text: 'Document access and use arrangements for confidential files, samples and tooling. One customer’s drawings, commercial details or exclusive product must not become another customer’s shortcut. Production beyond agreed authorization is not acceptable.', icon: 'lock-keyhole' },
+  { label: 'AT HANDOVER', title: 'Make the arrangements explicit', text: 'Agree which files and physical assets are deliverables, who owns them, and the conditions for release or transfer. Customer-funded tooling, licensed components and pre-existing designs can involve different rights; record the applicable terms.', icon: 'folder-check' },
+];
+const principles = [
+  { icon: 'shield-check', title: 'Address safety before release.', text: 'Unresolved serious problems with batteries, accessible parts, electrical protection or other hazards require corrective action. Necessary protection cannot be removed simply to meet a price.' },
+  { icon: 'clipboard-check', title: 'Keep test evidence relevant.', text: 'Reports must relate to the applicable product and configuration. Substituting materials after testing, altering results or borrowing another model’s report misrepresents the product.' },
+  { icon: 'badge-check', title: 'Describe performance honestly.', text: 'Capacity, runtime, water resistance, recycled content and functional claims need a defensible basis. Packaging must not imply unsupported medical, environmental or AI capabilities.' },
+  { icon: 'files', title: 'Keep production records accurate.', text: 'Inspection, traceability, origin and agreed production arrangements must reflect reality. Fabricated audits, hidden contract-inconsistent subcontracting, bribery and false trade records are unacceptable.' },
+  { icon: 'users', title: 'Respect people and intended use.', text: 'Work must not depend on abusive labor, unsafe working conditions, improper waste handling or concealed data collection. Privacy responsibilities need review where a product records, connects or tracks.' },
+];
+---
+<CustomizationPage page={page}>
+  <CustomizationSection id="fit-review" eyebrow="01 / REVIEW THE PROJECT FAIRLY" title="Different concerns need different decisions" intro="Incomplete information calls for clarification. Confirmed unacceptable requirements call for a firm boundary.">
+    <p>For products with plastic housings, assembled parts and defined appearance requirements, we review the fit with the proposed <a href="/manufacturing/tooling-injection-molding/">tooling and molding process</a>, assembly method and <a href="/quality/quality-control-process/">quality controls</a>. Sound, light or control functions are assessed with their integration and verification needs. Connectivity, software or more complex electronics require an individually agreed technical scope.</p>
+    <div class="b2b-comparison fit-comparison">
+      <article class="b2b-panel b2b-panel--tint"><div class="fit-card-heading"><CustomizationIcon name="circle-check" /><div><span class="b2b-visual-label">A WORKABLE STARTING POINT</span><h3>Good fit</h3></div></div><ul class="fit-evidence-list"><li>Clear commercial purpose and intended use</li><li>Quantities and timing that can be assessed realistically</li><li>Willingness to review engineering and verification needs</li><li>Respect for design rights and customer assets</li><li>Agreed approvals and manufacturing responsibilities</li></ul></article>
+      <article class="b2b-panel"><div class="fit-card-heading fit-card-heading--review"><CustomizationIcon name="message-square-more" /><div><span class="b2b-visual-label">CLARIFY BEFORE COMMITTING</span><h3>Needs discussion</h3></div></div><ul class="fit-evidence-list"><li>Missing files, reports or evidence of authorization</li><li>Cost or schedule assumptions that need review</li><li>Copied-product references with unclear permitted use</li><li>Technical work beyond the currently defined scope</li><li>Open questions about material, software or responsibility</li></ul></article>
+    </div>
+    <aside class="fit-boundary"><CustomizationIcon name="shield-alert" /><div><h3>A separate boundary for confirmed conduct</h3><p>A confirmed request for infringement, unsafe release, deception or misuse cannot proceed while it remains unresolved. This is different from an incomplete brief or a question that can be answered.</p></div></aside>
+    <p class="fit-fair-review">Small orders, startups and trading companies are assessed on the project’s requirements. They are not automatically excluded.</p>
+    <CustomizationTable caption="How project-fit questions are handled" headers={['Review outcome', 'Typical situation', 'Next step']} rows={outcomes} />
+    <p>A trading company, strict audit requirement or request for confidentiality can be part of an ordinary business relationship. We assess the brief and supporting evidence. An online allegation or a difficult technical question is not, by itself, a reason to label a customer unsuitable.</p>
+    <p>The same applies to recycled materials, short-life products and cost reduction. Their suitability depends on intended use, material quality and verification. We establish those conditions instead of assuming that a product category is acceptable or unacceptable in every situation.</p>
+  </CustomizationSection>
+
+  <CustomizationSection id="rights-and-assets" eyebrow="02 / RESPECT RIGHTS AND CONFIDENTIALITY" title="Design Rights, Customer Assets & Confidentiality" intro="Ownership, permission and permitted use matter for drawings, code, artwork, content and physical tooling.">
+    <CustomizationFlow label="Customer rights and asset handling through the project" steps={assetSteps} />
+    <p>Confidential review does not create permission to disclose another party’s information. If evidence raises a significant rights question, the affected work pauses while authority or an alternative approach is established. Specialist advice may be needed for a disputed right.</p>
+  </CustomizationSection>
+
+  <CustomizationSection id="working-principles" eyebrow="03 / KEEP THE PRODUCT AND RECORDS TRUTHFUL" title="Safety and accurate information stay part of the scope" intro="Cost, order value and delivery pressure do not justify hiding a material risk.">
+    <div class="b2b-icon-cards fit-principles-grid">{principles.map(principle => <article class="b2b-icon-card"><CustomizationIcon name={principle.icon} /><h3>{principle.title}</h3><p>{principle.text}</p></article>)}</div>
+    <p>Required checks depend on the product, its users and its markets. Agree the <a href="/quality/product-testing/">product testing scope</a> and acceptance criteria early, and reassess them when the design or materials change.</p>
+  </CustomizationSection>
+
+  <CustomizationSection id="practical-agreement" eyebrow="04 / MAKE COOPERATION WORKABLE" title="Agree the decisions each party controls" intro="Clear commercial and technical responsibilities help a feasible product become an executable project.">
+    <div class="b2b-comparison fit-agreement-panels">
+      <article class="b2b-panel b2b-panel--tint"><div class="fit-card-heading"><CustomizationIcon name="clipboard-list" /><h3>Define the agreement</h3></div><p>Define specifications, stage outputs, sample approval, payment arrangements, tooling rights and acceptance criteria before committing resources. Assign an approval owner and document changes with their cost, schedule and verification effects. A schedule must allow for necessary sampling and issue closure.</p></article>
+      <article class="b2b-panel"><div class="fit-card-heading"><CustomizationIcon name="messages-square" /><h3>Resolve the commercial questions</h3></div><p>Concerns about capacity, budget or responsibility are commercial questions to resolve openly. Persistent refusal to define essential terms, deliberate nonpayment or demands to absorb unlimited risks outside the agreed scope can make cooperation unworkable. A normal quality disagreement or temporary cash-flow difficulty needs its own fair assessment.</p></article>
+    </div>
+    <p class="qc-note">Where a concern can be corrected, define the required evidence and review it again. See <a href="/customization/how-we-work/">How We Work</a> for the approvals and change-control process that supports that decision.</p>
+  </CustomizationSection>
+</CustomizationPage>
+
+<style>
+  .fit-comparison { margin:24px 0 18px; }
+  .fit-card-heading { display:flex; gap:16px; align-items:center; color:var(--qc-blue); margin-bottom:18px; }
+  .fit-card-heading :global(svg) { width:30px; height:30px; flex-shrink:0; }
+  .fit-card-heading h3 { margin:5px 0 0; }
+  .fit-card-heading--review { color:#695b36; }
+  .fit-evidence-list { list-style:none; margin:0; padding:0; }
+  .fit-evidence-list li { position:relative; border-top:1px solid var(--qc-line); padding:12px 0 12px 20px; color:var(--qc-muted); font-size:.87rem; }
+  .fit-evidence-list li::before { content:''; width:5px; height:5px; position:absolute; left:0; top:22px; border:1px solid currentColor; }
+  .fit-boundary { display:flex; align-items:flex-start; gap:18px; padding:24px; border:1px solid #b6c2d1; border-left:4px solid #52667e; border-radius:5px; background:#f6f8fb; }
+  .fit-boundary :global(svg) { width:30px; height:30px; flex-shrink:0; color:#52667e; }
+  .fit-boundary h3 { font-size:1rem; margin:0 0 8px; }
+  .fit-boundary p { margin:0; font-size:.87rem; color:var(--qc-muted); }
+  .fit-fair-review { margin:14px 0 28px; font-size:.83rem; }
+  .fit-principles-grid { grid-template-columns:repeat(2,minmax(0,1fr)); margin-bottom:26px; }
+  .fit-principles-grid>article:last-child { grid-column:1/-1; }
+  .fit-agreement-panels { margin-bottom:24px; }
+  @media(max-width:599px) { .fit-principles-grid { grid-template-columns:1fr; } .fit-boundary { padding:20px; gap:12px; } .fit-card-heading { gap:12px; } }
+</style>

@@ -1,0 +1,142 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import TrainingFigure from '../../../components/TrainingFigure.astro';
+import ImageLightbox from '../../../components/ImageLightbox.astro';
+import training from '../../../data/inspector-training.json';
+import '../../../styles/inspector-training.css';
+
+const title = 'Inspector Training & Visual Defect Recognition | LEANODM.com';
+const description = 'Explore visual defect examples alongside documented competence planning, practical assessment, training-effectiveness review and honest inspection records.';
+const route = '/quality/inspector-training/';
+const canonical = new URL(route, SITE.url).href;
+const navigation = [
+  { label: 'Defect atlas', href: '#defect-atlas' },
+  { label: 'BIQC workflow', href: '#biqc-workflow' },
+  { label: 'Competence & records', href: '#competence-controls' },
+];
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality', url: '/quality/' }, { name: 'Inspector Training', url: route }];
+const featured = [
+  ['p04-chewing-gum', 'p04-missing-screen-print'],
+  ['p09-excessive-gap', 'p10-detached-button'],
+  ['p11-unseated-screw', 'p12-good-returned-screws'],
+  ['p13-missing-paint', 'p14-wrinkled-label'],
+  ['p15-delamination', 'p20-print-comparison'],
+  ['p17-missing-segments-left', 'p19-card-display-ok-ng'],
+  ['p21-insect-overview-detail', 'p22-returned-ok-comparison'],
+];
+const count = training.groups.reduce((sum, group) => sum + group.examples.length, 0);
+const related = [
+  { href: '/quality/', label: 'Quality Management System', detail: 'Connect competence, controlled instructions and documented improvement.' },
+  { href: '/quality/traceability/', label: 'Traceability & Materials', detail: 'Understand how identification and reliable records support a product review.' },
+  { href: '/quality/quality-control-process/', label: 'Quality Control Process', detail: 'Explore the separate overview of documented quality controls.' },
+  { href: '/quality/appearance-inspection/', label: 'Appearance Inspection', detail: 'Read surface classes, defect definitions and the appearance acceptance criteria.' },
+  { href: '/quality/incoming-inspection/', label: 'Incoming Inspection', detail: 'Review the separate material-specific inspection standard.' },
+  { href: '/quality/product-testing/', label: 'Product Testing', detail: 'Review test projects, methods and their source conditions.' },
+];
+const faqs = [
+  { question: 'What can an inspector learn from these visual examples?', answer: 'The supplied training material aims to help staff recognize defects that can occur in different products and understand what to inspect. The photographs show defect locations and selected comparisons. The source asks users to choose material appropriate to the product type.' },
+  { question: 'Do these photographs define acceptance criteria for every product?', answer: 'No. This page is a defect-recognition reference. It does not establish universal tolerances or replace the applicable product specification, reference sample or inspection standard. Read the separate Appearance Inspection page when reviewing that standard’s criteria.' },
+  { question: 'How should OK, NG and CR:1PC be read?', answer: 'OK and NG identify the acceptable and unacceptable views in the specific source comparison. CR:1PC is retained on the loose-button example from slide 10, where the button detaches when pulled by hand. It is not presented here as a general sampling plan or acceptance rule.' },
+  { question: 'How do the visual references relate to competence controls?', answer: 'The deck is marked revised 28 May 2019, R:04; that identifies its source version. The two visual source files do not establish inspector certification. Separate resource-management procedures define role-based training planning, assessment and effectiveness review. Completed training and assessment records are needed to evaluate their implementation.' },
+  { question: 'How is training effectiveness assessed?', answer: 'The resource procedure uses written, oral or practical assessment as appropriate, followed by periodic sampling of staff competence to evaluate whether training remains effective for the role. New assignments and relevant work instructions also inform training needs. Attendance alone does not show that an inspector can apply the required criteria.' },
+  { question: 'What record-keeping behavior is expected of inspectors?', answer: 'The quality-record and ethics procedures call for truthful, complete and accurate records, protection of confidential information and escalation of quality concerns. They prohibit fabricated results, concealed nonconformity, unauthorized changes to inspection results and unauthorized release of rejected product.' },
+];
+const schema = {
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: 'Inspector Training & Visual Defect Recognition', description, inLanguage: 'en', isPartOf: { '@id': `${new URL(canonical).origin}/#website` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, about: [{ '@id': `${new URL(canonical).origin}/#xinyinhai` }, { '@type': 'Thing', name: 'Inspector training and visual defect recognition' }] },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.url, canonical).href })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#training-faq`, mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  ],
+};
+const contactHref = '/rfq/?source=quality-inspector-training#rfq-form';
+---
+
+<BaseLayout title={title} description={description} technicalPage technicalNavigation={navigation} technicalPageTitle="Inspector Training" contactHref={contactHref} technicalContactLabel="Discuss Your Project">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+  <div class="training-page">
+    <section class="training-hero" aria-labelledby="training-title">
+      <div class="training-container">
+        <nav class="training-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, i) => <li>{i < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="training-hero-grid">
+          <div>
+            <p class="training-eyebrow">QUALITY / INSPECTOR TRAINING</p>
+            <h1 id="training-title">Inspector Training &amp; Visual Defect Recognition</h1>
+            <p class="training-lead">Learn what a defect looks like, where to look, and how the original comparison helps identify it.</p>
+            <p class="training-intro">Explore the supplied BIQC training photographs with English explanations, preserved defect markings and a supporting workflow reference. See how the documented competence and record controls support their use.</p>
+            <a class="training-button" href="#defect-atlas">Explore the defect atlas <span aria-hidden="true">↓</span></a>
+          </div>
+          <aside class="training-overview" aria-label="How to use this reference">
+            <p class="training-eyebrow">READ THE IMAGE IN CONTEXT</p>
+            <ol><li><span>01</span><div><strong>Locate the defect</strong><p>Follow the original circles, arrows and marked areas.</p></div></li><li><span>02</span><div><strong>Keep the comparison</strong><p>Read OK / NG and overall / detail views together.</p></div></li><li><span>03</span><div><strong>Check the source</strong><p>Each example identifies its slide and position.</p></div></li></ol>
+            <p class="training-version">Training source: revised 28 May 2019 · R:04<br />A source version, not a current audit date.</p>
+          </aside>
+        </div>
+        <div class="training-summary"><p><strong>{training.groups.length}</strong> browsing themes</p><p><strong>{count}</strong> examples &amp; comparison sets</p><p><strong>2</strong> visual source files</p></div>
+      </div>
+    </section>
+
+    <div class="training-container">
+      <section class="training-purpose training-section" aria-labelledby="purpose-title">
+        <div><p class="training-eyebrow">PURPOSE &amp; SCOPE</p><h2 id="purpose-title">Build a shared visual vocabulary</h2></div>
+        <div><p>The training deck aims to help staff recognize defects that may occur in different product types, understand what to check and detect defective products. It asks users to select the material appropriate to the product being inspected.</p><p>For sourcing teams, the representative images provide a quick introduction. For supplier quality engineers (SQEs), each group opens into the full set of included examples and source references.</p><p class="training-note">These are training reference images. They are not all identified as this factory’s shipment defects. Brands, characters and labels within photographs do not imply a customer relationship or endorsement. This page does not establish a training course, certification scheme or a universal acceptance standard.</p></div>
+      </section>
+
+      <section id="defect-atlas" class="training-section" aria-labelledby="atlas-title">
+        <div class="training-section-heading"><div><p class="training-eyebrow">01 / VISUAL DEFECT ATLAS</p><h2 id="atlas-title">Visual Defect Atlas by Product Detail</h2></div><p>Browse documented examples of molding, assembly, printing, packaging and display defects. Start with two examples in each theme, then expand the group. Comparison sets remain intact. Select an image to inspect it, or use its image-file link.</p></div>
+        <nav class="training-categories" aria-label="Defect categories">{training.groups.map((group, i) => <a href={`#${group.id}`}><span>{String(i + 1).padStart(2, '0')}</span><strong>{group.name}</strong><small>{group.examples.length} examples <span aria-hidden="true">↘</span></small></a>)}</nav>
+        <p class="training-note">The seven themes are editorial browsing groups. Original source references remain attached to the examples. Source photographs vary in resolution; image zoom stops at their supplied detail.</p>
+
+        {training.groups.map((group, gi) => <section id={group.id} class="training-group" aria-labelledby={`${group.id}-title`}>
+          <div class="training-group-heading"><span class="training-group-number" aria-hidden="true">{String(gi + 1).padStart(2, '0')}</span><div><h3 id={`${group.id}-title`}>{group.name}</h3><p>{group.description}</p></div><a href="#defect-atlas" aria-label="Back to all defect categories">↑ All themes</a></div>
+          {gi === 0 && <aside class="training-context"><strong>Keep the original priority labels.</strong><p>Slide 4 calls its section <span lang="zh">重大问题点</span> (serious problems), described in the source as defects that would generally be considered impossible to occur. Slide 5 uses <span lang="zh">主要问题点</span> (main problems). These source labels are retained without assigning CR / MA / MI equivalents.</p><p>The slide 5 note also prohibits foreign plastic pieces larger than <strong>5 mm × 5 mm</strong>, wood chips and sharp metal objects, in addition to its pictured examples.</p></aside>}
+          <div class="training-grid">{featured[gi].map(id => <TrainingFigure example={group.examples.find(example => example.id === id)!} group={group.id} />)}</div>
+          <details class="training-more" id={`${group.id}-all`}><summary><span>View all {group.examples.length} examples</span><small>{group.examples.length - 2} more below</small><span class="training-expand" aria-hidden="true">+</span></summary><div class="training-grid">{group.examples.filter(example => !featured[gi].includes(example.id)).map(example => <TrainingFigure example={example} group={group.id} />)}</div><a class="training-back" href={`#${group.id}`}>Back to group heading ↑</a></details>
+        </section>)}
+      </section>
+
+      <section id="biqc-workflow" class="training-section" aria-labelledby="workflow-title">
+        <div class="training-section-heading"><div><p class="training-eyebrow">02 / SUPPORTING PROCESS REFERENCE</p><h2 id="workflow-title">BIQC Workflow Reference</h2></div><p>The workbook’s Sheet5 shows the following sequence with six downward arrows. It starts at the OQC accepted-product area.</p></div>
+        <div class="training-workflow-layout">
+          <ol class="training-workflow">{training.workflow.map((step, i) => <li id={step.id}><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><div><strong>{step.text}</strong><small>{step.source}</small></div></li>)}</ol>
+          <div class="training-workflow-note"><h3>Read only what the flow records</h3><p>“Tapping,” “screw function confirmation” and “check for missed inspection” translate the recorded actions. The sheet does not specify tapping force, number of repetitions or a detailed method for these checks.</p><p>The final box records an OK confirmation before the next operation. It is not evidence of a measured zero-miss rate. No rejection or rework branch is shown in this flow.</p><p class="training-note">This is a supporting reference from the supplied workbook. It does not by itself describe the complete quality-management system or an in-process inspection procedure.</p></div>
+        </div>
+      </section>
+
+      <section id="source-references" class="training-section" aria-labelledby="sources-title">
+        <div class="training-section-heading"><div><p class="training-eyebrow">03 / ORIGINAL MATERIAL REFERENCES</p><h2 id="sources-title">Selected source views</h2></div><p>The training PPT supplies the defect examples. The BIQC workbook adds the workflow, room-identification reference and a consolidated training board.</p></div>
+        <div class="training-references">{training.references.map(example => <TrainingFigure example={example} group="source-references" headingLevel="h3" />)}</div>
+        <details class="training-source-scope"><summary>Source version, coverage and reading limits</summary><div><p><strong>Training PPT:</strong> 24 actual slides. The cover states revised 28 May 2019, R:04. Slides 1–3 and 6 introduce the purpose and contents; the other 20 slides contain examples. References on this page use actual slide positions.</p><p><strong>Contents mismatch:</strong> the contents pages refer to pages through 32 and list dedicated wood-product and sewn-product sections that are absent from the supplied deck. Those missing chapters have not been reconstructed.</p><p><strong>One image withheld:</strong> the middle image on slide 4 is labeled “insect wings,” but the photograph and marked area do not establish that label clearly. It is omitted from the defect atlas pending source clarification.</p><p><strong>BIQC workbook:</strong> all three sheets were reviewed. Sheet5 supplies the seven-step flow. Sheet1 supplies the room-sign photo and slogan-area layout. Sheet2 supplies one embedded training-board image, repeating the PPT’s 20 example pages; it is shown once as an overview.</p><p>The original working files remain private. Small source images and labels have not been enhanced to invent missing detail. The acronym BIQC is retained as supplied.</p></div></details>
+      </section>
+
+      <section id="competence-controls" class="training-section" aria-labelledby="competence-title">
+        <div class="training-section-heading"><div><p class="training-eyebrow">04 / COMPETENCE PLANNING &amp; ASSESSMENT</p><h2 id="competence-title">Inspector Competence &amp; Training Effectiveness</h2></div><p>The visual atlas supports learning. The resource-management procedure supplies the wider control: identify what the role requires, provide appropriate training and evaluate its effectiveness.</p></div>
+        <div class="training-workflow-layout">
+          <ol class="training-workflow training-competence-flow" aria-label="Documented competence-development sequence">
+            <li><span aria-hidden="true">01</span><div><strong>Identify the role's needs</strong><small>Department leaders identify training needs from the quality responsibilities and skills of each role.</small></div></li>
+            <li><span aria-hidden="true">02</span><div><strong>Plan and provide training</strong><small>Human Resources coordinates the approved training plan; Quality and Production provide the relevant quality and operating instruction.</small></div></li>
+            <li><span aria-hidden="true">03</span><div><strong>Assess understanding and application</strong><small>Use the appropriate written, oral or practical assessment, and retain the training and assessment record.</small></div></li>
+            <li><span aria-hidden="true">04</span><div><strong>Review effectiveness in the role</strong><small>Periodic sample assessments check whether staff remain capable of the assigned work and identify where further action is needed.</small></div></li>
+          </ol>
+          <div class="training-workflow-note"><h3>Prepare for the actual assignment</h3><p>Training needs include induction, instruction before taking up a role and relevant training when moving to a different workshop or job. Applicable process documents and operating skills form part of that preparation.</p><p>For an inspector, review the product-specific specification, reference sample and current inspection instruction alongside the relevant defect examples. A photograph can help recognize a condition; the approved requirement determines the decision.</p><p class="training-note">A supplier review can request an appropriate completed example linking the role, training content, assessment and effectiveness follow-up. A blank form or attendance list alone cannot establish competence.</p></div>
+        </div>
+      </section>
+
+      <section id="record-integrity" class="training-section training-purpose" aria-labelledby="integrity-title">
+        <div><p class="training-eyebrow">05 / HONEST INSPECTION RECORDS</p><h2 id="integrity-title">Record the result that was actually observed</h2></div>
+        <div><p>The quality-record procedure requires clear, complete, truthful and accurate records, with assigned responsibility for collection, filing and access. The quality-culture and ethics procedure reinforces honest reporting and fair inspection decisions.</p><ul class="training-integrity-list"><li>Record actual observations and results against the applicable requirement.</li><li>Report defects and concerns through the assigned quality route.</li><li>Do not fabricate results, hide nonconformity, alter a decision without authority or release rejected goods without approval.</li><li>Protect customer, technical and quality information from unauthorized access or disclosure.</li></ul><p>These are documented expectations. Their application is assessed through the relevant records, supervision and follow-up; this page does not claim a completed training event or an inspector certification.</p></div>
+      </section>
+
+      <section id="training-faq" class="training-section" aria-labelledby="faq-title"><p class="training-eyebrow">06 / READING THE TRAINING MATERIAL</p><h2 id="faq-title">Inspector training questions</h2><div class="training-faq">{faqs.map(faq => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
+
+      <section id="related-quality" class="training-section" aria-labelledby="related-title"><p class="training-eyebrow">RELATED QUALITY REFERENCES</p><h2 id="related-title">Continue your quality review</h2><div class="training-related">{related.map(item => <a href={item.href}><h3>{item.label} <span aria-hidden="true">↗</span></h3><p>{item.detail}</p></a>)}</div></section>
+    </div>
+
+    <section id="project-requirements" class="training-cta" aria-labelledby="project-title"><div class="training-container training-purpose"><div><p class="training-eyebrow">YOUR PRODUCT / YOUR INSPECTION NEEDS</p><h2 id="project-title">Bring the relevant examples into your product discussion</h2></div><div><p>Share the product, drawings or reference sample, and the defect examples that need attention. Keep product-specific acceptance criteria separate from this visual training reference.</p><a class="training-button" href={contactHref}>Discuss Your Inspection Requirements <span aria-hidden="true">↗</span></a><p class="training-note">Use the inquiry form to prepare your brief, or <a href="/quality/quality-control-process/#project-requirements">review the quality-control checklist</a>.</p></div></div></section>
+  </div>
+  <ImageLightbox />
+</BaseLayout>

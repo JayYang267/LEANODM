@@ -1,0 +1,24 @@
+---
+import Icon from './CustomizationIcon.astro';
+import type { CustomizationPageData } from '../data/customization/types';
+interface Props { page: CustomizationPageData; }
+const { page } = Astro.props;
+const visuals: Record<string, { label: string; icon: string; start: string; finish: string; changes: { icon: string; text: string }[] }> = {
+  'existing-products': { label: 'A BASE PRODUCT, YOUR BRAND', icon: 'box', start: 'Selected base', finish: 'Approved variant', changes: [{ icon: 'palette', text: 'Color & finish' }, { icon: 'stamp', text: 'Brand artwork' }, { icon: 'package', text: 'Packaging' }] },
+  'product-adaptation': { label: 'CHANGE THE ENGINEERING BASELINE', icon: 'component', start: 'Current revision', finish: 'Verified revision', changes: [{ icon: 'ruler', text: 'Structure' }, { icon: 'circuit-board', text: 'Function' }, { icon: 'shield-check', text: 'Validation' }] },
+  'new-product-development': { label: 'FROM REQUIREMENT TO PRODUCTION', icon: 'lightbulb', start: 'Product idea', finish: 'Production release', changes: [{ icon: 'pencil-ruler', text: 'Engineering' }, { icon: 'box', text: 'Prototype' }, { icon: 'wrench', text: 'Tooling & trials' }] },
+  'oem-manufacturing': { label: 'YOUR DESIGN + MANUFACTURING EXECUTION', icon: 'files', start: 'Released design', finish: 'Controlled production', changes: [{ icon: 'wrench', text: 'Tooling' }, { icon: 'factory', text: 'Assembly' }, { icon: 'clipboard-check', text: 'Quality & release' }] },
+  'how-we-work': { label: 'A DECISION AT EACH RELEVANT STAGE', icon: 'messages-square', start: 'Shared brief', finish: 'Authorized next step', changes: [{ icon: 'file-search', text: 'Review inputs' }, { icon: 'list-checks', text: 'Record findings' }, { icon: 'file-check-2', text: 'Confirm approval' }] },
+  'project-fit': { label: 'ALIGN THE PROJECT BEFORE COMMITMENT', icon: 'scan-search', start: 'Project brief', finish: 'Agreed route', changes: [{ icon: 'component', text: 'Capability fit' }, { icon: 'lock-keyhole', text: 'Rights & assets' }, { icon: 'shield-check', text: 'Safe, clear scope' }] },
+};
+const visual = visuals[page.slug];
+---
+<aside class="b2b-hero-visual" aria-label={`${page.h1} at a glance`}>
+  <div class="b2b-visual-title"><Icon name={visual.icon} /><span>{visual.label}</span></div>
+  <div class="b2b-route-diagram" aria-label={`${visual.start} to ${visual.finish}`}>
+    <div class="b2b-route-end"><Icon name={visual.icon} /><strong>{visual.start}</strong></div>
+    <div class="b2b-route-changes">{visual.changes.map(change => <div><Icon name={change.icon} /><span>{change.text}</span></div>)}</div>
+    <div class="b2b-route-end b2b-route-end--approved"><Icon name={page.slug === 'project-fit' || page.slug === 'how-we-work' ? 'file-check-2' : 'package-check'} /><strong>{visual.finish}</strong></div>
+  </div>
+  <dl class="b2b-summary">{page.summary.map(item => <div><dt>{item.label}</dt><dd>{item.text}</dd></div>)}</dl>
+</aside>

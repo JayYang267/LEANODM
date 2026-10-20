@@ -11,38 +11,38 @@ import headphonesImg from '@assets/photo-1486312338219-ce68d2c6f44d.jpg';
 const features = [
   {
     icon: 'lucide:warehouse',
-    title: 'Advanced Warehousing',
-    description: 'Climate-controlled facilities with automated inventory systems and 24/7 security.',
+    title: 'Tooling & Molding',
+    description: 'Xinyinhai’s toolroom supports mold machining, adjustment and repair alongside injection molding.',
     image: warehouseImg,
   },
   {
     icon: 'lucide:truck',
-    title: 'Fast Transportation',
-    description: 'Multi-modal logistics network ensuring rapid delivery across all destinations.',
+    title: 'Assembly & Packaging',
+    description: 'Xinyinhai’s work instructions describe component fitting, process checks and preparation for packing.',
     image: truckImg,
   },
   {
     icon: 'lucide:package',
-    title: 'Quality Manufacturing',
-    description: 'ISO-certified production with precision engineering and quality control.',
+    title: 'Quality Controls',
+    description: 'Xinyinhai’s documented inspection methods connect product requirements with acceptance criteria.',
     image: packageImg,
   },
   {
     icon: 'lucide:bar-chart-3',
-    title: 'Real-Time Analytics',
-    description: 'Complete supply chain visibility with advanced tracking and reporting.',
+    title: 'Development Review',
+    description: 'Review the intended use, design inputs and verification needs with the project team.',
     image: barChart3Img,
   },
   {
     icon: 'lucide:shield',
-    title: 'Secure Operations',
-    description: 'Industry-leading security protocols protecting your valuable assets.',
+    title: 'Project Confidentiality',
+    description: 'Agree the scope and conditions for sharing restricted project information before exchange.',
     image: shieldImg,
   },
   {
     icon: 'lucide:headphones',
-    title: '24/7 Support',
-    description: 'Dedicated teams available around the clock to ensure seamless operations.',
+    title: 'Project Communication',
+    description: 'Share your product brief so the relevant work, responsibilities and next step can be discussed.',
     image: headphonesImg,
   },
 ];
@@ -64,7 +64,7 @@ export default function FeatureShowcase() {
             <div className="relative h-64 overflow-hidden">
               <motion.img
                 src={feature.image.src}
-                alt={feature.title}
+                alt={`Illustrative stock photograph: ${feature.title}`}
                 className="w-full h-full object-cover"
                 loading="lazy"
                 whileHover={{ scale: 1.05 }}
@@ -88,6 +88,7 @@ export default function FeatureShowcase() {
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
               <p className="text-sm text-gray-200 opacity-90">{feature.description}</p>
+              <p className="text-xs text-gray-300 mt-2">Illustrative photography</p>
             </div>
           </div>
         </motion.div>

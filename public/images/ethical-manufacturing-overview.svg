@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Ethical Manufacturing — LEANODM</title>
+  <desc id="desc">Documented factory management areas: labor, worker voice, health and safety, environment, business ethics, training and review.</desc>
+  <rect width="1200" height="630" fill="#f3f6fa"/>
+  <rect x="0" width="16" height="630" fill="#183ba3"/>
+  <g font-family="Arial, sans-serif">
+    <text x="72" y="83" fill="#183ba3" font-size="24" font-weight="700" letter-spacing="3">LEANODM / SUPPLIER QUALIFICATION</text>
+    <text x="72" y="168" fill="#142a46" font-size="58" font-weight="700">Ethical Manufacturing</text>
+    <text x="72" y="216" fill="#506178" font-size="25">Documented practices. Reviewable evidence.</text>
+    <g fill="white" stroke="#cbd7e7"><rect x="72" y="268" width="337" height="108" rx="4"/><rect x="432" y="268" width="337" height="108" rx="4"/><rect x="792" y="268" width="337" height="108" rx="4"/><rect x="72" y="398" width="337" height="108" rx="4"/><rect x="432" y="398" width="337" height="108" rx="4"/><rect x="792" y="398" width="337" height="108" rx="4"/></g>
+    <g fill="#183ba3" font-size="17"><text x="94" y="300">01</text><text x="454" y="300">02</text><text x="814" y="300">03</text><text x="94" y="430">04</text><text x="454" y="430">05</text><text x="814" y="430">06</text></g>
+    <g fill="#142a46" font-size="25" font-weight="600"><text x="94" y="347">Labor rights</text><text x="454" y="347">Worker voice &amp; welfare</text><text x="814" y="347">Health &amp; safety</text><text x="94" y="477">Environment</text><text x="454" y="477">Business ethics</text><text x="814" y="477">Training &amp; review</text></g>
+    <text x="72" y="570" fill="#506178" font-size="22">Policy → Process → Evidence → Review → Improvement</text>
+  </g>
+</svg>

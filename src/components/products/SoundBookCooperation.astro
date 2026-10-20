@@ -1,0 +1,46 @@
+---
+import { deliverySteps, commercialDetails, qualityNote } from '../../data/products/sound-book-support';
+import { procurementRows, marketReviews, reviewDocuments } from '../../data/products/sound-book-procurement';
+import { SOUND_BOOK_BASE } from '../../data/products/sound-book-catalog';
+import '../../styles/sound-book-sections.css';
+
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+---
+
+{compact ? <section id="process" class="sb-section sb-shared-compact sb-compact-cooperation" aria-labelledby="process-title">
+  <div class="sb-container">
+    <div class="sb-shared-section-heading"><div><p class="sb-eyebrow">FROM BRIEF TO DELIVERY</p><h2 id="process-title">A clear route to the next decision.</h2></div><p>Each stage uses agreed inputs, reviewable outputs and approval before the next commitment.</p></div>
+    <ol class="sb-compact-process">{deliverySteps.map((step, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><strong>{step.title}</strong></li>)}</ol>
+    <nav class="sb-cooperation-links" aria-label="Full sound book cooperation information"><a href={`${SOUND_BOOK_BASE}#process`} data-inquiry-navigation>Project stages <span aria-hidden="true">↗</span></a><a href={`${SOUND_BOOK_BASE}#buying-conditions`} data-inquiry-navigation>Procurement conditions <span aria-hidden="true">↗</span></a><a href={`${SOUND_BOOK_BASE}#quality`} data-inquiry-navigation>Quality & market planning <span aria-hidden="true">↗</span></a></nav>
+  </div>
+</section> : <>
+  <section id="process" class="sb-section sb-shared-process" aria-labelledby="process-title">
+    <div class="sb-container">
+      <div class="sb-shared-section-heading"><div><p class="sb-eyebrow">FROM FIRST BRIEF TO DELIVERY</p><h2 id="process-title">Know the next decision.<br />Know what you receive.</h2></div><p>A staged plan connects the scope, approval points and delivery expectations. Include customer approvals, testing, material readiness and transport in the schedule.</p></div>
+      <ol class="sb-shared-process-steps">{deliverySteps.map((step, index) => <li><span class="sb-shared-step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.text}</p><div><span>What you receive</span><strong>{step.output}</strong></div></li>)}</ol>
+    </div>
+  </section>
+  <section id="buying-conditions" class="sb-section sb-shared-buying" aria-labelledby="buying-conditions-title">
+    <div class="sb-container">
+      <div class="sb-shared-section-heading"><div><p class="sb-eyebrow">A CLEAR COMMERCIAL BASIS</p><h2 id="buying-conditions-title">Compare the complete project.</h2></div><p>Open the conditions that matter to your first order. Quantities, costs, responsibilities and timing belong in the project quotation and agreement.</p></div>
+      <div class="sb-buying-summaries">{procurementRows.map((row, index) => <details class="sb-buying-summary"><summary><span class="sb-buying-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span><strong>{row.topic}</strong><span>{row.decision}</span></span><span class="sb-shared-question-toggle" aria-hidden="true">+</span></summary><p>{row.review}</p></details>)}</div>
+      <details class="sb-shared-commercial"><summary><span>Development fees, payment & handover</span><span class="sb-shared-question-toggle" aria-hidden="true">+</span></summary><div>{commercialDetails.map(item => <article><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></details>
+    </div>
+  </section>
+  <section id="quality" class="sb-section sb-shared-quality" aria-labelledby="quality-title">
+    <div class="sb-container">
+      <div class="sb-shared-section-heading"><div><p class="sb-eyebrow">QUALITY & TARGET MARKET</p><h2 id="quality-title">Use evidence for the right configuration.</h2></div><p>Printed content, audio mapping, electronics and assembly need a shared acceptance basis. Process documents and product reports answer different questions.</p></div>
+      <div class="sb-quality-evidence-basis">
+        <article><h3>Published process references</h3><p>IQC criteria, appearance examples and assembly instructions show methods for accepting materials, controlling fit and recording inspection decisions.</p></article>
+        <article><h3>Reports for the actual model</h3><p>No configuration-specific product report is presented here. Any relevant report needs the matching model and scope; a factory system certificate does not certify this book.</p></article>
+        <article><h3>Validation for a new configuration</h3><p>{qualityNote}</p></article>
+      </div>
+      <nav class="sb-quality-source-links" aria-label="Related quality processes"><a href="/quality/product-testing/">Product test planning <span aria-hidden="true">↗</span></a><a href="/quality/quality-control-process/">Inspection & acceptance <span aria-hidden="true">↗</span></a><a href="/quality/traceability/">Materials & version records <span aria-hidden="true">↗</span></a></nav>
+      <div class="sb-shared-review-panels">
+        <details id="market-review"><summary><span><strong>Plan for your destination market</strong><small>United States · European Union · United Kingdom · Japan</small></span><span class="sb-shared-question-toggle" aria-hidden="true">+</span></summary><div><p>Start with the destination, intended age, final configuration and launch date. The project plan identifies applicable tests, labels, documents and responsible parties.</p><dl>{marketReviews.map(item => <div><dt>{item.market}</dt><dd>{item.text}</dd></div>)}</dl><p>Identify material declarations, battery or packaging disposal information and any repair or disassembly needs. Environmental claims require supporting evidence.</p></div></details>
+        <details id="review-documents"><summary><span><strong>Documents for supplier and project review</strong><small>Scope, dates and permission to share matter</small></span><span class="sb-shared-question-toggle" aria-hidden="true">+</span></summary><div><p>Published capability pages provide process references. Additional documents need to be available, authorized for review and applicable to the project.</p><dl>{reviewDocuments.map(item => <div><dt>{item.title}</dt><dd>{item.text}</dd></div>)}</dl><a class="sb-text-link" href="/about/ethical-manufacturing/">Supplier conduct & workplace references <span aria-hidden="true">↗</span></a></div></details>
+      </div>
+    </div>
+  </section>
+</>}

@@ -1,0 +1,203 @@
+---
+interface Props {
+  kind: 'startup' | 'brand' | 'procurement';
+}
+
+const { kind } = Astro.props;
+---
+
+<svg
+  class="xyh-customer-illustration"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 400 250"
+  width="400"
+  height="250"
+  fill="none"
+  aria-hidden="true"
+  focusable="false"
+>
+  {kind === 'startup' && (
+    <>
+      <!-- Product sketches and a small idea light keep the people in the foreground. -->
+      <rect x="34" y="28" width="112" height="90" rx="7" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="M49 45h32m-32 7h21m38-10v9m-5-4h10" stroke="#cfddf6" stroke-width="3" stroke-linecap="round" />
+      <rect x="51" y="65" width="39" height="28" rx="7" stroke="#0838a4" stroke-width="2" />
+      <circle cx="62" cy="79" r="4" stroke="#0838a4" stroke-width="2" />
+      <path d="M74 79h8m-4-4v8m-24 20h33m16-38h26m-26 8h18m-18 18h19m-19 8h13" stroke="#cfddf6" stroke-width="2" stroke-linecap="round" />
+      <path d="M317 51c0-9 7-16 16-16s16 7 16 16c0 6-3 10-7 14v7h-18v-7c-4-4-7-8-7-14Z" fill="white" stroke="#0838a4" stroke-width="2" />
+      <path d="M328 79h10m-8-30 3 8 4-8m-4 8v14m0-46v-5m26 30h6m-63 0h6m43-18 4-4m-40 4-4-4" stroke="#0838a4" stroke-width="2" stroke-linecap="round" />
+      <path d="M52 223h296" stroke="#cfddf6" stroke-width="2" stroke-linecap="round" />
+      <!-- The seated founders. -->
+      <path d="M93 177h34l14 42h-17l-14-28H91Z" fill="#102950" />
+      <path d="M82 178h24l-8 44H81Z" fill="#0838a4" />
+      <path d="M80 221h18l7 7H78Z" fill="#102950" />
+      <path d="M123 218h18l9 9h-27Z" fill="#102950" />
+      <rect x="72" y="183" width="51" height="7" rx="3.5" fill="#cfddf6" />
+      <path d="M79 190v31m38-31v31" stroke="#102950" stroke-width="3" stroke-linecap="round" />
+      <path d="M79 119c3-8 11-13 21-13h11c13 0 21 10 23 24l7 49H76Z" fill="#0838a4" />
+      <path d="m91 116 14 16 10-21" stroke="#4265b0" stroke-width="2" stroke-linecap="round" />
+      <path d="M99 96v15c0 7 14 10 17 1l-3-20Z" fill="#e5a982" />
+      <path d="M89 76c0-14 8-23 22-23 15 0 22 10 22 23v13c0 13-8 23-19 23-12 0-22-12-22-24Z" fill="#f3c5a6" />
+      <path d="M91 86c-9-6-10-20-3-29 6-9 21-12 31-7 7 3 11 8 12 16-9 4-22 1-29-3-1 11-4 18-11 23Z" fill="#102950" />
+      <path d="M91 85c-7-4-10 4-5 9l7 2" fill="#f3c5a6" />
+      <path d="M120 79v7m-5 12c4 2 7 1 9-2" stroke="#102950" stroke-width="1.7" stroke-linecap="round" />
+      <path d="m124 126 21 28 27 3-3 13h-31c-5 0-9-2-12-6l-19-26Z" fill="#f3c5a6" />
+      <path d="m118 117 16 20-18 12-13-19Z" fill="#0838a4" />
+      <path d="m166 157 15-2c4 0 7 3 7 6 0 4-3 7-7 8l-13 1" fill="#f3c5a6" />
+      <path d="M274 182h27l17 38h-18l-18-27h-12Z" fill="#0838a4" />
+      <path d="M293 181h25l-2 42h-17Z" fill="#102950" />
+      <path d="M299 220h17l9 8h-29Zm-1-2h17l1 8h-29Z" fill="#102950" />
+      <rect x="272" y="184" width="54" height="7" rx="3.5" fill="#cfddf6" />
+      <path d="M279 191v30m40-30v30" stroke="#102950" stroke-width="3" stroke-linecap="round" />
+      <path d="M271 116c4-7 11-10 21-10h10c11 0 18 8 21 21l5 53h-63Z" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="m282 112 14 22 12-22" fill="#cfddf6" />
+      <path d="M287 95v17c1 9 15 10 18 1l-3-20Z" fill="#c98e69" />
+      <path d="M274 80c0-15 9-25 23-25 15 0 24 11 24 25l-2 12c-2 13-10 22-21 22-12 0-22-12-23-24Z" fill="#e8b18b" />
+      <path d="M274 88c-5-6-7-17-2-25 5-10 16-15 28-12 14 2 24 15 21 29l-7 8-3-15c-12 0-22-4-27-9-1 13-4 18-10 24Z" fill="#102950" />
+      <path d="M276 87c-7-3-9 5-4 9l6 1" fill="#e8b18b" />
+      <path d="M289 83v6m7 11c-3 2-6 1-8-1" stroke="#102950" stroke-width="1.7" stroke-linecap="round" />
+      <path d="m279 130-22 23-27 3 1 13h31c5 0 8-2 12-6l19-20Z" fill="#e8b18b" />
+      <path d="m277 117-16 16 17 17 14-18" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="m234 157-12-3c-4-1-8 1-9 5-1 4 2 8 6 9l13 1" fill="#e8b18b" />
+      <!-- Laptop, physical controller prototype and the shared worktable. -->
+      <path d="M167 119h74a4 4 0 0 1 4 4v44h-82v-44a4 4 0 0 1 4-4Z" fill="#102950" />
+      <rect x="169" y="125" width="70" height="36" rx="1" fill="#cfddf6" />
+      <rect x="187" y="134" width="31" height="19" rx="5" fill="white" stroke="#0838a4" stroke-width="1.5" />
+      <path d="M193 144h7m-3.5-3.5v7" stroke="#0838a4" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="211" cy="143" r="2" fill="#e62129" />
+      <path d="M157 167h94l6 6H151Z" fill="#6f89b8" />
+      <rect x="265" y="152" width="42" height="22" rx="7" fill="white" stroke="#0838a4" stroke-width="2" />
+      <path d="M272 163h9m-4.5-4.5v9" stroke="#0838a4" stroke-width="2" stroke-linecap="round" />
+      <circle cx="296" cy="160" r="2.5" fill="#e62129" />
+      <circle cx="291" cy="167" r="2.5" fill="#cfddf6" />
+      <rect x="119" y="174" width="202" height="9" rx="4.5" fill="#cfddf6" />
+      <path d="M137 184v39m166-39v39" stroke="#102950" stroke-width="5" stroke-linecap="round" />
+    </>
+  )}
+
+  {kind === 'brand' && (
+    <>
+      <!-- An original, geometric product family; no licensed characters or marks. -->
+      <rect x="46" y="27" width="308" height="82" rx="7" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="M148 29v78m103-78v78M47 92h306" stroke="#cfddf6" stroke-width="2" />
+      <rect x="66" y="47" width="25" height="44" rx="3" fill="#cfddf6" />
+      <rect x="70" y="54" width="17" height="25" rx="3" fill="white" />
+      <path d="M110 54v-8m-10 15h22v21h-22Z" stroke="#0838a4" stroke-width="2" stroke-linejoin="round" />
+      <rect x="96" y="55" width="30" height="21" rx="6" fill="#0838a4" />
+      <circle cx="104" cy="65" r="2" fill="white" /><circle cx="117" cy="65" r="2" fill="white" />
+      <path d="M105 82v8m13-8v8" stroke="#0838a4" stroke-width="4" stroke-linecap="round" />
+      <rect x="170" y="43" width="23" height="48" rx="3" fill="#e8edf7" />
+      <rect x="174" y="50" width="15" height="27" rx="3" fill="white" />
+      <path d="M214 54v-8m-10 15h22v21h-22Z" stroke="#e62129" stroke-width="2" stroke-linejoin="round" />
+      <rect x="200" y="55" width="30" height="21" rx="6" fill="#e62129" />
+      <circle cx="208" cy="65" r="2" fill="white" /><circle cx="221" cy="65" r="2" fill="white" />
+      <path d="M209 82v8m13-8v8" stroke="#e62129" stroke-width="4" stroke-linecap="round" />
+      <rect x="273" y="47" width="25" height="44" rx="3" fill="#cfddf6" />
+      <rect x="277" y="54" width="17" height="25" rx="3" fill="white" />
+      <path d="M319 54v-8m-10 15h22v21h-22Z" stroke="#102950" stroke-width="2" stroke-linejoin="round" />
+      <rect x="305" y="55" width="30" height="21" rx="6" fill="#102950" />
+      <circle cx="313" cy="65" r="2" fill="white" /><circle cx="326" cy="65" r="2" fill="white" />
+      <path d="M314 82v8m13-8v8" stroke="#102950" stroke-width="4" stroke-linecap="round" />
+      <path d="M50 226h301" stroke="#cfddf6" stroke-width="2" stroke-linecap="round" />
+      <!-- Two brand/product managers reviewing the range. -->
+      <path d="m86 173 1 49h18l10-47m-3 2 12 46h18l-8-52Z" fill="#102950" />
+      <path d="M86 220h19l6 9H81Zm38 0h18l10 9h-29Z" fill="#102950" />
+      <path d="M78 121c3-12 11-20 25-20h13c12 0 20 9 23 22l4 55H77Z" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="m101 105 12 18 12-16m-15 16-5 49" stroke="#cfddf6" stroke-width="2" />
+      <path d="M101 91v17c2 8 15 9 18 0l-3-19Z" fill="#e5a982" />
+      <path d="M91 72c0-14 9-22 21-22 14 0 22 10 22 23v15c0 12-8 22-19 22-12 0-23-11-23-24Z" fill="#f3c5a6" />
+      <path d="M92 88c-8-7-12-19-7-29 3-7 9-12 16-13 4-11 18-11 24-3 12 4 17 17 12 28-7-2-14-8-17-15-6 8-13 10-22 11v18Z" fill="#102950" />
+      <path d="M94 82c-6-4-9 3-5 8l6 3" fill="#f3c5a6" />
+      <path d="M120 76v6m-6 14c4 2 8 1 10-2" stroke="#102950" stroke-width="1.7" stroke-linecap="round" />
+      <path d="m130 119 19 20 24-11 6 10-28 20c-5 3-9 2-13-1l-22-20Z" fill="#f3c5a6" />
+      <path d="m129 111 15 16-14 16-17-17Z" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="m173 129 4-9c2-4 6-4 8-1l3 7-10 12" fill="#f3c5a6" />
+      <path d="m284 171-8 51h18l12-47m-5 0 10 47h18l-6-51Z" fill="#102950" />
+      <path d="M276 220h18l7 9h-29Zm35 0h18l11 9h-29Z" fill="#102950" />
+      <path d="M275 114c5-9 12-13 23-13h11c13 0 21 9 23 23l3 54h-64Z" fill="#0838a4" />
+      <path d="m295 107 9 16 13-17" stroke="#4265b0" stroke-width="2" />
+      <path d="M293 91v18c2 8 15 8 18-1l-2-17Z" fill="#be7f59" />
+      <path d="M282 75c0-14 8-24 22-24 15 0 24 11 24 26l-2 13c-1 12-10 22-20 22-12 0-23-12-23-25Z" fill="#dba17b" />
+      <path d="M283 86c-6-6-8-17-3-27 6-10 17-15 29-12 13 3 22 14 19 28l-7 9-2-14c-10 0-22-4-28-11-1 14-4 21-8 27Z" fill="#102950" />
+      <path d="M284 83c-7-3-9 5-4 9l6 2" fill="#dba17b" />
+      <path d="M297 77v6m-3 13c3 2 6 2 9 0" stroke="#102950" stroke-width="1.7" stroke-linecap="round" />
+      <path d="m284 125-23 21-21 7 4 12 26-5c5-1 9-3 12-6l17-16" fill="#dba17b" />
+      <path d="m282 111-17 18 17 18 15-17" fill="#0838a4" />
+      <path d="m244 153-11-2c-4-1-7 2-8 5-1 4 2 8 6 9h13" fill="#dba17b" />
+      <!-- Review board, physical sample and packaging on the table. -->
+      <path d="m167 175 5-66a4 4 0 0 1 4-4h53a4 4 0 0 1 4 4l5 66" fill="white" stroke="#0838a4" stroke-width="2" stroke-linejoin="round" />
+      <path d="M201 123v-7m-13 28h28v19h-28Z" stroke="#0838a4" stroke-width="2" />
+      <rect x="182" y="126" width="39" height="27" rx="8" fill="#cfddf6" stroke="#0838a4" stroke-width="2" />
+      <circle cx="193" cy="138" r="2.5" fill="#0838a4" /><circle cx="210" cy="138" r="2.5" fill="#0838a4" />
+      <path d="M197 145h9" stroke="#0838a4" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="226" cy="119" r="3" fill="#e62129" />
+      <rect x="251" y="149" width="30" height="28" rx="3" fill="#cfddf6" stroke="#0838a4" stroke-width="1.5" />
+      <rect x="258" y="155" width="16" height="13" rx="3" fill="white" />
+      <path d="M265 149v27" stroke="#0838a4" stroke-width="1.5" />
+      <path d="M141 159v-6m-10 18h22v7h-22Z" stroke="#e62129" stroke-width="2" stroke-linecap="round" />
+      <rect x="127" y="158" width="29" height="18" rx="5" fill="#e62129" />
+      <circle cx="135" cy="166" r="2" fill="white" /><circle cx="148" cy="166" r="2" fill="white" />
+      <rect x="117" y="178" width="176" height="9" rx="4.5" fill="#cfddf6" />
+      <path d="M132 188v36m145-36v36" stroke="#102950" stroke-width="5" stroke-linecap="round" />
+    </>
+  )}
+
+  {kind === 'procurement' && (
+    <>
+      <!-- A restrained public colonnade and event flags establish the setting. -->
+      <path d="m140 50 61-28 61 28Z" fill="white" stroke="#cfddf6" stroke-width="2" stroke-linejoin="round" />
+      <rect x="138" y="51" width="126" height="10" rx="2" fill="#cfddf6" />
+      <path d="M151 62h13v51h-13Zm43 0h13v51h-13Zm43 0h13v51h-13Z" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="M145 114h113v8H145Zm-8 9h129v7H137Z" fill="#cfddf6" />
+      <path d="M48 38v101m305-101v101" stroke="#102950" stroke-width="2" stroke-linecap="round" />
+      <path d="M49 40h32v41L65 72 49 81Z" fill="#0838a4" />
+      <path d="M352 40h-32v41l16-9 16 9Z" fill="#e62129" />
+      <path d="M49 49h31m241 0h31" stroke="white" stroke-width="2" />
+      <circle cx="48" cy="35" r="3" fill="#102950" /><circle cx="353" cy="35" r="3" fill="#102950" />
+      <path d="M52 226h298" stroke="#cfddf6" stroke-width="2" stroke-linecap="round" />
+      <!-- A trophy and organised gift sets keep this an event/enterprise scene. -->
+      <rect x="321" y="151" width="34" height="33" rx="2" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="M338 151v33m-17-23h34" stroke="#cfddf6" stroke-width="3" />
+      <rect x="40" y="158" width="34" height="26" rx="2" fill="#cfddf6" />
+      <path d="M57 158v26m-17-17h34" stroke="white" stroke-width="3" />
+      <path d="M44 141h25v4H44Z" fill="#102950" />
+      <path d="M51 139v-10m11 10v-10" stroke="#0838a4" stroke-width="2" />
+      <path d="M47 111h19v9c0 7-4 12-9 12-6 0-10-5-10-12Z" fill="white" stroke="#0838a4" stroke-width="2" />
+      <path d="M47 115h-6v4c0 5 3 8 8 8m17-12h6v4c0 5-3 8-8 8" stroke="#0838a4" stroke-width="2" stroke-linejoin="round" />
+      <!-- Procurement and project representatives handing over a gift box. -->
+      <path d="m97 173-5 49h20l9-47m-2 1 11 46h20l-9-51Z" fill="#102950" />
+      <path d="M92 220h20l7 9H87Zm39 0h19l10 9h-30Z" fill="#102950" />
+      <path d="M87 119c4-10 11-16 24-16h12c12 0 19 8 22 20l7 54H84Z" fill="#0838a4" />
+      <path d="m110 109 10 20 11-20" fill="white" />
+      <path d="m111 109-10 18 10 4-6 8 16 25 13-27-8-7 11-6-8-15" stroke="#4265b0" stroke-width="1.5" stroke-linejoin="round" />
+      <path d="M111 94v16c2 8 14 9 17 0l-3-18Z" fill="#c98e69" />
+      <path d="M98 77c0-15 8-24 23-24s23 10 23 25v12c0 13-9 23-20 23-12 0-24-12-24-25Z" fill="#e8b18b" />
+      <path d="M100 89c-8-6-10-21-4-31 6-10 19-14 30-11 13 3 22 14 19 28l-6 10-3-15c-10 0-20-4-26-9-1 13-5 22-10 28Z" fill="#102950" />
+      <path d="M102 85c-7-4-10 4-5 9l7 2" fill="#e8b18b" />
+      <path d="M131 80v6m-7 13c4 2 7 1 10-2" stroke="#102950" stroke-width="1.7" stroke-linecap="round" />
+      <path d="m139 125 22 21 27 1v14h-34c-4 0-8-2-11-5l-20-18Z" fill="#e8b18b" />
+      <path d="m138 114 18 18-17 18-17-17Z" fill="#0838a4" />
+      <path d="M185 148h15c4 0 7 3 7 7s-3 7-7 7h-16" fill="#e8b18b" />
+      <path d="m273 171-11 51h19l16-47m-3 1 8 46h19l-4-51Z" fill="#102950" />
+      <path d="M262 220h19l7 9h-30Zm40 0h19l11 9h-29Z" fill="#102950" />
+      <path d="M264 119c4-10 12-16 25-16h12c13 0 21 9 24 22l4 51h-69Z" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="m285 109 9 22 14-23" stroke="#e62129" stroke-width="2" stroke-linecap="round" />
+      <rect x="285" y="135" width="16" height="19" rx="3" fill="#cfddf6" />
+      <path d="M289 141h8m-8 5h5" stroke="white" stroke-width="2" stroke-linecap="round" />
+      <path d="M284 94v16c1 8 14 9 18 0l-2-18Z" fill="#e5a982" />
+      <path d="M272 78c0-15 9-25 23-25 15 0 24 11 24 25v14c0 13-9 23-20 23-13 0-24-12-25-25Z" fill="#f3c5a6" />
+      <path d="M273 90c-8-4-12-16-9-25 3-10 10-15 18-16 5-8 15-9 22-5 14 3 21 15 18 29l-8 12-3-16c-10 0-19-3-24-9-2 13-7 22-14 30Z" fill="#102950" />
+      <path d="M275 86c-7-4-10 4-5 9l7 2" fill="#f3c5a6" />
+      <path d="M287 82v6m1 13c4 1 7 0 9-3" stroke="#102950" stroke-width="1.7" stroke-linecap="round" />
+      <path d="m276 126-24 21-27 3 1 14 33-1c4 0 7-2 11-5l21-19Z" fill="#f3c5a6" />
+      <path d="m274 114-18 17 17 19 17-17Z" fill="white" stroke="#cfddf6" stroke-width="2" />
+      <path d="m230 151-14-1c-4 0-7 3-7 7 0 3 3 6 7 7l14 1" fill="#f3c5a6" />
+      <!-- The handover sits above both sets of hands, at the centre of the scene. -->
+      <rect x="176" y="132" width="51" height="39" rx="4" fill="#0838a4" />
+      <rect x="172" y="128" width="59" height="11" rx="3" fill="#cfddf6" />
+      <path d="M197 129h9v42h-9Z" fill="#e62129" />
+      <path d="M201 128c-16-1-20-7-16-12 4-5 12 0 16 12Zm1 0c16-1 20-7 16-12-4-5-12 0-16 12Z" fill="white" stroke="#e62129" stroke-width="2" stroke-linejoin="round" />
+      <path d="m188 164 5 1m24-1-5 1" stroke="#e8b18b" stroke-width="7" stroke-linecap="round" />
+    </>
+  )}
+</svg>

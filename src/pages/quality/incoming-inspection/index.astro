@@ -1,4 +1,5 @@
 ---
+import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import standardData from '../../../data/incoming-standard.json';
 import '../../../styles/incoming-inspection.css';
@@ -28,15 +29,19 @@ interface IncomingStandard {
 }
 
 const standard: IncomingStandard = standardData;
-const title = 'Incoming Material Inspection Standard (IQC) | LEANODM';
-const description = 'Explore the incoming material inspection standard: sampling reference, CR / MAJ / MIN classifications, inspection methods and criteria for 20 material types.';
+const title = 'Incoming Material Inspection Standard (IQC) | LEANODM.com';
+const description = 'Review incoming criteria for 20 material types, with supplier approval, sample review, quality monitoring and scoped key-material verification.';
 const route = '/quality/incoming-inspection/';
-const siteOrigin = new URL(import.meta.env.PUBLIC_SITE_URL || 'https://www.leanodm.com').origin;
+const siteOrigin = SITE.url;
 const canonical = new URL(route, siteOrigin).href;
 const navigation = [
   { label: 'Inspection setup', href: '#inspection-conditions' },
   { label: 'Material standards', href: '#material-standards' },
-  { label: 'Customer requirements', href: '#customer-requirements' },
+  { label: 'Supplier controls', href: '#supplier-controls' },
+];
+const faqs = [...standard.faqs,
+  { question: 'How are new suppliers and their samples reviewed?', answer: 'The purchasing procedure calls for supplier information, Engineering review of submitted samples and technical information, and an approved supplier evaluation. A site assessment is used where needed. Purchase requirements draw on the relevant BOM, drawings, inspection standard and approved sample requirements.' },
+  { question: 'Are key materials subject to additional controls?', answer: 'The key-component procedure identifies materials by their effect on function and safety. For the applicable certified-product scope, an approved key-material list, incoming verification and a defined periodic confirmation plan establish the required checks. Supplier or third-party evidence is used where specified; the product, quantity, test items, conclusion and authorization must remain identifiable.' },
 ];
 const pages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
 const hasPage = (path: string) => pages.some((file) => {
@@ -44,6 +49,8 @@ const hasPage = (path: string) => pages.some((file) => {
   return normalized === path;
 });
 const related = [
+  { href: '/quality/', label: 'Quality Management System', detail: 'See how supplier controls connect with documented responsibilities, records and improvement.' },
+  { href: '/quality/traceability/', label: 'Traceability & Materials', detail: 'Connect material identification, inspection status and the agreed production-record trail.' },
   { href: '/quality/appearance-inspection/', label: 'Product appearance inspection', detail: 'Read the separate standard for surface classes, cosmetic defects and appearance criteria.' },
   { href: '/quality/in-process-inspection/', label: 'In-process inspection', detail: 'Review the requirements applied during production.' },
   { href: '/quality/product-testing/', label: 'Product testing', detail: 'Explore functional and product-specific test requirements.' },
@@ -58,8 +65,8 @@ const schema = {
   '@graph': [
     {
       '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical,
-      name: title, description, inLanguage: 'en',
-      about: { '@type': 'Thing', name: 'Xinyinhai incoming material inspection standard (IQC)' },
+      name: title, description, inLanguage: 'en', isPartOf: { '@id': `${siteOrigin}/#website` },
+      about: [{ '@id': `${siteOrigin}/#xinyinhai` }, { '@type': 'Thing', name: 'Xinyinhai incoming material inspection standard (IQC)' }],
       breadcrumb: { '@id': `${canonical}#breadcrumbs` },
     },
     {
@@ -71,7 +78,7 @@ const schema = {
     },
     {
       '@type': 'FAQPage', '@id': `${canonical}#faq`,
-      mainEntity: standard.faqs.map((faq) => ({
+      mainEntity: faqs.map((faq) => ({
         '@type': 'Question', name: faq.question,
         acceptedAnswer: { '@type': 'Answer', text: faq.answer },
       })),
@@ -155,7 +162,7 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
       </section>
 
       <section id="sampling-severity" class="iqc-section" aria-labelledby="sampling-title">
-        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">02 / SAMPLING &amp; DEFECT CLASSIFICATION</p><h2 id="sampling-title">Set the plan.<br />Understand the severity.</h2></div><p>Read the sampling reference together with the defect definitions and the individual material rule. A classification has meaning only in its stated context.</p></div>
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">02 / SAMPLING &amp; DEFECT CLASSIFICATION</p><h2 id="sampling-title">IQC Sampling Plan &amp;<br />Defect Classification</h2></div><p>Read the sampling reference together with the defect definitions and the individual material rule. A classification has meaning only in its stated context.</p></div>
         <div class="iqc-sampling-grid">
           <div class="iqc-sampling-card">
             <p class="iqc-micro-label">SOURCE §5.1–5.2</p>
@@ -205,7 +212,7 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
       </section>
 
       <section id="inspection-methods" class="iqc-section" aria-labelledby="methods-title">
-        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">04 / INSPECTION METHODS</p><h2 id="methods-title">Use the method<br />the material calls for.</h2></div><p>A visual comparison, a measurement and a functional test answer different questions. The method column above keeps that distinction visible.</p></div>
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">04 / INSPECTION METHODS</p><h2 id="methods-title">Visual, Dimensional &amp;<br />Functional Inspection Methods</h2></div><p>A visual comparison, a measurement and a functional test answer different questions. The method column above keeps that distinction visible.</p></div>
         <div class="iqc-method-grid">{standard.methods.map((method, index) => <article id={method.id}><span class="iqc-method-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{method.name}</h3><p>{method.description}</p><ul>{method.examples.map((example) => <li>{example}</li>)}</ul></article>)}</div>
       </section>
 
@@ -219,17 +226,37 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
         <div><p class="iqc-customer-rule">Where a customer has special requirements <strong>or</strong> requirements stricter than the factory standard, that customer’s products follow the customer’s requirements.</p><p class="iqc-source">Source §5.2. This provision applies to the relevant customer’s products.</p><p>Bring the applicable drawing, specification and approved reference sample into the discussion. Resolve unclear severity marks and agree the relevant checks before using the criteria for a lot decision.</p></div>
       </section>
 
-      {related.length > 0 && <section id="related-quality-controls" class="iqc-section" aria-labelledby="related-title"><p class="iqc-eyebrow">RELATED QUALITY CONTROLS</p><h2 id="related-title">Explore Our Quality System</h2><div class="iqc-related">{related.map((item) => <a href={item.href}><div><h3>{item.label}</h3><p>{item.detail}</p></div><span aria-hidden="true">↗</span></a>)}</div></section>}
+      <section id="supplier-controls" class="iqc-section" aria-labelledby="supplier-title">
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">07 / SUPPLIER &amp; SAMPLE APPROVAL</p><h2 id="supplier-title">Supplier Approval, Samples &amp;<br />Purchase Requirements</h2></div><p>The purchasing and key-material procedures add a management layer around the inspection criteria above: approve the source, define the purchase requirement and monitor what arrives.</p></div>
+        <div class="iqc-method-grid iqc-control-grid">
+          <article><span class="iqc-method-number" aria-hidden="true">01</span><h3>Review the supplier and sample</h3><p>Purchasing gathers supplier information and coordinates evaluation. Engineering assesses submitted samples and technical information. A factory assessment is used where needed; authorized management approves entry on the approved supplier list.</p></article>
+          <article><span class="iqc-method-number" aria-hidden="true">02</span><h3>Order against the right reference</h3><p>Purchase requirements use the relevant BOM, drawing, specification and inspection criteria. Where sample approval is required before production, that condition belongs in the order. Changes to technical information or inspection standards are communicated to the supplier.</p></article>
+          <article><span class="iqc-method-number" aria-hidden="true">03</span><h3>Monitor continuing supply</h3><p>Incoming inspection results feed supplier quality review alongside delivery performance. Significant or recurring problems can trigger corrective action, reassessment, adjusted inspection or removal from the approved list under the applicable procedure.</p></article>
+        </div>
+        <div class="iqc-reading-note"><span class="iqc-note-marker" aria-hidden="true">i</span><div><h3>Approval and incoming acceptance answer different questions</h3><p>Supplier approval establishes an authorized source. Each receipt still follows its applicable verification route and recorded status. A customer-nominated supplier remains within incoming quality monitoring; nomination does not itself establish material acceptance.</p></div></div>
+      </section>
+
+      <section id="key-material-validation" class="iqc-section" aria-labelledby="key-material-title">
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">08 / KEY COMPONENTS &amp; MATERIALS</p><h2 id="key-material-title">Key-Component Risk &amp;<br />Supporting Evidence</h2></div><p>The key-component procedure distinguishes materials that directly affect function or safety from other components and auxiliary materials. Its certification-related controls apply to the relevant product scope.</p></div>
+        <div class="iqc-method-grid iqc-control-grid">
+          <article><span class="iqc-method-number" aria-hidden="true">A</span><h3>Define the critical reference</h3><p>For applicable certified products, Quality prepares an approved list of key parts and materials using the product characteristics and certification requirements. Incoming verification checks the identified component against its specified inspection items, method and acceptance plan.</p></article>
+          <article><span class="iqc-method-number" aria-hidden="true">B</span><h3>Plan confirmation checks</h3><p>The procedure calls for defined periodic confirmation items, timing and frequency. Depending on the material and the approved plan, evidence may come from the factory, the supplier or an external test organization, covering the relevant dimensional, chemical, mechanical or electrical characteristics.</p></article>
+          <article><span class="iqc-method-number" aria-hidden="true">C</span><h3>Retain usable evidence</h3><p>Verification and confirmation records retain the applicable results and authorization. Supplier inspection evidence identifies the product, covered quantity, inspected items, conclusion and responsible sign-off. Nonconforming material is identified and routed for disposition.</p></article>
+        </div>
+        <p class="iqc-source">These sections summarize documented purchasing and key-material controls. For your product, agree the applicable list, verification responsibility and required reports; the procedures alone do not demonstrate completed testing or material certification.</p>
+      </section>
+
+      {related.length > 0 && <section id="related-quality-controls" class="iqc-section" aria-labelledby="related-title"><p class="iqc-eyebrow">RELATED QUALITY CONTROLS</p><h2 id="related-title">Explore Xinyinhai’s Quality Controls</h2><div class="iqc-related">{related.map((item) => <a href={item.href}><div><h3>{item.label}</h3><p>{item.detail}</p></div><span aria-hidden="true">↗</span></a>)}</div></section>}
 
       <section id="faq" class="iqc-section" aria-labelledby="faq-title">
-        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">07 / BUYER QUESTIONS</p><h2 id="faq-title">Incoming inspection FAQ</h2></div><p>Practical questions about the source standard, its scope and the way its requirements are presented.</p></div>
-        <div class="iqc-faqs">{standard.faqs.map((faq) => <details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div>
+        <div class="iqc-section-heading"><div><p class="iqc-eyebrow">09 / BUYER QUESTIONS</p><h2 id="faq-title">Incoming inspection FAQ</h2></div><p>Practical questions about the source standard, its scope and the way its requirements are presented.</p></div>
+        <div class="iqc-faqs">{faqs.map((faq) => <details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div>
       </section>
     </div>
 
     <section id="project-requirements" class="iqc-project" aria-labelledby="project-title">
       <div class="iqc-container iqc-project-grid">
-        <div><p class="iqc-eyebrow">YOUR PRODUCT / YOUR INSPECTION BRIEF</p><h2 id="project-title">Discuss incoming material<br />requirements for your project.</h2><p>Prepare the details needed for a useful technical discussion. A written brief connects the material, the reference sample and the checks that matter to your product.</p><div class="iqc-project-actions"><a class="iqc-button" href={checklistHref} download="LEANODM-IQC-project-checklist.txt">Prepare Your Incoming Inspection Brief <span aria-hidden="true">↓</span></a></div><p class="iqc-project-note">Download a plain-text checklist to complete. This preparation guide adds no acceptance rules to the factory standard.</p></div>
+        <div><p class="iqc-eyebrow">YOUR PRODUCT / YOUR INSPECTION BRIEF</p><h2 id="project-title">Discuss incoming material<br />requirements for your project.</h2><p>Prepare the details needed for a useful technical discussion. A written brief connects the material, the reference sample and the checks that matter to your product.</p><div class="iqc-project-actions"><a class="iqc-button" href={checklistHref} download="LEANODM-IQC-project-checklist.txt">Prepare Your Incoming Inspection Brief <span aria-hidden="true">↓</span></a><a class="iqc-button" href="/rfq/?source=quality-incoming-inspection#rfq-form">Discuss your material requirements <span aria-hidden="true">↗</span></a></div><p class="iqc-project-note">Download a plain-text checklist to complete. This preparation guide adds no acceptance rules to the factory standard.</p></div>
         <ol class="iqc-checklist"><li><span>01</span><div><strong>Identify the material</strong><p>Product, component, supplier and lot information.</p></div></li><li><span>02</span><div><strong>Bring the reference</strong><p>Drawing revision, customer specification and approved sample.</p></div></li><li><span>03</span><div><strong>Define the important checks</strong><p>Dimensions, appearance, assembly, function and required tests.</p></div></li><li><span>04</span><div><strong>Resolve the decision rules</strong><p>Sampling plan, classifications and source points needing clarification.</p></div></li></ol>
       </div>
     </section>

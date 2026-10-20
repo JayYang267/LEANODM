@@ -1,6 +1,6 @@
 ---
 import BrandWordmark from './BrandWordmark.astro';
-import { leanPrimaryNavigation, leanSecondaryNavigation } from './leanNavigation';
+import { leanPrimaryNavigation, leanSecondaryNavigation, leanQualityNavigation, leanManufacturingNavigation, leanCustomizationNavigation, leanAboutNavigation, leanInquiryNavigation, inquiryHrefForPage } from './leanNavigation';
 import { technicalPageNavigation } from './technicalPageNavigation';
 
 interface Props {
@@ -8,6 +8,7 @@ interface Props {
   navigation?: readonly { label: string; href: string }[];
   pageTitle?: string;
   contactLabel?: string;
+  projectDescription?: string;
 }
 
 const {
@@ -15,6 +16,7 @@ const {
   navigation = technicalPageNavigation,
   pageTitle = 'Appearance inspection',
   contactLabel = 'Discuss your project',
+  projectDescription = 'Define reference samples, inspection conditions and acceptance criteria for your product.',
 } = Astro.props;
 const pages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
 const hasPage = (path: string) => pages.some((file) => {
@@ -22,6 +24,12 @@ const hasPage = (path: string) => pages.some((file) => {
   return normalized === path;
 });
 const isAvailable = (href: string) => href.startsWith('#') || hasPage(href);
+const secondaryNavigation = leanSecondaryNavigation.filter(item => isAvailable(item.href));
+const contactDestination = new URL(contactHref, Astro.url);
+const goesToInquiry = contactDestination.pathname.replace(/\/$/, '') === '/rfq' &&
+  (!contactDestination.hash || contactDestination.hash === '#rfq-form');
+const footerContactHref = goesToInquiry ? inquiryHrefForPage(Astro.url.pathname) : contactHref;
+const footerContactLabel = goesToInquiry ? leanInquiryNavigation.label : contactLabel;
 ---
 
 <footer class="technical-footer">
@@ -29,23 +37,28 @@ const isAvailable = (href: string) => href.startsWith('#') || hasPage(href);
     <div class="technical-footer-grid">
       <div class="technical-footer-brand">
         <a href="/" aria-label="LEANODM home" class="technical-brand">
-          <img src="/brand/xinyinhai-symbol.png" alt="" width="44" height="44" />
+          <img src="/brand/xinyinhai-symbol-display-96.webp" srcset="/brand/xinyinhai-symbol-display-48.webp 48w, /brand/xinyinhai-symbol-display-96.webp 96w, /brand/xinyinhai-symbol-display-144.webp 144w" sizes="40px" alt="" width="44" height="44" />
           <BrandWordmark />
         </a>
-        <p>OEM &amp; ODM manufacturing for plastic and electronic products.</p>
-        <p class="technical-factory">Featured factory: Xinyinhai<br />Dongguan, China</p>
+        <p>LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities.</p>
+        <p class="technical-factory">Xinyinhai · Product Development &amp; Manufacturing<br />Manufacturing site: Humen, Dongguan, China</p>
       </div>
       <nav aria-label="LEANODM primary footer navigation">
         <h2>LEANODM</h2>
         <ul>
-          {leanPrimaryNavigation.map((item) => <li>{isAvailable(item.href) ? <a href={item.href}>{item.label}</a> : <span class="technical-footer-planned">{item.label} <small>Planned</small></span>}</li>)}
+          {leanPrimaryNavigation.filter(item => item.label !== 'ODM & OEM' && item.label !== 'Manufacturing' && item.label !== 'About' && isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}
         </ul>
+        <h2 class="quality-footer-title">About</h2>
+        <ul>{leanAboutNavigation.filter(item => isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul>
+        <h2 class="quality-footer-title"><a href="/quality/">Quality references</a></h2>
+        <ul>{leanQualityNavigation.filter(item => isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul>
       </nav>
       <nav aria-label="LEANODM secondary footer navigation">
-        <h2>Explore</h2>
-        <ul>
-          {leanSecondaryNavigation.map((item) => <li>{isAvailable(item.href) ? <a href={item.href}>{item.label}</a> : <span class="technical-footer-planned">{item.label} <small>Planned</small></span>}</li>)}
-        </ul>
+        <h2>ODM &amp; OEM</h2>
+        <ul>{leanCustomizationNavigation.filter(item => isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul>
+        <h2 class="quality-footer-title"><a href="/manufacturing/">Manufacturing</a></h2>
+        <ul>{leanManufacturingNavigation.filter(item => isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul>
+        {secondaryNavigation.length > 0 && <><h2 class="quality-footer-title">Explore</h2><ul>{secondaryNavigation.map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul></>}
       </nav>
       <nav aria-label={`Footer ${pageTitle.toLowerCase()} page navigation`}>
         <h2>{pageTitle}</h2>
@@ -55,12 +68,12 @@ const isAvailable = (href: string) => href.startsWith('#') || hasPage(href);
       </nav>
       <div class="technical-footer-project">
         <h2>Your project requirements</h2>
-        <p>Define reference samples, inspection conditions and acceptance criteria for your product.</p>
-        <a href={contactHref} class="technical-footer-contact">{contactLabel} <span aria-hidden="true">↗</span></a>
+        <p>{projectDescription}</p>
+        <a href={footerContactHref} class="technical-footer-contact">{footerContactLabel} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
     <div class="technical-footer-bottom">
-      <p>&copy; {new Date().getFullYear()} LEANODM.</p>
+      <p>{new Date().getFullYear()} · LEANODM.com</p>
       <a href="/">Home</a>
     </div>
   </div>
@@ -132,23 +145,7 @@ const isAvailable = (href: string) => href.startsWith('#') || hasPage(href);
     line-height: 1.5;
   }
 
-  .technical-footer-planned {
-    display: inline-flex;
-    min-height: 44px;
-    align-items: center;
-    gap: 0.4rem;
-    color: #7f8ea3;
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
-
-  .technical-footer-planned small {
-    color: #66758a;
-    font-size: 0.6rem;
-    font-weight: 750;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
+  .technical-footer .quality-footer-title { margin-top:24px; }
 
   .technical-footer a {
     border-radius: 0.25rem;

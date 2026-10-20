@@ -1,0 +1,141 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/ui/Button.astro';
+import Icon from '../../components/CustomizationIcon.astro';
+import AboutPhoto from '../../components/AboutPhoto.astro';
+import ImageLightbox from '../../components/ImageLightbox.astro';
+import { getImage } from 'astro:assets';
+import exterior from '../../assets/about/xinyinhai-factory-exterior.webp';
+import workplaceReview from '../../assets/about/employee-workplace-review.webp';
+import moldingAisle from '../../assets/about/xinyinhai-molding-aisle.webp';
+import organizedTools from '../../assets/about/organized-tools-and-materials.webp';
+import '../../styles/about.css';
+
+const title = 'About Xinyinhai | OEM/ODM Manufacturing | LEANODM.com';
+const description = 'LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities, people and manufacturing history, with a documented factory site in Humen, Dongguan.';
+const origin = SITE.url;
+const canonical = new URL('/about/', origin).href;
+const og = await getImage({ src: exterior, width: exterior.width, format: 'webp', quality: 82 });
+const ogImage = new URL(og.src, origin).href;
+const navigation = [
+  { label: 'People', href: '#who-we-are' },
+  { label: 'Manufacturing roots', href: '#where-we-come-from' },
+  { label: 'Direction', href: '#where-we-are-going' },
+  { label: 'Learn more', href: '#learn-more' },
+];
+const history = [
+  { year: '1988', title: 'Manufacturing roots', text: 'Xinyinhai’s company history records the establishment of its predecessor, Shenzhen Yinhai Electronics, in Shenzhen.' },
+  { year: '2002', title: 'The Xinyinhai name', text: 'The company was renamed 深圳市鑫银海电子有限公司 and moved to Fuyong, Bao’an, Shenzhen.' },
+  { year: '2017', title: 'Manufacturing in Humen', text: 'The Dongguan branch was established, developing the manufacturing base in Humen, Dongguan.' },
+  { year: '2024', title: 'Further adoption of lean management', text: 'The company’s history records a further introduction of lean production management.' },
+];
+const health = [
+  { icon: 'chart-no-axes-combined', who: 'The business', value: 'Earns a profit', why: 'A sound basis to keep operating and improving.' },
+  { icon: 'users', who: 'Employees', value: 'Earn an income', why: 'Work that supports people and their lives.' },
+  { icon: 'handshake', who: 'Customers', value: 'Receive value', why: 'Products that meet their needs at an appropriate price.' },
+  { icon: 'building-2', who: 'Society', value: 'Gains employment', why: 'Useful work and opportunities to contribute.' },
+];
+const related = [
+  { href: '/manufacturing/', title: 'Manufacturing', text: 'Explore the processes behind the finished product.', icon: 'factory' },
+  { href: '/quality/', title: 'Quality', text: 'Review the documented system and inspection controls.', icon: 'clipboard-check' },
+  { href: '/customization/how-we-work/', title: 'How We Work', text: 'Understand project reviews, approvals and responsibilities.', icon: 'workflow' },
+  { href: '/about/ethical-manufacturing/', title: 'Ethical Manufacturing', text: 'Examine labor, safety and business-ethics procedures.', icon: 'heart-handshake' },
+  { href: '/about/activities/', title: 'Activities & Community', text: 'See the people, learning and improvement records.', icon: 'messages-square' },
+];
+const schema = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'AboutPage', '@id': `${canonical}#webpage`, name: title, description, url: canonical, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#xinyinhai` }, mainEntity: { '@id': `${origin}/#xinyinhai` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, primaryImageOfPage: { '@type': 'ImageObject', url: ogImage, width: exterior.width, height: exterior.height } },
+  { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: origin + '/' },
+    { '@type': 'ListItem', position: 2, name: 'About Us', item: canonical },
+  ] },
+] };
+---
+<BaseLayout title={title} description={description} technicalPage technicalPageTitle="About Us" technicalNavigation={navigation}
+  contactHref="/rfq/" technicalContactLabel="Discuss Your Project" technicalFooterDescription="Discuss your product idea or manufacturing brief in the context of Xinyinhai’s capabilities.">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(exterior.width)} />
+    <meta property="og:image:height" content={String(exterior.height)} />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:alt" content="Xinyinhai factory exterior in Humen, Dongguan, with the company’s own sign" />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Xinyinhai factory exterior in Humen, Dongguan" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="about-page">
+    <section class="about-hero" aria-labelledby="about-title"><div class="about-container">
+      <nav class="about-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">About Us</li></ol></nav>
+      <div class="about-hero-grid">
+        <div class="about-hero-copy">
+          <h1 id="about-title">About Xinyinhai</h1>
+          <p class="about-hero-statement">Everyday people,<br />doing work<br />that matters<span aria-hidden="true">.</span></p>
+           <p class="about-hero-intro">LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities. Explore OEM/ODM work for electronic products and related plastic or silicone products, with manufacturing in Humen, Dongguan, China.</p>
+           <p class="about-hero-history">Xinyinhai’s manufacturing heritage began with its predecessor in Shenzhen in 1988. The people and everyday work behind Xinyinhai help customers turn a product idea or design into a reliably made product.</p>
+          <div class="about-actions"><Button href="/rfq/" class="about-button">Discuss Your Project <span aria-hidden="true">↗</span></Button><a class="about-text-link" href="#who-we-are">Meet the business <span aria-hidden="true">↓</span></a></div>
+        </div>
+        <div class="about-hero-visual">
+          <AboutPhoto src={exterior} eager alt="Xinyinhai’s factory building and own company sign in Humen, Dongguan" title="Xinyinhai’s Dongguan factory" caption="The Xinyinhai factory in Humen, Dongguan, from the company’s photographic record." source="Xinyinhai company presentation · factory exterior" />
+           <div class="about-location"><Icon name="map-pin" /><div><strong>Xinyinhai’s Dongguan manufacturing site</strong><address>No. 15, Xinyuan South Road, Ludong Community,<br />Humen Town, Dongguan, Guangdong, China</address><span class="about-legal-name">Manufacturing address in the company presentation.<br />Company name in that record: <span lang="zh-CN">深圳市鑫银海电子有限公司</span></span></div></div>
+        </div>
+      </div>
+       <div class="about-identity-line"><span>LEANODM.com</span><span>Xinyinhai</span><span>Product Development &amp; Manufacturing</span></div>
+    </div></section>
+
+    <section id="who-we-are" class="about-section about-people" aria-labelledby="who-title"><div class="about-container">
+      <div class="about-story-grid">
+         <div class="about-story-copy"><p class="about-eyebrow">01 / PEOPLE BEHIND THE WORK</p><h2 id="who-title">People behind the work</h2><p class="about-lead">The people behind each part,<br class="about-desktop-break" /> each check, each conversation.</p>
+           <p>Xinyinhai’s work brings together people in manufacturing, engineering, quality and project coordination. The work can look ordinary: prepare a workstation, check a part, clarify a drawing, or raise a concern. Done with care, those tasks help a customer’s product come together reliably.</p>
+           <p>Xinyinhai’s manufacturing work connects tooling and molding, electronics and SMT, product decoration, assembly and packaging. The right route depends on the product, its requirements and the development or OEM support it needs.</p>
+           <a class="about-text-link" href="/manufacturing/">Explore the manufacturing work <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="about-people-visual"><AboutPhoto src={workplaceReview} alt="Three Xinyinhai employees holding the company’s internal workplace-review pennants" title="People taking part in workplace review" caption="Employees recognized in an internal workplace review, 2019. From the company activity archive." source="Xinyinhai activity archive · internal workplace review, 2019" sizes="(min-width: 900px) 580px, (min-width: 600px) 80vw, 100vw" />
+           <div class="about-people-note"><Icon name="messages-square" /><p><strong>Experience matters. So do new ideas.</strong> Xinyinhai’s company records value employees’ proposals for improving production, the business and the working environment. Their knowledge of everyday work is an important asset.</p></div>
+        </div>
+      </div>
+      <div class="about-care" aria-labelledby="care-title">
+         <div class="about-care-belief"><p class="about-eyebrow">CARE FOR PEOPLE</p><h3 id="care-title">The care people receive carries into the work they do.</h3><span>A management belief in Xinyinhai’s company story.</span></div>
+         <div class="about-care-copy"><p>Taking employees seriously is part of taking customers and end users seriously. Xinyinhai’s stated approach is for people to work with peace of mind, in comfort, with enjoyment and dignity. That means voluntary employment, pay agreed in advance and paid on time, and a safe, comfortable working environment.</p><p>Where additional work is available, the opportunity to earn more should respect voluntary participation, reasonable hours and rest. Xinyinhai’s available labor procedures cover voluntary overtime, working-time records and itemized pay information.</p><a class="about-text-link" href="/about/ethical-manufacturing/">Read Ethical Manufacturing <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div></section>
+
+    <section id="where-we-come-from" class="about-section about-roots" aria-labelledby="roots-title"><div class="about-container">
+       <div class="about-section-heading"><div><p class="about-eyebrow">02 / MANUFACTURING ROOTS</p><h2 id="roots-title">Xinyinhai’s manufacturing history</h2></div><p class="about-lead">Xinyinhai’s manufacturing roots dating to 1988.<br />Experience worth carrying forward.</p></div>
+      <ol class="about-timeline" aria-label="Xinyinhai manufacturing history">{history.map(item => <li><span class="about-year">{item.year}</span><span class="about-timeline-point" aria-hidden="true"></span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol>
+      <div class="about-roots-bottom">
+         <AboutPhoto src={moldingAisle} alt="A marked aisle between molding machines and material racks at Xinyinhai, with employees in the distance" title="The factory floor in Xinyinhai’s company record" caption="A molding-area aisle, workstations and material racks in Xinyinhai’s factory record." source="Xinyinhai company presentation · production-site photographs" sizes="(min-width: 900px) 480px, (min-width: 600px) 80vw, 100vw" />
+         <div class="about-inheritance"><h3>People helped build this history.</h3><p>Many long-serving Xinyinhai colleagues who helped build the business have now retired. The experience and attitude they leave behind remain part of its heritage: take the work seriously, respect the people doing it, and keep looking for a better way.</p><p>Everyday work and learning together offer a way to carry that experience forward.</p><p class="about-history-note">“Since 1988” describes Xinyinhai’s predecessor and manufacturing roots. The Xinyinhai company name followed in 2002.</p><a class="about-text-link" href="/about/activities/">Explore Xinyinhai’s company life <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div></section>
+
+    <section id="where-we-are-going" class="about-section about-direction" aria-labelledby="direction-title"><div class="about-container">
+       <div class="about-section-heading"><div><p class="about-eyebrow">03 / DIRECTION</p><h2 id="direction-title">Standard work and project collaboration</h2></div><p class="about-lead">More standardized.<br />More professional. More efficient.</p></div>
+       <p class="about-direction-intro">Xinyinhai’s direction is to keep improving with employees, suppliers and customers, seeking products whose quality and price offer better value. That calls for clearer work standards, stronger professional skills, careful quality control and easier collaboration.</p>
+      <div class="about-direction-grid">
+        <div class="about-practices">
+           <article><span class="about-practice-number" aria-hidden="true">01</span><div><h3>Make everyday work clearer</h3><p>The process pages show Xinyinhai’s documented work instructions and quality checkpoints. Company records describe listening to employees’ proposals and explaining what can be acted on. The activity archive also shows examples of organized tools and work areas. These give a basis for discussing learning, refining standard work and reducing avoidable waste.</p><a class="about-text-link" href="/about/activities/?category=improvement#archive">See improvement records <span aria-hidden="true">↗</span></a></div></article>
+          <article><span class="about-practice-number" aria-hidden="true">02</span><div><h3>Make cooperation more reliable</h3><p>We pursue dependable quality, manageable delivery plans and development support and communication that earn customers’ confidence. Our working principles call for project assessment, agreed design revisions, sample approvals, relevant quality checks and explicit change decisions.</p><p>We aim to contribute beyond the initial brief while keeping commitments realistic. Respect for intellectual property and strict confidentiality guide how customer files, samples and tooling should be handled.</p><div class="about-inline-links"><a href="/customization/how-we-work/">How We Work <span aria-hidden="true">↗</span></a><a href="/customization/project-fit/#rights-and-assets">Rights &amp; confidentiality <span aria-hidden="true">↗</span></a></div></div></article>
+          <article><span class="about-practice-number" aria-hidden="true">03</span><div><h3>Improve value at the required quality</h3><p>For the same agreed quality requirements, Xinyinhai seeks a better match between product value and price. Clearer methods, fewer avoidable errors and less wasted movement or material are the improvements it pursues. Ethical manufacturing remains a baseline for those choices.</p><a class="about-text-link" href="/quality/quality-control-process/">See how quality controls are organized <span aria-hidden="true">↗</span></a></div></article>
+        </div>
+        <aside class="about-practice-photo"><AboutPhoto src={organizedTools} alt="Labeled storage positions for tools and test equipment, with blue containers on a workshop rack" title="A designated home for tools and materials" caption="Defined storage positions for tools and materials, from the 2023 activity record." source="Xinyinhai activity archive · designated homes for tools and materials, 2023" sizes="(min-width: 900px) 380px, (min-width: 600px) 60vw, 100vw" /><div class="about-photo-context"><p class="about-eyebrow">AN EVERYDAY EXAMPLE</p><h3>A place for tools and materials.</h3><p>Making tools and materials easier to locate is a concrete starting point for discussing how work is organized.</p><a class="about-text-link" href="/about/activities/designated-homes-for-tools-2023/">View the activity record <span aria-hidden="true">↗</span></a></div></aside>
+      </div>
+    </div></section>
+
+    <section id="healthy-business" class="about-health" aria-labelledby="health-title"><div class="about-container">
+       <div class="about-health-heading"><p class="about-eyebrow">XINYINHAI’S VIEW OF HEALTHY BUSINESS</p><h2 id="health-title">Four needs.<br />One shared future.</h2><p>Xinyinhai’s stated view is that healthy business should work for all four. These are the conditions it seeks to sustain.</p></div>
+      <ul class="about-health-model">{health.map(item => <li><Icon name={item.icon} /><p class="about-health-who">{item.who}</p><h3>{item.value}</h3><p>{item.why}</p></li>)}</ul>
+    </div></section>
+
+    <section id="learn-more" class="about-section about-explore" aria-labelledby="explore-title"><div class="about-container">
+      <div class="about-section-heading"><div><p class="about-eyebrow">TAKE A CLOSER LOOK</p><h2 id="explore-title">Manufacturing and supplier review</h2></div><p>Explore the processes, documented controls and company records relevant to your supplier review.</p></div>
+      <ul class="about-related">{related.map(item => <li><a href={item.href}><Icon name={item.icon} /><div><h3>{item.title}</h3><p>{item.text}</p></div><span class="about-related-arrow" aria-hidden="true">↗</span></a></li>)}</ul>
+    </div></section>
+
+    <section id="project-requirements" class="about-cta" aria-labelledby="project-title"><div class="about-container"><div><p class="about-eyebrow">YOUR NEXT PRODUCT</p><h2 id="project-title">Discuss your<br />OEM/ODM project</h2><p>Share an idea, an existing product to adapt, or a design ready for OEM review. We can identify the next useful step together.</p></div><div class="about-cta-actions"><Button href="/rfq/" class="about-button">Discuss Your Project <span aria-hidden="true">↗</span></Button><a class="about-text-link" href="/customization/project-fit/">Explore project fit &amp; working principles <span aria-hidden="true">↗</span></a></div></div></section>
+  </div>
+  <ImageLightbox />
+</BaseLayout>

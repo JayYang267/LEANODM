@@ -1,0 +1,27 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  src: ImageMetadata;
+  alt: string;
+  title: string;
+  caption: string;
+  source: string;
+  eager?: boolean;
+  class?: string;
+  sizes?: string;
+}
+const { src, alt, title, caption, source, eager = false, class: className, sizes = '(min-width: 900px) 540px, (min-width: 600px) 80vw, 100vw' } = Astro.props;
+const full = await getImage({ src, width: src.width, format: 'webp', quality: 82 });
+const widths = [...new Set([400, 640, 960, src.width].filter(width => width <= src.width))].sort((a, b) => a - b);
+---
+<figure class:list={['about-photo', className]}>
+  <a href={full.src} data-lightbox="about-photographs" data-title={title} data-caption={caption} data-source={source}
+    data-width={src.width} data-height={src.height} aria-label={`Enlarge photograph: ${title}`}>
+    <Image src={src} alt={alt} width={src.width} height={src.height} widths={widths} sizes={sizes} format="webp" quality={78}
+      loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" />
+    <span class="about-photo-enlarge"><span aria-hidden="true">↗</span> View photo</span>
+  </a>
+  <figcaption>{caption}</figcaption>
+</figure>

@@ -1,0 +1,15 @@
+---
+import Icon from './CustomizationIcon.astro';
+interface Props {
+  label: string;
+  steps: { title: string; text?: string; icon: string; label?: string }[];
+  compact?: boolean;
+}
+const { label, steps, compact = false } = Astro.props;
+---
+<ol class:list={['b2b-flow', { 'b2b-flow--compact': compact }]} style={`--flow-columns:${Math.min(steps.length, 5)}`} aria-label={label}>
+  {steps.map((step, index) => <li>
+    <div class="b2b-flow-node"><Icon name={step.icon} /><span class="b2b-flow-number">{String(index + 1).padStart(2, '0')}</span></div>
+    <div class="b2b-flow-content">{step.label && !/^\d+$/.test(step.label) && <span class="b2b-visual-label">{step.label.replace(/^\d+\s*\/\s*/, '')}</span>}<h3>{step.title}</h3>{step.text && <p>{step.text}</p>}</div>
+  </li>)}
+</ol>

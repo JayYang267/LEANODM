@@ -8,10 +8,10 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: '500', label: 'Global Clients', suffix: '+' },
-  { value: '50', label: 'Million Units Shipped', suffix: 'M+' },
-  { value: '99.9', label: 'On-Time Delivery', suffix: '%' },
-  { value: '15', label: 'Facilities Worldwide', suffix: '+' },
+  { value: 'OEM', label: 'Production from approved designs' },
+  { value: 'ODM', label: 'Product development review' },
+  { value: 'Tooling', label: 'Xinyinhai’s in-house toolroom' },
+  { value: 'SMT', label: 'Xinyinhai’s electronics assembly' },
 ];
 
 export default function AnimatedStats() {

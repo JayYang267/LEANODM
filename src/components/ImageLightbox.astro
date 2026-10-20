@@ -1,0 +1,58 @@
+---
+// Progressive enhancement for ordinary image links carrying data-lightbox.
+---
+<dialog class="image-lightbox" aria-labelledby="image-viewer-title" aria-describedby="image-viewer-caption">
+  <div class="image-viewer-shell">
+    <div class="image-viewer-header">
+      <h2 id="image-viewer-title">Image viewer</h2>
+      <button type="button" data-close aria-label="Close image viewer" autofocus>Close ×</button>
+    </div>
+    <div class="image-viewer-toolbar" aria-label="Image controls">
+      <button type="button" data-previous aria-label="Previous image in this group">← Previous</button>
+      <span data-counter aria-live="polite"></span>
+      <button type="button" data-next aria-label="Next image in this group">Next →</button>
+      <span class="image-viewer-zoom">
+        <button type="button" data-minus aria-label="Zoom out">−</button>
+        <button type="button" data-fit>Fit</button>
+        <button type="button" data-native>100%</button>
+        <button type="button" data-plus aria-label="Zoom in">+</button>
+        <output data-zoom aria-live="polite"></output>
+      </span>
+    </div>
+    <div class="image-viewer-stage" tabindex="0" aria-label="Image; scroll to inspect at full size">
+      <img data-full-image alt="" />
+    </div>
+    <div class="image-viewer-description">
+      <p id="image-viewer-caption"></p>
+      <p data-source></p>
+      <p class="image-viewer-note">Zoom stops at the supplied image resolution. <a data-original target="_blank" rel="noopener">Open image file ↗</a></p>
+      <p data-image-error role="status" hidden>Image unavailable. Try the image-file link.</p>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  import '../scripts/image-lightbox';
+</script>
+
+<style>
+  .image-lightbox { position: fixed; inset: 0; width: min(1100px, calc(100vw - 32px)); max-width: none; max-height: none; height: min(900px, calc(100dvh - 32px)); margin: auto; padding: 0; border: 1px solid #c9d5e5; border-radius: 9px; background: white; color: #172335; box-shadow: 0 20px 80px #0005; }
+  .image-lightbox::backdrop { background: rgb(12 23 40 / 82%); }
+  .image-viewer-shell { display: flex; height: 100%; flex-direction: column; }
+  .image-viewer-header { display: flex; gap: 20px; justify-content: space-between; align-items: center; padding: 16px 20px 8px; }
+  .image-viewer-header h2 { font-size: 1.15rem; font-weight: 700; line-height: 1.35; margin: 0; }
+  .image-lightbox button { min-height: 44px; min-width: 44px; padding: 8px 12px; border: 1px solid #c5d1e3; border-radius: 4px; background: white; color: #183ba3; cursor: pointer; font-size: .85rem; white-space: nowrap; }
+  .image-lightbox button:hover { background: #eef3fa; }
+  .image-lightbox button:disabled { opacity: .4; cursor: default; }
+  .image-lightbox :focus-visible { outline: 3px solid #183ba3; outline-offset: 2px; }
+  .image-viewer-toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 20px 12px; font-size: .8rem; }
+  .image-viewer-zoom { display: flex; gap: 6px; align-items: center; margin-left: auto; }
+  .image-viewer-zoom output { min-width: 40px; }
+  .image-viewer-stage { display:flex; overflow: auto; flex: 1; min-height: 100px; padding: 16px; background: #edf1f6; overscroll-behavior: contain; }
+  .image-viewer-stage img { display: block; flex:none; max-width: none; margin: auto; object-fit: contain; }
+  .image-viewer-description { padding: 16px 20px; flex-shrink: 0; max-height: 28dvh; overflow-y: auto; font-size: .9rem; line-height: 1.5; }
+  .image-viewer-description p { margin: 0 0 6px; }
+  .image-viewer-description [data-source], .image-viewer-note { color: #56657a; font-size: .77rem; }
+  .image-viewer-description a { color: #183ba3; text-decoration: underline; }
+  @media(max-width:600px) { .image-lightbox { width: calc(100vw - 12px); height: calc(100dvh - 12px); } .image-viewer-header, .image-viewer-toolbar, .image-viewer-description { padding-left: 12px; padding-right: 12px; } .image-viewer-zoom { flex-basis:100%; margin-left:0; } .image-viewer-header h2 { font-size: 1rem; } }
+</style>

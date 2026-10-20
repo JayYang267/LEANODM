@@ -1,0 +1,96 @@
+---
+import { PROJECT_TYPES } from '../../utils/rfq';
+
+interface Props {
+  productName: string;
+  productPath: string;
+  products?: readonly { id: string; name: string; path: string; shownLanguages: readonly string[] }[];
+  initialProductId?: string;
+}
+
+const { productName, productPath, products = [], initialProductId = '' } = Astro.props;
+const initialProduct = products.find(product => product.id === initialProductId);
+---
+
+<form class="sb-inquiry-form" method="post" data-sound-book-inquiry data-product-name={productName} data-product-path={productPath} aria-label={`${productName} inquiry`}>
+  <p class="sb-inquiry-selection" data-inquiry-selection aria-live="polite">Choose the customization options that interest you. Undecided details are welcome.</p>
+  <div class="sb-inquiry-carried sb-field-wide" data-inquiry-carried hidden>
+    <p><strong>Customization choices from another page</strong></p>
+    <p class="sb-inquiry-note">These requests stay in your brief. They do not have matching checkboxes on this page; remove any you no longer need.</p>
+    <ul class="sb-inquiry-carried-list" data-inquiry-carried-list aria-label="Customization choices carried from another page"></ul>
+  </div>
+  <div class="sb-field sb-field-wide">
+    <label for="sb-inquiry-product">Reference style <span>Optional</span></label>
+    <select id="sb-inquiry-product" name="productId" aria-describedby="sb-inquiry-product-hint">
+      <option value="" selected={!initialProduct}>Not selected — help me choose</option>
+      {products.map(product => <option value={product.id} selected={product.id === initialProduct?.id}>{product.id} · {product.name}</option>)}
+    </select>
+    <p id="sb-inquiry-product-hint" class="sb-inquiry-note">A reference for discussion. You can change the style or leave it undecided.</p>
+  </div>
+  <fieldset class="sb-inquiry-language-group sb-field-wide">
+    <legend>Language requirements <span>Optional</span></legend>
+    <div class="sb-inquiry-language-options">{['English', 'Japanese', 'Arabic', 'Other'].map(language => <label><input type="checkbox" name="languages" value={language} /><span>{language}</span></label>)}</div>
+    <div class="sb-field sb-inquiry-other-language" data-inquiry-other-language hidden><label for="sb-inquiry-other-language">Other language <span>Optional</span></label><input id="sb-inquiry-other-language" name="otherLanguage" type="text" maxlength="120" placeholder="Language or edition requirements" disabled /></div>
+    <p class="sb-inquiry-note">Leave these unchecked if undecided. The language shown in a reference image does not set your project language.</p>
+  </fieldset>
+  <div class="sb-field sb-field-wide">
+    <label for="sb-inquiry-project-type">Project route <span>Optional</span></label>
+    <select id="sb-inquiry-project-type" name="projectType">{Object.entries(PROJECT_TYPES).map(([value, label]) => <option value={value} selected={value === 'not-sure'}>{label}</option>)}</select>
+  </div>
+  <div class="sb-field">
+    <label for="sb-inquiry-email">Email <span>Required</span></label>
+    <input id="sb-inquiry-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required placeholder="you@company.com" aria-describedby="sb-inquiry-email-error" />
+    <p id="sb-inquiry-email-error" class="sb-field-error" data-inquiry-error="email" hidden></p>
+  </div>
+  <div class="sb-field">
+    <label for="sb-inquiry-market">Target market <span>Required</span></label>
+    <input id="sb-inquiry-market" name="market" type="text" maxlength="200" required placeholder="Country or region, or Not decided" aria-describedby="sb-inquiry-market-error" />
+    <p id="sb-inquiry-market-error" class="sb-field-error" data-inquiry-error="market" hidden></p>
+  </div>
+  <div class="sb-field">
+    <label for="sb-inquiry-quantity">Estimated quantity <span>Optional</span></label>
+    <select id="sb-inquiry-quantity" name="quantity" aria-describedby="sb-inquiry-quantity-hint">
+      <option value="Not decided">Not decided</option>
+      <option value="Under 1,000 units">Under 1,000 units</option>
+      <option value="1,000–5,000 units">1,000–5,000 units</option>
+      <option value="5,000–10,000 units">5,000–10,000 units</option>
+      <option value="10,000+ units">10,000+ units</option>
+    </select>
+    <p id="sb-inquiry-quantity-hint" class="sb-inquiry-note">Planning ranges only. Order quantity is reviewed for your project.</p>
+  </div>
+  <div class="sb-field">
+    <label for="sb-inquiry-timeline">Target arrival or launch <span>Optional</span></label>
+    <input id="sb-inquiry-timeline" name="timeline" type="text" maxlength="200" placeholder="Target date, season or flexible" />
+  </div>
+  <div class="sb-field sb-field-wide">
+    <label for="sb-inquiry-details">Customization brief <span>Required</span></label>
+    <textarea id="sb-inquiry-details" name="details" rows="4" maxlength="3000" required placeholder="An idea, sketch or reference is enough. Share the intended age and learning goal, changes you want, and quantity or launch target if known. If changing suppliers, describe the issue you want to resolve." aria-describedby="sb-inquiry-details-hint sb-inquiry-details-error"></textarea>
+    <p id="sb-inquiry-details-hint" class="sb-inquiry-note">Unknown details can follow later. Start with a non-confidential overview; no full engineering package is needed for the first discussion.</p>
+    <p id="sb-inquiry-details-error" class="sb-field-error" data-inquiry-error="details" hidden></p>
+  </div>
+  <div class="sb-field sb-field-wide">
+    <label for="sb-inquiry-references">Reference or file-sharing links <span>Optional</span></label>
+    <textarea id="sb-inquiry-references" name="referenceLinks" rows="2" maxlength="1000" placeholder="https://… (one link per line)" aria-describedby="sb-inquiry-references-hint sb-inquiry-referenceLinks-error"></textarea>
+    <p id="sb-inquiry-references-hint" class="sb-inquiry-note">Use links you are authorized to share. Add files manually to your email; this page does not upload attachments. Agree a confidential exchange before sharing restricted files.</p>
+    <p id="sb-inquiry-referenceLinks-error" class="sb-field-error" data-inquiry-error="referenceLinks" hidden></p>
+  </div>
+  <div class="sb-inquiry-actions sb-field-wide">
+    <button class="sb-btn" type="submit" data-inquiry-prepare disabled>Prepare email draft <span aria-hidden="true">↗</span></button>
+    <button class="sb-btn sb-btn-secondary" type="button" data-inquiry-copy disabled>Copy inquiry brief</button>
+  </div>
+  <p class="sb-inquiry-note sb-field-wide">Preparing a draft or copying a brief does not send an inquiry. Clicking the full inquiry form or a related product link keeps this brief in this tab for up to 30 minutes so you can continue there.</p>
+  <p class="sb-inquiry-status sb-field-wide" data-inquiry-status role="status" aria-live="polite" tabindex="-1" hidden></p>
+  <section class="sb-inquiry-preview sb-field-wide" data-inquiry-preview aria-labelledby="sb-inquiry-preview-title" hidden>
+    <h3 id="sb-inquiry-preview-title">Your inquiry brief</h3>
+    <p class="sb-inquiry-note">Review or copy the text below. Nothing has been sent.</p>
+    <label class="sb-inquiry-preview-label" for="sb-inquiry-brief">Brief to include in your email</label>
+    <textarea id="sb-inquiry-brief" data-inquiry-brief rows="10" readonly></textarea>
+    <a class="sb-btn" data-inquiry-email href="mailto:quotes@leanodm.com">Open email draft <span aria-hidden="true">↗</span></a>
+    <p class="sb-inquiry-note">Send the email from your mail app and add any attachments there. If your mail app does not open, copy this brief and email <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>.</p>
+  </section>
+  <p class="sb-inquiry-more sb-field-wide"><a href="/rfq/#rfq-form" data-inquiry-full-rfq>Use the full project inquiry form <span aria-hidden="true">↗</span></a><span class="sb-inquiry-note"> Continue in this tab with your email and brief. Nothing is sent by opening the form.</span></p>
+  <noscript><p class="sb-inquiry-note sb-field-wide">Email your project to <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>, including your chosen customization options, market and quantity. JavaScript is needed to prepare a brief on this page.</p></noscript>
+</form>
+<script type="application/json" data-inquiry-products set:html={JSON.stringify(products).replace(/</g, '\\u003c')} />
+
+<script>import '../../scripts/sound-book-inquiry';</script>

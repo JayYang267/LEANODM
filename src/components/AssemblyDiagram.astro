@@ -1,0 +1,191 @@
+---
+interface Props {
+  variant?: 'hero' | 'controls';
+  idPrefix: string;
+}
+
+const { variant = 'hero', idPrefix } = Astro.props;
+const titleId = `${idPrefix}-title`;
+const descriptionId = `${idPrefix}-description`;
+const arrowId = `${idPrefix}-arrow`;
+const title = variant === 'hero'
+  ? 'Illustrative exploded assembly and packaging sequence'
+  : 'Seven assembly control points on illustrative geometry';
+const description = variant === 'hero'
+  ? 'An abstract upper shell, insert, spring and fasteners align above a lower shell. A small assembled object and checked package explain the relationship between assembly and packing. This is explanatory geometry, not a product drawing or factory equipment.'
+  : 'Numbered callouts identify component positioning, clean surfaces, secure engagement, fastening, lubricant at designated moving locations, reference sample comparison and smooth operation. The abstract housing and mechanism show concepts, not dimensions or measured performance.';
+---
+
+<figure class:list={['assembly-diagram', `assembly-diagram--${variant}`]}>
+  <svg viewBox={variant === 'hero' ? '0 0 680 530' : '0 0 680 500'} role="img" aria-labelledby={`${titleId} ${descriptionId}`} xmlns="http://www.w3.org/2000/svg">
+    <title id={titleId}>{title}</title>
+    <desc id={descriptionId}>{description}</desc>
+    <defs>
+      <marker id={arrowId} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+        <path d="M1 1 9 5 1 9" fill="none" stroke="#183ba3" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+      </marker>
+    </defs>
+
+    {variant === 'hero' ? (
+      <>
+        <g class="assembly-construction" fill="none">
+          <path d="M48 58h27M48 58v27M632 58h-27M632 58v27M48 472h27M48 472v-27M632 472h-27M632 472v-27" />
+          <path d="M97 116 463 263M91 359 448 211M302 32v410" stroke-dasharray="5 7" />
+          <path d="M98 97 98 414M86 97h24M86 414h24" />
+          <circle cx="302" cy="116" r="7" /><circle cx="302" cy="232" r="7" /><circle cx="302" cy="361" r="7" />
+        </g>
+
+        <g class="assembly-outline">
+          <path d="m142 108 151-61 175 61-152 62z" fill="#f7f9fc" />
+          <path d="m142 108 174 62v21l-174-62z" fill="#e1e8f2" />
+          <path d="m316 170 152-62v21l-152 62z" fill="#edf2f8" />
+          <path d="m178 108 115-46 139 47-115 46z" fill="#fff" stroke="#b5c4d8" />
+          <path d="m221 113 72-29 75 26-73 30z" fill="#e9eef6" />
+          <path d="m246 113 47-19 49 17-48 19z" fill="#fff" stroke="#183ba3" />
+          <path d="m154 117 32 12m142 49 30-12m75-50 19-8" stroke="#183ba3" />
+          <ellipse cx="174" cy="108" rx="6" ry="3" fill="#fff" />
+          <ellipse cx="438" cy="109" rx="6" ry="3" fill="#fff" />
+          <ellipse cx="316" cy="160" rx="6" ry="3" fill="#fff" />
+          <path d="m192 207 101-41 131 45-102 41z" fill="#e6edf7" stroke="#183ba3" />
+          <path d="m192 207 130 45v10l-130-45z" fill="#cedbee" stroke="#183ba3" />
+          <path d="m322 252 102-41v10l-102 41z" fill="#dfe8f4" stroke="#183ba3" />
+          <path d="m216 209 76-30 105 35-75 31z" fill="#f8fafd" stroke="#8fa6c6" />
+          <path d="m233 218 34-14 40 14 22-9 36 12" fill="none" stroke="#183ba3" />
+          <path d="m261 206 18-7 18 6-18 8z" fill="#fff" stroke="#183ba3" />
+          <path d="m333 228 18-7 18 6-18 8z" fill="#fff" stroke="#183ba3" />
+          <circle cx="239" cy="208" r="3" fill="#bd1d2b" stroke="none" />
+          <circle cx="382" cy="214" r="3" fill="#bd1d2b" stroke="none" />
+          <path d="M306 264v9m-14 0c0-5 28-5 28 0s-28 5-28 10 28 5 28 10-28 5-28 10 28 5 28 10-28 5-28 10c0 5 28 5 28 0m-14 3v10" fill="none" stroke="#183ba3" stroke-width="2.6" />
+
+          <g fill="#f8fafd">
+            <path d="M166 242v35l8 4 8-4v-35" />
+            <ellipse cx="174" cy="242" rx="11" ry="5" />
+            <path d="m168 241 12 2m-12 13 12 4m-12 5 12 4m-12 5 12 4" fill="none" />
+            <path d="M428 243v35l8 4 8-4v-35" />
+            <ellipse cx="436" cy="243" rx="11" ry="5" />
+            <path d="m430 242 12 2m-12 13 12 4m-12 5 12 4m-12 5 12 4" fill="none" />
+          </g>
+
+          <path d="m139 352 154-62 179 63-153 62z" fill="#f4f7fb" />
+          <path d="m139 352 180 63v34l-180-63z" fill="#dce5f1" />
+          <path d="m319 415 153-62v34l-153 62z" fill="#e9eff7" />
+          <path d="m166 352 127-51 151 53-126 51z" fill="#fff" />
+          <path d="m188 352 105-42 127 44-104 42z" fill="#e8eef7" stroke="#8fa6c6" />
+          <path d="m188 352 128 44v-17l104-42" fill="none" stroke="#b0c0d5" />
+          <path d="m234 350 58-24 62 22-59 24z" fill="#f9fbfe" stroke="#183ba3" />
+          <ellipse cx="180" cy="353" rx="8" ry="4" fill="#fff" />
+          <ellipse cx="431" cy="354" rx="8" ry="4" fill="#fff" />
+          <path d="m151 363 24 8m158 52 27-11m65-30 31-13" stroke="#183ba3" />
+          <path d="m250 412 37 13v8l-37-13z" fill="#183ba3" stroke="none" />
+        </g>
+
+        <g fill="none" stroke="#183ba3" stroke-width="1.6" stroke-linecap="round">
+          <path d="M508 102h16v236h-16M524 220h35" />
+          <path d="M550 211 559 220 550 229" />
+          <path d="M170 159v67M436 148v77" stroke-dasharray="3 6" marker-end={`url(#${arrowId})`} />
+        </g>
+        <g transform="translate(486 359)" class="assembly-outline">
+          <path d="m0 23 30-12 46 16-31 13z" fill="#f8fafd" />
+          <path d="m0 23 45 17v16L0 39z" fill="#dce5f1" />
+          <path d="m45 40 31-13v16L45 56z" fill="#edf2f8" />
+          <path d="m15 25 15-6 25 9-15 6z" fill="#fff" stroke="#183ba3" />
+          <path d="M84 36h11v25" fill="none" stroke="#183ba3" marker-end={`url(#${arrowId})`} />
+        </g>
+        <g transform="translate(515 425)" class="assembly-outline">
+          <path d="m0 14 32-13 49 17-33 14z" fill="#f8fafd" />
+          <path d="m0 14 48 18v37L0 51z" fill="#e3eaf4" />
+          <path d="m48 32 33-14v37L48 69z" fill="#f1f5fa" />
+          <path d="m16 8 49 17v15" fill="none" stroke="#8fa6c6" />
+          <path d="m12 34 14 5v15l-14-5z" fill="#fff" stroke="#b7c7dc" />
+          <circle cx="83" cy="56" r="15" fill="#fff" stroke="#183ba3" />
+          <path d="m76 56 5 5 9-10" fill="none" stroke="#183ba3" stroke-width="2.5" />
+        </g>
+        <path d="M404 450v32h86" fill="none" stroke="#b5c4d8" stroke-width="1.5" stroke-dasharray="4 6" />
+      </>
+    ) : (
+      <>
+        <g class="assembly-construction" fill="none">
+          <path d="M64 53h26M64 53v26M618 53h-26M618 53v26M64 452h26M64 452v-26M618 452h-26M618 452v-26" />
+          <path d="M154 213 492 336M167 346 501 208" stroke-dasharray="5 7" />
+          <path d="M328 102v320" stroke-dasharray="5 7" />
+        </g>
+        <g class="assembly-outline">
+          <path d="m158 271 157-63 179 63-156 64z" fill="#f7f9fc" />
+          <path d="m158 271 180 64v52l-180-64z" fill="#dce5f1" />
+          <path d="m338 335 156-64v52l-156 64z" fill="#edf2f8" />
+          <path d="m183 271 132-53 153 54-130 53z" fill="#fff" />
+          <path d="m210 271 105-42 127 44-103 42z" fill="#e7eef7" stroke="#8fa6c6" />
+          <path d="m210 271 129 44v-25l103-42" fill="none" stroke="#adbed4" />
+          <path d="m254 272 61-24 67 23-61 25z" fill="#fff" stroke="#183ba3" />
+          <path d="m274 269 42-17 43 15-41 17z" fill="#e0e9f7" stroke="#183ba3" />
+          <path d="M317 244v-8m-14 0c0-5 28-5 28 0s-28 5-28 10 28 5 28 10-28 5-28 10 28 5 28 10-28 5-28 10c0 5 28 5 28 0m-14 3v6" fill="none" stroke="#183ba3" stroke-width="2.5" />
+          <path d="m394 244 22-9v20l-22 9z" fill="#cad9ee" stroke="#183ba3" />
+          <path d="m398 245 14-6v8l-14 6z" fill="#fff" stroke="#183ba3" />
+          <path d="m191 267 14-6v-17l-14 6z" fill="#e7eef7" />
+          <ellipse cx="198" cy="244" rx="8" ry="4" fill="#fff" />
+          <path d="m187 281 19 7m147 62 25-10m67-28 31-13" stroke="#183ba3" />
+          <path d="m270 337 39 14v12l-39-14z" fill="#183ba3" stroke="none" />
+
+          <path d="m170 183 145-58 166 58-145 59z" fill="#f9fbfe" />
+          <path d="m170 183 166 59v15l-166-59z" fill="#e4ebf5" />
+          <path d="m336 242 145-59v15l-145 59z" fill="#edf2f8" />
+          <path d="m204 183 110-44 133 46-110 44z" fill="#fff" stroke="#b5c4d8" />
+          <path d="m257 184 58-23 61 21-58 24z" fill="#e5edf8" stroke="#183ba3" />
+          <path d="m274 184 41-16 42 15-41 16z" fill="#fff" stroke="#183ba3" />
+          <path d="M454 153v26l7 3 7-3v-26" fill="#edf2f8" />
+          <ellipse cx="461" cy="153" rx="10" ry="5" fill="#fff" />
+          <path d="m455 152 12 2m-12 12 12 4m-12 5 12 4" fill="none" />
+          <ellipse cx="461" cy="183" rx="7" ry="3.5" fill="#fff" />
+        </g>
+
+        <g transform="translate(523 331)" class="assembly-outline">
+          <path d="M0 0h62v72H0z" fill="#fff" stroke="#a4b6ce" />
+          <path d="m12 26 17-7 22 8-17 7z" fill="#e7eef7" />
+          <path d="m12 26 22 8v11l-22-8z" fill="#dce5f1" />
+          <path d="m34 34 17-7v11l-17 7z" fill="#f1f5fa" />
+          <path d="M12 56h38M12 62h25" fill="none" stroke="#c3cfdf" />
+        </g>
+
+        <g fill="none" stroke="#183ba3" stroke-width="1.7" stroke-linecap="round">
+          <path d="M291 212c-15 8-19 23-13 32" stroke-dasharray="3 5" marker-end={`url(#${arrowId})`} />
+          <path d="M267 410c53 24 133 12 167-17" marker-end={`url(#${arrowId})`} />
+          <path d="M270 411c49 12 115 4 149-16" stroke="#c0cde0" />
+        </g>
+        <g fill="#bd1d2b" stroke="none">
+          <circle cx="198" cy="252" r="4" /><circle cx="237" cy="275" r="4" /><circle cx="411" cy="248" r="4" />
+          <circle cx="461" cy="183" r="4" /><circle cx="317" cy="266" r="4" /><circle cx="554" cy="366" r="4" /><circle cx="356" cy="418" r="4" />
+          <path d="M345 267c0-7 7-14 7-14s7 7 7 14a7 7 0 0 1-14 0" fill="#bd1d2b" />
+        </g>
+        <g class="assembly-leaders" fill="none">
+          <path d="M121 209h35l42 43" /><path d="M108 338h61l68-63" />
+          <path d="M550 236h-58l-81 12" /><path d="M562 119h-65l-36 64" />
+          <path d="M277 72h40v194" /><path d="M606 417v-51h-52" />
+          <path d="M180 428h107l69-10" />
+        </g>
+        <g class="assembly-callouts">
+          <circle cx="101" cy="209" r="21" /><text x="101" y="209">01</text>
+          <circle cx="88" cy="338" r="21" /><text x="88" y="338">02</text>
+          <circle cx="572" cy="236" r="21" /><text x="572" y="236">03</text>
+          <circle cx="584" cy="119" r="21" /><text x="584" y="119">04</text>
+          <circle cx="254" cy="72" r="21" /><text x="254" y="72">05</text>
+          <circle cx="606" cy="439" r="21" /><text x="606" y="439">06</text>
+          <circle cx="158" cy="428" r="21" /><text x="158" y="428">07</text>
+        </g>
+      </>
+    )}
+  </svg>
+  <figcaption>Illustrative assembly geometry · not a product drawing</figcaption>
+</figure>
+
+<style>
+  .assembly-diagram { margin:0; width:100%; color:#142a46; }
+  .assembly-diagram svg { display:block; width:100%; height:auto; overflow:visible; }
+  .assembly-outline { stroke:#142a46; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .assembly-construction { stroke:#d5deeb; stroke-width:1.2; }
+  .assembly-leaders { stroke:#849bbd; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
+  .assembly-callouts circle { fill:#fff; stroke:#183ba3; stroke-width:1.8; }
+  .assembly-callouts text { fill:#183ba3; font-family:Arial, sans-serif; font-size:18px; font-weight:700; text-anchor:middle; dominant-baseline:central; }
+  .assembly-diagram figcaption { padding:8px 16px 14px; color:#506178; font-size:.7rem; line-height:1.5; text-align:center; }
+  @media (max-width:1119px) { .assembly-callouts text { font-size:26px; } }
+  @media (max-width:599px) { .assembly-callouts text { font-size:30px; } }
+</style>

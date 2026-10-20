@@ -1,0 +1,569 @@
+[
+  {
+    "sequence": 1,
+    "id": "inverted-placement",
+    "title": "Upside-down component / inverted placement",
+    "svg": "inverted-placement-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "A component placed with its underside facing up.",
+    "uncertainSourceNote": "",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Excessive temperature"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Manual component placement",
+          "Excessive vibration during handling",
+          "Components touched by hand",
+          "Incorrect material preparation",
+          "Components turned upside down during unpacking",
+          "Loose component packaging"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Solder paste too dry",
+          "Incoming components upside down",
+          "Contaminated PCB pads",
+          "Excessive clearance in packaging",
+          "Components too thin or too light",
+          "Damaged components"
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Poor stencil apertures",
+          "Incomplete SOP",
+          "Incorrect feeder model",
+          "Poor PCB design",
+          "Incomplete feeder advancement",
+          "Incorrect operation"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "Faulty feeder",
+          "Incorrect component pickup position",
+          "Feeder opening too large",
+          "Excessive feeder vibration",
+          "Temperature rises too quickly",
+          "Worn or bent nozzle, restricted vacuum",
+          "Incorrect nozzle model",
+          "Feeder cover too large",
+          "Feeder advances too quickly"
+        ]
+      }
+    ]
+  },
+  {
+    "sequence": 2,
+    "id": "component-displacement",
+    "title": "Component displacement",
+    "svg": "component-displacement-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "",
+    "uncertainSourceNote": "",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Temperature below the SOP requirement",
+          "Excessive room temperature"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Fiducial recognition fails, manual operation",
+          "Paste smeared by hand",
+          "Manual material placement",
+          "Material bag too tight during preparation",
+          "Boards collide when pushed by hand",
+          "Insufficient solder"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Poor wetting between the component and an adjacent pad",
+          "Pad width does not match the component",
+          "Pad spacing does not match the component",
+          "Pads less than 3 mm from the board edge",
+          "Aged pads",
+          "Bent component leads",
+          "Aged components",
+          "Foreign matter on pads"
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Paste deposit too thick or too thin",
+          "Improper loading method",
+          "Improper fiducial correction",
+          "Excessive reflow temperature",
+          "Excessive reflow convection speed",
+          "Stencil does not match the PCB design"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "Added PCB fiducials not used",
+          "Incorrect fiducial recognition",
+          "Insufficient solder volume",
+          "Misaligned or uneven paste printing",
+          "Unsuitable oven temperature measurement",
+          "Foreign matter in the reflow oven",
+          "Board transport too fast"
+        ]
+      }
+    ]
+  },
+  {
+    "sequence": 3,
+    "id": "poor-solder-wetting",
+    "title": "Poor solder wetting",
+    "svg": "poor-solder-wetting-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "",
+    "uncertainSourceNote": "",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Excessive temperature",
+          "High humidity and poor ventilation"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Stencil not cleaned promptly",
+          "Manual placement of loose components",
+          "New and used solder paste mixed",
+          "Solder paste wiped away",
+          "Uneven solder application",
+          "Components moved by hand",
+          "Inadequate self inspection"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Damaged components",
+          "Oxidized PCB pads or components",
+          "Expired or unevenly mixed solder paste",
+          "Moisture affected components",
+          "Unusual component shape",
+          "Components at the board edge",
+          "Insufficient flux content",
+          "Misaligned print apertures",
+          "Contaminated surfaces"
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Improper material loading",
+          "Extended power interruption or machine repair",
+          "Management of used solder paste",
+          "Paste mixed without following the SOP",
+          "Measurement of the oven temperature profile",
+          "Stencil aperture method and shape"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "Reflow transport, cooling, etc. too fast",
+          "Incorrect reflow temperature settings",
+          "Insufficient air pressure",
+          "Incorrect printer settings, insufficient paste, excessive print speed, etc.",
+          "Poor stencil design, insufficient tension, worn or rough surface, etc.",
+          "Workpiece displacement",
+          "Faulty squeegee"
+        ]
+      }
+    ]
+  },
+  {
+    "sequence": 4,
+    "id": "open-solder-joint",
+    "title": "Open solder joint",
+    "svg": "open-solder-joint-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "",
+    "uncertainSourceNote": "",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Excessive temperature",
+          "Humidity affects solder paste properties"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Foreign matter on the stencil",
+          "Solder paste not replenished promptly",
+          "Solder paste wiped away",
+          "Manual placement of loose components",
+          "Insufficient solder",
+          "Inadequate self inspection"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Exposed copper or oxidation on the PCB",
+          "Excessive inner pad spacing",
+          "Component specification does not match the pads",
+          "Incoming packaging method, material moisture, oxidation, deformation, etc.",
+          "Stencil contamination or incorrect aperture method",
+          "Missing solder foil",
+          "Poor solder paste: viscosity, warm up time, contamination, expiry, etc.",
+          "Bent or lifted leads, etc."
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Poor PCB design",
+          "Component displacement, components moved by hand",
+          "Management of used solder paste",
+          "Board inspection takes too long",
+          "Poor oven temperature profile",
+          "Incomplete SOP"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "Excessive pressure deforms leads, coordinate displacement",
+          "Restricted board transport",
+          "Angle correction fault",
+          "High speed placement, coordinates and print position confirmation",
+          "Printer travel, coordinates, pressure and abnormal squeegee deformation checks",
+          "Incorrect reflow temperature, unstable zones or excessive transport speed",
+          "Excessive machine vibration"
+        ]
+      }
+    ]
+  },
+  {
+    "sequence": 5,
+    "id": "solder-bridging",
+    "title": "Solder bridging / short circuit",
+    "svg": "solder-bridging-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "",
+    "uncertainSourceNote": "",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Poor ventilation",
+          "Excessive indoor temperature"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Periodic checks for foreign matter beneath the stencil",
+          "Paste added at the stencil apertures",
+          "Excessive solder paste added",
+          "Components touched by hand",
+          "SOP not followed",
+          "Inadequate self inspection"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Flux content",
+          "Short circuit between pads",
+          "Oxidized, damaged or reversed components",
+          "Paste printed too thick on pads, solder residue or foreign matter",
+          "Pads too close or too large, pads do not match the component",
+          "Unevenly mixed or expired paste, oversized solder particles, moisture, etc."
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Insufficient paste thawing time",
+          "Cleaning cloth reused too many times",
+          "Management of used solder paste",
+          "Board inspection takes too long",
+          "Excessive paste warm up time",
+          "SOP not followed"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "Foreign matter in reflow transport, incorrect temperature settings",
+          "Restricted board transport, board collisions",
+          "Faulty board support system",
+          "Stencil wear, apertures, tension, thickness, damage or unevenness",
+          "Excessive print speed, poor paste transfer, thick printing or shorts",
+          "Placement displacement, coordinate settings or unstable machine placement",
+          "Faulty squeegee"
+        ]
+      }
+    ]
+  },
+  {
+    "sequence": 6,
+    "id": "missing-component",
+    "title": "Missing component",
+    "svg": "missing-component-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "",
+    "uncertainSourceNote": "",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Poor ventilation",
+          "High temperature changes the solder paste"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Omissions or errors in manual placement of loose components",
+          "Incorrect machine operation",
+          "Boards collide when pushed by hand",
+          "Solder not applied",
+          "Excessive PCB wait time after printing",
+          "Inadequate self inspection"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Deteriorated paste, low tack or foreign matter, etc.",
+          "Variation in component specification or size",
+          "Oxidized, rejected, damaged or deformed components",
+          "Components too tight or too loose",
+          "Exposed copper or oxidation on the PCB",
+          "Foreign matter or paint on PCB pads",
+          "Warped or uneven PCB",
+          "Less than 3 mm between PCB edge and pads"
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Program changes",
+          "New and used solder paste mixed",
+          "Incorrect process sequence",
+          "Incorrect stencil wiping method",
+          "Feeder station disabled when closing the work order",
+          "Incomplete SOP"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "Insufficient paste during printing",
+          "Incorrect stencil apertures",
+          "Unstable air pressure or contaminated transport rails",
+          "Excessive machine vibration",
+          "Bent, blocked or worn placement nozzle, etc.",
+          "Off center component pickup",
+          "Placement coordinate errors or incorrect Z axis settings",
+          "Power interruption or emergency stop",
+          "Solenoid valve fault"
+        ]
+      }
+    ]
+  },
+  {
+    "sequence": 7,
+    "id": "tombstoning",
+    "title": "Tombstoning",
+    "svg": "tombstoning-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "A component standing on one end.",
+    "uncertainSourceNote": "",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Ventilation equipment",
+          "High temperature",
+          "Excessive humidity"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Material bag too tight during preparation",
+          "Solder paste not replenished promptly",
+          "Uneven manual paste application",
+          "Excessive solder volume",
+          "Transport rails not cleaned promptly",
+          "Inadequate self inspection"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Poor PCB design",
+          "Improper component packaging",
+          "Oxidized or deformed components, poor solder wettability",
+          "Incoming components out of specification or on their side",
+          "Unequal pad sizes, oxidized pads or excessive pad spacing",
+          "Insufficient paste thawing, poor viscosity, uneven mixing or expired paste",
+          "Excessive carrier tape springiness or overly wide pockets"
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Solder paste mixing method",
+          "Program coordinate changes",
+          "Fiducial incorrectly disabled",
+          "Incorrect loading method",
+          "SOP not followed"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "Deformed squeegee",
+          "Incorrect support pin height",
+          "Incorrect fiducial scan settings",
+          "Incorrect printer settings, print displacement or uneven thickness",
+          "Stencil apertures do not match pads, contaminated stencil",
+          "Placement displacement: coordinate displacement, faulty nozzle or insufficient solder",
+          "Incorrect reflow temperature or excessive transport speed"
+        ]
+      }
+    ]
+  },
+  {
+    "sequence": 8,
+    "id": "component-on-side",
+    "title": "Component on its side",
+    "svg": "component-on-side-fishbone.svg",
+    "width": 2160,
+    "height": 1620,
+    "definition": "A component resting on its side.",
+    "uncertainSourceNote": "One source factor concerning the PCB has unclear wording. Its intended cause is not inferred.",
+    "branches": [
+      {
+        "name": "Environment",
+        "position": "top",
+        "factors": [
+          "Ventilation",
+          "High temperature accelerates paste evaporation"
+        ]
+      },
+      {
+        "name": "People",
+        "position": "top",
+        "factors": [
+          "Material bag too loose or too tight during preparation",
+          "Components on their side",
+          "Board handling",
+          "Components on their side during preparation",
+          "Insufficient solder",
+          "Improper operation"
+        ]
+      },
+      {
+        "name": "Materials",
+        "position": "top",
+        "factors": [
+          "Poor PCB design",
+          "Oxidized or damaged components, exposed copper",
+          "Stencil apertures do not match pads",
+          "Improper component packaging",
+          "Poor component material",
+          "Excessive pad spacing",
+          "Impurities in solder paste",
+          "Poor component solder wettability"
+        ]
+      },
+      {
+        "name": "Methods",
+        "position": "bottom",
+        "factors": [
+          "Components too close to the board edge",
+          "Program coordinates",
+          "Uncertain PCB factor in source",
+          "Manual placement of loose components",
+          "Incomplete SOP"
+        ]
+      },
+      {
+        "name": "Equipment",
+        "position": "bottom",
+        "factors": [
+          "No support pins beneath the PCB",
+          "Board seating displacement",
+          "Paste printing displacement",
+          "Reflow oven speed",
+          "Board collisions in the reflow oven",
+          "Reflow oven temperature",
+          "Faulty feeder"
+        ]
+      }
+    ]
+  }
+]

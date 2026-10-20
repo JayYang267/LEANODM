@@ -1,25 +1,31 @@
 ---
+import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import plan from '../../../data/product-testing.json';
 import '../../../styles/product-testing.css';
 
-const title = 'Product Testing & Evaluation Plan | LEANODM';
-const description = 'Review 39 product test projects: mechanical safety, durability, environmental exposure, packaging and print checks, with methods, stage marks and evaluation criteria.';
+const title = 'Product Testing & Evaluation Plan | LEANODM.com';
+const description = 'Review 39 test projects and the documented controls for calibration, external laboratory evaluation, affected-product checks and change-triggered retesting.';
 const route = '/quality/product-testing/';
-const origin = new URL(import.meta.env.PUBLIC_SITE_URL || 'https://www.leanodm.com').origin;
+const origin = SITE.url;
 const canonical = new URL(route, origin).href;
 const tests = plan.groups.flatMap(group => group.tests);
 const navigation = [
   { label: 'Plan overview', href: '#plan-overview' },
   { label: 'Test examples', href: '#test-examples' },
   { label: 'Full test library', href: '#test-library' },
+  { label: 'Test controls', href: '#measurement-control' },
 ];
-const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality references', url: '#related-quality' }, { name: 'Product testing', url: route }];
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality', url: '/quality/' }, { name: 'Product testing', url: route }];
+const faqs = [...plan.faqs,
+  { question: 'What happens when a measuring instrument is found out of tolerance?', answer: 'The calibration procedure requires the instrument to be identified and removed from use. If failed accuracy affects product measurement, Quality initiates corrective action, traces products measured during the period of failure and reassesses them, with retesting where needed. A repaired instrument is recalibrated before approved return to use.' },
+  { question: 'How are external laboratories and product changes considered?', answer: 'For confirmation testing within the export and certified-toy procedure, the external organization must be evaluated for the required capability and the evaluation retained. Production material changes trigger applicable safety retesting; customer test requirements also apply. Products covered by the 3C change-control procedure require its defined review and approval. These controls do not establish in-house laboratory accreditation or certification for every product.' },
+];
 const schema = {
   '@context': 'https://schema.org', '@graph': [
-    { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', breadcrumb: { '@id': `${canonical}#breadcrumbs` }, about: { '@type': 'Thing', name: 'Xinyinhai product test plan' } },
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, about: [{ '@id': `${origin}/#xinyinhai` }, { '@type': 'Thing', name: 'Xinyinhai product test plan' }] },
     { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, i) => ({ '@type': 'ListItem', position: i + 1, name: item.name, item: new URL(item.url, item.url.startsWith('#') ? canonical : origin).href })) },
-    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: plan.faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) },
   ],
 };
 ---
@@ -57,7 +63,7 @@ const schema = {
 
     <div class="pt-container">
       <section id="plan-overview" class="pt-section" aria-labelledby="overview-title">
-        <div class="pt-heading"><div><p class="pt-eyebrow">01 / READ THE REQUIREMENT IN CONTEXT</p><h2 id="overview-title">One test entry.<br />Five things to review.</h2></div><p>The source includes picture books, sound buttons and age-specific toy checks. Product relevance must be established before selecting a method. The plan does not establish universal factory capability or compliance.</p></div>
+        <div class="pt-heading"><div><p class="pt-eyebrow">01 / READ THE REQUIREMENT IN CONTEXT</p><h2 id="overview-title">How to Read a<br />Product Test Plan</h2></div><p>The source includes picture books, sound buttons and age-specific toy checks. Product relevance must be established before selecting a method. The plan does not establish universal factory capability or compliance.</p></div>
         <ol class="pt-reading-flow"><li><span>01</span><strong>Test project</strong><p>Identify the part, product or packaging.</p></li><li><span>02</span><strong>Method</strong><p>Read the load, exposure or operation.</p></li><li><span>03</span><strong>Conditions</strong><p>Keep units, exceptions and sequence.</p></li><li><span>04</span><strong>Stage</strong><p>Use only the source’s marked codes.</p></li><li><span>05</span><strong>Evaluation</strong><p>Separate pass criteria from recorded values.</p></li></ol>
         <div class="pt-source-note"><strong>Source and scope.</strong> <cite>{plan.source.title}</cite>, {plan.source.organization}, worksheet “Table 1”. The workbook contains 20 projects in its left block and 19 in its right block. One drop project contains two methods. The six groups below are navigation aids; the original block and cell references remain with each entry. No revision or effective date is stated in the sheet.</div>
         <div class="pt-stages-heading"><h3>Stage marks and sample notation</h3><p>Stage names are not expanded because the workbook does not define them. Blank cells are shown as <strong>No stage mark</strong>, never as an exemption. Sample quantities below are the source’s stage-level notation, not a quantity assigned to every test.</p></div>
@@ -79,7 +85,7 @@ const schema = {
       </section>
 
       <section id="test-library" class="pt-section" aria-labelledby="library-title">
-        <div class="pt-heading"><div><p class="pt-eyebrow">03 / COMPLETE TEST LIBRARY</p><h2 id="library-title">39 projects.<br />The details stay attached.</h2></div><p>Open an entry for the full method, stage marks and evaluation criteria. Source notes identify missing settings and unresolved wording. All entries are readable without JavaScript.</p></div>
+        <div class="pt-heading"><div><p class="pt-eyebrow">03 / COMPLETE TEST LIBRARY</p><h2 id="library-title">Product Test Library:<br />39 Planned Projects</h2></div><p>Open one of the 39 planned test projects for its method, stage marks and evaluation criteria. Source notes identify missing settings and unresolved wording. All entries are readable without JavaScript.</p></div>
         <nav class="pt-group-nav" aria-label="Test family navigation">{plan.groups.map((group, i) => <a href={`#${group.id}`}><span>0{i + 1} / {group.tests.length} PROJECTS</span><strong>{group.name}</strong><span aria-hidden="true">↘</span></a>)}</nav>
         <aside class="pt-reading-note"><strong>Before applying an entry.</strong> The original plan names EN, ISO and JIS references without complete editions or methods. Where settings or acceptance wording are incomplete, the note identifies what needs agreement. This page does not establish a certification, a pass rate, equipment ownership or a universal product specification.</aside>
         {plan.groups.map((group, i) => <section id={group.id} class="pt-family" aria-labelledby={`${group.id}-title`}>
@@ -98,12 +104,30 @@ const schema = {
         </section>)}
       </section>
 
-      <section id="related-quality" class="pt-section" aria-labelledby="related-title"><p class="pt-eyebrow">04 / RELATED QUALITY CONTROLS</p><h2 id="related-title">Read the tests alongside<br />the inspection standards.</h2><div class="pt-related"><a href="/quality/appearance-inspection/"><h3>Appearance Inspection</h3><p>Surface classes, original defect examples and cosmetic acceptance criteria.</p><span>Explore the standard ↗</span></a><a href="/quality/incoming-inspection/"><h3>Incoming Inspection</h3><p>Material-specific checks, inspection methods and source defect classifications.</p><span>Explore the standard ↗</span></a></div></section>
+      <section id="measurement-control" class="pt-section" aria-labelledby="measurement-title">
+        <div class="pt-heading"><div><p class="pt-eyebrow">04 / MEASUREMENT CONTROL</p><h2 id="measurement-title">Instrument Calibration &amp;<br />Measurement Control</h2></div><p>The instrument-control procedure defines identification, calibration planning and the response to failed accuracy. The test method and the instrument's permitted use must be considered together.</p></div>
+        <div class="pt-example-grid">
+          <article><p class="pt-eyebrow">BEFORE USE</p><h3>Identify the instrument and its status</h3><p>The procedure calls for a unique equipment identifier, a register and calibration history for externally calibrated instruments. Calibration intervals inform the plan, and new equipment has its calibration status checked.</p><p>External calibration is assigned to a qualified provider with standards traceable to national or international references. Results are assessed against the required measurement accuracy. Any restricted use must be explicitly identified and observed.</p></article>
+          <article><p class="pt-eyebrow">WHEN A PROBLEM IS FOUND</p><h3>Stop use and assess the earlier measurements</h3><p>Abnormal, overdue or failed equipment is withheld from use. If failed accuracy affects product measurements, Quality initiates corrective action and traces the products measured during the affected period.</p><p>Those products are reassessed and retested where necessary. Repair alone does not restore authorization: the instrument must be recalibrated and approved for normal or defined restricted use.</p></article>
+        </div>
+        <ol class="pt-reading-flow" aria-label="Response to an instrument accuracy failure"><li><span>01</span><strong>Stop use</strong><p>Identify and hold the instrument.</p></li><li><span>02</span><strong>Trace the scope</strong><p>Review the affected measurement period.</p></li><li><span>03</span><strong>Reassess product</strong><p>Determine whether retesting is needed.</p></li><li><span>04</span><strong>Restore capability</strong><p>Repair and recalibrate as applicable.</p></li><li><span>05</span><strong>Authorize use</strong><p>Record the permitted status and limits.</p></li></ol>
+      </section>
 
-      <section id="faq" class="pt-section" aria-labelledby="faq-title"><p class="pt-eyebrow">05 / BUYER QUESTIONS</p><h2 id="faq-title">Product testing FAQ</h2><div class="pt-faq">{plan.faqs.map(faq => <details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></section>
+      <section id="laboratories-and-retesting" class="pt-section" aria-labelledby="retesting-title">
+        <div class="pt-heading"><div><p class="pt-eyebrow">05 / CAPABILITY &amp; CHANGE REVIEW</p><h2 id="retesting-title">Test Capability, Product Changes<br />&amp; Retesting</h2></div><p>Additional procedures address external testing and changes that can affect a previous result. The responsible team confirms the product scope, applicable requirements and necessary test route.</p></div>
+        <div class="pt-example-grid">
+          <article><p class="pt-eyebrow">EXTERNAL CONFIRMATION TESTING</p><h3>Evaluate the required laboratory capability</h3><p>For the export and certified-toy scope, the confirmation-testing procedure requires an assessment of the external organization's ability to perform the required work, with the assessment retained. Relevant accreditation evidence may support that review.</p><p>Sample identification, results and retained reference samples connect the test with subsequent checks. Failed confirmation testing triggers corrective action, assessment of related products and new sample testing after improvement.</p></article>
+          <article><p class="pt-eyebrow">CHANGES &amp; RETESTING</p><h3>Revisit the test basis after a change</h3><p>The production procedure calls for applicable safety testing during development, before first production and again when production materials change. Customer-specified test requirements also apply; special tests can be sent to an external provider.</p><p>Within the 3C-certified product scope, changes to design, technical standards, equipment, process, tooling, component suppliers or production site enter the defined change review. Required certification-body approval precedes production and sale of the changed certified product.</p></article>
+        </div>
+        <p class="pt-source-note"><strong>Plan the review package.</strong> Agree the product and revision, reason for testing, applicable methods, sample identity, responsible test provider and reports to retain. These documented controls do not establish an accredited in-house laboratory, a current calibration result or blanket product certification.</p>
+      </section>
+
+      <section id="related-quality" class="pt-section" aria-labelledby="related-title"><p class="pt-eyebrow">06 / RELATED QUALITY CONTROLS</p><h2 id="related-title">Read the tests alongside<br />the inspection standards.</h2><div class="pt-related"><a href="/quality/"><h3>Quality Management System</h3><p>Responsibilities, controlled references and corrective action behind inspection and testing.</p><span>Explore the system ↗</span></a><a href="/quality/traceability/"><h3>Traceability &amp; Materials</h3><p>Identification and records that help define the scope of an affected-product review.</p><span>Explore the record trail ↗</span></a><a href="/quality/appearance-inspection/"><h3>Appearance Inspection</h3><p>Surface classes, original defect examples and cosmetic acceptance criteria.</p><span>Explore the standard ↗</span></a><a href="/quality/incoming-inspection/"><h3>Incoming Inspection</h3><p>Material-specific checks, inspection methods and source defect classifications.</p><span>Explore the standard ↗</span></a></div></section>
+
+      <section id="faq" class="pt-section" aria-labelledby="faq-title"><p class="pt-eyebrow">07 / BUYER QUESTIONS</p><h2 id="faq-title">Product testing FAQ</h2><div class="pt-faq">{faqs.map(faq => <details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></section>
     </div>
 
-    <section id="project-requirements" class="pt-project" aria-labelledby="project-title"><div class="pt-container pt-project-grid"><div><p class="pt-eyebrow">YOUR PRODUCT / YOUR TEST BRIEF</p><h2 id="project-title">Make the test requirement<br />specific to your product.</h2><p>Prepare the product context, applicable methods and records needed for an engineering review.</p><a class="pt-button" href="/resources/product-testing-project-brief.txt" download="LEANODM-product-testing-brief.txt">Download the test planning brief <span aria-hidden="true">↓</span></a><p class="pt-small">A preparation checklist. It adds no acceptance requirements to the source plan.</p></div><ol><li><strong>Define the product</strong><span>Model, revision, intended users, parts and packaging.</span></li><li><strong>Select the conditions</strong><span>Test entries, stage codes, variants and exact units.</span></li><li><strong>Resolve open criteria</strong><span>Missing settings, source ambiguities and approved references.</span></li><li><strong>Specify the records</strong><span>Sample identification, measured values and evaluation evidence.</span></li></ol></div></section>
+    <section id="project-requirements" class="pt-project" aria-labelledby="project-title"><div class="pt-container pt-project-grid"><div><p class="pt-eyebrow">YOUR PRODUCT / YOUR TEST BRIEF</p><h2 id="project-title">Make the test requirement<br />specific to your product.</h2><p>Prepare the product context, applicable methods and records needed for an engineering review.</p><div class="pt-actions"><a class="pt-button" href="/resources/product-testing-project-brief.txt" download="LEANODM-product-testing-brief.txt">Download the test planning brief <span aria-hidden="true">↓</span></a><a class="pt-button" href="/rfq/?source=quality-product-testing#rfq-form">Discuss your test requirements <span aria-hidden="true">↗</span></a></div><p class="pt-small">A preparation checklist. It adds no acceptance requirements to the source plan.</p></div><ol><li><strong>Define the product</strong><span>Model, revision, intended users, parts and packaging.</span></li><li><strong>Select the conditions</strong><span>Test entries, stage codes, variants and exact units.</span></li><li><strong>Resolve open criteria</strong><span>Missing settings, source ambiguities and approved references.</span></li><li><strong>Specify the records</strong><span>Sample identification, measured values and evaluation evidence.</span></li></ol></div></section>
   </div>
 </BaseLayout>
 

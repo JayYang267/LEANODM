@@ -29,6 +29,18 @@
 /* Smooth scrolling */
 html {
   @apply scroll-smooth;
+  --lean-global-header-height: 72px;
+  --lean-page-header-height: 56px;
+  --lean-anchor-offset: calc(var(--lean-global-header-height) + var(--lean-page-header-height) + 16px);
+}
+
+@media (min-width: 1120px) {
+  html { --lean-global-header-height: 80px; }
+}
+
+/* One offset keeps every technical-page anchor clear of both sticky bars. */
+html.technical-page main[id], html.technical-page main[id] [id] {
+  scroll-margin-top: var(--lean-anchor-offset);
 }
 
 .nav-active {

@@ -1,0 +1,48 @@
+---
+interface Props { mode?: 'system' | 'traceability'; }
+const { mode = 'system' } = Astro.props;
+const trace = mode === 'traceability';
+const rawContact = import.meta.env.PUBLIC_CONTACT_URL?.trim();
+const contact = rawContact && /^(https?:\/\/|mailto:)/i.test(rawContact) ? rawContact : undefined;
+const inquiryHref = `/rfq/?source=quality-${trace ? 'traceability' : 'system'}#rfq-form`;
+const topics = trace
+  ? ['Order and shipment references', 'Material batches and suppliers', 'Inspection and release records', 'Customer-supplied materials', 'Storage and segregation', 'Complaint investigation']
+  : ['Requirements and revision control', 'Supplier and material controls', 'Inspection and testing', 'Batch traceability', 'Corrective action and internal review', 'Applicable certification evidence'];
+---
+<section id="project-requirements" class="qs-project" aria-labelledby="project-title">
+  <div class="qs-container qs-project-grid" data-quality-brief data-brief-mode={mode}>
+    <div>
+      <p class="qs-eyebrow">YOUR PRODUCT / YOUR QUALITY REQUIREMENTS</p>
+      <h2 id="project-title">{trace ? 'Define the traceability your project needs.' : 'Prepare a focused supplier quality review.'}</h2>
+      <p>{trace ? 'Start with the product, order structure and information you need to retrieve. Agree the record links, identification and retention needs before production.' : 'Identify the product, manufacturing scope, target market and quality evidence your team needs. Use the checklist to organize the discussion with your LEANODM contact.'}</p>
+      <div class="qs-actions">
+        <a class="qs-button" href="/resources/quality-system-review-checklist.txt" download="LEANODM-quality-review-checklist.txt">Download review checklist <span aria-hidden="true">↓</span></a>
+        <a class="qs-link" href={inquiryHref}>Discuss your quality requirements <span aria-hidden="true">↗</span></a>
+        {contact && <a class="qs-link" href={contact}>Contact LEANODM <span aria-hidden="true">↗</span></a>}
+      </div>
+      <p class="qs-note">Use the inquiry form to prepare your brief, or share the checklist with your existing project contact. Agree a confidential exchange before sharing restricted records. The topic selector works in your browser and does not submit information.</p>
+    </div>
+    <div>
+      <fieldset><legend>Select the topics for your review</legend><div class="qs-topics">{topics.map((topic,i) => <label><input type="checkbox" name="review-topic" value={topic} checked={i < 3} /><span>{topic}</span></label>)}</div></fieldset>
+      <p class="qs-topic-output" aria-live="polite" data-topic-output hidden></p>
+      <button class="qs-link" type="button" data-download-topics hidden>Download selected topics <span aria-hidden="true">↓</span></button>
+    </div>
+  </div>
+</section>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-quality-brief]').forEach(root => {
+    const checks = Array.from(root.querySelectorAll<HTMLInputElement>('input[name="review-topic"]'));
+    const output = root.querySelector<HTMLElement>('[data-topic-output]');
+    const button = root.querySelector<HTMLButtonElement>('[data-download-topics]');
+    if (!output || !button) return;
+    output.hidden = false; button.hidden = false;
+    const selected = () => checks.filter(input => input.checked).map(input => input.value);
+    const update = () => { const count = selected().length; output.textContent = `${count} review topic${count === 1 ? '' : 's'} selected.`; button.disabled = count === 0; };
+    checks.forEach(input => input.addEventListener('change',update)); update();
+    button.addEventListener('click', () => {
+      const text = ['LEANODM QUALITY REVIEW TOPICS', '', ...selected().map(topic => `- ${topic}`), '', 'Product and intended use:', 'Target market:', 'Order / shipment / revision reference:', 'Required evidence and any confidentiality limits:', 'Questions for review:', '', 'Share this completed brief with your LEANODM contact.'].join('\r\n');
+      const href = URL.createObjectURL(new Blob([text], { type: 'text/plain;charset=utf-8' }));
+      const link = document.createElement('a'); link.href = href; link.download = `LEANODM-${root.dataset.briefMode}-review-topics.txt`; link.click(); setTimeout(() => URL.revokeObjectURL(href),1000);
+    });
+  });
+</script>

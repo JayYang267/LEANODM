@@ -1,0 +1,103 @@
+---
+import CustomizationPage from '../../../layouts/CustomizationPage.astro';
+import Section from '../../../components/CustomizationSection.astro';
+import Table from '../../../components/CustomizationTable.astro';
+import Icon from '../../../components/CustomizationIcon.astro';
+import Flow from '../../../components/CustomizationFlow.astro';
+import Figure from '../../../components/CustomizationFigure.astro';
+import fixturePhoto from '../../../assets/tooling-injection-molding/takeout-fixture.png';
+import materialPhoto from '../../../assets/tooling-injection-molding/material-handling-rack.png';
+import { page } from '../../../data/customization/oem-manufacturing';
+---
+<CustomizationPage page={page}>
+  <Section id="readiness" eyebrow="01 / PRODUCTION TRANSFER" title="Is your design ready to enter manufacturing?" intro="A readiness review reconciles the files, physical reference and acceptance requirements before materials or tooling are committed.">
+    <div class="b2b-oem-transfer" aria-label="Customer input to manufacturing execution">
+      <article class="b2b-panel"><Icon name="files" /><span class="b2b-visual-label">CUSTOMER INPUT</span><h3>Your released design package</h3><ul><li>Drawings & critical dimensions</li><li>BOM & material specifications</li><li>Functional & acceptance requirements</li><li>Approved reference samples</li></ul></article>
+      <div class="b2b-transfer-arrow" aria-hidden="true"><Icon name="arrow-right" /></div>
+      <article class="b2b-panel b2b-panel--dark"><Icon name="factory" /><span class="b2b-visual-label">XINYINHAI MANUFACTURING</span><h3>A defined manufacturing route</h3><ul><li>Sourcing & tooling preparation</li><li>Manufacturing & assembly</li><li>Inspection & pilot review</li><li>Packing & shipment release</li></ul></article>
+    </div>
+    <div class="qc-three-column">
+      <article><Icon name="file-check-2" /><span class="qc-small-label">DESIGN BASELINE</span><h3>One approved revision</h3><p>Confirm that the drawings, BOM, electronic specification and reference sample describe the same product. Identify critical dimensions, material requirements and any characteristics that cannot be checked from appearance alone.</p></article>
+      <article><Icon name="workflow" /><span class="qc-small-label">MANUFACTURING FIT</span><h3>A defined process route</h3><p>Review molding, electronic assembly, finishing, final assembly and packing as applicable. Confirm access for assembly and inspection, tooling requirements and fixture needs. Record gaps before accepting the production package.</p></article>
+      <article><Icon name="clipboard-check" /><span class="qc-small-label">ACCEPTANCE</span><h3>Checks both sides can use</h3><p>Agree the test methods, conditions and pass criteria for the product and intended market. Mark the reference sample and document permitted variations. An attractive sample alone cannot define the production acceptance standard.</p></article>
+    </div>
+    <aside class="qc-note">If the design still needs structural, material or functional changes, define a separate <a href="/customization/product-adaptation/">product adaptation scope</a>. If there is no established design, begin with <a href="/customization/new-product-development/">new product development</a>.</aside>
+  </Section>
+
+  <Section id="tooling-materials" eyebrow="02 / TOOLING & MATERIALS" title="Prepare the mold and the material baseline together" intro="Tool readiness and material definition determine whether the approved design can be reproduced under the proposed production conditions.">
+    <div class="qc-approval-grid">
+      <div class="b2b-panel"><Figure src={fixturePhoto} alt="Steel-plate take-out fixture with suction cups beside a molding-machine conveyor at Xinyinhai" caption="Xinyinhai factory reference: a take-out fixture. Fixture needs are reviewed for the proposed process." /><h3>Tooling preparation and trials</h3><p>For new production tooling or a transferred mold, confirm the tool scope, condition and agreed part requirements. Review mold and machine fit, ejection and the resulting first articles. Track trial issues and approved corrections before accepting the tool for the planned run.</p><p>Document who owns the tool, who may use it and the maintenance and transfer arrangements. Customer-specific tooling is not a source of unrestricted products for other buyers.</p><a class="qc-text-link" href="/manufacturing/tooling-injection-molding/">Review tooling and injection molding ↗</a></div>
+      <div class="b2b-panel"><Figure src={materialPhoto} alt="Empty wheeled material-handling rack on the Xinyinhai factory floor" caption="Xinyinhai factory reference: a wheeled handling rack. Material identity and status remain part of the control plan." /><h3>Materials and component controls</h3><p>Use approved material and component information to guide procurement and incoming inspection. Review identity, specification, condition and required safety information; keep nonconforming incoming parts from entering the production flow.</p><p>Material grades, electronic parts, finishes and packaging substitutions can change performance. Evaluate the change and its verification needs before replacing an approved item.</p><a class="qc-text-link" href="/quality/incoming-inspection/">Review incoming inspection ↗</a></div>
+    </div>
+  </Section>
+
+  <Section id="production-controls" eyebrow="03 / MANUFACTURING EXECUTION" title="How is the approved design carried through the line?" intro="The manufacturing package connects each operation to a work instruction, a check and an escalation route when the result is outside the agreed criteria.">
+    <p>Xinyinhai’s documented OEM route uses the reviewed product specification and confirmed sample to prepare the applicable process documents. The bill of materials (BOM), drawings (DWG), operating instructions (SOP) and inspection instructions (SIP) are reviewed, approved and distributed as controlled versions. Proposed changes return through the agreed review and authorization route.</p>
+    <Flow compact label="Manufacturing control sequence" steps={[
+      { icon: 'package-search', title: 'Receive', text: 'Release approved materials.' },
+      { icon: 'wrench', title: 'Prepare', text: 'Verify parts and tooling.' },
+      { icon: 'component', title: 'Assemble', text: 'Follow controlled instructions.' },
+      { icon: 'clipboard-check', title: 'Inspect', text: 'Apply agreed acceptance checks.' },
+      { icon: 'package-check', title: 'Release', text: 'Confirm packing and shipment.' },
+    ]} />
+    <Table caption="OEM production controls and the evidence to review" headers={['Control point', 'Execution focus', 'Review evidence']} rows={[
+      ['Incoming materials', 'Check purchased parts and materials against the approved specification before release to production.', 'Incoming inspection results, material status and disposition of nonconforming items.'],
+      ['Molding and part preparation', 'Confirm trial conditions, molded-part fit, appearance and critical dimensions before downstream assembly.', 'Approved first articles, controlled dimensions and relevant process instructions.'],
+      ['Electronics and interconnection', 'Apply the agreed component, polarity, wiring and functional requirements; protect parts and connections during handling.', 'Electronic inspection points and functional checks defined for the product.'],
+      ['Assembly and fixtures', 'Verify assembly order, positioning, fastening and fixture operation using production work instructions.', 'SOP and fixture review, assembly checks and identified abnormal conditions.'],
+      ['Testing and in-process quality', 'Check function, appearance and applicable safety characteristics at the specified process points.', 'Test and inspection records, issue analysis and verified corrective action.'],
+      ['Packing and release', 'Reconcile the product, approved sample, labels, packaging and shipment requirements.', 'Final inspection results and a recorded shipment-release decision.'],
+    ]} />
+    <p>Testing is selected for the product and its use. Review the <a href="/quality/product-testing/">product testing framework</a> when agreeing the plan; the existence of a test method is not a certificate or a statement that every product requires that test.</p>
+  </Section>
+
+  <Section id="pilot-release" eyebrow="04 / PILOT TO MASS PRODUCTION" title="Pilot Production & Mass-Production Release" intro="PP is the pre-production pilot; MP is mass production. A successful prototype or mold trial does not by itself establish that the assembled production process is ready.">
+    <Flow label="Pilot review and production release" steps={[
+  {
+    "icon": "settings-2",
+    "label": "PREPARE",
+    "title": "Build with the intended production inputs",
+    "text": "Use the approved material set, work instructions, fixtures and packing requirements. Engineering and production support the line while quality monitors the result."
+  },
+  {
+    "icon": "file-search",
+    "label": "REVIEW",
+    "title": "Evaluate the pilot as a process",
+    "text": "Review assembly problems, fixture reliability, product checks, packaging and production feasibility. Assign actions for failures and verify the corrections before closing them."
+  },
+  {
+    "icon": "file-check-2",
+    "label": "AUTHORIZE",
+    "title": "Confirm the release package",
+    "text": "Confirm the agreed sample, current drawings and BOM, instructions, test results and readiness decision. Obtain the customer approvals required by the project before releasing mass production."
+  },
+  {
+    "icon": "repeat-2",
+    "label": "MAINTAIN",
+    "title": "Carry the controls into repeat orders",
+    "text": "Use the released baseline for the next run. Communicate abnormalities and assess changes to materials, tooling or process conditions. Verify affected characteristics when the baseline changes."
+  }
+]} />
+    <aside class="qc-note">Production authorization and shipment confirmation are separate decisions. Neither a delivery target nor a purchase order replaces unresolved product-safety or acceptance checks. See <a href="/customization/how-we-work/">how approvals and change control work</a>.</aside>
+  </Section>
+
+  <Section id="supply-controls" eyebrow="MATERIAL RESPONSIBILITIES" title="Keep supplier instructions and customer materials identifiable" intro="The sourcing plan distinguishes purchased components from customer-supplied materials and defines the controls each needs.">
+    <div class="b2b-comparison">
+      <article class="b2b-panel"><Icon name="file-check-2" /><h3>Specifications reach the supplier</h3><p>Purchasing requirements refer to the approved BOM, drawings or order specification, with applicable inspection criteria and packaging requirements. Where sample confirmation is required, record it before authorizing supply.</p><p>Purchasing communicates revised technical files and inspection standards to affected suppliers. Changes to purchase requirements are approved and confirmed with the supplier.</p></article>
+      <article class="b2b-panel b2b-panel--tint"><Icon name="package-search" /><h3>Customer materials retain their identity</h3><p>Xinyinhai’s documented storage procedure identifies customer-supplied materials and keeps separate stock records to prevent use for another customer's product. Receipt checks follow the agreed customer instructions or the applicable incoming-inspection procedure.</p><p>Suitable storage, protection and separation preserve the materials while they are in factory custody. Agree identification, inspection and handling requirements before sending them.</p></article>
+    </div>
+    <p>Review <a href="/quality/traceability/">Traceability &amp; Materials</a> for receipt, issue and material-status records, and <a href="/quality/">Xinyinhai’s quality management system</a> for supplier and document controls.</p>
+  </Section>
+</CustomizationPage>
+
+<style>
+.b2b-oem-transfer {display:grid;grid-template-columns:1fr 42px 1fr;gap:14px;align-items:stretch;margin:0 0 24px;}
+.b2b-transfer-arrow {display:grid;place-items:center;}
+.b2b-oem-transfer ul {display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;list-style:none;padding:0;margin:18px 0 0;}
+.b2b-oem-transfer li {padding-top:10px;border-top:1px solid #d9e2ef;font-size:.83rem;line-height:1.6;}
+.b2b-panel--dark li {border-color:#425772;color:#d4deec;}
+#tooling-materials :global(.b2b-figure) {margin:-2px -2px 22px;}
+#tooling-materials :global(.b2b-figure img) {height:260px;}
+#tooling-materials .qc-approval-grid {gap:22px;}
+@media(max-width:599px) {.b2b-oem-transfer {grid-template-columns:1fr;gap:12px;}.b2b-transfer-arrow {transform:rotate(90deg);}.b2b-oem-transfer ul {grid-template-columns:1fr;}#tooling-materials :global(.b2b-figure img) {height:240px;}}
+</style>

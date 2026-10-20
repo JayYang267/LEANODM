@@ -1,0 +1,57 @@
+import type { CustomizationPageData } from './types';
+
+export const page: CustomizationPageData = {
+  slug: 'existing-products',
+  title: 'Existing Product Customization | Branding & Packaging | LEANODM',
+  description: 'Customize an existing plastic or electronic product with agreed branding, color, finish and packaging. Review the base product, samples and production requirements.',
+  h1: 'Existing Product Customization',
+  navTitle: 'Existing Products',
+  eyebrow: 'CUSTOMIZATION / START WITH A BASE PRODUCT',
+  lead: 'Existing product customization applies your brand, color, finish and packaging to a suitable current product while retaining its established design.',
+  intro: 'When a suitable base already exists, this can be the shortest route to market because less engineering and tooling work is needed. We confirm availability, scope, sampling and verification for your project, and identify any changes that need engineering review.',
+  serviceType: 'Existing product customization and private label product customization',
+  summary: [
+    { label: 'Your starting point', text: 'An identified product or sample, a target audience and a clear customization brief.' },
+    { label: 'The work to define', text: 'Authorized artwork, appearance, packaging and the configuration to retain.' },
+    { label: 'The approval basis', text: 'Agreed specifications and representative samples before production.' },
+  ],
+  highlights: ['Review the base product', 'Confirm artwork and samples', 'Record the approved configuration'],
+  sections: [
+    { label: 'Scope', href: '#customization-scope' },
+    { label: 'Options', href: '#customization-options' },
+    { label: 'Approval', href: '#sample-approval' },
+    { label: 'FAQ', href: '#faq' },
+    { label: 'Your Brief', href: '#project-requirements' },
+  ],
+  faqs: [
+    { question: 'Is private labeling the same as developing a new product?', answer: 'Private labeling usually applies your authorized brand and presentation to an existing product. It still requires a suitable base, defined artwork and sample approval. A different mechanism, housing layout or electronic function can introduce engineering work and change the appropriate service route.' },
+    { question: 'Do you have every product category available for customization?', answer: 'Availability must be checked for the specific product and configuration. Application examples on this page are briefs we can assess, not an inventory list. Send the reference you have in mind so we can review the design, permitted use and practical customization options.' },
+    { question: 'Can I send a product bought from another supplier?', answer: 'Yes, a sample can help explain your requirements. Tell us whether you own the design, have permission to use it, or are providing a reference for a different product. We review rights and technical suitability before agreeing what work can proceed.' },
+    { question: 'Can you match a brand color from a picture?', answer: 'A picture helps communicate direction, but lighting and screens affect its appearance. Supply an agreed color reference and confirm the result on the proposed material and finish. The approved physical sample and written criteria establish the production reference.' },
+    { question: 'What determines the minimum order and lead time?', answer: 'The base product, material or color batches, decoration, packaging, quantity and required verification all affect feasibility and timing. We confirm these after reviewing the brief. Existing tooling can reduce development work, but it does not remove sampling, purchasing or approval steps.' },
+    { question: 'Will the base product’s test reports cover my branded version?', answer: 'That depends on the exact product, changes, intended users and destination market. Provide available reports and the configuration they describe. Changes to materials, electronics, packaging or claims may require further review or testing before commercial shipment.' },
+  ],
+  cta: 'Discuss a Product Customization Project',
+  briefIntro: 'Start with a product reference and mark the changes you want. Separate essential requirements from preferences so the first review can identify a workable scope.',
+  needs: [
+    'Product photos, a reference link or a sample description, plus your relationship to the design.',
+    'Brand artwork and confirmation of permission to use all supplied assets.',
+    'Desired colors, finish, packaging and any configuration changes.',
+    'Intended users, destination markets and available product or test information.',
+    'Order quantity, delivery target and budget considerations.',
+  ],
+  receives: [
+    'A confirmed base-product and customization scope, with engineering questions identified.',
+    'An agreed artwork, color, finish and packaging approval reference, as applicable.',
+    'A sampling and verification plan for the changes being made.',
+    'The approved production configuration and acceptance criteria.',
+  ],
+  related: [
+    { href: '/customization/product-adaptation/', label: 'Engineer changes to an existing product', description: 'Review changes to structure, electronics, materials or assembly.' },
+    { href: '/customization/new-product-development/', label: 'Develop a product from a new brief', description: 'Start when there is no suitable existing design to build on.' },
+    { href: '/customization/oem-manufacturing/', label: 'Manufacture your completed design', description: 'Prepare customer-owned production files for manufacturing review.' },
+    { href: '/customization/how-we-work/', label: 'Understand project reviews and approvals', description: 'See how scope, customer decisions and changes are recorded.' },
+    { href: '/customization/project-fit/', label: 'Check rights and project fit', description: 'Review authorized assets, safety and practical working requirements.' },
+    { href: '/quality/appearance-inspection/', label: 'Review appearance inspection', description: 'Understand how product appearance is assessed against defined criteria.' },
+  ],
+};

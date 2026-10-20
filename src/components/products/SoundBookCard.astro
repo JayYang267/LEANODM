@@ -1,0 +1,12 @@
+---
+import type { SoundBookProduct } from '../../data/products/types';
+import { SOUND_BOOK_BASE, soundBookPath } from '../../data/products/sound-book-catalog';
+interface Props { product: SoundBookProduct }
+const { product: p } = Astro.props;
+const image = p.gallery[0];
+const href = soundBookPath(p);
+---
+<article class="sb-style-card" data-product-id={p.id}>
+  <a class="sb-style-picture" href={href} data-inquiry-navigation aria-label={`View ${p.name}`}><img src={image.src} alt={image.alt} width={image.width} height={image.height} loading="lazy" decoding="async" /><span>{p.statusLabel}</span></a>
+  <div class="sb-style-copy"><p class="sb-style-type">{p.style}</p><h3><a href={href} data-inquiry-navigation>{p.name}</a></h3><p class="sb-shown-language">Printed language shown: <strong>{p.shownLanguages.join(' + ')}</strong></p><ul>{p.features.map(feature => <li>{feature}</li>)}</ul><div class="sb-style-actions"><a href={href} data-inquiry-navigation>View details <span aria-hidden="true">↗</span></a><a href={`${SOUND_BOOK_BASE}?product=${p.id}#inquiry`} data-product-inquiry={p.id}>Discuss this format <span aria-hidden="true">→</span></a></div></div>
+</article>

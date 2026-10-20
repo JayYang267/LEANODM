@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets';
+import membership from '../assets/home/awards/dongguan-lean-association-membership-2023.png';
+import appreciation from '../assets/home/awards/stem-mathematical-modeling-appreciation-2024.png';
+import cost from '../assets/home/awards/benesse-cost-contribution-award-2018.png';
+import management from '../assets/home/awards/benesse-factory-management-progress-award-2019.png';
+import quality from '../assets/home/awards/benesse-outstanding-quality-award-2022.png';
+import collaboration from '../assets/home/awards/benesse-business-development-collaboration-award-2023.png';
+
+const awards = [
+  {
+    image: membership,
+    issuer: 'Lean Research Association of Dongguan',
+    title: 'Member Organization',
+    text: 'Xinyinhai became a member of the Lean Research Association of Dongguan on 25 December 2023. On 29 March 2024, the association’s study groups visited Xinyinhai for a learning exchange.',
+    alt: 'Xinyinhai’s membership plaque from the Lean Research Association of Dongguan, dated 25 December 2023',
+  },
+  {
+    image: appreciation,
+    issuer: 'International Mathematical Modeling Challenge Committee (Zhonghua)',
+    title: 'Certificate of Appreciation',
+    text: 'On 2 March 2024, the International Mathematical Modeling Challenge Committee (Zhonghua) visited Xinyinhai to share guidance on the Advanced Program for Promoting STEM Education through Learning and Teaching Mathematical Modeling and its Applications, and presented a Certificate of Appreciation.',
+    alt: 'Certificate of Appreciation presented to Xinyinhai for organizing a STEM field-study visit and workshop on 2 March 2024',
+  },
+  {
+    image: cost,
+    issuer: 'Benesse · Annual Supplier Conference',
+    title: 'Cost Contribution Award',
+    text: 'Xinyinhai received the Cost Contribution Award at Benesse’s 2018 Annual Supplier Conference.',
+    alt: 'Benesse’s 2018 Cost Contribution Award presented to Xinyinhai',
+  },
+  {
+    image: management,
+    issuer: 'Benesse · Annual Supplier Conference',
+    title: 'Significant Improvement in Factory Management Award',
+    text: 'Xinyinhai received the Significant Improvement in Factory Management Award at Benesse’s 2019 Annual Supplier Conference.',
+    alt: 'Benesse’s 2019 Significant Improvement in Factory Management Award presented to Xinyinhai',
+  },
+  {
+    image: quality,
+    issuer: 'Benesse · Annual Supplier Conference',
+    title: 'Annual Outstanding Quality Award',
+    text: 'Xinyinhai received the Annual Outstanding Quality Award at Benesse’s 2022 Annual Supplier Conference.',
+    alt: 'Benesse’s 2022 Annual Outstanding Quality Award presented to Xinyinhai',
+  },
+  {
+    image: collaboration,
+    issuer: 'Benesse · Annual Supplier Conference',
+    title: 'Business Development Collaboration Award',
+    text: 'Xinyinhai received the Business Development Collaboration Award at Benesse’s 2023 Annual Supplier Conference.',
+    alt: 'Benesse’s 2023 Business Development Collaboration Award presented to Xinyinhai',
+  },
+];
+---
+
+<section class="xyh-recognition xyh-awards" id="awards" aria-labelledby="honors-title" data-awards>
+  <div class="xyh-wrap">
+    <div class="xyh-awards-heading">
+      <h2 id="honors-title">Awards &amp; Recognition</h2>
+    </div>
+    <div class="xyh-awards-window" id="awards-rail" tabindex="0" role="group" aria-label="Xinyinhai’s awards and recognition" aria-description="Pause to read by hovering or focusing here. Use the left and right arrow keys or swipe to browse.">
+    <div class="xyh-awards-track">
+    <ul class="xyh-awards-rail" data-awards-original>
+      {awards.map(award => <li class="xyh-award-card">
+        <figure class="xyh-award-image">
+          <Image src={award.image} alt={award.alt} widths={[320, 480, 640].filter(width => width < award.image.width).concat(award.image.width)} sizes="(max-width: 640px) calc(100vw - 96px), (max-width: 1050px) 40vw, 360px" loading="lazy" format="webp" quality={90} />
+        </figure>
+        <div class="xyh-award-copy">
+          <p class="xyh-award-issuer">{award.issuer}</p>
+          <h3>{award.title}</h3>
+          <p class="xyh-award-description">{award.text}</p>
+        </div>
+      </li>)}
+    </ul>
+    </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .xyh-awards.xyh-recognition{--award-columns:3;--award-gap:24px;padding:46px 0 72px;background:#fff}
+  .xyh-awards-heading{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-bottom:32px}
+  .xyh-awards-window{outline-offset:7px}
+  .xyh-awards-rail{display:grid;grid-template-columns:repeat(var(--award-columns),minmax(0,1fr));gap:var(--award-gap)}
+  .xyh-awards-rail[data-awards-copy]{display:none}
+  .xyh-awards.is-ready:not(.is-static) .xyh-awards-window{overflow:hidden;touch-action:pan-y;mask-image:linear-gradient(90deg,transparent,#000 14px,#000 calc(100% - 14px),transparent)}
+  .xyh-awards.is-ready:not(.is-static) .xyh-awards-track{display:flex;width:max-content;will-change:transform}
+  .xyh-awards.is-ready:not(.is-static) .xyh-awards-rail{display:flex;flex:0 0 auto;align-items:stretch;padding-right:var(--award-gap)!important}
+  .xyh-awards.is-ready:not(.is-static) .xyh-award-card{flex:0 0 var(--award-card-width);width:var(--award-card-width)}
+  .xyh-award-card{min-width:0;border:1px solid #dce1e9;border-radius:8px;overflow:hidden;background:#fff}
+  .xyh-award-image{position:relative;height:262px;display:flex;align-items:center;justify-content:center;padding:27px 34px;background:#f7f8fa;border-bottom:1px solid #e8ecf2}
+  .xyh-award-image img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .xyh-award-copy{padding:24px 25px 28px}
+  .xyh-award-issuer{font-size:11px;line-height:1.6;color:#637087;min-height:36px}
+  .xyh-awards .xyh-award-copy h3{font-size:20px;line-height:1.4;letter-spacing:-.02em;margin-top:9px;min-height:56px;color:#102950}
+  .xyh-award-description{font-size:14px;line-height:1.85;color:#526078;margin-top:16px!important}
+  @media(max-width:1050px){.xyh-awards.xyh-recognition{--award-columns:2}.xyh-award-image{height:250px}}
+  @media(max-width:640px){
+    .xyh-awards.xyh-recognition{--award-columns:1;--award-gap:18px;padding:30px 0 45px}
+    .xyh-awards-heading{gap:18px;align-items:flex-start;margin-bottom:25px;flex-wrap:wrap}
+    .xyh-awards-heading h2{max-width:100%}
+    .xyh-award-image{height:245px;padding:28px}
+    .xyh-award-copy{padding:21px 23px 26px}
+    .xyh-award-issuer,.xyh-awards .xyh-award-copy h3{min-height:0}
+    .xyh-awards .xyh-award-copy h3{font-size:20px}
+  }
+</style>
+
+<script>
+  import { initHomeAwards } from '../scripts/home-awards';
+  initHomeAwards();
+</script>

@@ -1,0 +1,26 @@
+LEANODM.com - Quality Control Project Brief
+
+Use this checklist to prepare a manufacturing review with your LEANODM.com contact.
+This is a project discussion aid, not an inspection standard or an approved test plan.
+
+1. Product name, model and intended use:
+2. Intended users / age group (where relevant):
+3. Destination market(s):
+4. Drawings, specifications and revision references:
+5. Reference samples and appearance requirements:
+6. Materials, components and outsourced parts:
+7. Functional requirements:
+8. Packaging, labels, warnings and date-code requirements:
+9. Applicable safety requirements and standard editions to review:
+10. Customer inspection standard / acceptance requirements:
+11. Proposed sampling reference and defect classifications to confirm:
+12. First-article approval and inspection report needs:
+13. Order quantity and production schedule:
+14. Open questions to resolve before tooling or mass production:
+
+Document selection note:
+The process workbook and the separately published incoming-material standard
+have different Minor AQL labels. Identify the applicable document and revision
+for the order; do not treat those values as interchangeable.
+
+Complete the relevant fields and share the brief with your existing contact.

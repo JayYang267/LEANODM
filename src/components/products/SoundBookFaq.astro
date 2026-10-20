@@ -1,0 +1,28 @@
+---
+import { faqGroups } from '../../data/products/sound-book-procurement';
+import { SOUND_BOOK_BASE } from '../../data/products/sound-book-catalog';
+import '../../styles/sound-book-sections.css';
+
+interface Props { compact?: boolean }
+const { compact = false } = Astro.props;
+const count = faqGroups.reduce((total, group) => total + group.items.length, 0);
+const keyQuestions = [faqGroups[0].items[1], faqGroups[1].items[0], faqGroups[1].items[1], faqGroups[2].items[3]];
+---
+
+<section id="faq" class:list={['sb-section', 'sb-shared-faq', { 'sb-shared-compact': compact }]} aria-labelledby="faq-title">
+  <div class="sb-container sb-shared-faq-layout">
+    <div class="sb-shared-faq-intro">
+      <p class="sb-eyebrow">PROCUREMENT QUESTIONS</p>
+      <h2 id="faq-title">{compact ? 'Before the next step.' : 'Find the answer for your next decision.'}</h2>
+      <p>{compact ? 'Start with language versions, order quantities, samples and production consistency.' : `${count} practical questions for your OEM sound book project, from the first order to long-term cooperation. Open a topic to review the details.`}</p>
+      {!compact && <nav class="sb-shared-faq-topics" aria-label="Procurement question topics">{faqGroups.map(group => <a href={`#faq-${group.id}`}><span>{group.title}</span><span>{group.items.length}<span class="sb-sr-only"> questions</span></span></a>)}</nav>}
+      <a class="sb-text-link" href={compact ? `${SOUND_BOOK_BASE}#faq` : '#inquiry'} data-inquiry-navigation={compact || undefined}>{compact ? 'All sound book procurement questions' : 'Discuss your requirements'} <span aria-hidden="true">↗</span></a>
+    </div>
+    {compact
+      ? <div class="sb-shared-key-questions">{keyQuestions.map((faq, index) => <details class="sb-shared-question"><summary><span class="sb-shared-question-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{faq.question}</span><span class="sb-shared-question-toggle" aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div>
+      : <div class="sb-shared-faq-groups">{faqGroups.map((group, groupIndex) => <details class="sb-shared-faq-group" id={`faq-${group.id}`} open={groupIndex === 0}>
+        <summary class="sb-shared-topic-heading"><span><strong>{group.title}</strong><small>{group.intro}</small></span><span class="sb-shared-topic-count">{group.items.length}<span class="sb-sr-only"> questions</span><span aria-hidden="true">⌄</span></span></summary>
+        <div class="sb-shared-topic-questions">{group.items.map((faq, index) => <details class="sb-shared-question"><summary><span class="sb-shared-question-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{faq.question}</span><span class="sb-shared-question-toggle" aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div>
+      </details>)}</div>}
+  </div>
+</section>

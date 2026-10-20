@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { SITE } from '../../../config/site';
+import ActivityCard from '../../../components/ActivityCard.astro';
+import { activities, activityCategories, activityNavigation } from '../../../data/activities';
+import '../../../styles/activities.css';
+const hero = activities.find(item => item.featured && item.category === 'visits') ?? activities[0];
+const years = [...new Set(activities.map(item => item.year).filter(year => year !== 'unknown'))].sort().reverse();
+const description = 'Explore Xinyinhai’s documented factory visits, community connections, employee activities and continuous-improvement records on LEANODM.com.';
+const canonical = new URL('/about/activities/', SITE.url).href;
+const clientRecords = activities.map(({ slug, title, category, date, dateLabel, summary }) => ({ slug, title, category, date, dateLabel, summary }));
+---
+<BaseLayout title="Xinyinhai Activities & Community Archive | LEANODM.com" description={description} technicalPage technicalPageTitle="Activities & Community" technicalNavigation={activityNavigation} contactHref="/rfq" technicalFooterDescription="Connect the archive with your supplier review or manufacturing project.">
+  <Fragment slot="head"><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL(hero.coverImageUrl, SITE.url).href} /><meta property="og:image:alt" content={hero.title} /></Fragment>
+  <div class="activities-page">
+    <section class="activity-hero" id="overview"><div class="activity-container">
+      <nav class="activity-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/about/">About</a></li><li aria-current="page">Activities & Community</li></ol></nav>
+      <div class="activity-hero-grid"><div class="activity-hero-copy"><p class="activity-eyebrow">ABOUT US / PEOPLE & PROGRESS</p><h1>Activities<br />& Community<span class="activity-red-dot" aria-hidden="true">.</span></h1><p class="activity-lead">Explore Xinyinhai’s recorded factory visits, workplace learning and community activities.</p><p class="activity-intro">Factory visits, community connections, shared team moments and practical learning — brought together in a photographic record of Xinyinhai’s company life.</p><a class="activity-button" href="#archive">Explore the archive <span aria-hidden="true">↓</span></a></div>
+      <figure class="activity-hero-image"><img src={hero.coverImageUrl} width={hero.cover.width} height={hero.cover.height} alt={hero.title} fetchpriority="high" /><figcaption><span>FROM THE ARCHIVE</span><a href={`/about/activities/${hero.slug}/`}>{hero.title} <span aria-hidden="true">↗</span></a></figcaption></figure></div>
+      <div class="activity-hero-bottom"><span>Real moments. Shared perspectives.</span><span>{activities.length} stories <b aria-hidden="true">/</b> Four areas of company life</span></div>
+    </div></section>
+    <section class="activity-category-section" aria-label="Explore the four categories"><div class="activity-container activity-category-grid">{activityCategories.map((category, index) => <a class="activity-category" href={`?category=${category.id}#archive`} data-category-link={category.id}><div class="activity-category-top"><span>0{index + 1}</span><span aria-hidden="true">{category.icon}</span></div><h2>{category.title}</h2><p>{category.description}</p><span class="activity-category-foot">{activities.filter(item => item.category === category.id).length} stories <b aria-hidden="true">↗</b></span></a>)}</div></section>
+    <section class="activity-archive" id="archive" aria-labelledby="archive-title" data-activity-archive><div class="activity-container">
+      <div class="activity-section-heading"><div><p class="activity-eyebrow">THE ACTIVITY ARCHIVE</p><h2 id="archive-title">Factory visits, learning and activity records</h2></div><p>Browse across the years or follow a particular area of factory life. Each story brings its original collection together.</p></div>
+      <form class="activity-filters" hidden data-archive-form role="search" aria-label="Filter activity stories">
+        <label>Category<select name="category"><option value="all">All categories</option>{activityCategories.map(category => <option value={category.id}>{category.title}</option>)}</select></label>
+        <label>Year<select name="year"><option value="all">All years</option>{years.map(year => <option value={year}>{year}</option>)}<option value="unknown">Unknown date</option></select></label>
+        <label class="activity-search">Search stories<input name="q" type="search" placeholder="Search by topic or activity" maxlength="200" /></label>
+        <button type="reset" class="activity-reset">Reset filters <span aria-hidden="true">↻</span></button>
+      </form>
+      <noscript><p class="activity-fallback">All {activities.length} stories are shown below. Category, year and search controls are available with JavaScript enabled; every story and its media remain accessible here.</p></noscript>
+      <div class="activity-results-bar"><p data-results-count role="status" aria-live="polite">{activities.length} stories</p><span>Photographs & films from the archive</span></div>
+      <div class="activity-grid" data-archive-grid>{activities.map(activity => <ActivityCard activity={activity} archive />)}</div>
+      <div class="activity-empty" hidden data-archive-empty><span aria-hidden="true">⌕</span><h3>No stories match these filters</h3><p>Try another year, a broader search, or return to the full archive.</p><button type="button" data-reset-empty class="activity-button">Show all stories <span aria-hidden="true">→</span></button></div>
+      <nav class="activity-pagination" hidden data-archive-pagination aria-label="Activity archive pages"><button type="button" data-previous-page>← Previous</button><div data-page-numbers></div><button type="button" data-next-page>Next →</button></nav>
+    </div><script id="activity-search-data" type="application/json" set:html={JSON.stringify(clientRecords).replace(/</g, '\\u003c')} /></section>
+    <section class="activity-approach" id="our-approach"><div class="activity-container activity-approach-grid"><div><p class="activity-eyebrow">A RECORD OF COMPANY LIFE</p><h2>How to read<br />the activity archive</h2></div><div><p>These collections document particular moments in Xinyinhai’s records: a visit, an occasion, a workshop or an improvement topic. They help show how people connect with the factory and with one another.</p><p>Dates follow the available event labels. Where a date is not established, the story is marked accordingly. Historical photographs and videos describe the recorded moment; discuss current capabilities and arrangements with your project contact through LEANODM.com.</p><div class="activity-context-links"><a href="/about/ethical-manufacturing/">Ethical Manufacturing <span aria-hidden="true">↗</span></a><a href="/quality/">Quality System <span aria-hidden="true">↗</span></a></div></div></div></section>
+  </div>
+</BaseLayout>
+<script>import '../../../scripts/activity-archive';</script>

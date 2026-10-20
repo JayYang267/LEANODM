@@ -1,23 +1,17 @@
+import { leanInquiryNavigation } from '../components/leanNavigation';
+import { resolveCanonicalOrigin } from './seo';
+
 // Site configuration
 export const SITE = {
-  title: 'LEANODM',
-  description: 'Leading provider of optimized logistics and manufacturing solutions with state-of-the-art facilities and industry expertise.',
-  url: 'https://yourdomain.com',
-  author: 'LEANODM',
+  title: 'LEANODM.com',
+  description: 'LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities for plastic and electronic OEM/ODM projects.',
+  url: resolveCanonicalOrigin(import.meta.env.PUBLIC_SITE_URL),
 } as const;
 
 export const NAVIGATION = [
   { name: 'Home', href: '/' },
-  { name: 'Capabilities', href: '/capabilities' },
-  { name: 'Use Cases', href: '/use-cases' },
-  { name: 'Facilities', href: '/facilities' },
-  { name: 'Request Quote', href: '/rfq' },
-  { name: 'Documentation', href: '/documentation' },
+  { name: leanInquiryNavigation.label, href: leanInquiryNavigation.href },
 ] as const;
 
-export const SOCIAL_LINKS = {
-  linkedin: 'https://linkedin.com/company/yourcompany',
-  twitter: 'https://twitter.com/yourcompany',
-  facebook: 'https://facebook.com/yourcompany',
-} as const;
-
+// No public social accounts have been confirmed for this website.
+export const SOCIAL_LINKS = {} as const;

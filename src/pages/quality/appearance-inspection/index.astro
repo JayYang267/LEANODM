@@ -1,16 +1,17 @@
 ---
+import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Button from '@components/ui/Button.astro';
 import standard from '../../../data/appearance-standard.json';
 import '../../../styles/appearance-inspection.css';
 
-const title = 'Product Appearance Inspection Standard | LEANODM';
+const title = 'Product Appearance Inspection Standard | LEANODM.com';
 const description = 'Review Xinyinhai’s appearance inspection standard: 15 defect categories, original photographs, surface classes and measurable acceptance criteria.';
 const route = '/quality/appearance-inspection/';
-// Deployment identity is supplied separately from the factory's technical standard.
-const siteOrigin = import.meta.env.PUBLIC_SITE_URL?.replace(/\/$/, '');
-const contactHref = import.meta.env.PUBLIC_CONTACT_URL;
-const canonical = siteOrigin ? new URL(route, siteOrigin).href : undefined;
+// Website identity is separate from the issuer of the factory's technical standard.
+const siteOrigin = SITE.url;
+const contactHref = import.meta.env.PUBLIC_CONTACT_URL || '/rfq/?source=quality-appearance-inspection#rfq-form';
+const canonical = new URL(route, siteOrigin).href;
 const heroImage = standard.defects[4].images[0];
 const pages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
 const hasPage = (path: string) => pages.some((file) => {
@@ -18,6 +19,7 @@ const hasPage = (path: string) => pages.some((file) => {
   return normalized === path;
 });
 const qualitySystem = [
+  { href: '/quality/', label: 'Quality Management System', detail: 'Controlled references, responsibilities and improvement behind inspection decisions.' },
   { href: '/quality/incoming-inspection/', label: 'Incoming Inspection', detail: 'Material-specific checks before components enter production.' },
   { href: route, label: 'Appearance Inspection', detail: 'Surface classes, cosmetic defects and acceptance criteria.', current: true },
   { href: '/quality/in-process-inspection/', label: 'In-process Inspection', detail: 'Production-stage checks that connect process control with acceptance decisions.' },
@@ -34,8 +36,8 @@ const schema = canonical && {
   '@graph': [
     {
       '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical,
-      name: 'Product Appearance Inspection Standard', description, inLanguage: 'en',
-      about: { '@type': 'Thing', name: 'Xinyinhai product appearance inspection standard' },
+      name: 'Product Appearance Inspection Standard', description, inLanguage: 'en', isPartOf: { '@id': `${new URL(canonical).origin}/#website` },
+      about: [{ '@id': `${siteOrigin}/#xinyinhai` }, { '@type': 'Thing', name: 'Xinyinhai product appearance inspection standard' }],
       breadcrumb: { '@id': `${canonical}#breadcrumbs` },
       image: new URL(heroImage.src, siteOrigin).href,
     },
@@ -136,7 +138,7 @@ const faqs = [
 
       <section id="inspection-conditions" class="inspection-section" aria-labelledby="conditions-title">
         <p class="inspection-eyebrow">02 / INSPECTION CONDITIONS</p>
-        <h2 id="conditions-title">Set the viewing conditions. Identify the surface.</h2>
+        <h2 id="conditions-title">Viewing Conditions &amp; Surface Classes</h2>
         <p class="inspection-section-intro">Visibility limits have meaning only when the viewing conditions are clear. Apply these conditions together with the specific rule for each defect.</p>
         <dl class="inspection-conditions">
           <div><dt>Illumination</dt><dd><strong>≥ 300 <span>lx</span></strong><span>Normal fluorescent lighting; indoor illuminance of at least 300 lx.</span></dd></div>
@@ -169,7 +171,7 @@ const faqs = [
       <section id="defect-library" class="inspection-section inspection-library" aria-labelledby="library-title">
         <div class="inspection-library-heading">
           <p class="inspection-eyebrow">04 / THE APPEARANCE STANDARD</p>
-          <h2 id="library-title">15 defects. The criteria behind each decision.</h2>
+          <h2 id="library-title">Appearance Defect Criteria: 15 Categories</h2>
           <p class="inspection-section-intro">Find a defect, compare its photographic examples and read the full acceptance rule for the applicable surface. Photographs illustrate the defect; they are not a dimensional measuring scale.</p>
           <p class="inspection-library-note">Definitions, limits and exceptions below follow the factory document. The printing category contains an unresolved source error, identified in <a href="#printed-text-graphics">item 15</a>.</p>
         </div>
@@ -189,7 +191,7 @@ const faqs = [
                 <div class="inspection-defect-heading"><span class="inspection-defect-number" aria-hidden="true">{String(defect.number).padStart(2, '0')}</span><div><p class="inspection-source-section">SOURCE §6.{defect.number}</p><h3 id={`${defect.id}-title`}>{defect.name}</h3></div></div>
                 <p class="inspection-definition"><strong>What it is.</strong> {defect.description}</p>
                 <div class:list={['inspection-evidence', { 'single-image': defect.images.length === 1 }]}>
-                  {defect.images.map((photo) => <figure><a href={photo.src} aria-label={`Open original-size example: ${photo.caption}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading={defect.number <= 3 ? 'eager' : 'lazy'} decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}
+                  {defect.images.map((photo) => <figure><a href={photo.src} aria-label={`Open original-size example: ${photo.caption}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}
                 </div>
                 {defect.criteria.length > 0 && <div class="inspection-table-wrap"><table class="inspection-table criteria-table">
                   <caption>Acceptance criteria — {defect.name}</caption>
@@ -220,6 +222,7 @@ const faqs = [
           </tbody>
         </table></div>
         <div class="inspection-editorial"><h3>For your product discussion</h3><p>Identify the surfaces a user sees, point out appearance-sensitive areas and bring relevant reference photographs or samples. Discuss printing, painting, labels and assembly together: the source’s exceptions depend on the specific defect and the next operation.</p><p class="inspection-small">This is guidance for preparing a product discussion, not an additional factory acceptance rule.</p></div>
+        <div id="sample-and-revision-control" class="inspection-editorial"><h3>Keep the sample and specification aligned</h3><p>Appearance comparisons depend on the reference being used. The document-control procedure calls for review and approval of revised requirements, distribution of the approved version and withdrawal or clear identification of obsolete information. Customer artwork, drawings and color references follow their assigned approval and distribution route.</p><p>For your project, identify the approved sample and the applicable drawing, finish or artwork revision before inspection. When a reference changes, agree which product and production lot it applies to and whether another sample review is needed. Read the <a class="inspection-text-link" href="/quality/">Quality Management System overview</a> and <a class="inspection-text-link" href="/quality/traceability/">Traceability &amp; Materials</a> alongside these appearance criteria.</p><p class="inspection-small">This links reference control to the inspection discussion; it does not change the defect limits or create a blanket sample-based exception.</p></div>
       </section>
 
       <section id="related-quality-controls" class="inspection-section" aria-labelledby="related-title">
@@ -236,7 +239,7 @@ const faqs = [
 
       <section id="quality-system" class="inspection-section inspection-quality-system" aria-labelledby="quality-system-title">
         <p class="inspection-eyebrow">08 / QUALITY SYSTEM</p>
-        <h2 id="quality-system-title">Explore Our Quality System</h2>
+        <h2 id="quality-system-title">Explore Xinyinhai’s Quality Controls</h2>
         <p class="inspection-section-intro">Use the appearance standard together with the adjacent quality topics buyers usually review during supplier evaluation.</p>
         <div class="inspection-quality-links">
           {qualitySystem.map((item) => (

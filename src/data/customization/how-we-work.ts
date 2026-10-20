@@ -1,0 +1,53 @@
+import type { CustomizationPageData } from './types';
+
+export const page: CustomizationPageData = {
+  slug: 'how-we-work',
+  title: 'How We Work: Product Reviews & Production Approvals | LEANODM',
+  description: 'Understand project inputs, responsibilities, design freeze, sample approval, change control and the PP-to-MP decisions for development and OEM manufacturing with Xinyinhai.',
+  h1: 'Project Reviews & Production Approvals',
+  navTitle: 'How we work',
+  eyebrow: 'ODM & OEM / INPUTS, REVIEWS & SHARED DECISIONS',
+  lead: 'Project reviews connect agreed inputs, reviewable deliverables and recorded approvals at each relevant development or production stage.',
+  intro: 'The starting point determines the work. Branding a base product needs different reviews from creating a new product or transferring a finished design into manufacturing. Both sides agree the scope, acceptance criteria and decisions that authorize the next stage.',
+  summary: [
+    { label: 'Before work begins', text: 'Confirm the project baseline, intended users, market, deliverables and responsibilities.' },
+    { label: 'At each review', text: 'Evaluate the current revision, record findings and identify who must resolve or approve them.' },
+    { label: 'When something changes', text: 'Assess technical, validation, cost and schedule effects before written authorization.' },
+  ],
+  highlights: ['Reviews matched to your project', 'Clear inputs and outputs', 'Documented approvals and changes'],
+  sections: [{ label: 'Starting point', href: '#starting-point' }, { label: 'Review gates', href: '#review-gates' }, { label: 'Responsibilities', href: '#responsibilities' }, { label: 'Changes', href: '#change-control' }, { label: 'Follow-up', href: '#after-delivery' }, { label: 'Project brief', href: '#project-requirements' }],
+  cta: 'Start a Project Review',
+  briefIntro: 'Explain what exists today, what you want to change or create, and what the next decision must establish. Incomplete early ideas are welcome for assessment; mark unknowns so they become explicit review items.',
+  needs: [
+    'Your current stage: selected base product, existing design to change, new idea or production-ready design.',
+    'Target users, intended use, sales markets and the essential product requirements.',
+    'Available files and samples, their revisions, and authority to use the design and content.',
+    'Expected quantities, budget constraints, target milestones and known technical uncertainties.',
+    'Required tests, acceptance criteria and the status of any supporting reports.',
+    'A decision owner and a practical route for consolidated feedback and written approvals.',
+  ],
+  receives: [
+    'A defined project route, scope and list of assumptions or information gaps.',
+    'An agreed milestone plan with required inputs, deliverables and review responsibilities.',
+    'Stage findings and action records identifying the revision, issue, owner and next decision.',
+    'A documented approval baseline for samples, specifications and production preparation as applicable.',
+    'Change-impact records and the agreed technical handover or production-release information.',
+  ],
+  faqs: [
+    { question: 'Do all projects follow the full development sequence?', answer: 'No. A new product needs concept and engineering development; an OEM transfer starts with the customer design package. Existing-product customization may focus on artwork, appearance and packaging approvals. The project plan selects the applicable reviews while keeping safety, acceptance and change-control decisions clear.' },
+    { question: 'What does design freeze mean?', answer: 'Design freeze establishes the approved revision used for the next committed work, such as tooling or production preparation. It identifies the drawings, BOM, specifications and applicable samples. Changes remain possible, but their impact and authorization must be recorded before affected work continues.' },
+    { question: 'Is approving a sample the same as approving mass production?', answer: 'No. Sample approval confirms the characteristics covered by that sample and the written specification. Mass-production release also depends on production readiness, required verification, current work instructions and resolution of applicable pilot issues. The approval record should say precisely what has been accepted and what remains open.' },
+    { question: 'How are feedback and technical changes handled?', answer: 'Provide consolidated feedback against a specific file or sample revision. We record the requested change, assess its effects on design, tooling, materials, tests, cost and schedule, and agree the action before implementation. The updated information must reach the teams using it; a verbal instruction alone is insufficient.' },
+    { question: 'What happens when a review finds a failure?', answer: 'The finding is recorded with its effect, owner and corrective action. The affected stage is not treated as complete simply because a meeting took place. Relevant checks are repeated after correction, and the release decision follows the agreed acceptance criteria. Serious unresolved safety issues prevent commercial release.' },
+    { question: 'How should several customer teams coordinate an approval?', answer: 'Identify the decision owner and collect design, quality, purchasing and commercial feedback against the same revision. Resolve conflicting instructions before issuing a consolidated decision. The approval record should identify the accepted scope, remaining actions and authorized next step so production does not rely on separate or contradictory messages.' },
+    { question: 'What information helps investigate a problem after delivery?', answer: 'Share the product revision, order or batch reference, affected quantity, use conditions and available photos, test results or samples. The issue is recorded and the relevant teams review available inspection and shipment evidence. Handling and response arrangements are agreed for the case. Corrective actions are tracked, their effectiveness is reviewed and confirmed permanent changes are carried into controlled documents.' },
+  ],
+  related: [
+    { href: '/customization/existing-products/', label: 'Existing Product Customization', description: 'Select a base product and agree its branding, finish and packaging approvals.' },
+    { href: '/customization/product-adaptation/', label: 'Product Adaptation', description: 'Define the existing baseline and the engineering changes to verify.' },
+    { href: '/customization/new-product-development/', label: 'New Product Development', description: 'Follow the complete development route from a requirement to production.' },
+    { href: '/customization/oem-manufacturing/', label: 'OEM Manufacturing', description: 'Prepare an approved customer design for a controlled manufacturing run.' },
+    { href: '/customization/project-fit/', label: 'Project Fit & Working Principles', description: 'Understand confidentiality, rights, safety and practical working boundaries.' },
+    { href: '/quality/quality-control-process/', label: 'Quality Control Process', description: 'Review inspection responsibilities and release controls in more detail.' },
+  ],
+};

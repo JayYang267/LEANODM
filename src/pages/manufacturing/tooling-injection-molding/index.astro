@@ -1,0 +1,176 @@
+---
+import { SITE } from '@config/site';
+import ActivityHighlights from '../../../components/ActivityHighlights.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import { Image, getImage } from 'astro:assets';
+import handlingRack from '../../../assets/tooling-injection-molding/material-handling-rack.png';
+import moldMaintenance from '../../../assets/tooling-injection-molding/mold-guide-maintenance.jpg';
+import takeoutFixture from '../../../assets/tooling-injection-molding/takeout-fixture.png';
+import { moldingRoute, moldingNavigation, moldingFacts, moldingWorkflow, moldingEquipment, moldingControls, moldingQuality, moldingRoles, moldingFaqs } from '../../../data/tooling-injection-molding';
+import '../../../styles/quality-control-process.css';
+import '../../../styles/tooling-injection-molding.css';
+
+const title = 'Plastic Injection Molding & In-House Tooling | LEANODM.com';
+const description = 'Explore Xinyinhai’s in-house toolroom and plastic injection molding: milling, grinding, mold trials, repairs, process controls and real factory evidence.';
+const maintenanceDetail = await getImage({ src: moldMaintenance, width: 1200, format: 'webp' });
+const fixtureDetail = await getImage({ src: takeoutFixture, width: 501, format: 'webp' });
+const origin = SITE.url;
+const canonical = new URL(moldingRoute, origin).href;
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Manufacturing', url: '/manufacturing/' }, { name: 'Tooling & Injection Molding', url: moldingRoute }];
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Service', '@id': `${canonical}#service`, name: 'In-house tooling and plastic injection molding', serviceType: 'Plastic injection molding with in-house mold machining support, trials, repair and maintenance', provider: { '@id': `${origin}/#xinyinhai` }, url: canonical, description },
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, mainEntity: { '@id': `${canonical}#service` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, about: [{ '@id': `${origin}/#xinyinhai` }, ...['In-house tooling', 'Mold trials', 'Injection molding', 'Quality control', 'Mass production'].map(name => ({ '@type': 'Thing', name }))] },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, i) => ({ '@type': 'ListItem', position: i + 1, name: item.name, item: new URL(item.url, origin).href })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: moldingFaqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} technicalPage technicalNavigation={moldingNavigation} technicalPageTitle="Tooling & molding" contactHref="#project-requirements" technicalContactLabel="Prepare project brief">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+  <div class="qc-page tm-page">
+    <section class="qc-hero" aria-labelledby="page-title">
+      <div class="qc-container">
+        <nav class="qc-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, i) => <li>{i < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="qc-hero-grid">
+          <div>
+            <p class="qc-eyebrow">MANUFACTURING / XINYINHAI FACTORY · CHINA</p>
+            <h1 id="page-title">Plastic Injection Molding &amp; Mold Tooling</h1>
+            <p class="qc-lead">Xinyinhai’s in-house toolroom connects mold machining, trials and repair with controlled injection molding.</p>
+            <p class="qc-intro">Development, tooling and molding teams work through a documented review process. Mold condition, material preparation, verified settings and inspection connect the trial sample to repeat production.</p>
+            <div class="qc-actions"><Button href="#project-requirements" class="qc-button">Prepare a Quote Request <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="#mold-preparation">Explore Xinyinhai’s in-house tooling <span aria-hidden="true">↓</span></a></div>
+          </div>
+          <div class="qc-overview">
+            <div class="qc-panel-label"><span>ONE CONNECTED MANUFACTURING PROCESS</span><span aria-hidden="true">01—05</span></div>
+            <ol class="qc-mini-flow tm-system">
+              <li><span>01</span><div><strong>In-house tooling</strong><small>Milling, grinding, adjustment and repair</small></div></li>
+              <li><span>02</span><div><strong>Mold trial</strong><small>Make samples, evaluate and feed back changes</small></div></li>
+              <li><span>03</span><div><strong>Injection molding</strong><small>Prepare material, verify setup and first articles</small></div></li>
+              <li class="qc-gate"><span>04</span><div><strong>Inspection</strong><small>Check output, isolate issues and verify corrections</small></div></li>
+              <li><span>05</span><div><strong>Production</strong><small>Maintain confirmed controls through repeat runs</small></div></li>
+            </ol>
+            <p class="qc-panel-note"><a href="#factory-evidence">View factory evidence <span aria-hidden="true">↗</span></a><span>Original photographs and summaries of the factory’s working records.</span></p>
+          </div>
+        </div>
+        <div class="qc-hero-foot"><span>In-house toolroom & mold care</span><span>Documented material & process controls</span><span>Quality inside the molding process</span></div>
+      </div>
+    </section>
+
+    <div class="qc-container">
+      <section id="capability-facts" class="qc-section" aria-labelledby="facts-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">01 / CAPABILITY FACTS</p><h2 id="facts-title">What molding capability is documented?</h2></div><p>Xinyinhai’s in-house toolroom supports the molding operation. Factory records identify milling and grinding equipment, a 24-machine molding baseline and defined production controls.</p></div>
+        <dl class="tm-facts">{moldingFacts.map(fact => <div><dt>{fact.label}</dt><dd><strong>{fact.value}</strong><p>{fact.detail}</p></dd></div>)}</dl>
+        <p class="qc-source-note">Equipment figures describe the supplied inventory, corroborated by the improvement report that discusses operations through 2025. Confirm current machine availability and project fit during quotation. <a href="#equipment">Review the equipment and its role</a>.</p>
+      </section>
+
+      <section id="workflow" class="qc-section" aria-labelledby="workflow-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">02 / TOOLING TO MOLDING</p><h2 id="workflow-title">How does a mold become a controlled production run?</h2></div><p>Preparation leads to a verified first article, then controlled production and inspection. Each step supplies the information or condition needed by the next.</p></div>
+        <ol class="qc-stages tm-workflow">{moldingWorkflow.map((stage, i) => <li><span class="qc-step-number">{String(i + 1).padStart(2, '0')}</span><h3>{stage.name}</h3><p>{stage.check}</p><p class="qc-purpose tm-record-label"><strong>Documented in</strong>{stage.evidence}</p></li>)}</ol>
+        <p class="qc-source-note">Sequence summarized from the development and production flows, mold-installation training and standardized quality instructions. Inspection and corrective action continue throughout production. <a href="#mold-preparation">See how trial feedback returns to tooling</a>.</p>
+      </section>
+
+      <section id="mold-preparation" class="qc-section" aria-labelledby="mold-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">03 / IN-HOUSE TOOLING · XINYINHAI’S MOLD ROOM</p><h2 id="mold-title">How does Xinyinhai’s toolroom support your molding project?</h2></div><p>Xinyinhai’s in-house toolroom supports mold machining, maintenance and repair alongside injection molding. Milling and grinding provide machining support; joint reviews connect mold design and trial feedback to the next modification.</p></div>
+        <div class="tm-toolroom">
+          <div class="tm-toolroom-scope">
+            <span class="qc-small-label">DOCUMENTED TOOLROOM EQUIPMENT</span>
+            <dl><div><dt>Milling</dt><dd>Machining and adjustment support</dd></div><div><dt>Grinding</dt><dd>Finishing and repair support</dd></div></dl>
+            <p>The mold-making scope and any external operations for a new tool are agreed during project review.</p>
+            <a class="qc-text-link" href="#equipment">See the equipment record <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="tm-trial-loop">
+            <h3>Trial feedback has a defined route back to tooling</h3>
+            <ol aria-label="Mold trial and modification review sequence"><li><span>01</span><strong>Trial sample</strong></li><li><span>02</span><strong>Test &amp; evaluate</strong></li><li><span>03</span><strong>Joint review</strong></li><li><span>04</span><strong>Modify mold</strong></li><li><span>05</span><strong>Next trial</strong></li></ol>
+            <p class="tm-loop-return"><span aria-hidden="true">↶</span> Molding feedback returns to the development and tooling review.</p>
+            <p>This keeps the sample result, tooling decision and next molding trial in the same documented sequence, with direct input from the teams doing the work.</p>
+          </div>
+        </div>
+        <div class="qc-three-column">
+          <article><span class="qc-small-label">STAGE</span><h3>Prepare against the plan</h3><p>Locate the mold using the production board and rack system. Prepare retrieval tools, check cooling connections and inspect the mold before installation.</p></article>
+          <article><span class="qc-small-label">VERIFY</span><h3>Match mold and machine</h3><p>Confirm mold size and machine fit, nozzle alignment, clamping, cooling connections and ejection. Check mold-protection settings during installation.</p></article>
+          <article><span class="qc-small-label">IMPROVE</span><h3>Review gates and handling</h3><p>The improvement record includes gate changes that reduced manual runner finishing in a specific application, plus successive take-out fixture improvements.</p></article>
+        </div>
+        <p class="qc-source-note">Record basis: equipment inventory; joint mold-design and trial-review workflow; production repair and maintenance flow; mold-installation training. The development record connects trial evaluation and molding feedback to mold modification and a further trial.</p>
+      </section>
+
+      <section id="equipment" class="qc-section" aria-labelledby="equipment-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">04 / EQUIPMENT & SUPPORT</p><h2 id="equipment-title">What equipment supports injection molding?</h2></div><p>The inventory lists injection molding machines together with drying, mixing, temperature control, part handling and runner-recovery equipment.</p></div>
+        <div class="qc-table-wrap" tabindex="0" role="region" aria-label="Equipment table; scroll horizontally to read all columns"><table><caption>Documented equipment baseline for supplier evaluation</caption><thead><tr><th scope="col">Equipment</th><th scope="col">Documented provision</th><th scope="col">Role in the process</th></tr></thead><tbody>{moldingEquipment.map(row => <tr><th scope="row">{row.item}</th><td>{row.provision}</td><td>{row.purpose}</td></tr>)}</tbody></table></div>
+        <p class="qc-source-note">Factory evidence: equipment inventory, equipment-management references and machine-parameter workbook. Tonnage is a nominal clamping-force class, not part weight, injection pressure or a guaranteed component-size limit. Machine fit also requires the mold dimensions, opening and ejection requirements to be checked.</p>
+      </section>
+
+      <section id="process-control" class="qc-section" aria-labelledby="process-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">05 / MATERIAL & PROCESS CONTROL</p><h2 id="process-title">How are material and molding settings controlled?</h2></div><p>Defined preparation instructions connect identified material, drying and mixing to machine setup, mold temperature and the production parameter sheet.</p></div>
+        <div class="tm-controls">{moldingControls.map(control => <article><h3>{control.name}</h3><p>{control.text}</p><p class="qc-purpose"><strong>Documented control at Xinyinhai</strong>{control.evidence}</p></article>)}</div>
+        <aside class="qc-note">A material name alone does not define a production recipe. The specified grade, color, part requirements and confirmed trial conditions determine the applicable settings.</aside>
+        <div class="tm-related-links"><a class="qc-text-link" href="/quality/incoming-inspection/#material-standards">Review incoming-material inspection references <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="#molding-quality">Follow the molding quality checks <span aria-hidden="true">↓</span></a></div>
+      </section>
+
+      <section id="standardized-work" class="qc-section qc-split" aria-labelledby="work-title">
+        <div><p class="qc-eyebrow">06 / STANDARDIZED INJECTION MOLDING</p><h2 id="work-title">What do operators check during a production shift?</h2><p>Operators and technicians check the current product, process condition and workstation, then hand over changes and open issues to the next shift.</p><p class="qc-source-note">Factory evidence: operator and technician handover instructions; production checkpoints; role-specific training.</p></div>
+        <ol class="qc-patrol"><li><h3>Before the run</h3><p>Confirm machine, mold and material preparation, auxiliary equipment, the parameter sheet and first-article processing sample.</p></li><li><h3>During production</h3><p>Follow the processing sample and packaging instructions. Check appearance, critical structures, tools and workstation order, with focused checks on known problems.</p></li><li><h3>When something changes</h3><p>Report abnormalities, identify affected parts and involve the technician and quality inspector. Carry parameter changes and follow-up actions into shift handover.</p></li><li><h3>After a mold change</h3><p>Repeat product-specific training and follow up the operator’s working method and understanding of the quality requirements.</p></li></ol>
+      </section>
+
+      <section id="improvement" class="qc-section" aria-labelledby="improvement-title">
+        <div id="factory-evidence" class="qc-heading"><div><p class="qc-eyebrow">07 / FACTORY EVIDENCE</p><h2 id="improvement-title">What does the factory evidence show?</h2></div><p>Original photographs show mold care and production support. Equipment lists, development reviews and standardized work instructions explain how those activities connect.</p></div>
+        <div class="tm-evidence-gallery">
+          <figure class="tm-evidence-photo">
+            <Image src={moldMaintenance} alt="Lubricant being applied to a mold guide post during maintenance" widths={[360, 600, 900]} sizes="(max-width: 600px) 90vw, 420px" width={600} height={800} format="webp" loading="lazy" />
+            <figcaption><span class="qc-small-label">MOLD CARE / ORIGINAL FACTORY PHOTO</span><h3>Maintenance at the mold</h3><p>The production-management instructions include cleaning and lubrication of moving parts. This source photograph shows lubricant applied to a guide post.</p><a class="qc-text-link" href={maintenanceDetail.src}>View mold-maintenance photo <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+          <figure class="tm-evidence-photo">
+            <Image src={takeoutFixture} alt="Steel-plate take-out fixture with suction cups beside the molding machine conveyor" widths={[280, 501]} sizes="(max-width: 600px) 90vw, 380px" width={501} height={671} format="webp" loading="lazy" />
+            <figcaption><span class="qc-small-label">HANDLING FIXTURE / IMPROVEMENT RECORD</span><h3>Tooling decisions reach the workstation</h3><p>The workshop report shows this steel-plate take-out fixture with magnetic fittings as the final step in its fixture-installation improvement example.</p><a class="qc-text-link" href={fixtureDetail.src}>View the take-out fixture photo <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+          <figure class="tm-evidence-photo">
+            <Image src={handlingRack} alt="Empty wheeled five-level rack shown in the factory’s material-handling instructions" widths={[280, 466]} sizes="(max-width: 600px) 90vw, 320px" width={466} height={539} format="webp" loading="lazy" />
+            <figcaption><span class="qc-small-label">STANDARDIZED HANDLING / SOURCE PHOTO</span><h3>A defined place for handled material</h3><p>The factory’s standardized work instructions illustrate this wheeled rack as a material-handling reference.</p><a class="qc-text-link" href="#standardized-work">Review the shift and workstation checks <span aria-hidden="true">↑</span></a></figcaption>
+          </figure>
+        </div>
+        <div class="tm-evidence-records">
+          <article><span class="qc-small-label">DEVELOPMENT RECORD</span><h3>Trial → review → mold modification</h3><p>Joint reviews include molding feedback and lead to the next trial. The record identifies development, tooling and injection molding as participants.</p><a class="qc-text-link" href="#mold-preparation">See the tooling feedback loop <span aria-hidden="true">↑</span></a></article>
+          <article><span class="qc-small-label">PRODUCTION MANAGEMENT</span><h3>Report → repair → prepare for use</h3><p>The production flow calls out mold-fault and flash repairs. Installation training requires relevant damage to be repaired before mounting.</p><a class="qc-text-link" href="#mold-maintenance">Review mold care and return checks <span aria-hidden="true">↓</span></a></article>
+          <article><span class="qc-small-label">QUALITY INSTRUCTIONS</span><h3>Detect → isolate → verify</h3><p>Operator checks and patrol inspection feed abnormalities to technicians and quality personnel for action and verification.</p><a class="qc-text-link" href="#molding-quality">See the quality control points <span aria-hidden="true">↓</span></a></article>
+        </div>
+        <p class="qc-source-note">The diagrams and record summaries are English explanations of internal factory documents. Original photographs are identified separately; internal records are not public downloads.</p>
+        <h3 class="tm-improvement-heading">Documented changes to daily molding work</h3>
+        <div class="tm-improvement"><article><span class="qc-small-label">MOLD STAGING / RETRIEVAL</span><p class="tm-metric">15 <span>→</span> 3 <small>minutes per mold</small></p><h3>Prepare the mold closer to the work</h3><p>The record describes production-board information, organized retrieval tools and sliding racks. The time is for staging / retrieval, not complete mold changeover or first-article approval.</p><p class="qc-source-note">Workshop improvement record, slides 14–15.</p></article><article><span class="qc-small-label">TAKE-OUT FIXTURE INSTALLATION</span><p class="tm-metric">30 <span>→</span> 10 <small>minutes</small></p><h3>Simplify the fixture setup</h3><p>The documented sequence moves from assembled aluminum sections through a dedicated plate to a steel plate with magnetic fittings, reducing installation work in that example.</p><p class="qc-source-note">Workshop improvement record, slides 16–17.</p></article></div>
+        <p class="qc-note">These are historical before-and-after examples from the factory’s improvement report. They are not universal changeover times, independently audited performance figures or delivery promises.</p>
+        <p class="qc-source-note">The same report documents machine layout, runner recovery, workstation organization, production boards and training (slides 11–12, 18 and 20–26).</p>
+      </section>
+
+      <section id="molding-quality" class="qc-section" aria-labelledby="quality-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">08 / QUALITY INSIDE MOLDING</p><h2 id="quality-title">How is quality built into injection molding?</h2></div><p>First articles, self-checks and patrol inspection connect output to the required sample and instructions. Abnormal parts are isolated while the team investigates and verifies the response.</p></div>
+        <ol class="qc-stages">{moldingQuality.map((step, i) => <li><span class="qc-step-number">{String(i + 1).padStart(2, '0')}</span><h3>{step.name}</h3><p>{step.text}</p></li>)}</ol>
+        <p class="qc-source-note">Factory evidence: standardized molding quality instructions, quality-focused training and the factory’s production flow. Inspection priorities follow the component and its applicable requirements.</p>
+        <div class="tm-related-links"><a class="qc-text-link" href="/quality/quality-control-process/">Explore the full Quality Control Process <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="/quality/appearance-inspection/">Review appearance inspection criteria <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section id="mold-maintenance" class="qc-section qc-split" aria-labelledby="maintenance-title">
+        <div><p class="qc-eyebrow">09 / PREVENTIVE MOLD MAINTENANCE</p><h2 id="maintenance-title">How are molds protected between production runs?</h2><p>The mold-removal and rust-prevention instructions cover cleaning, protective treatment, inspection and storage, followed by checks before the next run.</p><p class="qc-source-note">Factory evidence: mold rust-prevention guidance dated 12 November 2025, supported by mold-removal and installation training.</p></div>
+        <ol class="qc-patrol"><li><h3>Clean and inspect</h3><p>Check the parting surface and remove contamination. Pay attention to vents, ribs, inserts and slide areas.</p></li><li><h3>Apply and verify rust prevention</h3><p>Follow the temperature-dependent treatment instructions and check protective coverage before removing the mold.</p></li><li><h3>Prepare for storage</h3><p>Clear residual cooling water, protect the treated surfaces and return the mold to its assigned position.</p></li><li><h3>Verify before production</h3><p>Recheck connections, alignment, ejection and mold protection during installation, then confirm the first article.</p></li></ol>
+      </section>
+
+      <section id="people-training" class="qc-section qc-split" aria-labelledby="people-title">
+        <div><p class="qc-eyebrow">10 / PEOPLE & TRAINING</p><h2 id="people-title">Who keeps the process consistent?</h2><p>Process consistency depends on trained people, not equipment alone. Training and handover instructions assign work to operators, technicians, material handlers, quality inspectors and production leaders.</p><p class="qc-source-note">Factory evidence: role-training workbook, standardized handover instructions and workshop training records.</p><a class="qc-text-link" href="/quality/inspector-training/#defect-atlas">Browse inspector-training defect references <span aria-hidden="true">↗</span></a></div>
+        <dl class="qc-responsibilities">{moldingRoles.map(item => <div><dt>{item.role}</dt><dd>{item.text}</dd></div>)}</dl>
+      </section>
+
+      <ActivityHighlights placement="tooling" title="Inside the workshop" intro="Explore workshop records and the working areas behind tooling and production." />
+
+      <section id="faq" class="qc-section" aria-labelledby="faq-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">11 / PROCUREMENT QUESTIONS</p><h2 id="faq-title">What should buyers confirm before placing a molding project?</h2></div><p>For teams evaluating an injection molding manufacturer in China, the useful questions connect documented equipment to tooling scope, materials, quality and repeat production.</p></div>
+        <div class="qc-faq">{moldingFaqs.map(faq => <details class="tm-faq-item"><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+      </section>
+    </div>
+
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">12 / YOUR NEXT PROJECT</p><h2 id="project-title">What should you prepare for a molding quotation?</h2><p>Share the component requirements, available mold information and production expectations so tooling and injection molding can be reviewed together.</p><div class="qc-actions"><a href="/resources/tooling-injection-molding-project-brief.txt" download class="qc-button tm-download">Download the Project Brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=tooling-injection-molding#rfq-form">Discuss tooling and molding requirements <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Use the inquiry form to prepare your requirements, or share the completed brief through your existing LEANODM contact. The download prepares your inquiry; it does not send it.</p></div><div class="qc-project-list"><h3>Information for the engineering review</h3><ul><li>Part drawing, CAD data or reference sample</li><li>New tooling or existing mold transfer requirements</li><li>Specified material, color and appearance criteria</li><li>Critical dimensions and assembly interfaces</li><li>Order quantity, forecast and delivery expectations</li><li>Destination market and product-specific inspection requirements</li></ul><a class="qc-text-link" href="/quality/product-testing/">Review product-testing planning references <span aria-hidden="true">↗</span></a></div></div></section>
+  </div>
+</BaseLayout>

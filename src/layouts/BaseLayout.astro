@@ -16,9 +16,24 @@ interface Props {
   technicalNavigation?: readonly { label: string; href: string }[];
   technicalPageTitle?: string;
   technicalContactLabel?: string;
+  technicalFooterDescription?: string;
+  homeImage?: { src: string; alt: string; width?: number; height?: number };
 }
 
 const currentPathname = Astro.url.pathname;
+const siteOrigin = SITE.url;
+const websiteId = `${siteOrigin}/#website`;
+const manufacturingSubjectId = `${siteOrigin}/#xinyinhai`;
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebSite', '@id': websiteId, name: SITE.title, url: `${siteOrigin}/`, inLanguage: 'en', about: { '@id': manufacturingSubjectId } },
+    { '@type': 'Organization', '@id': manufacturingSubjectId, name: 'Xinyinhai', alternateName: '鑫银海', description: 'Product development and manufacturing capabilities presented on LEANODM.com.' },
+  ],
+};
+const isHomePage = currentPathname === '/';
+const homeCanonical = `${siteOrigin}/`;
+const websiteImage = `${siteOrigin}/brand/leanodm-wordmark.png`;
 
 const { 
   title = SITE.title, 
@@ -29,6 +44,8 @@ const {
   technicalNavigation,
   technicalPageTitle,
   technicalContactLabel,
+  technicalFooterDescription,
+  homeImage,
 } = Astro.props;
 ---
 
@@ -37,13 +54,23 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/brand/xinyinhai-symbol.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/brand/xinyinhai-favicon-96.png" />
     <meta name="generator" content={Astro.generator} />
     
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+    <meta property="og:site_name" content={SITE.title} />
+    {isHomePage && <>
+      <link rel="canonical" href={homeCanonical} />
+      <meta property="og:url" content={homeCanonical} />
+      <meta property="og:image" content={homeImage?.src || websiteImage} />
+      <meta property="og:image:alt" content={homeImage?.alt || 'LEANODM.com website wordmark'} />
+      <meta name="twitter:image" content={homeImage?.src || websiteImage} />
+      {homeImage?.width && <meta property="og:image:width" content={String(homeImage.width)} />}
+      {homeImage?.height && <meta property="og:image:height" content={String(homeImage.height)} />}
+    </>}
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -55,19 +82,20 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <slot name="head" />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema).replace(/</g, '\\u003c')} />
   </head>
   <body class="flex min-h-screen flex-col bg-white font-sans text-neutral-900 antialiased">
-    {technicalPage && <a class="technical-skip-link" href={`#${mainId}`}>Skip to content</a>}
+    <a class="technical-skip-link" href={`#${mainId}`}>Skip to content</a>
     {technicalPage ? (
       <>
-        <LeanGlobalHeader contactHref={contactHref} contactLabel={technicalContactLabel ?? 'Discuss Your Project'} />
+        <LeanGlobalHeader />
         <TechnicalPageHeader navigation={technicalNavigation} pageTitle={technicalPageTitle} />
       </>
     ) : <Header currentPathname={currentPathname} />}
-    <main id={technicalPage ? mainId : undefined} tabindex={technicalPage ? -1 : undefined} class="flex-1">
+    <main id={mainId} tabindex="-1" class="flex-1">
       <slot />
     </main>
-    {technicalPage ? <TechnicalPageFooter contactHref={contactHref} navigation={technicalNavigation} pageTitle={technicalPageTitle} contactLabel={technicalContactLabel} /> : <Footer />}
+    {technicalPage ? <TechnicalPageFooter contactHref={contactHref} navigation={technicalNavigation} pageTitle={technicalPageTitle} contactLabel={technicalContactLabel} projectDescription={technicalFooterDescription} /> : <slot name="footer"><Footer /></slot>}
   </body>
 </html>
 

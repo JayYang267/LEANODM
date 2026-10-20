@@ -1,0 +1,40 @@
+LEANODM.com — OEM Manufacturing project brief
+
+Identify the current revision, intended market and planned quantities. Mark missing documents or unresolved decisions so the readiness review can separate production preparation from additional design work.
+
+Company / contact:
+Project reference and current revision:
+Decision owner:
+Date:
+
+PROJECT INFORMATION
+1. Current 3D files and 2D drawings, including dimensions, tolerances and critical characteristics.
+Your response:
+
+2. A controlled BOM with material grades, component specifications and permitted substitutions.
+Your response:
+
+3. Approved samples, functional requirements, assembly information and inspection criteria.
+Your response:
+
+4. Tooling inventory, condition, ownership or authorization, and any proposed mold transfer.
+Your response:
+
+5. Target market, intended users, test requirements and available supporting reports.
+Your response:
+
+6. Packaging, labeling, order quantities, forecast and requested delivery milestones.
+Your response:
+
+Known questions / missing information:
+
+Requested next decision:
+
+Attachments available for an agreed confidential review (list only):
+
+NEXT STEP
+Share the completed brief through your existing project contact or the contact link shown on the page, if available.
+Agree the confidential exchange before sending restricted drawings, code or third-party information. Supply only materials you own or are authorized to share.
+Downloading or completing this file does not submit a project or authorize work. Scope, deliverables, acceptance criteria and commercial terms remain subject to review and agreement.
+
+Page: https://www.leanodm.com/customization/oem-manufacturing/

@@ -3,5 +3,5 @@ interface Props { class?: string; }
 const { class: className = '' } = Astro.props;
 ---
 <span class:list={['brand-wordmark', className]}>
-  <img src="/brand/leanodm-wordmark.png?v=6ad7eb93c931" alt="LEANODM" width="1448" height="1086" decoding="async" />
+  <img src="/brand/leanodm-wordmark-display-512.webp" srcset="/brand/leanodm-wordmark-display-256.webp 256w, /brand/leanodm-wordmark-display-512.webp 512w, /brand/leanodm-wordmark-display-1024.webp 1024w, /brand/leanodm-wordmark-display-1448.webp 1448w" sizes={className.includes('brand-wordmark-hero') ? '(max-width: 600px) 100vw, 500px' : '(max-width: 359px) 143px, 165px'} alt="LEANODM" width="1448" height="1086" decoding="async" />
 </span>

@@ -1,0 +1,38 @@
+---
+import { Image } from 'astro:assets';
+import { capabilities, capabilityNote } from '../../data/products/sound-book-support';
+import { SOUND_BOOK_BASE } from '../../data/products/sound-book-catalog';
+import type { ProductManufacturingSupport } from '../../data/products/types';
+import '../../styles/sound-book-sections.css';
+
+interface Props { compact?: boolean; keys?: readonly string[] }
+const { compact = false, keys: requestedKeys } = Astro.props;
+const available: ProductManufacturingSupport['capabilities'] = capabilities;
+const selected = requestedKeys?.length
+  ? requestedKeys.map(key => available.find(item => item.id === key)).filter((item): item is (typeof available)[number] => Boolean(item))
+  : compact ? available.slice(0, 3) : available;
+---
+
+<section id="manufacturing" class:list={['sb-section', 'sb-shared-evidence', { 'sb-shared-compact': compact }]} aria-labelledby="manufacturing-title">
+  <div class="sb-container">
+    <div class="sb-shared-section-heading">
+      <div><p class="sb-eyebrow">CONNECTED MANUFACTURING</p><h2 id="manufacturing-title">{compact ? 'Manufacturing for this format.' : 'A book, a sound module, a coordinated product.'}</h2></div>
+      <p>{compact ? 'Relevant processes connect the product layout to tooling, electronics, assembly and inspection.' : 'Review a sound book factory by how its processes connect printed content, electronics and plastic parts. LEANODM.com presents Xinyinhai’s relevant capabilities.'}</p>
+    </div>
+    <div class="sb-evidence-grid" data-count={selected.length}>
+      {selected.map((item, index) => <article class="sb-evidence-item" data-evidence-id={item.id}>
+        <a href={item.href} class:list={['sb-evidence-visual', { 'sb-evidence-contain': item.imageFit === 'contain' }]} aria-label={`Explore ${item.title.toLowerCase()}`}>
+          {typeof item.image === 'string'
+            ? <img src={item.image} alt={item.alt} width={640} height={380} loading="lazy" decoding="async" />
+            : <Image src={item.image} alt={item.alt} width={640} height={380} fit={item.imageFit === 'contain' ? 'contain' : 'cover'} format="webp" loading="lazy" />}
+        </a>
+        <div class="sb-evidence-title"><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{item.title}</h3></div>
+        <p class="sb-evidence-meaning">{item.meaning}</p>
+        <details class="sb-evidence-basis"><summary>What the process evidence shows<span aria-hidden="true">+</span></summary><p>{item.basis}</p></details>
+        <a class="sb-text-link" href={item.href}>Explore this capability <span aria-hidden="true">↗</span></a>
+      </article>)}
+    </div>
+    <p class="sb-evidence-caption">{capabilityNote} Define suppliers and responsibilities for paper printing, binding and any other outside work.</p>
+    {compact && <a class="sb-text-link sb-shared-category-link" href={`${SOUND_BOOK_BASE}#manufacturing`} data-inquiry-navigation>See the full manufacturing overview <span aria-hidden="true">↗</span></a>}
+  </div>
+</section>

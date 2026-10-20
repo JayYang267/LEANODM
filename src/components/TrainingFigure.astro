@@ -1,0 +1,31 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+export interface TrainingExample {
+  id: string; title: string; caption: string; alt: string; asset: string;
+  width: number; height: number; source: string; classification?: string;
+}
+interface Props { example: TrainingExample; group: string; headingLevel?: 'h3' | 'h4'; }
+const { example, group, headingLevel: Heading = 'h4' } = Astro.props;
+const sources = import.meta.glob<{ default: ImageMetadata }>('../assets/inspector-training/*.png', { eager: true });
+const source = sources[`../assets/inspector-training/${example.asset}`]?.default;
+if (!source) throw new Error(`Missing training asset: ${example.asset}`);
+// Small source photographs stay small. No generated variant adds synthetic resolution.
+const full = await getImage({ src: source, width: source.width, format: 'webp', quality: 92 });
+const thumb = await getImage({ src: source, width: Math.min(360, source.width), format: 'webp', quality: 85 });
+---
+
+<figure id={example.id} class="training-figure" data-example={example.id}>
+  <a class="training-image-link" href={full.src} data-lightbox={group} data-title={example.title} data-caption={example.caption} data-source={example.source} data-width={source.width} data-height={source.height} aria-label={`View ${example.title}`}>
+    <img src={thumb.src} width={thumb.attributes.width} height={thumb.attributes.height} alt={example.alt} loading="lazy" decoding="async" />
+    <span class="training-view-label" aria-hidden="true">View image <span>↗</span></span>
+  </a>
+  <figcaption>
+    <Heading><a href={`#${example.id}`}>{example.title}</a></Heading>
+    {example.classification && <p class="training-classification">{example.classification}</p>}
+    <p class="training-caption">{example.caption}</p>
+    <p class="training-source">{example.source}</p>
+    <a class="training-original" href={full.src} target="_blank" rel="noopener">Open image file<span class="sr-only">: {example.title}</span> ↗</a>
+  </figcaption>
+</figure>

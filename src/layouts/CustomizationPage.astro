@@ -1,0 +1,89 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from './BaseLayout.astro';
+import Button from '../components/ui/Button.astro';
+import Icon from '../components/CustomizationIcon.astro';
+import HeroVisual from '../components/CustomizationHeroVisual.astro';
+import type { CustomizationPageData } from '../data/customization/types';
+import '../styles/quality-control-process.css';
+import '../styles/customization.css';
+
+interface Props { page: CustomizationPageData; }
+const { page } = Astro.props;
+const route = `/customization/${page.slug}/`;
+const origin = SITE.url;
+const canonical = new URL(route, origin).href;
+const image = new URL('/brand/leanodm-wordmark.png', origin).href;
+const imageAlt = 'LEANODM.com website wordmark';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: page.h1, url: route }];
+const contact = import.meta.env.PUBLIC_CONTACT_URL;
+// Keep the established optional contact configuration; never invent a recipient.
+const contactHref = contact && /^(https?:\/\/|mailto:)/i.test(contact) ? contact : undefined;
+const projectType = ['existing-products', 'product-adaptation', 'new-product-development', 'oem-manufacturing'].includes(page.slug) ? page.slug : 'not-sure';
+const inquiryHref = `/rfq/?source=customization-${encodeURIComponent(page.slug)}&projectType=${projectType}#rfq-form`;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    ...(page.serviceType ? [{ '@type': 'Service', '@id': `${canonical}#service`, name: page.h1, serviceType: page.serviceType, url: canonical, description: page.description, provider: { '@id': `${origin}/#xinyinhai` } }] : []),
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: page.title, url: canonical, description: page.description, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#xinyinhai` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, ...(page.serviceType ? { mainEntity: { '@id': `${canonical}#service` } } : {}) },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.url, origin).href })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: page.faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  ],
+};
+---
+<BaseLayout title={page.title} description={page.description} technicalPage technicalNavigation={page.sections} technicalPageTitle={page.navTitle} contactHref="#project-requirements" technicalContactLabel="Discuss Your Project">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+  <div class:list={['qc-page b2b-page', `b2b-${page.slug}`]}>
+    <section class="qc-hero" aria-labelledby="page-title">
+      <div class="qc-container">
+        <nav class="qc-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, index) => <li>{index === 0 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="qc-hero-grid">
+          <div class="b2b-hero-heading">
+            <p class="qc-eyebrow">{page.eyebrow}</p>
+            <h1 id="page-title">{page.h1}</h1>
+            <p class="qc-lead">{page.lead}</p>
+          </div>
+          <div class="b2b-hero-detail">
+            <p class="qc-intro">{page.intro}</p>
+            <ul class="b2b-tags">{page.highlights.map(text => <li><Icon name="check" />{text}</li>)}</ul>
+            <div class="qc-actions"><Button href="#project-requirements" class="qc-button">{page.cta}<span aria-hidden="true">↗</span></Button></div>
+          </div>
+          <HeroVisual page={page} />
+        </div>
+      </div>
+    </section>
+    <div class="qc-container">
+      <slot />
+      <section id="deliverables" class="qc-section qc-split" aria-labelledby="deliverables-title">
+        <div><Icon name="folder-check" class="b2b-section-icon" /><p class="qc-eyebrow">PROJECT OUTPUTS</p><h2 id="deliverables-title">What you receive</h2><p>Agree the applicable deliverables, their revision and approval owner in the project scope. The output must support the next decision.</p><p class="b2b-approval-note">Confirm the scope and acceptance criteria before authorizing the next stage.</p></div>
+        <ul class="b2b-output-list">{page.receives.map((item, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><Icon name={['file-search', 'pencil-ruler', 'clipboard-list', 'file-check-2', 'folder-check'][index % 5]} /><p>{item}</p></li>)}</ul>
+      </section>
+      <section id="faq" class="qc-section" aria-labelledby="faq-title">
+        <div class="qc-heading"><div><Icon name="messages-square" class="b2b-section-icon" /><p class="qc-eyebrow">BUYER QUESTIONS</p><h2 id="faq-title">Common questions about {page.navTitle.toLowerCase().replace(/\boem\b/g, 'OEM')}</h2></div><p>Start with your current product information and the decision you need to make.</p></div>
+        <div class="qc-faq">{page.faqs.map(faq => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+      </section>
+      <section id="related" class="qc-section" aria-labelledby="related-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">CONTINUE YOUR REVIEW</p><h2 id="related-title">Related project guidance</h2></div><p>Choose the next page according to your starting point and the evidence you need.</p></div>
+        <div class="b2b-related">{page.related.map(item => <a href={item.href}><Icon name={item.href.includes('quality') ? 'shield-check' : item.href.includes('fit') ? 'lock-keyhole' : item.href.includes('work') ? 'workflow' : item.href.includes('development') ? 'lightbulb' : item.href.includes('adaptation') ? 'component' : item.href.includes('existing') ? 'palette' : 'factory'} /><h3>{item.label}<span aria-hidden="true"> ↗</span></h3><p>{item.description}</p></a>)}</div>
+      </section>
+    </div>
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title">
+      <div class="qc-container qc-split">
+        <div><Icon name="send" class="b2b-section-icon" /><p class="qc-eyebrow">YOUR NEXT STEP</p><h2 id="project-title">{page.cta}</h2><p>{page.briefIntro}</p>
+          <div class="qc-actions"><a class="qc-button b2b-download" href={`/resources/${page.slug}-project-brief.txt`} download>Download the project brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href={inquiryHref}>Start your inquiry <span aria-hidden="true">↗</span></a>{contactHref && <a class="qc-text-link" href={contactHref}>Send your project brief <span aria-hidden="true">↗</span></a>}</div>
+          <p class="qc-project-note">Use the inquiry form to prepare your brief, or share it through your existing project contact. Agree a confidential exchange before sending restricted drawings, code or customer information. Downloading a brief does not submit a project.</p>
+        </div>
+        <div class="qc-project-list"><h3>What we need from you</h3><ul>{page.needs.map(item => <li>{item}</li>)}</ul></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

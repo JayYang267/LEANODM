@@ -1,0 +1,60 @@
+---
+import { getImage } from 'astro:assets';
+import processSheet from '../assets/home/workflow/odm-process-five-steps.png';
+import requestSheet from '../assets/home/workflow/request-no-odm-label.png';
+import developmentSheet from '../assets/home/workflow/development-matching-pcba-simple.png';
+import meetingImage from '../assets/home/workflow/project-review-six-engineers.png';
+import productionSheet from '../assets/home/workflow/production-custom-tubular-workstations.png';
+
+interface Props {
+  step: string;
+}
+
+const { step } = Astro.props;
+const isMeeting = step === '02';
+const stepSheets: Record<string, typeof processSheet> = {
+  '01': requestSheet,
+  '02': meetingImage,
+  '03': developmentSheet,
+  '04': productionSheet,
+};
+const workflowSheet = stepSheets[step] ?? processSheet;
+// Keep each illustration aligned with its source sheet's crop coordinates.
+const cropLeft: Record<string, number> = {
+  '01': 136,
+  '02': 509,
+  '03': 882,
+  '04': 1256,
+  '05': 1629,
+};
+// The forklift extends beyond the original fifth card, so keep its wider outline.
+const cropWidth = step === '05' ? 390 : 345;
+// Include the custom workstations' raised tool supports and caster wheels.
+const cropTop = step === '04' ? 330 : 370;
+const cropHeight = step === '04' ? 360 : 333;
+const viewportWidth = isMeeting ? workflowSheet.width : cropWidth;
+const viewportHeight = isMeeting ? workflowSheet.height : 333;
+const viewport = isMeeting
+  ? `0 0 ${viewportWidth} ${viewportHeight}`
+  : `${cropLeft[step] ?? cropLeft['01']} ${cropTop} ${cropWidth} ${cropHeight}`;
+const illustration = await getImage({
+  src: workflowSheet,
+  width: workflowSheet.width,
+  format: 'webp',
+  quality: 90,
+});
+---
+
+<svg
+  class="xyh-workflow-illustration"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox={viewport}
+  width={viewportWidth}
+  height={viewportHeight}
+  preserveAspectRatio="xMidYMax meet"
+  data-step={step}
+  aria-hidden="true"
+  focusable="false"
+>
+  <image href={illustration.src} x="0" y="0" width={workflowSheet.width} height={workflowSheet.height} />
+</svg>

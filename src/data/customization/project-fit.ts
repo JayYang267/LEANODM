@@ -1,0 +1,56 @@
+import type { CustomizationPageData } from './types';
+
+export const page: CustomizationPageData = {
+  slug: 'project-fit',
+  title: 'Project Fit & Working Principles | LEANODM',
+  description: 'Check project suitability, design rights, customer assets, safety, confidentiality and shared responsibilities before starting plastic or electronic product work.',
+  h1: 'Project Fit & Working Principles',
+  navTitle: 'Project Fit',
+  eyebrow: 'WORKING TOGETHER / PROJECT SUITABILITY',
+  lead: 'We assess plastic and electronic product projects against the design, manufacturing and verification work they require.',
+  intro: 'We review the product, its intended use and the work you need before agreeing to proceed. Early uncertainty is normal. The important step is to identify what must be clarified, tested or agreed, and to address it openly.',
+  summary: [
+    { label: 'Technical fit', text: 'The product, manufacturing route and required verification can be assessed.' },
+    { label: 'Responsible inputs', text: 'Designs, content, tooling and commercial information are authorized for the proposed use.' },
+    { label: 'A workable agreement', text: 'Scope, approvals, acceptance criteria and responsibilities are clear.' },
+  ],
+  highlights: ['Assess the evidence', 'Protect customer assets', 'Resolve questions before release'],
+  sections: [
+    { label: 'Fit Review', href: '#fit-review' },
+    { label: 'Rights', href: '#rights-and-assets' },
+    { label: 'Principles', href: '#working-principles' },
+    { label: 'FAQ', href: '#faq' },
+    { label: 'Your Brief', href: '#project-requirements' },
+  ],
+  faqs: [
+    { question: 'Can a startup or a buyer with a small order approach you?', answer: 'Yes. A small order, limited budget or early-stage business is not a reason to dismiss a project. We assess the actual scope, process, quantity and resource needs. If the proposed route is unsuitable, the review can identify a narrower first stage or another practical approach.' },
+    { question: 'Is using a competitor’s product as a reference unacceptable?', answer: 'A reference can communicate a function or user need. We clarify the purpose, proposed differences and relevant rights. We cannot accept a request to knowingly infringe rights, counterfeit a brand or use confidential material obtained without permission. Changing a few visible details does not settle a rights question.' },
+    { question: 'Can development start before I have test reports?', answer: 'Yes, development and compliance preparation may begin before final reports exist. The intended product, users and destination market help define the required work. Commercial release depends on resolving the applicable verification requirements; an untested product cannot simply be described as compliant.' },
+    { question: 'Must I disclose my end customer at the first enquiry?', answer: 'A high-level brief may be enough for initial discussion. Reasonable commercial confidentiality is acceptable. We may need limited additional information to verify brand authority, permitted use or a material project risk. Agree the exchange and confidentiality arrangements before sending restricted information.' },
+    { question: 'Can we change materials or simplify the product to reduce cost?', answer: 'Yes, legitimate cost reduction can be assessed through material alternatives, simpler construction and revised processes. The proposal must retain necessary safety measures and be verified for its intended use. We will not agree to conceal substitutions or make production different from the version represented by its test evidence.' },
+    { question: 'Are connected products, cameras or AI features excluded?', answer: 'The feature alone does not determine project fit. We review intended use, information collected, required permissions and technical scope. Requests for covert unlawful surveillance, undisclosed data collection or malicious access cannot proceed. Software, connectivity and privacy responsibilities need explicit agreement.' },
+  ],
+  cta: 'Check Whether Your Project Fits Our Capabilities',
+  briefIntro: 'Share enough non-confidential information to explain the product and the decision you need. We can then identify the relevant service route and information needed for a detailed review.',
+  needs: [
+    'The product’s intended function, users, use environment and destination markets.',
+    'Your current stage and the design, engineering or manufacturing support required.',
+    'Your authority to use the design, brand, content and any existing tooling.',
+    'Known technical, safety, testing or confidentiality constraints.',
+    'Expected quantity, budget considerations, delivery target and approval responsibilities.',
+  ],
+  receives: [
+    'A proposed service route based on the project’s current stage.',
+    'The questions or evidence needed before a detailed scope can be agreed.',
+    'Identified feasibility constraints and possible changes to the proposed approach.',
+    'A basis for agreeing scope, responsibilities and the next review step.',
+  ],
+  related: [
+    { href: '/customization/existing-products/', label: 'Customize an existing base product', description: 'Review branding, appearance and packaging around a suitable design.' },
+    { href: '/customization/product-adaptation/', label: 'Adapt a product you already have', description: 'Assess engineering changes and the verification they require.' },
+    { href: '/customization/new-product-development/', label: 'Develop a new product', description: 'Turn an initial brief into defined engineering and development stages.' },
+    { href: '/customization/oem-manufacturing/', label: 'Transfer a design into manufacturing', description: 'Review production files, tooling and manufacturing readiness.' },
+    { href: '/customization/how-we-work/', label: 'Agree the working process', description: 'Understand approval gates, responsibilities and change control.' },
+    { href: '/quality/product-testing/', label: 'Understand product testing', description: 'Connect product risks with appropriate verification activities.' },
+  ],
+};

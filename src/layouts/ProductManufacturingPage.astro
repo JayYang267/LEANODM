@@ -1,0 +1,46 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import HomeFooter from '../components/market/HomeFooter.astro';
+import ImageLightbox from '../components/ImageLightbox.astro';
+import SoundBookCard from '../components/products/SoundBookCard.astro';
+import SoundBookLanguages from '../components/products/SoundBookLanguages.astro';
+import SoundBookEvidence from '../components/products/SoundBookEvidence.astro';
+import SoundBookCooperation from '../components/products/SoundBookCooperation.astro';
+import SoundBookFaq from '../components/products/SoundBookFaq.astro';
+import SoundBookInquiry from '../components/products/SoundBookInquiry.astro';
+import { soundBookProducts, soundBookPath, inquiryProducts } from '../data/products/sound-book-catalog';
+import type { SoundBookCategoryData, ProductManufacturingSupport } from '../data/products/types';
+import { SITE } from '../config/site';
+import '../styles/product-manufacturing.css';
+import '../styles/sound-book-catalog.css';
+interface Props { product: SoundBookCategoryData; support: ProductManufacturingSupport }
+const { product: p, support: s } = Astro.props;
+const canonical = new URL(p.path,SITE.url).href;
+const heroProduct = soundBookProducts[0];
+const hero = heroProduct.gallery[0];
+const schema = { '@context':'https://schema.org', '@graph':[
+  { '@type':'CollectionPage','@id':canonical+'#webpage',url:canonical,name:p.title,description:p.description,inLanguage:'en',isPartOf:{'@id':SITE.url+'/#website'},about:{'@id':SITE.url+'/#xinyinhai'},breadcrumb:{'@id':canonical+'#breadcrumbs'},mainEntity:{'@id':canonical+'#formats-list'} },
+  { '@type':'BreadcrumbList','@id':canonical+'#breadcrumbs',itemListElement:[{'@type':'ListItem',position:1,name:'Home',item:SITE.url+'/'},{'@type':'ListItem',position:2,name:'Sound books',item:canonical}] },
+  { '@type':'ItemList','@id':canonical+'#formats-list',name:'Sound book reference formats',numberOfItems:soundBookProducts.length,itemListElement:soundBookProducts.map((item,index)=>({'@type':'ListItem',position:index+1,name:item.name,url:new URL(soundBookPath(item),SITE.url).href})) },
+  { '@type':'FAQPage','@id':canonical+'#faq',mainEntity:s.faqs.map(item=>({'@type':'Question',name:item.question,acceptedAnswer:{'@type':'Answer',text:item.answer}})) },
+] };
+const navigation=[['Browse formats','formats'],['Languages & content','languages'],['Customization','customization'],['Manufacturing','manufacturing'],['Working together','process'],['Questions','faq']];
+---
+<BaseLayout title={p.title} description={p.description}>
+  <Fragment slot="head"><meta name="robots" content="noindex,follow" /><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL(hero.src,SITE.url).href} /><meta property="og:image:alt" content={hero.alt} /><meta property="og:image:width" content={String(hero.width)} /><meta property="og:image:height" content={String(hero.height)} /><meta name="twitter:image" content={new URL(hero.src,SITE.url).href} /><script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')} /></Fragment>
+  <div class="sb-page sb-catalog-page" data-product-page>
+    <div class="sb-container"><nav class="sb-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Sound books</span></nav>
+      <section class="sb-category-hero" aria-labelledby="product-title"><div><p class="sb-eyebrow">PRODUCT FORMATS · CONTENT · MANUFACTURING</p><h1 id="product-title">Custom Sound Books</h1><p class="sb-category-lead">{p.intro}</p><p class="sb-category-support">For brands, publishers and education product teams developing private label sound books through OEM / ODM projects.</p><div class="sb-category-actions"><a class="sb-btn sb-primary-cta" href="#formats">Browse formats <span aria-hidden="true">↓</span></a><a class="sb-btn sb-btn-secondary" href="#inquiry">Discuss my project <span aria-hidden="true">↗</span></a></div><div class="sb-hero-facts"><span>{soundBookProducts.length} distinct reference formats</span><span>Print + audio customization</span><span>Project-based sampling</span></div></div><figure class="sb-category-visual"><span class="sb-photo-label">{heroProduct.statusLabel} / {heroProduct.shownLanguages.join(' + ')} printing</span><a href={hero.src} data-lightbox="category-reference" data-width={hero.width} data-height={hero.height} data-title={heroProduct.name} data-caption={hero.caption}><img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height} fetchpriority="high" loading="eager" decoding="async" /><span class="sb-detail-enlarge">Enlarge reference ↗</span></a><figcaption>One reference format. Explore the different structures below.</figcaption></figure></section>
+    </div>
+    <nav class="sb-section-nav" aria-label="Sound book collection sections"><div class="sb-container">{navigation.map(([label,id])=><a href={`#${id}`}>{label}</a>)}<a href="#inquiry" class="sb-nav-inquiry">Project inquiry ↗</a></div></nav>
+    <section id="formats" class="sb-section sb-formats-section"><div class="sb-container"><div class="sb-section-heading"><div><p class="sb-eyebrow">START WITH THE FORMAT</p><h2>Different structures.<br />A clearer starting point.</h2></div><p>Compare the control layout, sound-module position and printed edition. Each format has its own images, display status and detail page.</p></div><div class="sb-style-grid">{soundBookProducts.map(product=><SoundBookCard product={product} />)}</div><p class="sb-collection-note">This local collection includes historical reference formats from Xinyinhai’s company presentation. Availability and tooling access need review. Existing customer artwork and audio are not offered for reproduction; printed languages describe the photographs, not verified playback languages.</p></div></section>
+    <SoundBookLanguages />
+    <section id="customization" class="sb-section sb-category-customization"><div class="sb-container"><div class="sb-section-heading"><div><p class="sb-eyebrow">DEFINE YOUR CHANGES</p><h2>Keep what fits.<br />Specify what should change.</h2></div><p>Select any areas to include in your brief. You can choose the reference format, languages and development route in the inquiry.</p></div><fieldset class="sb-options sb-category-options"><legend class="sb-sr-only">Customization areas for your project</legend>{p.customization.map(option=><label class="sb-option"><input type="checkbox" name="customization" value={option.label} data-option-id={option.id} /><span class="sb-option-number">{option.marker}</span><span><strong>{option.label}</strong><span>{option.short}</span></span><span class="sb-option-check" aria-hidden="true">+</span></label>)}</fieldset><div class="sb-selection-feedback" aria-live="polite"><div><strong data-selection-count>Your customization brief</strong><p data-selection-intro>Select an area to see its sample and engineering implications.</p><ul data-selection-notes></ul></div></div><div class="sb-category-routes">{p.pathways.map(path=><details><summary>{path.label}<span aria-hidden="true">+</span></summary><p>{path.text}</p><p>{path.cost}</p></details>)}</div></div></section>
+    <SoundBookEvidence />
+    <SoundBookCooperation />
+    <SoundBookFaq />
+    <section id="inquiry" class="sb-section sb-inquiry"><div class="sb-container sb-inquiry-grid"><div><p class="sb-eyebrow">FROM A REFERENCE TO YOUR BRIEF</p><h2>Tell us what<br />you want to make.</h2><p>Choose a format if one fits, or start with your own idea. The style, languages and changes you actually select travel with your brief.</p><ul class="sb-inquiry-outputs"><li>A suitable starting design or development path</li><li>MOQ basis, sample stages and quotation scope</li><li>Manufacturing responsibilities and a milestone plan</li><li>Audio, artwork and testing questions to resolve</li></ul><div class="sb-inquiry-contact"><span>Prefer email?</span><a href="mailto:quotes@leanodm.com">quotes@leanodm.com ↗</a><p>Begin with a non-confidential overview. A saved handoff in this tab helps you continue between product pages and the full RFQ without retyping.</p></div></div><SoundBookInquiry productName={p.name} productPath={p.path} products={inquiryProducts} /></div></section>
+    <div class="sb-mobile-inquiry"><span>Sound book projects<small>Choose a format or start with an idea</small></span><a href="#inquiry">Discuss my project ↗</a></div><script type="application/json" data-customization-data set:html={JSON.stringify(p.customization).replace(/</g,'\\u003c')} /><ImageLightbox />
+  </div><HomeFooter slot="footer" />
+</BaseLayout>
+<script>import '../scripts/product-manufacturing';</script>

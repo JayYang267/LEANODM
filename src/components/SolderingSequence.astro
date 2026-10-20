@@ -1,0 +1,30 @@
+---
+const steps = [
+  { name: 'Heat the joint', text: 'Bring the tip into contact with the component and pad.' },
+  { name: 'Feed solder', text: 'Feed at the heated joint with a controlled amount.' },
+  { name: 'Withdraw solder wire', text: 'Stop feeding when the required solder amount is reached.' },
+  { name: 'Continue heating', text: 'Observe the forming joint for the specified brief period.' },
+  { name: 'Withdraw the iron', text: 'Remove smoothly; keep the joint still as it solidifies.' },
+];
+---
+<div class="ap-solder-sequence">
+  <div class="ap-process-heading"><span>FIVE-STEP HAND-SOLDERING SEQUENCE</span><span>AFTER CLEANING &amp; TEMPERATURE VERIFICATION</span></div>
+  <ol>{steps.map((step, i) => <li>
+    <span class="ap-step-number">0{i + 1}</span>
+    <svg viewBox="0 0 190 100" fill="none" aria-hidden="true">
+      <path d="M20 80H170V90H20Z" fill="#e0e7f0" stroke="#536c8d" />
+      <path d="M64 74H129V80H64Z" fill="#7c96be" />
+      <path d="M94 35V74" stroke="#142a46" stroke-width="5" />
+      {i > 0 && <path d="M79 74Q88 71 92 60Q99 63 103 70L118 74Z" fill="#97abc6" stroke="#536c8d" />}
+      <g transform={i === 4 ? 'translate(19,-12)' : ''}>
+        <path d="M122 28L155 8L170 20L135 48Z" fill="#142a46" />
+        <path d="M124 35L100 67L109 70L138 45Z" fill="#b8c8df" stroke="#536c8d" />
+      </g>
+      {i === 1 && <path d="M22 30Q45 34 88 69" stroke="#536c8d" stroke-width="3" />}
+      {i === 2 && <><path d="M12 20Q33 23 65 47" stroke="#536c8d" stroke-width="3" /><path d="M51 25L36 14L48 14M36 14L39 27" stroke="#183ba3" stroke-width="2" /></>}
+      {i === 4 ? <path d="M140 58L157 42M145 43L157 42L156 54" stroke="#183ba3" stroke-width="2" /> : <><path d="M85 87Q80 92 85 96M96 87Q91 92 96 96M107 87Q102 92 107 96" stroke="#bd1d2b" stroke-width="2" /></>}
+    </svg>
+    <h3>{step.name}</h3><p>{step.text}</p>
+  </li>)}</ol>
+  <p class="ap-flow-note">Sequence redrawn from the training guide. Heating time and temperature follow the product-specific work instruction.</p>
+</div>

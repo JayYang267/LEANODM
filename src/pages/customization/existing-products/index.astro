@@ -1,0 +1,83 @@
+---
+import CustomizationPage from '../../../layouts/CustomizationPage.astro';
+import CustomizationSection from '../../../components/CustomizationSection.astro';
+import CustomizationTable from '../../../components/CustomizationTable.astro';
+import CustomizationIcon from '../../../components/CustomizationIcon.astro';
+import CustomizationFlow from '../../../components/CustomizationFlow.astro';
+import { page } from '../../../data/customization/existing-products';
+
+const options = [
+  ['Brand artwork', 'Logo, printed information or other authorized graphics.', 'Artwork revision, placement, readability and decoration suitability on the actual surface.'],
+  ['Color and finish', 'An agreed color or surface appearance where the base design and process allow it.', 'Material compatibility, appearance reference, durability and any effect on fit or function.'],
+  ['Packaging', 'A branded box, insert, instructions or other agreed presentation.', 'Artwork, product protection, pack contents, labels and consistency between samples and production.'],
+  ['Existing configuration', 'A supported option already compatible with the base product.', 'The exact parts and function retained; whether the change needs additional engineering or validation.'],
+];
+const customizationSteps = [
+  { label: '01 / BASE PRODUCT', title: 'Confirm the starting design', text: 'Identify the product and the function to retain.', icon: 'box' },
+  { label: '02 / CUSTOMIZATION', title: 'Define your changes', text: 'Agree artwork, color, finish, packaging and supported options.', icon: 'palette' },
+  { label: '03 / SAMPLING', title: 'Approve the physical result', text: 'Review representative samples and written requirements.', icon: 'clipboard-check' },
+  { label: '04 / PRODUCTION', title: 'Use the approved version', text: 'Produce and inspect against the confirmed configuration.', icon: 'factory' },
+];
+const optionCards = [
+  { icon: 'scan-line', title: 'Brand artwork', detail: 'Authorized logo, graphics and printed information.', reference: 'Artwork + placement' },
+  { icon: 'palette', title: 'Color and finish', detail: 'A material and surface appearance suited to the base.', reference: 'Color + physical sample' },
+  { icon: 'package', title: 'Packaging', detail: 'The product presentation, protection and instructions.', reference: 'Pack + printed content' },
+  { icon: 'sliders-horizontal', title: 'Existing configuration', detail: 'An available option compatible with the current design.', reference: 'Parts + retained function' },
+];
+---
+<CustomizationPage page={page}>
+  <CustomizationSection id="customization-scope" eyebrow="01 / DEFINE THE STARTING POINT" title="Existing Product Customization Scope" intro="An existing design is useful when its function, dimensions and intended use already fit your brief.">
+    <CustomizationFlow label="Existing product customization from base selection to production" steps={customizationSteps} />
+    <div class="b2b-comparison existing-scope-panels">
+      <div class="b2b-panel"><div class="existing-panel-heading"><CustomizationIcon name="box" /><span class="b2b-visual-label">PRODUCT SUITABILITY</span></div><p>For a promotional product, retail gift or branded accessory, the first decision is whether the underlying product is suitable. A logo cannot resolve an unsuitable battery arrangement, an incorrect age application or a function that misses the buyer’s needs. We review those questions before treating the project as straightforward customization.</p></div>
+      <div class="b2b-panel b2b-panel--tint"><div class="existing-panel-heading"><CustomizationIcon name="file-check-2" /><span class="b2b-visual-label">DEFINED BASELINE</span></div><p>Identify the exact reference and explain which characteristics must remain unchanged. A similar-looking sample may use different materials, electronics or construction. Confirming the baseline avoids quoting one configuration and approving another.</p></div>
+    </div>
+    <p>If your brief requires a new enclosure, revised component layout or additional function, <a href="/customization/product-adaptation/">Product Adaptation</a> provides the engineering route. If no suitable baseline exists, start with a development brief.</p>
+  </CustomizationSection>
+
+  <CustomizationSection id="customization-options" eyebrow="02 / AGREE THE OPTIONS" title="Branding, Color & Packaging Options" intro="The available choices depend on the selected product, its materials and the proposed quantity.">
+    <div class="b2b-icon-cards existing-option-grid">
+      {optionCards.map(option => <article class="b2b-icon-card"><CustomizationIcon name={option.icon} /><h3>{option.title}</h3><p>{option.detail}</p><span class="existing-reference">{option.reference}</span></article>)}
+    </div>
+    <CustomizationTable caption="Customization options and the decisions to confirm" headers={['Area', 'Possible scope', 'What needs agreement']} rows={options} />
+    <p>Provide the final content for markings and instructions, including language versions and destination requirements. Artwork approval should cover spelling, placement and the claimed product features. A packaging refresh must still protect the product and present its use accurately.</p>
+  </CustomizationSection>
+
+  <CustomizationSection id="application-briefs" eyebrow="03 / EXPLAIN THE APPLICATION" title="Examples of briefs we can assess" intro="These examples illustrate customization decisions. Product availability and technical suitability need confirmation.">
+    <div class="b2b-icon-cards existing-application-grid">
+      <article class="b2b-icon-card existing-application-card"><div class="existing-application-visual"><span class="existing-application-symbol"><CustomizationIcon name="lamp-desk" /></span><div><span>Existing light</span><span>Brand + gift box</span></div></div><span class="qc-small-label">BRANDED DESKTOP GIFT</span><h3>Keep the product, change the presentation</h3><p>A buyer proposes an existing desktop light with brand artwork and a gift box. The review checks the available surface, color reference, labeling and packaging while keeping the agreed light function.</p></article>
+      <article class="b2b-icon-card existing-application-card"><div class="existing-application-visual"><span class="existing-application-symbol"><CustomizationIcon name="audio-lines" /></span><div><span>Sound or light</span><span>Confirm behavior</span></div></div><span class="qc-small-label">PROMOTIONAL ELECTRONIC ITEM</span><h3>Identify the exact configuration</h3><p>A campaign brief specifies a compact sound or light product. Confirm the required behavior and content rights. A new sound sequence or control behavior may need engineering review rather than an artwork-only approval.</p></article>
+      <article class="b2b-icon-card existing-application-card"><div class="existing-application-visual"><span class="existing-application-symbol"><CustomizationIcon name="package-open" /></span><div><span>Product + accessories</span><span>Sleeve + insert</span></div></div><span class="qc-small-label">RETAIL PRESENTATION</span><h3>Bring packaging into the scope</h3><p>A retailer wants a branded sleeve, instructions and an insert around an existing product. The brief should identify included accessories, presentation requirements and how the pack will protect the product during handling.</p></article>
+    </div>
+  </CustomizationSection>
+
+  <CustomizationSection id="sample-approval" eyebrow="04 / CONFIRM BEFORE PRODUCTION" title="Approve the physical result and the written specification" intro="A digital mockup explains the proposal. A representative sample helps establish what production must match.">
+    <div class="qc-approval-grid">
+      <div class="qc-approval-rule"><div class="existing-approval-icon"><CustomizationIcon name="clipboard-check" /></div><p class="qc-small-label">CUSTOMER DECISION</p><h3>Approve a defined version</h3><p>Review the product, decoration and packaging together. Record the sample identity, approved artwork revision, color or finish reference, required function and any remaining conditions. Consolidated feedback helps prevent conflicting instructions.</p><div class="existing-approval-record"><span>Sample identity</span><span>Artwork revision</span><span>Function + finish</span></div></div>
+      <div class="qc-checklist b2b-panel"><div class="existing-panel-heading"><CustomizationIcon name="list-checks" /><h3>Close the open questions</h3></div><ul><li>Is the artwork clear and correctly positioned?</li><li>Does the finish meet the agreed appearance and durability criteria?</li><li>Are labels, instructions and pack contents correct?</li><li>Does the customized product retain its required operation?</li><li>Are necessary verification results available for release?</li></ul></div>
+    </div>
+    <p class="qc-note">A change after approval may affect samples, purchased materials, testing, cost or delivery. We review the impact and confirm the revised scope before implementation. The <a href="/quality/quality-control-process/">quality control process</a> connects agreed requirements with production checks.</p>
+  </CustomizationSection>
+</CustomizationPage>
+
+<style>
+  .existing-scope-panels { margin:24px 0; }
+  .existing-panel-heading { display:flex; align-items:center; gap:12px; margin-bottom:16px; color:var(--qc-blue); }
+  .existing-panel-heading h3 { margin:0; }
+  .existing-panel-heading :global(svg) { width:26px; height:26px; flex-shrink:0; }
+  .existing-option-grid { grid-template-columns:repeat(4,minmax(0,1fr)); margin-bottom:28px; }
+  .existing-reference { display:block; border-top:1px solid var(--qc-line); padding-top:12px; margin-top:18px; color:var(--qc-blue); font-size:.73rem; font-weight:600; }
+  .existing-application-visual { display:flex; align-items:center; gap:18px; min-height:125px; padding:18px; margin-bottom:22px; background:#f3f6fa; border:1px solid var(--qc-line); border-radius:5px; }
+  .existing-application-symbol { display:flex; color:var(--qc-blue); flex-shrink:0; }
+  .existing-application-symbol :global(.b2b-icon) { width:64px; height:64px; }
+  .existing-application-symbol :global(svg) { width:48px; height:48px; }
+  .existing-application-visual>div { display:grid; gap:9px; min-width:0; }
+  .existing-application-visual>div>span { font-size:.72rem; line-height:1.5; color:var(--qc-muted); }
+  .existing-application-visual>div>span+span { border-top:1px solid #bccbe0; padding-top:9px; color:var(--qc-blue); font-weight:650; }
+  .existing-approval-icon { margin-bottom:18px; color:#c6d8f3; }
+  .existing-approval-icon :global(svg) { width:38px; height:38px; }
+  .existing-approval-record { display:flex; flex-wrap:wrap; gap:8px; border-top:1px solid #4b5f78; padding-top:18px; margin-top:22px; }
+  .existing-approval-record span { border:1px solid #607692; border-radius:3px; padding:6px 9px; font-size:.69rem; color:#e4edf9; }
+  @media(max-width:1050px) { .existing-option-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .existing-application-visual { flex-direction:column; align-items:flex-start; gap:12px; } }
+  @media(max-width:599px) { .existing-option-grid { grid-template-columns:1fr; } .existing-application-visual { flex-direction:row; align-items:center; } }
+</style>

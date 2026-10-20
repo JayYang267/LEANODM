@@ -1,0 +1,138 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import Icon from '../../../components/CustomizationIcon.astro';
+import EvidencePreview from '../../../components/EthicalEvidencePreview.astro';
+import QualityIntegrityNote from '../../../components/QualityIntegrityNote.astro';
+import ActivityHighlights from '../../../components/ActivityHighlights.astro';
+import { ethicalMeta, managementAreas, ethicalNavigation, laborControls, safetyControls, reviewSteps, evidenceItems, ethicalFaqs } from '../../../data/ethical-manufacturing';
+import '../../../styles/quality-control-process.css';
+import '../../../styles/ethical-manufacturing.css';
+
+const canonical = new URL('/about/ethical-manufacturing/', SITE.url).href;
+const origin = new URL(canonical).origin;
+const imageUrl = new URL('/images/ethical-manufacturing-overview.png', SITE.url).href;
+const rawContact = import.meta.env.PUBLIC_CONTACT_URL?.trim();
+const contactUrl = rawContact && /^(https?:\/\/|mailto:)/i.test(rawContact) ? rawContact : undefined;
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': canonical + '#webpage', url: canonical, name: 'Ethical Manufacturing', description: ethicalMeta.description, inLanguage: 'en', isPartOf: { '@id': origin + '/#website' }, about: { '@id': origin + '/#xinyinhai' } },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE.url + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Ethical Manufacturing', item: canonical },
+    ] },
+    { '@type': 'FAQPage', '@id': canonical + '#qualification-faq', mainEntity: ethicalFaqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  ],
+};
+---
+<BaseLayout title={ethicalMeta.title} description={ethicalMeta.description} technicalPage
+  technicalNavigation={ethicalNavigation} technicalPageTitle="Ethical manufacturing" technicalContactLabel="Discuss Qualification"
+  technicalFooterDescription="Define the factory site, review scope and supporting information needed for supplier qualification."
+  contactHref="#project-requirements">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:alt" content="Six documented factory management areas for supplier qualification" />
+    <meta name="twitter:image" content={imageUrl} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="qc-page em-page">
+    <section class="qc-hero">
+      <div class="qc-container">
+        <nav class="qc-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Ethical Manufacturing</li></ol></nav>
+        <div class="qc-hero-grid">
+          <div>
+            <p class="qc-eyebrow">ABOUT US / SUPPLIER QUALIFICATION</p>
+            <h1>Ethical Manufacturing</h1>
+            <p class="qc-lead">Documented labor, safety, environmental and business-ethics procedures for supplier qualification.</p>
+            <p class="qc-intro">Explore Xinyinhai’s internal procedures for factory social responsibility: what they cover, who they assign responsibility to, and how they connect findings to follow-up.</p>
+            <div class="qc-actions"><Button href="#project-requirements" class="qc-button">Discuss Supplier Qualification <span aria-hidden="true">→</span></Button><a class="qc-text-link" href="#evidence">Explore the evidence <span aria-hidden="true">↘</span></a></div>
+          </div>
+          <div class="em-domain-map">
+            <div class="em-map-title"><span>DOCUMENTED FACTORY CONTROLS</span><span aria-hidden="true">01—06</span></div>
+            <ul>{managementAreas.map((area, index) => <li><a href={`#${area.id}`}><span class="em-domain-icon"><Icon name={area.icon} /></span><div><span class="em-domain-number">0{index + 1}</span><strong>{area.name}</strong><small>{area.scope}</small></div><span class="em-domain-arrow" aria-hidden="true">↗</span></a></li>)}</ul>
+            <p>Six connected areas. One supplier review.</p>
+          </div>
+        </div>
+        <ol class="em-principle-chain" aria-label="How this page connects policy to improvement">{['Policy', 'Process', 'Evidence', 'Review', 'Improvement'].map((step, index) => <li><span>0{index + 1}</span>{step}</li>)}</ol>
+      </div>
+    </section>
+
+    <aside class="em-scope" aria-label="Scope of the evidence"><div class="qc-container"><Icon name="files" /><p><strong>What this page establishes.</strong> These summaries describe Xinyinhai’s available internal policy and procedure documents, including historical versions. They are not completed audit results. Current site applicability, revisions and implementation records need confirmation during supplier qualification.</p></div></aside>
+
+    <section id="labor-rights" class="qc-section"><div class="qc-container">
+      <div class="qc-heading"><div><p class="qc-eyebrow">01 / PEOPLE & WORKING CONDITIONS</p><h2>Labor Rights</h2></div><p>Start with the rules governing recruitment and employment. The documents cover age checks, voluntary employment, working-time records and respectful treatment.</p></div>
+      <div class="em-labor-grid">{laborControls.map((control, index) => <article><span class="em-index">0{index + 1}</span><div><h3>{control.title}</h3><p>{control.text}</p></div></article>)}</div>
+      <p class="em-review-prompt"><strong>For qualification:</strong> review the current recruitment procedure, age-check controls, working-time records and payroll-record format for the relevant site.</p>
+    </div></section>
+
+    <section id="worker-voice" class="qc-section em-muted-section"><div class="qc-container qc-split">
+      <div><p class="qc-eyebrow">02 / COMMUNICATION & SUPPORT</p><h2>Worker Voice & Welfare</h2><p>The documents provide for elected worker representatives, direct or written complaints, investigation and feedback. Policies call for confidentiality and protection against retaliation.</p><div class="em-welfare"><Icon name="users" /><div><h3>Employee welfare procedures</h3><p>Welfare documents address leave, workplace hygiene, first-aid support and living allowances. Current arrangements are part of the site review.</p></div></div></div>
+      <div class="em-voice-panel"><span class="em-kicker">DOCUMENTED COMPLAINT-HANDLING PATH</span><ol class="em-vertical-flow"><li><span>01</span><div><h3>Raise a concern</h3><p>Direct or written feedback; worker representation.</p></div></li><li><span>02</span><div><h3>Investigate & respond</h3><p>Gather relevant information and provide feedback.</p></div></li><li><span>03</span><div><h3>Protect the worker</h3><p>Confidential handling and non-retaliation are policy requirements throughout.</p></div></li></ol><p class="em-panel-foot">Confirm active channels and responsible contacts during qualification.</p></div>
+    </div></section>
+
+    <section id="workplace-safety" class="qc-section em-safety"><div class="qc-container">
+      <div class="qc-heading"><div><p class="qc-eyebrow">03 / HAZARDS, CONTROLS & RESPONSE</p><h2>Workplace Health & Safety</h2></div><p>The safety documents connect hazard assessment, role-specific instruction, protective measures and inspection. Responsibility is assigned across safety, HR and operating departments.</p></div>
+      <div class="em-safety-grid">{safetyControls.map(control => <article><Icon name={control.icon} /><h3>{control.title}</h3><p>{control.text}</p></article>)}</div>
+      <div class="em-safety-band"><div><Icon name="scan-line" /><span>Assess the hazard</span></div><span aria-hidden="true">→</span><div><Icon name="shield" /><span>Define the control</span></div><span aria-hidden="true">→</span><div><Icon name="clipboard-check" /><span>Inspect & follow up</span></div></div>
+      <p class="em-dark-note">Process summaries are shown below. Operational instructions, medical details and security layouts are excluded from public previews.</p>
+    </div></section>
+
+    <section id="environment" class="qc-section"><div class="qc-container">
+      <div class="qc-heading"><div><p class="qc-eyebrow">04 / MATERIALS & WORKPLACE CONDITIONS</p><h2>Environmental Management</h2></div><p>The available evidence concerns practical chemical, waste and premises controls. It supports a discussion of documented handling requirements and the records needed to assess their use.</p></div>
+      <div class="em-environment-paths">
+        <article><div class="em-path-heading"><Icon name="flask-conical" /><h3>Chemical handling</h3></div><ol><li><strong>Identify</strong><span>Labels, inventory and safety information</span></li><li><strong>Store & inspect</strong><span>Designated storage and condition checks</span></li><li><strong>Escalate</strong><span>Report abnormalities for action</span></li></ol></article>
+        <article><div class="em-path-heading"><Icon name="recycle" /><h3>Waste handling</h3></div><ol><li><strong>Separate</strong><span>General and hazardous waste streams</span></li><li><strong>Collect</strong><span>Labeled collection points; no chemical liquids to drains</span></li><li><strong>Arrange disposal</strong><span>Qualified handlers; hazardous-waste permit requirements</span></li></ol></article>
+      </div>
+      <p class="em-review-prompt"><strong>Evidence to request:</strong> current handling procedures, applicable disposal permissions, transfer records and inspection follow-up. These records are separate from the procedure summaries on this page.</p>
+    </div></section>
+
+    <section id="business-ethics" class="qc-section em-muted-section"><div class="qc-container">
+      <div class="qc-heading"><div><p class="qc-eyebrow">05 / BUSINESS CONDUCT</p><h2>Business Ethics & Supplier Expectations</h2></div><p>Integrity requirements cover business dealings and supplier expectations. Documented requirements provide a starting point for due diligence; supplier acknowledgment and implementation evidence are separate review items.</p></div>
+      <div class="em-ethics-grid"><article><Icon name="scale" /><h3>Integrity in business relationships</h3><p>The integrity policy prohibits bribery, corruption, fraud and improper benefits in dealings with suppliers, recruitment agents, inspectors, auditors and customers.</p><span>Policy responsibilities: investigation, employee training and communication to business partners.</span></article><article><Icon name="handshake" /><h3>Expectations beyond the factory</h3><p>Supplier procedures call for written acknowledgment of social-responsibility requirements and exclude prison-labor suppliers.</p><span>Qualification focus: the current requirements, supplier acknowledgments and any supporting assessment records.</span></article></div>
+    </div></section>
+
+    <div class="qc-container"><QualityIntegrityNote /></div>
+
+    <section id="training-review" class="qc-section"><div class="qc-container">
+      <div class="qc-heading"><div><p class="qc-eyebrow">06 / LEARNING & MANAGEMENT FOLLOW-UP</p><h2>Training, Review & Improvement</h2></div><p>Training, premises checks, internal audits, incident handling and management review form the documented follow-up sequence below. Each stage calls for a record or a decision that a buyer can ask to review.</p></div>
+      <ol class="em-review-loop" aria-label="Documented training and review sequence">{reviewSteps.map((step, index) => <li><div class="em-loop-top"><span>0{index + 1}</span><Icon name={step.icon} /></div><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
+      <div class="em-roles"><strong>Responsibilities in the procedures</strong><span>HR & departments <b>Training</b></span><span>Internal auditors <b>Findings & verification</b></span><span>Management <b>Decisions & follow-up</b></span></div>
+      <p class="qc-source-note">This is a cross-procedure summary of required activities. Completion, frequency and action status must be checked against current records.</p>
+    </div></section>
+
+    <ActivityHighlights placement="ethical" title="People behind the policies" intro="Training, shared experiences and employee stories bring Xinyinhai’s factory team into view." />
+
+    <section id="evidence" class="qc-section em-evidence-section"><div class="qc-container">
+      <div class="qc-heading"><div><p class="qc-eyebrow">SELECTED DOCUMENT EVIDENCE</p><h2>Social responsibility procedure evidence</h2></div><p>Five examples show how the internal documents structure responsibilities and follow-up. Previews are English redrawings of procedures or a blank template, with source types stated explicitly.</p></div>
+      <div class="em-evidence-grid">{evidenceItems.map(item => <article class="em-evidence-card" data-evidence-card id={`evidence-${item.id}`}>
+        <div class="em-evidence-head"><span>{item.number}</span><span>{item.kind}</span></div>
+        <div class="em-evidence-title"><h3>{item.title}</h3><p>{item.area}</p></div>
+        <EvidencePreview kind={item.id} />
+        <dl class="em-evidence-details"><div><dt>What it controls</dt><dd>{item.controls}</dd></div><div><dt>How the procedure is used</dt><dd>{item.use}</dd></div></dl>
+        <div class="em-evidence-source"><p><strong>Source:</strong> {item.source}</p><p>{item.note}</p></div>
+      </article>)}</div>
+      <p class="qc-source-note">Original documents and populated personnel, customer, incident or security records are not public downloads. Supporting information is considered through a scoped qualification review.</p>
+    </div></section>
+
+    <section id="qualification-faq" class="qc-section"><div class="qc-container">
+      <div class="qc-heading"><div><p class="qc-eyebrow">BUYER QUESTIONS</p><h2>Supplier qualification questions</h2></div><p>Use these answers to define what can be learned from procedures and what needs current, site-specific evidence.</p></div>
+      <div class="qc-faq">{ethicalFaqs.map(faq => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+    </div></section>
+
+    <section class="qc-section em-related"><div class="qc-container"><p class="qc-eyebrow">CONTINUE YOUR SUPPLIER ASSESSMENT</p><h2>Related manufacturing and project review</h2><div class="em-related-links"><a href="/customization/project-fit/"><span>Project Fit</span><small>Scope, requirements and a practical starting point</small><b aria-hidden="true">↗</b></a><a href="/quality/quality-control-process/"><span>Quality Control Process</span><small>How product-quality controls are organized</small><b aria-hidden="true">↗</b></a><a href="/manufacturing/tooling-injection-molding/"><span>Tooling & Injection Molding</span><small>Manufacturing scope and process evidence</small><b aria-hidden="true">↗</b></a></div></div></section>
+
+    <section id="project-requirements" class="qc-project"><div class="qc-container qc-split">
+      <div><p class="qc-eyebrow">DEFINE THE QUALIFICATION SCOPE</p><h2>Discuss Supplier Qualification</h2><p>Tell your project contact through LEANODM.com which Xinyinhai factory site, review period and supporting information your team needs. Relevant procedures or records may be considered for controlled sharing after a scope and confidentiality review, with an NDA where appropriate.</p><div class="qc-actions"><a class="qc-text-link" href="/rfq/?source=ethical-manufacturing#rfq-form">Discuss a supplier qualification review <span aria-hidden="true">↗</span></a>{contactUrl && <Button href={contactUrl} class="qc-button">Request Supporting Information <span aria-hidden="true">→</span></Button>}<a class:list={[contactUrl ? 'qc-text-link' : 'qc-button em-download-button']} href="/resources/supplier-qualification-brief.txt" download>Download Qualification Brief <span aria-hidden="true">↓</span></a></div><p class="qc-project-note">The download does not submit a request. Use the inquiry form to describe the review scope, or share the completed brief with your existing project contact. Availability and permission to share are confirmed case by case.</p></div>
+      <div class="qc-project-list"><h3>A useful review request includes</h3><ul><li>Factory site, product scope and intended review period</li><li>Required policies, procedures and evidence categories</li><li>Any customer-specific review requirements</li><li>Confidentiality arrangements and the review timeline</li></ul><p>Request only the information needed for qualification. Personal records, customer information and sensitive operational details require restricted handling.</p></div>
+    </div></section>
+  </div>
+</BaseLayout>

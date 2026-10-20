@@ -1,0 +1,13 @@
+---
+import ActivityCard from './ActivityCard.astro';
+import { getActivitiesForPlacement, type ActivityPlacement } from '../data/activities';
+import '../styles/activities.css';
+interface Props { placement: ActivityPlacement; title?: string; intro?: string; eyebrow?: string }
+const { placement, title = 'People, progress & shared experiences', intro = 'Explore documented moments from Xinyinhai’s factory life, industry exchange and the wider community.', eyebrow = 'ACTIVITIES & COMMUNITY' } = Astro.props;
+const selected = getActivitiesForPlacement(placement);
+---
+{selected.length > 0 && <section class="activity-highlights" data-activity-placement={placement}><div class="activity-container">
+  <div class="activity-section-heading"><div><p class="activity-eyebrow">{eyebrow}</p><h2>{title}</h2></div><p>{intro}</p></div>
+  <div class:list={['activity-grid', { 'activity-grid-four': placement === 'home' }]}>{selected.map(activity => <ActivityCard activity={activity} />)}</div>
+  <div class="activity-highlights-footer"><p>Xinyinhai’s historical records offer context for a conversation about today’s factory.</p><a class="activity-text-link" href="/about/activities/">Explore all activities <span aria-hidden="true">→</span></a></div>
+</div></section>}

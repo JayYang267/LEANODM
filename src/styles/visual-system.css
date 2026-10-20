@@ -1,0 +1,28 @@
+/* Shared only by the upgraded Home and Products presentations. */
+.visual-system {
+  --vs-paper: #f7f6f2;
+  --vs-surface: #eceeea;
+  --vs-ink: #202a31;
+  --vs-muted: #5e666b;
+  --vs-line: #d8dcd7;
+  --vs-blue: #183ba3;
+  --vs-red: #e62129;
+  color: var(--vs-ink);
+  background: var(--vs-paper);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.visual-system *, .visual-system *::before, .visual-system *::after { box-sizing: border-box; }
+.visual-system img { max-width: 100%; }
+.visual-system a:focus-visible, .visual-system button:focus-visible, .visual-system summary:focus-visible {
+  outline: 3px solid var(--vs-blue);
+  outline-offset: 5px;
+}
+.visual-system [id] { scroll-margin-top: calc(var(--lean-global-header-height, 80px) + 28px); }
+.vs-tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 20px 0 0; padding: 0; }
+.vs-tags li { padding: 5px 10px; border: 1px solid var(--vs-line); font-size: 12px; line-height: 1.5; color: var(--vs-muted); }
+@media (prefers-reduced-motion: reduce) {
+  html:has(.visual-system) { scroll-behavior: auto; }
+  .visual-system *, .visual-system *::before, .visual-system *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,25 @@
+---
+interface Props { kind: 'risk' | 'training' | 'inspection' | 'action' | 'review'; }
+const { kind } = Astro.props;
+const simpleFlows = {
+  risk: ['Identify hazards', 'Propose controls', 'Safety review', 'Implement controls'],
+  training: ['HR induction', 'Department instruction', 'Assessment', 'Retain records'],
+  review: ['Audit / worker / incident inputs', 'Management review', 'Decisions + responsible roles', 'Record & follow up'],
+};
+---
+<div class:list={['em-preview', `em-preview-${kind}`]}>
+  <span class="em-preview-label">{kind === 'inspection' ? 'Redrawn blank form excerpt' : 'Redrawn procedure summary'}</span>
+  {kind in simpleFlows && <ol class="em-preview-flow" aria-label={`${kind} procedure steps`}>
+    {simpleFlows[kind as keyof typeof simpleFlows].map((step, index) => <li><span aria-hidden="true">0{index + 1}</span><strong>{step}</strong></li>)}
+  </ol>}
+  {kind === 'inspection' && <>
+    <dl class="em-blank-form">
+      {['Area', 'Month / reading', 'Inspector / date', 'Remarks'].map(label => <div><dt>{label}</dt><dd><span aria-label="Not filled">—</span></dd></div>)}
+    </dl>
+    <p class="em-blank-note">Blank example — no measured results</p>
+  </>}
+  {kind === 'action' && <div class="em-two-paths">
+    <div><strong>Audit findings</strong><ol><li>Evidence & report</li><li>Corrective plan</li><li>Verification</li></ol></div>
+    <div><strong>Incident response</strong><ol><li>Report & investigate</li><li>Corrective / preventive measures</li><li>Communicate findings</li></ol></div>
+  </div>}
+</div>

@@ -1,0 +1,150 @@
+{
+  "source": "E:\\鑫银海原始资料\\深圳市鑫银海电子有限公司简介.pptx",
+  "sourceSha256": "2b206a3c291054e8f892c87abec9408f1ccbf06b980836e2adf5ae06022ebc1a",
+  "checkedAt": "2026-10-20",
+  "method": "Read-only ZIP extraction of unmodified original PNG bytes; all six images individually visually checked and matched by SHA-256 to the previous extraction. No AI generation, raster editing, crop, recoloring or upscaling.",
+  "subject": "The pictured recipient is Xinyinhai / 深圳市鑫银海电子有限公司. Historical membership and awards do not establish current certification, active membership or endorsement of LEANODM.com.",
+  "entries": [
+    {
+      "width": 1011,
+      "slide": 23,
+      "media": "ppt/media/image82.png",
+      "titleEnglish": "Member Organization — Lean Research Association of Dongguan",
+      "previouslyExtractedFile": "source01-image86.png",
+      "issuerOriginal": "东莞市精益生产研究会",
+      "height": 759,
+      "relationship": "rId1",
+      "date": "2023-12-25",
+      "visibleText": [
+        "LEAN RESEARCH ASSOCIATION OF DONGGUAN",
+        "东莞市精益生产研究会",
+        "会员单位",
+        "深圳市鑫银海电子有限公司",
+        "2023年12月25日"
+      ],
+      "file": "dongguan-lean-association-membership-2023.png",
+      "sha256": "12d7391d6dcdad3c21c9cc34bd92078254289b575e554dd37068d34c9e55a320",
+      "titleOriginal": "会员单位",
+      "bytes": 1858265
+    },
+    {
+      "width": 1062,
+      "slide": 23,
+      "media": "ppt/media/image83.png",
+      "titleEnglish": "Certificate of Appreciation — STEM Mathematical Modeling",
+      "previouslyExtractedFile": "source01-image87.png",
+      "issuerOriginal": "International Mathematical Modeling Challenge Committee (Zhonghua)",
+      "height": 759,
+      "relationship": "rId2",
+      "date": "2024-03-02",
+      "visibleText": [
+        "CERTIFICATE OF APPRECIATION",
+        "The Advanced Program for Promoting STEM Education through Learning and Teaching Mathematical Modeling and its Applications",
+        "深圳市鑫銀海電子有限公司",
+        "for organizing the visit and workshop of Field Study - Realizing ESG Goal through Optimization of Production Process: An Investigation Case of Electronic Manufacturer in Shenzhen on 2 Mar, 2024",
+        "Funded by Quality Education Fund",
+        "International Mathematical Modeling Challenge Committee(Zhonghua)"
+      ],
+      "file": "stem-mathematical-modeling-appreciation-2024.png",
+      "sha256": "0d91564096491369c6748cfd68775199a88b06869f341f964578a8aab8c07f30",
+      "titleOriginal": "CERTIFICATE OF APPRECIATION",
+      "bytes": 868350
+    },
+    {
+      "width": 510,
+      "slide": 24,
+      "media": "ppt/media/image85.png",
+      "titleEnglish": "Cost Contribution Award",
+      "previouslyExtractedFile": "source01-image89.png",
+      "issuerOriginal": "倍乐生香港有限公司",
+      "height": 680,
+      "relationship": "rId2",
+      "date": "2018-06-22",
+      "visibleText": [
+        "Benesse",
+        "致：深圳市鑫银海电子有限公司",
+        "2018年供应商大会",
+        "成本贡献奖",
+        "2018年6月22日",
+        "倍乐生香港有限公司",
+        "Benesse Hong Kong Co., Ltd."
+      ],
+      "file": "benesse-cost-contribution-award-2018.png",
+      "sha256": "5458ca8b18c1c5ee6182acf414fc7c2434eeee9284178a2ef3606394855509e2",
+      "titleOriginal": "成本贡献奖",
+      "bytes": 312717
+    },
+    {
+      "issuerOriginal": "倍乐生香港有限公司",
+      "titleOriginal": "工场管理显著进步奖",
+      "previouslyExtractedFile": "source01-image90.png",
+      "sha256": "b9023939c9a349b6e2854e2352cf592c318bed303ff7001e25cf3db412d45c66",
+      "bytes": 182766,
+      "note": "Plaque uses 工场管理; slide caption uses 工厂管理. Preserve this distinction in provenance.",
+      "file": "benesse-factory-management-progress-award-2019.png",
+      "visibleText": [
+        "Benesse",
+        "致：深圳市鑫银海电子有限公司",
+        "2019年供应商大会",
+        "工场管理显著进步奖",
+        "2019年6月14日",
+        "倍乐生香港有限公司",
+        "Benesse Hong Kong Co., Ltd."
+      ],
+      "slide": 24,
+      "titleEnglish": "Significant Improvement in Factory Management Award",
+      "date": "2019-06-14",
+      "height": 541,
+      "width": 406,
+      "media": "ppt/media/image86.png",
+      "relationship": "rId3"
+    },
+    {
+      "width": 645,
+      "slide": 24,
+      "media": "ppt/media/image84.png",
+      "titleEnglish": "Annual Outstanding Quality Award",
+      "previouslyExtractedFile": "source01-image88.png",
+      "issuerOriginal": "倍乐生香港有限公司",
+      "height": 537,
+      "relationship": "rId1",
+      "date": "2022-08-19",
+      "visibleText": [
+        "Benesse",
+        "2022年供应商大会",
+        "年度最优秀品质奖",
+        "深圳市鑫银海电子有限公司",
+        "倍乐生香港有限公司",
+        "2022年8月19日"
+      ],
+      "file": "benesse-outstanding-quality-award-2022.png",
+      "sha256": "b6a133f316e567266b47c18c296d69db65823a94b85ff8047136ac73dcdbbe6e",
+      "titleOriginal": "年度最优秀品质奖",
+      "bytes": 376487
+    },
+    {
+      "width": 434,
+      "slide": 24,
+      "media": "ppt/media/image87.png",
+      "titleEnglish": "Business Development Collaboration Award",
+      "previouslyExtractedFile": "source01-image91.png",
+      "issuerOriginal": "倍乐生香港有限公司",
+      "height": 578,
+      "relationship": "rId4",
+      "date": "2023-06-30",
+      "visibleText": [
+        "Benesse",
+        "2023年供应商大会",
+        "事业发展协作奖",
+        "深圳市鑫银海电子有限公司",
+        "20th",
+        "倍乐生香港有限公司",
+        "2023年6月30日"
+      ],
+      "file": "benesse-business-development-collaboration-award-2023.png",
+      "sha256": "8fccc949ec0b668d1b5e473303754da0efa2c25f0a526b370be7b39c140dddff",
+      "titleOriginal": "事业发展协作奖",
+      "bytes": 340606
+    }
+  ]
+}

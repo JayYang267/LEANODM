@@ -1,0 +1,245 @@
+---
+import { SITE } from '@config/site';
+import ActivityHighlights from '../../../components/ActivityHighlights.astro';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import AssemblyDiagram from '@components/AssemblyDiagram.astro';
+import AssemblyFlow from '@components/AssemblyFlow.astro';
+import AssemblyEvidence from '@components/AssemblyEvidence.astro';
+import SolderingSequence from '@components/SolderingSequence.astro';
+import { Icon } from 'astro-iconset/components';
+import { Image, getImage } from 'astro:assets';
+import springPositioning from '../../../assets/assembly-packaging/spring-positioning.jpg';
+import slidingLubrication from '../../../assets/assembly-packaging/sliding-component-lubrication.jpg';
+import singleStation from '../../../assets/assembly-packaging/automatic-single-station.webp';
+import dualStation from '../../../assets/assembly-packaging/automatic-dual-station.webp';
+import electricDriver from '../../../assets/assembly-packaging/manual-electric-driver.webp';
+import torqueTester from '../../../assets/assembly-packaging/torque-tester.webp';
+import nozzleBit from '../../../assets/assembly-packaging/nozzle-driver-bit.webp';
+import screwFeeder from '../../../assets/assembly-packaging/screw-feeder.webp';
+import solderIrons from '../../../assets/assembly-packaging/solder-feeding-irons.webp';
+import temperatureTester from '../../../assets/assembly-packaging/solder-temperature-tester.webp';
+import goodJoint from '../../../assets/assembly-packaging/solder-good-reference.webp';
+import poorWire from '../../../assets/assembly-packaging/solder-ng-wire.webp';
+import tipBefore from '../../../assets/assembly-packaging/solder-tip-before.webp';
+import tipAfter from '../../../assets/assembly-packaging/solder-tip-after.webp';
+import solderDebris from '../../../assets/assembly-packaging/solder-debris.webp';
+import paperScraps from '../../../assets/assembly-packaging/paper-scraps.webp';
+import { assemblyRoute, assemblyNavigation, assemblyProcess, assemblyInstructions, assemblyControls, assemblyInspection, assemblyOutcomes, assemblyFaqs } from '../../../data/assembly-packaging';
+import '../../../styles/quality-control-process.css';
+import '../../../styles/assembly-packaging.css';
+
+const title = 'Electronic Product Assembly & Packaging Services | LEANODM.com';
+const description = 'Electronic product assembly with screw fastening, hand soldering, in-process quality control, packaging checks and foreign-object prevention at Xinyinhai.';
+const origin = SITE.url;
+const canonical = new URL(assemblyRoute, origin).href;
+const socialImage = await getImage({ src: springPositioning, width: 1200, format: 'jpg', quality: 85 });
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Manufacturing', url: '/manufacturing/' }, { name: 'Assembly & Packaging', url: assemblyRoute }];
+const sourcePages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
+const printingRoute = ['/manufacturing/screen-printing/'].find(route => sourcePages.includes(`/src/pages${route}index.astro`));
+const manufacturingLinks = [
+  { label: 'Product development', detail: 'Define the product and assembly requirements.', href: '/customization/new-product-development/' },
+  { label: 'Tooling & injection molding', detail: 'Connect plastic parts to the manufacturing route.', href: '/manufacturing/tooling-injection-molding/' },
+  ...(printingRoute ? [{ label: 'Printing & decoration', detail: 'Review the documented screen-printing process.', href: printingRoute }] : []),
+  { label: 'Assembly & packaging', detail: 'Fit, verify and prepare the finished product.', href: '#assembly-process' },
+  { label: 'Quality control', detail: 'See inspection responsibilities across production.', href: '/quality/quality-control-process/' },
+  { label: 'Final inspection', detail: 'Review the finished-goods inspection framework.', href: '/quality/quality-control-process/#final-inspection' },
+];
+const readinessSteps = [
+  { name: 'Order & production plan', detail: 'Start from the ERP production order and planned work.' },
+  { name: 'Instructions & tooling', detail: 'Prepare the work instructions, fixtures and required references.' },
+  { name: 'Materials & setup', detail: 'Issue the planned materials; arrange the line and confirm machine setup.' },
+  { name: 'First piece & training', detail: 'Confirm the first piece, then brief operators on the instruction and past issues.' },
+];
+const productionSteps = [
+  { name: 'Assembly operations', detail: 'Fit components; fasten, lubricate or hand-solder as the product requires.' },
+  { name: 'Self-check & line inspection', detail: 'Operators check their work; line patrol checks verify the running process.' },
+  { name: 'Quality verification', detail: 'OQC checks function and appearance against the applicable criteria.' },
+  { name: 'Packing & final acceptance', detail: 'Follow the packing route, final quality checks and accepted-goods handoff.' },
+];
+const packingSteps = [
+  { name: 'Prepare & inspect', detail: 'Issue packaging materials against the production plan. Include the BIQC gate where applicable.' },
+  { name: 'Set up & confirm', detail: 'Confirm the packing line, equipment setup and first piece; train operators before starting.' },
+  { name: 'Pack & self-check', detail: 'Use the defined bagging and placement method. Operators check work during packing.' },
+  { name: 'Inspect the running line', detail: 'Line patrol and Quality sampling check the packing operation and finished output.' },
+  { name: 'Final verification', detail: 'Keep finished goods in the designated area for required final and customer inspection.' },
+  { name: 'Identify & hand over', detail: 'Apply accepted status identification and complete warehouse handover for shipment readiness.' },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Service', '@id': `${canonical}#service`, name: 'Product Assembly & Packaging', serviceType: 'Electronic product assembly and packaging services', description, url: canonical, provider: { '@id': `${origin}/#xinyinhai` } },
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: title, description, url: canonical, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#xinyinhai` }, mainEntity: { '@id': `${canonical}#service` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` } },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.url, origin).href })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: assemblyFaqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} technicalPage technicalNavigation={assemblyNavigation} technicalPageTitle="Assembly & packaging" contactHref="#project-requirements" technicalContactLabel="Prepare Project Brief" technicalFooterDescription="Prepare your component information, assembly requirements, reference samples and packaging specifications.">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={new URL(socialImage.src, origin).href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="900" />
+    <meta property="og:image:alt" content="Original factory work-instruction photograph of spring positioning in a plastic housing" />
+    <meta name="twitter:image" content={new URL(socialImage.src, origin).href} />
+    <meta name="twitter:image:alt" content="Spring positioning shown in an original factory work instruction" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="qc-page ap-page">
+    <section class="qc-hero ap-hero" aria-labelledby="page-title">
+      <div class="qc-container">
+        <nav class="qc-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, i) => <li>{i < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="qc-hero-grid">
+          <div>
+            <p class="qc-eyebrow">MANUFACTURING / XINYINHAI FACTORY</p>
+            <h1 id="page-title">Product Assembly &amp; Packaging</h1>
+            <p class="qc-lead">Electronic product assembly, controlled screw fastening and hand soldering—connected to in-process inspection and final packaging.</p>
+            <p class="qc-intro">This page presents Xinyinhai’s documented assembly and packaging methods for plastic and electronic OEM/ODM projects. Work instructions, trained operators and reference samples guide component fitting, process checks and preparation of the finished product.</p>
+            <div class="qc-actions"><Button href="#project-requirements" class="qc-button">Prepare Your Project Brief <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="#assembly-process">Explore the process <span aria-hidden="true">↓</span></a></div>
+          </div>
+          <div class="ap-hero-visual">
+            <div class="ap-panel-label"><span>COMPONENTS → FINISHED PRODUCT</span><span>ASSEMBLY / QC / PACKING</span></div>
+            <AssemblyDiagram variant="hero" idPrefix="assembly-hero" />
+            <div class="ap-visual-footer"><span>Position &amp; fit</span><span>Verify &amp; inspect</span><span>Bag &amp; pack</span></div>
+          </div>
+        </div>
+        <div class="qc-hero-foot"><span>Defined work instructions</span><span>Reference sample checks</span><span>Inspection before packing</span><a href="#factory-evidence">See original process photographs <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <div class="qc-container">
+      <section id="assembly-process" class="qc-section" aria-labelledby="process-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">01 / ONE CONNECTED PROCESS</p><h2 id="process-title">From Production Order to Finished Product</h2></div><p>Assembly and packaging follow a planned route: prepare the line, confirm the first piece, train the operator, verify the work and inspect the packed result.</p></div>
+        <div class="ap-connected-flow">
+          <AssemblyFlow label="PREPARE / CONFIRM BEFORE START" steps={readinessSteps} />
+          <AssemblyFlow label="PRODUCE / CHECK THROUGHOUT THE ROUTE" steps={productionSteps} start={5} />
+          <div class="ap-return"><span aria-hidden="true">↶</span><div><strong>NG → identify, segregate, correct and re-check</strong><p>The assembly board returns repaired units to the assembly sequence. Rejected packing returns for review and correction before acceptance.</p></div></div>
+        </div>
+        <p class="qc-source-note">Summarized from the assembly and packaging production boards. The product’s operations, inspection criteria and required customer inspection are confirmed for each project.</p>
+        <a class="qc-text-link" href="#packaging-controls">Follow the packaging route <span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section id="work-instructions" class="qc-section" aria-labelledby="instructions-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">02 / DEFINED AT THE WORKSTATION</p><h2 id="instructions-title">Standardized Assembly Instructions</h2></div><p>Work instructions make the order of operations and the expected result explicit. Operators use written steps and a reference sample to guide the assembly.</p></div>
+        <div class="ap-instructions">{assemblyInstructions.map((step, i) => <article><div class="ap-instruction-heading"><span class="ap-step-number">{String(i + 1).padStart(2, '0')}</span><span aria-hidden="true"><Icon name={`lucide:${step.icon}`} /></span><h3>{step.name}</h3></div><dl><div><dt>What happens</dt><dd>{step.action}</dd></div><div><dt>What is controlled</dt><dd>{step.control}</dd></div><div><dt>Why it matters</dt><dd>{step.purpose}</dd></div></dl></article>)}</div>
+        <details class="ap-detail"><summary>A documented multi-step assembly example</summary><div class="ap-detail-body"><p>The archived work instructions connect six assembly and packing operations with a separate inspection instruction. They demonstrate a defined sequence, reference-sample checks and cleanliness requirements.</p><ol class="ap-legacy-route">{assemblyProcess.map(step => <li><strong>{step.name}</strong><span>{step.detail}</span></li>)}</ol></div></details>
+      </section>
+
+      <section id="assembly-controls" class="qc-section" aria-labelledby="controls-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">03 / THE DETAILS THAT MATTER</p><h2 id="controls-title">Assembly Control Points</h2></div><p>Correct assembly depends on both the position of the parts and the condition of their interfaces. These control points recur across the work instructions and inspection requirements.</p></div>
+        <div class="ap-controls">
+          <div class="ap-control-visual"><div class="ap-panel-label"><span>ASSEMBLY INTERFACES</span><span>01—07</span></div><AssemblyDiagram variant="controls" idPrefix="assembly-controls-figure" /><p class="ap-diagram-note">Numbers connect the illustrative interfaces to the documented control points.</p></div>
+          <ol class="ap-control-list">{assemblyControls.map((control, i) => <li><span>{String(i + 1).padStart(2, '0')}</span><div><h3>{control.name}</h3><p>{control.text}</p></div></li>)}</ol>
+        </div>
+      </section>
+
+      <section id="screw-fastening" class="qc-section" aria-labelledby="fastening-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">04 / TOOLS, FIXTURES &amp; TORQUE</p><h2 id="fastening-title">Screw-Fastening Controls at Xinyinhai</h2></div><p>Manual electric screwdrivers and automatic screw machines share the same priorities: the correct screw, stable positioning, verified torque and a defined response when fastening is abnormal.</p></div>
+        <div class="ap-fastening-layout">
+          <div class="ap-machine-pair">
+            <AssemblyEvidence src={singleStation} alt="Archived single-workstation screw machine showing its fixture, feeder and control panel" label="Single workstation" caption="One product position, with the screw feeder and fixture beside the driver." />
+            <AssemblyEvidence src={dualStation} alt="Archived automatic screw machine with two fixture positions and front controls" label="Dual workstation" caption="Two work positions shown in the automatic-fastening training material." />
+          </div>
+          <div class="ap-method-copy"><p class="qc-small-label">MANUAL + AUTOMATIC METHODS</p><h3>Match the method to the joint.</h3><p>The training covers handheld electric drivers, single-head machines with one or two workstations, and a dual-head / dual-workstation configuration.</p><p>Fixture location, screw access, driver-bit fit and suction-nozzle condition matter alongside the torque setting.</p><div class="ap-torque-reference"><AssemblyEvidence src={torqueTester} alt="Digital torque tester illustrated in the screw-fastening training guide" compact contain caption="Torque tester: training equipment reference." /><div><h3>Verify the setting</h3><p>Torque-checking equipment and inspection records support the tool check. Set values and checking frequency follow the product-specific instruction.</p></div></div></div>
+        </div>
+        <p class="qc-source-note">Machine photographs are archived factory process evidence. They illustrate documented configurations; project equipment allocation is confirmed during review.</p>
+        <div class="ap-loop"><h3>Fastening control loop</h3><ol>{['Correct screw', 'Locate in fixture', 'Verify torque', 'Check tool & nozzle', 'Fasten & inspect', 'Respond to alarm', 'Segregate NG', 'Correct & re-check'].map((step, i) => <li><span>{String(i + 1).padStart(2, '0')}</span>{step}</li>)}</ol></div>
+        <div class="ap-risk-controls"><div><h3>What the checks address</h3><p>Missing, loose or raised screws; wrong or mixed screw types; damaged heads; incorrect torque; contaminated feeders; poor fixture alignment; and operator handling errors.</p></div><div><h3>When a result is abnormal</h3><p>Mark the affected position, separate the unit for the line leader’s review and investigate the screw, tool, fixture and molded fixing feature. Confirm the affected fasteners again after correction.</p></div></div>
+        <details class="ap-detail"><summary>Tool setup, alarms, feeding and line clearance</summary><div class="ap-detail-body ap-fastening-details">
+          <dl class="ap-technical-list"><div><dt>Tool and fixture checks</dt><dd>Use the specified screw, compatible driver bit and suction nozzle. Check wear, straightness and product seating; a damaged bit or unstable fixture can affect fastening.</dd></div><div><dt>Machine controls and alarms</dt><dd>Train operators on reset, start, stop and emergency-stop controls for the specific machine. The guide includes missed-pickup and torque alarms, marked NG units and separate collection for review.</dd></div><div><dt>Screw loading and clearance</dt><dd>Match the screw type and feeder before loading. Follow the prescribed power-off procedure for loading or removing screws. Check the hopper, turntable and rails for hidden screws when clearing the feeder.</dd></div><div><dt>Cleaning and verification</dt><dd>Remove loose screws and debris from the feeder, fixture and machine surfaces. Review tool condition, screw seating and affected fastening positions; do not treat an alarm reset alone as product acceptance.</dd></div></dl>
+          <div class="ap-detail-photos"><AssemblyEvidence src={electricDriver} alt="Handheld electric screwdriver shown in the fastening training guide" compact contain label="Manual electric driver" caption="Training equipment reference." /><AssemblyEvidence src={nozzleBit} alt="Hands showing the screw-machine suction nozzle and driver bit assembly" compact contain label={'Nozzle & bit'} caption="Archived tool-check photograph." /><AssemblyEvidence src={screwFeeder} alt="Loose screws in the hopper of the automatic screw feeder" compact contain label="Feeder hopper" caption="Archived screw-feeding photograph." /></div>
+        </div></details>
+      </section>
+
+      <section id="hand-soldering" class="qc-section" aria-labelledby="soldering-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">05 / ELECTRONIC CONNECTIONS</p><h2 id="soldering-title">Hand-Soldering Controls at Xinyinhai</h2></div><p>Hand-soldering assembly is controlled through cleanliness, temperature and time. Preparation, trained handling and visual joint checks connect the operation to the product’s acceptance requirements.</p></div>
+        <div class="ap-solder-preparation">
+          <dl class="ap-factors"><div><dt><span>01</span>Cleanliness</dt><dd>Prepare clean component leads and pads. Check the tip for residue, oxidation or damage so the contact surfaces can wet correctly.</dd></div><div><dt><span>02</span>Temperature</dt><dd>Select suitable iron power and tip contact area. Allow the setting to stabilize, then verify tip temperature with the tester.</dd></div><div><dt><span>03</span>Time</dt><dd>Control heating, solder feeding and withdrawal. Keep the connection undisturbed while the solder solidifies.</dd></div></dl>
+          <div class="ap-solder-equipment"><AssemblyEvidence src={solderIrons} alt="Manual solder-feeding irons and tips pictured in the assembly training material" contain label="Controlled hand feeding" caption="Solder-feeding irons illustrated in the training guide." /><AssemblyEvidence src={temperatureTester} alt="Soldering-iron temperature tester with its measurement sensor" compact contain label="Verify tip temperature" caption="Training equipment reference; no measured result is implied." /></div>
+        </div>
+        <SolderingSequence />
+        <div class="ap-joint-review">
+          <div><p class="qc-small-label">GOOD / NG TRAINING REFERENCES</p><h3>Recognize the joint, then check the requirement.</h3><p>Compare solder amount, joint profile, wetting and wire engagement with the work instruction. The examples show acceptable appearance and a poor wire connection; they are different training examples, not a before-and-after pair.</p><ul class="ap-defect-list"><li>Excessive or insufficient solder</li><li>Bridging and solder spikes</li><li>Cold / poorly formed joints</li><li>Loose or poorly soldered wire</li><li>Oxidation and poor wetting</li></ul></div>
+          <div class="ap-joint-pair"><AssemblyEvidence src={goodJoint} alt="Acceptable solder-joint training close-up with the original yellow inspection circle" compact contain label="GOOD / reference appearance" caption="Joint identified as acceptable in the training guide. Apply the project’s acceptance criteria." /><AssemblyEvidence src={poorWire} alt="Poor wire-soldering training example showing a red wire separated from its soldered contact" compact contain label="NG / poor wire connection" caption="Wire connection identified as poor in the guide. This is not a current production incident." /></div>
+        </div>
+        <details class="ap-detail"><summary>Tip selection, heating technique and maintenance</summary><div class="ap-detail-body">
+          <div class="ap-risk-controls"><div><h3>Transfer heat at the interface</h3><p>Choose the tip shape and contact area for the connection. Heat both the component and copper pad; control solder feeding at the heated joint and withdraw the iron smoothly.</p></div><div><h3>Keep the tool and fixture clean</h3><p>Inspect tip condition, remove residue with the specified cleaner, protect the tip during pauses and switch off for extended idle periods. Clean fixtures so debris does not transfer to the product.</p></div></div>
+          <div class="ap-tip-pair"><AssemblyEvidence src={tipBefore} alt="Soldering tip before cleaning in an archived training photograph" contain label="Before cleaning" caption="Residue on the tip is highlighted by the original training arrow." /><AssemblyEvidence src={tipAfter} alt="Soldering tip after cleaning in the matching archived training photograph" contain label="After cleaning" caption="The guide pairs tip cleaning with temperature and joint-surface checks." /></div>
+          <p class="qc-source-note">Temperatures, heating times and any electrical or mechanical tests are defined for the product. Training photographs do not establish a test result or a universal solder-joint acceptance standard.</p>
+        </div></details>
+      </section>
+
+      <section id="final-inspection" class="qc-section" aria-labelledby="inspection-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">06 / ASSEMBLY → QC → PACKING</p><h2 id="inspection-title">How Assembly Quality Is Verified</h2></div><p>Quality checks begin before batch work and continue through assembly. First-piece confirmation, operator self-checks and line inspection lead into final quality verification before packing.</p></div>
+        <div class="ap-inspection-stages"><article><span class="qc-small-label">BEFORE PRODUCTION</span><h3>First-piece confirmation</h3><p>Confirm setup and the initial product against the instruction and reference before the trained operator starts the run.</p></article><article><span class="qc-small-label">DURING PRODUCTION</span><h3>Self-check + line patrol</h3><p>Check the operation as it runs. Review fastening, soldering, component fit and cleanliness at the relevant process.</p></article><article><span class="qc-small-label">BEFORE ACCEPTANCE</span><h3>Quality verification</h3><p>OQC checks appearance and function. Identify and segregate NG units; return repaired units for the required re-checks.</p></article></div>
+        <div class="ap-inspection-sheet">
+          <div class="ap-inspection-heading"><span><Icon name="lucide:clipboard-list" aria-hidden="true" /> INSPECTION &amp; PACKING CHECKPOINTS</span><span>PRODUCT-SPECIFIC REQUIREMENTS</span></div>
+          <div class="ap-checklist-grid">{assemblyInspection.map((group, i) => <article><header><span class="ap-inspection-icon" aria-hidden="true"><Icon name={`lucide:${group.icon}`} /></span><div><span class="ap-step-number">{i === 3 ? 'AFTER QC' : 'FINAL QC'}</span><h3>{group.name}</h3></div></header><ul>{group.items.map(item => <li><span class="ap-check-box" aria-hidden="true"></span>{item}</li>)}</ul></article>)}</div>
+          <div class="ap-inspection-note"><strong>Reference sample + written criteria</strong><p>The checklist identifies what is checked. It is not a test report or a universal acceptance specification.</p></div>
+        </div>
+        <div class="ap-related-line"><a class="qc-text-link" href="/quality/appearance-inspection/">Explore appearance inspection <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="/quality/quality-control-process/#final-inspection">See the final inspection framework <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section id="foreign-object-prevention" class="qc-section" aria-labelledby="foreign-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">07 / SMALL PARTS, CLEAN WORK &amp; CLEARANCE</p><h2 id="foreign-title">Foreign-Object Prevention in Assembly &amp; Packaging</h2></div><p>The objective is to reduce unintended material entering the product or package. Hazard awareness, workstation cleaning and feeder clearance support the self-check, line inspection and final verification route.</p></div>
+        <div class="ap-foreign-layout"><div class="ap-hazard-groups"><div><h3>Process residues</h3><p>Loose screws, metal chips, solder debris, plastic runners or fragments, paper scraps and transparent tape.</p></div><div><h3>Small parts &amp; tools</h3><p>Batteries, rubber bands, other loose parts, driver bits, blades, needles and tools that could remain inside a package.</p></div><div><h3>Handling &amp; environment</h3><p>Hair, fibers or cleaning-cloth fragments, insects, glue strands and surface contamination.</p></div></div><div class="ap-hazard-photos"><AssemblyEvidence src={solderDebris} alt="Solder residues used as a foreign-object hazard example in the packaging training material" compact contain label="Solder residues" caption="Original training example of loose process debris." /><AssemblyEvidence src={paperScraps} alt="Paper scraps inside a carton in a packaging contamination training example" compact contain label="Packaging scraps" caption="Original training example; not a current shipment incident." /></div></div>
+        <div class="ap-risk-controls"><div><h3>Clear the source of debris</h3><p>The screw-machine guide requires removal of remaining screws from the feeder and rails, followed by cleaning of the machine surface. Soldering training adds tip and fixture cleaning.</p></div><div><h3>Define the final check</h3><p>The project packing checklist should specify visual checks inside the product and package, tool and sharp-object control, and removal of loose materials before closure. Inspection follows the agreed criteria.</p></div></div>
+        <p class="qc-source-note">The awareness board’s “zero-risk” wording is an internal prevention objective. It is not a guarantee of zero foreign objects or zero defects.</p>
+      </section>
+
+      <section id="packaging-controls" class="qc-section" aria-labelledby="packing-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">08 / THE FINAL PRODUCTION CONTROL</p><h2 id="packing-title">Packaging &amp; Final Verification</h2></div><p>Packaging connects material preparation, clean handling, product protection and inspection. The documented route ends with accepted-status identification and a controlled handover to finished-goods storage.</p></div>
+        <div class="ap-connected-flow"><AssemblyFlow label="PACKAGING ROUTE / PREPARATION TO ACCEPTED GOODS" steps={packingSteps} variant="compact" /><div class="ap-return"><span aria-hidden="true">↶</span><div><strong>Rejected packing returns for correction</strong><p>Quality and required customer-inspection decisions feed back to the packing operation. Complete the relevant verification before accepted-goods handover.</p></div></div></div>
+        <div class="ap-packing-spec"><div><p class="qc-small-label">DEFINE IN THE PROJECT PACKING INSTRUCTION</p><h3>Make the packed configuration explicit.</h3><p>The archived SOP establishes bagging, orderly placement and carton packing. Extend that basis with the product-specific requirements below.</p></div><ul><li>Correct product, components and accessories</li><li>Clean packaging materials and product surfaces</li><li>Required bag, insert and protective arrangement</li><li>Label / artwork revision and packed quantity</li><li>Carton arrangement and condition</li><li>Foreign-object check and final acceptance criteria</li></ul></div>
+        <p class="qc-source-note">The board includes a BIQC inspection gate; its scope follows the applicable product route. Customer inspection is included when required. These stages do not imply a universal 100% inspection or shipment guarantee.</p>
+        <div class="ap-related-line"><a class="qc-text-link" href="/quality/inspector-training/#biqc-workflow">Explore the BIQC workflow reference <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="#project-requirements">Prepare your assembly &amp; packing requirements <span aria-hidden="true">↓</span></a></div>
+      </section>
+
+      <section id="factory-evidence" class="qc-section" aria-labelledby="evidence-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">09 / ORIGINAL PROCESS PHOTOGRAPHS</p><h2 id="evidence-title">Documented Assembly in Practice</h2></div><p>Selected photographs from archived factory work instructions show the actual assembly operations behind the process. They complement the equipment and training references above and illustrate the method, rather than the current factory layout or product range.</p></div>
+        <div class="ap-evidence-grid">
+          <figure><div class="ap-photo-window ap-photo-spring"><Image src={springPositioning} alt="Operator positioning a metal spring in the locating slot of a clear plastic housing" widths={[320, 480, 640, 960, 1280]} sizes="(max-width: 599px) calc(100vw - 32px), (max-width: 859px) calc((100vw - 72px) / 2), 390px" width={1280} height={960} format="webp" quality={82} loading="lazy" decoding="async" /></div><figcaption><span class="qc-small-label">COMPONENT POSITIONING</span><h3>A defined position for the spring</h3><p>The instruction requires installation in the locating slot, pressed firmly and flat, with the sample as a reference.</p></figcaption></figure>
+          <figure><div class="ap-photo-window ap-photo-lubrication"><Image src={slidingLubrication} alt="Gloved operator applying lubricant to the sliding rail of a clear internal component" widths={[320, 480, 640, 960, 1280]} sizes="(max-width: 599px) calc(100vw - 32px), (max-width: 859px) calc((100vw - 72px) / 2), 390px" width={1280} height={960} format="webp" quality={82} loading="lazy" decoding="async" /></div><figcaption><span class="qc-small-label">LUBRICATION &amp; CLEANLINESS</span><h3>Specified surfaces, clean handling</h3><p>The instruction identifies the sliding rail for lubrication and requires product surfaces to remain clean.</p></figcaption></figure>
+          <aside class="ap-evidence-chain"><p class="qc-small-label">HOW THE RECORDS CONNECT</p><h3>One method, from work step to finished product.</h3><ol><li><strong>Process flow</strong><span>Defines the assembly order and QC stage.</span></li><li><strong>Work instructions</strong><span>Show the operation, positioning and reference sample requirement.</span></li><li><strong>Inspection instruction</strong><span>Defines appearance and functional checks.</span></li><li><strong>Packing instruction</strong><span>Defines bagging, organized placement and carton packing.</span></li></ol></aside>
+        </div>
+      </section>
+
+      <section id="assembly-discipline" class="qc-section" aria-labelledby="discipline-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">10 / WHAT THE BUYER RECEIVES</p><h2 id="discipline-title">Why Assembly Discipline Matters</h2></div><p>Assembly decisions affect how a product looks, fits, moves and arrives at the packing stage.</p></div>
+        <div class="ap-outcomes">{assemblyOutcomes.map((item, i) => <article><span>{String(i + 1).padStart(2, '0')}</span><div><h3>{item.name}</h3><p>{item.text}</p></div></article>)}</div>
+      </section>
+
+      <section id="project-fit" class="qc-section" aria-labelledby="fit-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">11 / OEM &amp; ODM PROJECT FIT</p><h2 id="fit-title">Suitable Project Types</h2></div><p>Start with the component set and required operations. The same assembly discipline can inform different product briefs; suitability is confirmed through technical review.</p></div>
+        <div class="ap-fit-list"><article><span aria-hidden="true"><Icon name="lucide:component" /></span><div><h3>Plastic products &amp; mechanical assemblies</h3><p>Projects with molded housings, internal parts, springs, locks, screws or moving interfaces.</p></div></article><article><span aria-hidden="true"><Icon name="lucide:cpu" /></span><div><h3>Electronic products with assembled housings</h3><p>Plastic and electronic OEM/ODM products within the factory’s manufacturing scope. Electronic integration and testing requirements are reviewed separately.</p></div></article><article><span aria-hidden="true"><Icon name="lucide:package" /></span><div><h3>Promotional, gift &amp; interactive product briefs</h3><p>Potential applications to assess against the design, components and acceptance requirements. These examples do not imply an available product catalogue.</p></div></article></div>
+        <a class="qc-text-link" href="/customization/project-fit/">Review project fit &amp; working principles <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section id="connected-manufacturing" class="qc-section" aria-labelledby="connected-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">12 / CONNECTED MANUFACTURING</p><h2 id="connected-title">How Assembly Connects With Xinyinhai’s Manufacturing</h2></div><p>Review the adjacent capabilities and quality requirements when defining the complete manufacturing scope.</p></div>
+        <ol class="ap-manufacturing-links">{manufacturingLinks.map((item, i) => <li><a href={item.href}><span class="ap-step-number">{String(i + 1).padStart(2, '0')}</span><h3>{item.label}<span aria-hidden="true"> ↗</span></h3><p>{item.detail}</p></a></li>)}</ol>
+        <a class="qc-text-link" href="/customization/oem-manufacturing/">Review the OEM manufacturing scope <span aria-hidden="true">↗</span></a>
+        <a class="qc-text-link ap-working-link" href="/customization/how-we-work/">How project review and production connect <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <ActivityHighlights placement="assembly" title="Assembly teams and their working environment" intro="Factory records offer a closer look at assembly workspaces, learning and team life." />
+
+      <section id="faq" class="qc-section" aria-labelledby="faq-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">13 / BUYER QUESTIONS</p><h2 id="faq-title">Assembly &amp; Packaging FAQ</h2></div><p>Practical answers for sourcing, engineering and quality teams reviewing contract assembly services for plastic and electronic products.</p></div>
+        <div class="qc-faq">{assemblyFaqs.map(faq => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+      </section>
+    </div>
+
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title">
+      <div class="qc-container qc-split">
+        <div><p class="qc-eyebrow">YOUR NEXT OEM / ODM PROJECT</p><h2 id="project-title">Prepare Your Assembly &amp; Packaging Requirements</h2><p>Bring the component fit, assembly sequence, fastening, soldering, inspection criteria and packaging requirements into one project brief.</p><div class="qc-actions"><a class="qc-button ap-download" href="/resources/assembly-packaging-project-brief.txt" download="LEANODM-assembly-packaging-project-brief.txt">Download the Project Brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=manufacturing-assembly-packaging#rfq-form">Discuss your assembly project <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Use this checklist to prepare your project review or quote request. Downloading it does not submit an enquiry.</p></div>
+        <div class="qc-project-list"><h3>Prepare for an assembly review</h3><ul><li>Drawings, component list and material specifications</li><li>Reference sample and required assembly sequence</li><li>Screw type, torque, fixture and fastening requirements</li><li>Soldered connections and acceptance requirements</li><li>Appearance, functional checks and inspection criteria</li><li>Accessories, protection, quantity, labels and carton arrangement</li><li>Target quantity and intended market</li></ul></div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

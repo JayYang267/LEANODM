@@ -1,0 +1,949 @@
+{
+  "groups": [
+    {
+      "id": "key-defect-examples",
+      "name": "Key Defect Examples",
+      "description": "Examples from the source’s two priority sections. Read each original classification in context; these labels are not converted into CR, MA or MI.",
+      "examples": [
+        {
+          "id": "p04-chewing-gum",
+          "title": "Chewing gum contamination",
+          "caption": "The red ellipse identifies chewing gum caught in the product.",
+          "alt": "Chewing gum contamination. The red ellipse identifies chewing gum caught in the product.",
+          "asset": "p04-chewing-gum.png",
+          "width": 283,
+          "height": 263,
+          "source": "Training PPT · slide 4 · left",
+          "classification": "Source section: 重大问题点 (serious problems)"
+        },
+        {
+          "id": "p04-missing-screen-print",
+          "title": "Missing screen printing",
+          "caption": "The red rectangle marks the missing print on the toy’s leg.",
+          "alt": "Missing screen printing. The red rectangle marks the missing print on the toy’s leg.",
+          "asset": "p04-missing-screen-print.png",
+          "width": 246,
+          "height": 238,
+          "source": "Training PPT · slide 4 · right",
+          "classification": "Source section: 重大问题点 (serious problems)"
+        },
+        {
+          "id": "p05-insect-wing",
+          "title": "Insect wing contamination",
+          "caption": "The source identifies an insect wing in the circled area of the black component.",
+          "alt": "Insect wing contamination. The source identifies an insect wing in the circled area of the black component.",
+          "asset": "p05-insect-wing.png",
+          "width": 299,
+          "height": 255,
+          "source": "Training PPT · slide 5 · upper left",
+          "classification": "Source section: 主要问题点 (main problems)"
+        },
+        {
+          "id": "p05-loose-screw",
+          "title": "Stray screw inside the product",
+          "caption": "The red ellipse identifies the screw introduced as foreign matter.",
+          "alt": "Stray screw inside the product. The red ellipse identifies the screw introduced as foreign matter.",
+          "asset": "p05-loose-screw.png",
+          "width": 243,
+          "height": 226,
+          "source": "Training PPT · slide 5 · upper middle",
+          "classification": "Source section: 主要问题点 (main problems)"
+        },
+        {
+          "id": "p05-unwanted-label",
+          "title": "Unwanted label attached",
+          "caption": "The source treats the attached label as foreign matter. A separate paper-product view appears on slide 16.",
+          "alt": "Unwanted label attached. The source treats the attached label as foreign matter. A separate paper-product view appears on slide 16.",
+          "asset": "p05-unwanted-label.png",
+          "width": 288,
+          "height": 151,
+          "source": "Training PPT · slide 5 · upper right",
+          "classification": "Source section: 主要问题点 (main problems)"
+        },
+        {
+          "id": "p05-trapped-hair",
+          "title": "Hair trapped at an assembled part",
+          "caption": "Follow the red ellipse around the hair crossing the button area.",
+          "alt": "Hair trapped at an assembled part. Follow the red ellipse around the hair crossing the button area.",
+          "asset": "p05-trapped-hair.png",
+          "width": 185,
+          "height": 155,
+          "source": "Training PPT · slide 5 · lower left",
+          "classification": "Source section: 主要问题点 (main problems)"
+        },
+        {
+          "id": "p05-hair-in-bag",
+          "title": "Hair inside a packaging bag",
+          "caption": "The circled strand is inside the packaging bag.",
+          "alt": "Hair inside a packaging bag. The circled strand is inside the packaging bag.",
+          "asset": "p05-hair-in-bag.png",
+          "width": 288,
+          "height": 225,
+          "source": "Training PPT · slide 5 · lower middle",
+          "classification": "Source section: 主要问题点 (main problems)"
+        }
+      ]
+    },
+    {
+      "id": "molding-assembly",
+      "name": "Molding & Assembly",
+      "description": "Recognize damage, molding defects and assembly problems. Separate views of the same condition stay together.",
+      "examples": [
+        {
+          "id": "p07-impact-damage",
+          "title": "Impact damage",
+          "caption": "The ellipse marks damage to the edge of the blue molded part.",
+          "alt": "Impact damage. The ellipse marks damage to the edge of the blue molded part.",
+          "asset": "p07-impact-damage.png",
+          "width": 265,
+          "height": 170,
+          "source": "Training PPT · slide 7 · upper left"
+        },
+        {
+          "id": "p07-scratches",
+          "title": "Scratches",
+          "caption": "The elongated ellipse marks scratches across the visible surface.",
+          "alt": "Scratches. The elongated ellipse marks scratches across the visible surface.",
+          "asset": "p07-scratches.png",
+          "width": 261,
+          "height": 202,
+          "source": "Training PPT · slide 7 · upper middle"
+        },
+        {
+          "id": "p07-short-shot",
+          "title": "Incomplete molding (short shot)",
+          "caption": "The ellipse marks the area identified as missing molded material.",
+          "alt": "Incomplete molding (short shot). The ellipse marks the area identified as missing molded material.",
+          "asset": "p07-short-shot.png",
+          "width": 199,
+          "height": 184,
+          "source": "Training PPT · slide 7 · upper right"
+        },
+        {
+          "id": "p07-material-streaks",
+          "title": "Molding streaks",
+          "caption": "The source labels the streaked appearance “料花”; it gives no cause or acceptance limit.",
+          "alt": "Molding streaks. The source labels the streaked appearance “料花”; it gives no cause or acceptance limit.",
+          "asset": "p07-material-streaks.png",
+          "width": 275,
+          "height": 153,
+          "source": "Training PPT · slide 7 · lower left"
+        },
+        {
+          "id": "p07-deformation",
+          "title": "Deformation",
+          "caption": "The red ellipse identifies deformation at the end of the blue part.",
+          "alt": "Deformation. The red ellipse identifies deformation at the end of the blue part.",
+          "asset": "p07-deformation.png",
+          "width": 145,
+          "height": 120,
+          "source": "Training PPT · slide 7 · lower middle"
+        },
+        {
+          "id": "p07-crack",
+          "title": "Crack in a molded part",
+          "caption": "The circled area is the source’s crack example.",
+          "alt": "Crack in a molded part. The circled area is the source’s crack example.",
+          "asset": "p07-crack.png",
+          "width": 205,
+          "height": 162,
+          "source": "Training PPT · slide 7 · lower right"
+        },
+        {
+          "id": "p08-sink-mark",
+          "title": "Sink mark",
+          "caption": "The circled depression is the sink-mark example. The supplied photograph is very small.",
+          "alt": "Sink mark. The circled depression is the sink-mark example. The supplied photograph is very small.",
+          "asset": "p08-sink-mark.png",
+          "width": 101,
+          "height": 108,
+          "source": "Training PPT · slide 8 · upper left"
+        },
+        {
+          "id": "p08-bubble-red",
+          "title": "Bubble in a red molded part",
+          "caption": "The ellipse identifies the bubble in the red window.",
+          "alt": "Bubble in a red molded part. The ellipse identifies the bubble in the red window.",
+          "asset": "p08-bubble-red.png",
+          "width": 218,
+          "height": 222,
+          "source": "Training PPT · slide 8 · upper middle"
+        },
+        {
+          "id": "p08-bubble-clear",
+          "title": "Bubble in a transparent molded part",
+          "caption": "The dark hand-drawn loop identifies a separate bubble example.",
+          "alt": "Bubble in a transparent molded part. The dark hand-drawn loop identifies a separate bubble example.",
+          "asset": "p08-bubble-clear.png",
+          "width": 249,
+          "height": 199,
+          "source": "Training PPT · slide 8 · upper right"
+        },
+        {
+          "id": "p08-sharp-flash",
+          "title": "Flash that scratches the hand",
+          "caption": "The source identifies hand-scratching flash in the circled area.",
+          "alt": "Flash that scratches the hand. The source identifies hand-scratching flash in the circled area.",
+          "asset": "p08-sharp-flash.png",
+          "width": 149,
+          "height": 167,
+          "source": "Training PPT · slide 8 · lower left"
+        },
+        {
+          "id": "p08-uneven-gate-white",
+          "title": "Uneven gate vestige on a white part",
+          "caption": "The ellipse identifies the uneven molded gate area.",
+          "alt": "Uneven gate vestige on a white part. The ellipse identifies the uneven molded gate area.",
+          "asset": "p08-uneven-gate-white.png",
+          "width": 136,
+          "height": 131,
+          "source": "Training PPT · slide 8 · lower middle"
+        },
+        {
+          "id": "p08-uneven-gate-blue",
+          "title": "Uneven gate vestige on a blue part",
+          "caption": "A second gate-area example, retained as a distinct photograph.",
+          "alt": "Uneven gate vestige on a blue part. A second gate-area example, retained as a distinct photograph.",
+          "asset": "p08-uneven-gate-blue.png",
+          "width": 216,
+          "height": 183,
+          "source": "Training PPT · slide 8 · lower right"
+        },
+        {
+          "id": "p09-excessive-gap",
+          "title": "Excessive assembly gap",
+          "caption": "The long ellipse follows the gap between the yellow and white parts.",
+          "alt": "Excessive assembly gap. The long ellipse follows the gap between the yellow and white parts.",
+          "asset": "p09-excessive-gap.png",
+          "width": 261,
+          "height": 209,
+          "source": "Training PPT · slide 9 · upper left"
+        },
+        {
+          "id": "p09-screw-hole-damage",
+          "title": "Damaged screw hole",
+          "caption": "The red ellipse locates damage around the screw hole.",
+          "alt": "Damaged screw hole. The red ellipse locates damage around the screw hole.",
+          "asset": "p09-screw-hole-damage.png",
+          "width": 255,
+          "height": 217,
+          "source": "Training PPT · slide 9 · upper middle"
+        },
+        {
+          "id": "p09-pinched-wire",
+          "title": "Pinched wire",
+          "caption": "The marked area shows a wire trapped at the enclosure joint.",
+          "alt": "Pinched wire. The marked area shows a wire trapped at the enclosure joint.",
+          "asset": "p09-pinched-wire.png",
+          "width": 254,
+          "height": 205,
+          "source": "Training PPT · slide 9 · upper right"
+        },
+        {
+          "id": "p09-misaligned-button",
+          "title": "Misaligned button",
+          "caption": "The ellipse identifies the button’s incorrect installed position.",
+          "alt": "Misaligned button. The ellipse identifies the button’s incorrect installed position.",
+          "asset": "p09-misaligned-button.png",
+          "width": 121,
+          "height": 126,
+          "source": "Training PPT · slide 9 · lower left"
+        },
+        {
+          "id": "p09-sunken-button",
+          "title": "Sunken button",
+          "caption": "The red ellipse identifies the recessed button.",
+          "alt": "Sunken button. The red ellipse identifies the recessed button.",
+          "asset": "p09-sunken-button.png",
+          "width": 190,
+          "height": 173,
+          "source": "Training PPT · slide 9 · lower middle"
+        },
+        {
+          "id": "p09-internal-dust",
+          "title": "Dust inside the enclosure",
+          "caption": "The source identifies internal dust in the marked area.",
+          "alt": "Dust inside the enclosure. The source identifies internal dust in the marked area.",
+          "asset": "p09-internal-dust.png",
+          "width": 151,
+          "height": 166,
+          "source": "Training PPT · slide 9 · lower right"
+        },
+        {
+          "id": "p10-adhesive-residue",
+          "title": "Adhesive residue",
+          "caption": "The circle identifies adhesive on the blue surface.",
+          "alt": "Adhesive residue. The circle identifies adhesive on the blue surface.",
+          "asset": "p10-adhesive-residue.png",
+          "width": 257,
+          "height": 229,
+          "source": "Training PPT · slide 10 · upper left"
+        },
+        {
+          "id": "p10-detached-button",
+          "title": "Loose button detaches when pulled by hand",
+          "caption": "Keep both views together: the button before and after detachment. The original callout reads “CR:1PC”; this is an example-specific mark, not a general sampling or acceptance rule.",
+          "alt": "Loose button detaches when pulled by hand. Keep both views together: the button before and after detachment. The original callout reads “CR:1PC”; this is an example-specific mark, not a general sampling or acceptance rule.",
+          "asset": "p10-detached-button.png",
+          "width": 307,
+          "height": 227,
+          "source": "Training PPT · slide 10 · upper middle comparison"
+        },
+        {
+          "id": "p10-assembly-crack",
+          "title": "Cracked component",
+          "caption": "The ellipse marks the crack in the round component.",
+          "alt": "Cracked component. The ellipse marks the crack in the round component.",
+          "asset": "p10-assembly-crack.png",
+          "width": 273,
+          "height": 215,
+          "source": "Training PPT · slide 10 · upper right"
+        },
+        {
+          "id": "p10-surface-step",
+          "title": "Surface step mismatch",
+          "caption": "The ellipse follows the uneven level between assembled surfaces.",
+          "alt": "Surface step mismatch. The ellipse follows the uneven level between assembled surfaces.",
+          "asset": "p10-surface-step.png",
+          "width": 156,
+          "height": 274,
+          "source": "Training PPT · slide 10 · lower left"
+        },
+        {
+          "id": "p10-incomplete-assembly",
+          "title": "Incomplete assembly with an opened joint",
+          "caption": "The marked joint has opened where the parts are not fully assembled.",
+          "alt": "Incomplete assembly with an opened joint. The marked joint has opened where the parts are not fully assembled.",
+          "asset": "p10-incomplete-assembly.png",
+          "width": 269,
+          "height": 236,
+          "source": "Training PPT · slide 10 · lower middle"
+        },
+        {
+          "id": "p10-stress-whitening",
+          "title": "Ejector-related whitening",
+          "caption": "The circle identifies the whitened area on the blue molded part.",
+          "alt": "Ejector-related whitening. The circle identifies the whitened area on the blue molded part.",
+          "asset": "p10-stress-whitening.png",
+          "width": 390,
+          "height": 351,
+          "source": "Training PPT · slide 10 · lower right"
+        }
+      ]
+    },
+    {
+      "id": "screws-spring-contacts",
+      "name": "Screws & Spring Contacts",
+      "description": "Compare screw seating, missing screws, plating appearance, damaged heads and battery contacts.",
+      "examples": [
+        {
+          "id": "p11-unseated-screw",
+          "title": "Screw not fully seated",
+          "caption": "The ellipse highlights the screw projecting above its seating position.",
+          "alt": "Screw not fully seated. The ellipse highlights the screw projecting above its seating position.",
+          "asset": "p11-unseated-screw.png",
+          "width": 293,
+          "height": 232,
+          "source": "Training PPT · slide 11 · upper left"
+        },
+        {
+          "id": "p11-missing-screw",
+          "title": "Missing screw",
+          "caption": "The ellipse marks an empty screw location.",
+          "alt": "Missing screw. The ellipse marks an empty screw location.",
+          "asset": "p11-missing-screw.png",
+          "width": 278,
+          "height": 250,
+          "source": "Training PPT · slide 11 · upper middle"
+        },
+        {
+          "id": "p11-yellow-plating",
+          "title": "Yellowed screw (plating defect)",
+          "caption": "The source identifies the yellow appearance as a plating defect.",
+          "alt": "Yellowed screw (plating defect). The source identifies the yellow appearance as a plating defect.",
+          "asset": "p11-yellow-plating.png",
+          "width": 263,
+          "height": 207,
+          "source": "Training PPT · slide 11 · upper right"
+        },
+        {
+          "id": "p11-damaged-screw-head",
+          "title": "Damaged screw head",
+          "caption": "The circle identifies damage to the screw-head drive.",
+          "alt": "Damaged screw head. The circle identifies damage to the screw-head drive.",
+          "asset": "p11-damaged-screw-head.png",
+          "width": 328,
+          "height": 247,
+          "source": "Training PPT · slide 11 · lower left"
+        },
+        {
+          "id": "p11-deformed-contact",
+          "title": "Deformed battery spring contact",
+          "caption": "The ellipse marks the deformed contact. Detail is limited by the small source photo.",
+          "alt": "Deformed battery spring contact. The ellipse marks the deformed contact. Detail is limited by the small source photo.",
+          "asset": "p11-deformed-contact.png",
+          "width": 136,
+          "height": 92,
+          "source": "Training PPT · slide 11 · lower middle"
+        },
+        {
+          "id": "p12-good-returned-screws",
+          "title": "Good screw and defective market-return screws",
+          "caption": "Left: good product. Center and right: defective products returned from the market, as labeled in the source. All three views belong to this comparison.",
+          "alt": "Good screw and defective market-return screws. Left: good product. Center and right: defective products returned from the market, as labeled in the source. All three views belong to this comparison.",
+          "asset": "p12-good-returned-screws.png",
+          "width": 448,
+          "height": 189,
+          "source": "Training PPT · slide 12 · three-photo comparison"
+        }
+      ]
+    },
+    {
+      "id": "painting-printing-labels",
+      "name": "Painting, Printing & Labels",
+      "description": "Look for coating defects, interrupted screen printing and changes in label position or adhesion.",
+      "examples": [
+        {
+          "id": "p13-paint-scratch",
+          "title": "Scratch in the painted finish",
+          "caption": "The ellipse marks the scratch on the yellow painted area.",
+          "alt": "Scratch in the painted finish. The ellipse marks the scratch on the yellow painted area.",
+          "asset": "p13-paint-scratch.png",
+          "width": 262,
+          "height": 243,
+          "source": "Training PPT · slide 13 · upper left"
+        },
+        {
+          "id": "p13-overspray-eye",
+          "title": "Overspray around a printed eye",
+          "caption": "The ellipse identifies the overspray example around the eye.",
+          "alt": "Overspray around a printed eye. The ellipse identifies the overspray example around the eye.",
+          "asset": "p13-overspray-eye.png",
+          "width": 255,
+          "height": 246,
+          "source": "Training PPT · slide 13 · upper middle"
+        },
+        {
+          "id": "p13-overspray-housing",
+          "title": "Overspray at the housing edge",
+          "caption": "This is a separate overspray photograph at a different product location.",
+          "alt": "Overspray at the housing edge. This is a separate overspray photograph at a different product location.",
+          "asset": "p13-overspray-housing.png",
+          "width": 285,
+          "height": 255,
+          "source": "Training PPT · slide 13 · upper right"
+        },
+        {
+          "id": "p13-missing-paint",
+          "title": "Missing paint coverage",
+          "caption": "The ellipse highlights incomplete paint coverage on the red detail.",
+          "alt": "Missing paint coverage. The ellipse highlights incomplete paint coverage on the red detail.",
+          "asset": "p13-missing-paint.png",
+          "width": 263,
+          "height": 247,
+          "source": "Training PPT · slide 13 · lower left"
+        },
+        {
+          "id": "p13-paint-buildup",
+          "title": "Paint buildup",
+          "caption": "The ellipse marks the source’s paint-accumulation example.",
+          "alt": "Paint buildup. The ellipse marks the source’s paint-accumulation example.",
+          "asset": "p13-paint-buildup.png",
+          "width": 275,
+          "height": 246,
+          "source": "Training PPT · slide 13 · lower middle"
+        },
+        {
+          "id": "p13-broken-screen-print",
+          "title": "Interrupted screen printing",
+          "caption": "The circled printed line is incomplete.",
+          "alt": "Interrupted screen printing. The circled printed line is incomplete.",
+          "asset": "p13-broken-screen-print.png",
+          "width": 268,
+          "height": 242,
+          "source": "Training PPT · slide 13 · lower right"
+        },
+        {
+          "id": "p14-lifting-label",
+          "title": "Lifting label",
+          "caption": "The marked area shows the label lifting from the product surface.",
+          "alt": "Lifting label. The marked area shows the label lifting from the product surface.",
+          "asset": "p14-lifting-label.png",
+          "width": 310,
+          "height": 241,
+          "source": "Training PPT · slide 14 · upper left"
+        },
+        {
+          "id": "p14-wrinkled-label",
+          "title": "Wrinkled label",
+          "caption": "The ellipse identifies a wrinkle in the label.",
+          "alt": "Wrinkled label. The ellipse identifies a wrinkle in the label.",
+          "asset": "p14-wrinkled-label.png",
+          "width": 258,
+          "height": 207,
+          "source": "Training PPT · slide 14 · upper middle"
+        },
+        {
+          "id": "p14-misaligned-label",
+          "title": "Misaligned label",
+          "caption": "The source identifies incorrect label placement on the blue part.",
+          "alt": "Misaligned label. The source identifies incorrect label placement on the blue part.",
+          "asset": "p14-misaligned-label.png",
+          "width": 120,
+          "height": 238,
+          "source": "Training PPT · slide 14 · upper right"
+        },
+        {
+          "id": "p14-bubbled-label",
+          "title": "Bubbles under a label",
+          "caption": "The source identifies bubbling on the labeled surface. The original image has limited detail.",
+          "alt": "Bubbles under a label. The source identifies bubbling on the labeled surface. The original image has limited detail.",
+          "asset": "p14-bubbled-label.png",
+          "width": 170,
+          "height": 144,
+          "source": "Training PPT · slide 14 · lower left"
+        }
+      ]
+    },
+    {
+      "id": "paper-packaging",
+      "name": "Paper Products & Packaging",
+      "description": "Compare printing, page and edge damage, delamination, deformation and packaging defects.",
+      "examples": [
+        {
+          "id": "p15-print-defect-blue",
+          "title": "Printing defect on a blue page",
+          "caption": "The ellipse identifies the first paper-printing defect example.",
+          "alt": "Printing defect on a blue page. The ellipse identifies the first paper-printing defect example.",
+          "asset": "p15-print-defect-blue.png",
+          "width": 251,
+          "height": 238,
+          "source": "Training PPT · slide 15 · upper left"
+        },
+        {
+          "id": "p15-print-defect-green",
+          "title": "Printing defect on a green page",
+          "caption": "A second printing-defect example, on a different page.",
+          "alt": "Printing defect on a green page. A second printing-defect example, on a different page.",
+          "asset": "p15-print-defect-green.png",
+          "width": 290,
+          "height": 219,
+          "source": "Training PPT · slide 15 · upper middle"
+        },
+        {
+          "id": "p15-paper-indent",
+          "title": "Indentations in the paper surface",
+          "caption": "The ellipse marks the row of impressions in the paper.",
+          "alt": "Indentations in the paper surface. The ellipse marks the row of impressions in the paper.",
+          "asset": "p15-paper-indent.png",
+          "width": 273,
+          "height": 203,
+          "source": "Training PPT · slide 15 · upper right"
+        },
+        {
+          "id": "p15-torn-page-green",
+          "title": "Damaged green book page",
+          "caption": "The ellipse marks damage to the printed page surface.",
+          "alt": "Damaged green book page. The ellipse marks damage to the printed page surface.",
+          "asset": "p15-torn-page-green.png",
+          "width": 267,
+          "height": 216,
+          "source": "Training PPT · slide 15 · lower left"
+        },
+        {
+          "id": "p15-torn-page-edge",
+          "title": "Torn book-page edge",
+          "caption": "The ellipse identifies the torn upper edge of the page.",
+          "alt": "Torn book-page edge. The ellipse identifies the torn upper edge of the page.",
+          "asset": "p15-torn-page-edge.png",
+          "width": 272,
+          "height": 191,
+          "source": "Training PPT · slide 15 · lower middle"
+        },
+        {
+          "id": "p15-delamination",
+          "title": "Page delamination",
+          "caption": "The ellipse marks the separation between layers of the page.",
+          "alt": "Page delamination. The ellipse marks the separation between layers of the page.",
+          "asset": "p15-delamination.png",
+          "width": 284,
+          "height": 193,
+          "source": "Training PPT · slide 15 · lower right"
+        },
+        {
+          "id": "p16-edge-wear",
+          "title": "Worn paper edge",
+          "caption": "The ellipse follows wear along the green page edge.",
+          "alt": "Worn paper edge. The ellipse follows wear along the green page edge.",
+          "asset": "p16-edge-wear.png",
+          "width": 209,
+          "height": 182,
+          "source": "Training PPT · slide 16 · upper left"
+        },
+        {
+          "id": "p16-uneven-edges",
+          "title": "Uneven page edges",
+          "caption": "The narrow ellipse identifies the misaligned page edges.",
+          "alt": "Uneven page edges. The narrow ellipse identifies the misaligned page edges.",
+          "asset": "p16-uneven-edges.png",
+          "width": 214,
+          "height": 221,
+          "source": "Training PPT · slide 16 · upper right"
+        },
+        {
+          "id": "p16-deformed-book",
+          "title": "Deformed book",
+          "caption": "The wide ellipse follows the distorted profile of the book.",
+          "alt": "Deformed book. The wide ellipse follows the distorted profile of the book.",
+          "asset": "p16-deformed-book.png",
+          "width": 314,
+          "height": 223,
+          "source": "Training PPT · slide 16 · lower left"
+        },
+        {
+          "id": "p16-attached-sticker",
+          "title": "Sticker attached to a paper product",
+          "caption": "This paper-product view is retained with its own source context; slide 5 separately describes an unwanted label as foreign matter.",
+          "alt": "Sticker attached to a paper product. This paper-product view is retained with its own source context; slide 5 separately describes an unwanted label as foreign matter.",
+          "asset": "p16-attached-sticker.png",
+          "width": 224,
+          "height": 190,
+          "source": "Training PPT · slide 16 · lower right"
+        },
+        {
+          "id": "p20-print-comparison",
+          "title": "Packaging print: OK and missing print",
+          "caption": "Left: printing labeled OK. Right: missing printing, with the affected area outlined. Keep the pair together.",
+          "alt": "Packaging print: OK and missing print. Left: printing labeled OK. Right: missing printing, with the affected area outlined. Keep the pair together.",
+          "asset": "p20-print-comparison.png",
+          "width": 379,
+          "height": 144,
+          "source": "Training PPT · slide 20 · upper left comparison"
+        },
+        {
+          "id": "p20-bag-print-defect",
+          "title": "Packaging-bag printing defect",
+          "caption": "The broad ellipse marks the defective printed area.",
+          "alt": "Packaging-bag printing defect. The broad ellipse marks the defective printed area.",
+          "asset": "p20-bag-print-defect.png",
+          "width": 380,
+          "height": 217,
+          "source": "Training PPT · slide 20 · upper right"
+        },
+        {
+          "id": "p20-bag-box-damage",
+          "title": "Damaged box and plastic bag",
+          "caption": "Left: damage to a printed box. Right: a torn plastic bag. The source groups these two photographs under one caption.",
+          "alt": "Damaged box and plastic bag. Left: damage to a printed box. Right: a torn plastic bag. The source groups these two photographs under one caption.",
+          "asset": "p20-bag-box-damage.png",
+          "width": 525,
+          "height": 221,
+          "source": "Training PPT · slide 20 · lower left pair"
+        },
+        {
+          "id": "p20-packaging-tear",
+          "title": "Torn packaging edge",
+          "caption": "The ellipse identifies a separate tear at the packaging edge.",
+          "alt": "Torn packaging edge. The ellipse identifies a separate tear at the packaging edge.",
+          "asset": "p20-packaging-tear.png",
+          "width": 175,
+          "height": 130,
+          "source": "Training PPT · slide 20 · lower right"
+        }
+      ]
+    },
+    {
+      "id": "electronics-displays",
+      "name": "Electronics & Displays",
+      "description": "Recognize missing display segments, abnormal screens, indicator behavior and the source’s card-reading comparison.",
+      "examples": [
+        {
+          "id": "p17-missing-segments-overview",
+          "title": "Missing LCD segments: display overview",
+          "caption": "The source identifies missing LCD segments in this overview. It does not mark a single location in this photograph.",
+          "alt": "Missing LCD segments: display overview. The source identifies missing LCD segments in this overview. It does not mark a single location in this photograph.",
+          "asset": "p17-missing-segments-overview.png",
+          "width": 278,
+          "height": 186,
+          "source": "Training PPT · slide 17 · upper left"
+        },
+        {
+          "id": "p17-missing-segments-left",
+          "title": "Missing LCD segments: left display area",
+          "caption": "The original red rectangle locates the affected left-hand display area.",
+          "alt": "Missing LCD segments: left display area. The original red rectangle locates the affected left-hand display area.",
+          "asset": "p17-missing-segments-left.png",
+          "width": 295,
+          "height": 306,
+          "source": "Training PPT · slide 17 · upper middle"
+        },
+        {
+          "id": "p17-missing-segments-digits",
+          "title": "Missing LCD segments: numeric area",
+          "caption": "The small rectangle identifies the affected numeric display area.",
+          "alt": "Missing LCD segments: numeric area. The small rectangle identifies the affected numeric display area.",
+          "asset": "p17-missing-segments-digits.png",
+          "width": 241,
+          "height": 220,
+          "source": "Training PPT · slide 17 · upper right"
+        },
+        {
+          "id": "p17-missing-segments-round",
+          "title": "Missing LCD segments: round display",
+          "caption": "The red rectangle marks the affected area in the circular display.",
+          "alt": "Missing LCD segments: round display. The red rectangle marks the affected area in the circular display.",
+          "asset": "p17-missing-segments-round.png",
+          "width": 166,
+          "height": 128,
+          "source": "Training PPT · slide 17 · lower left"
+        },
+        {
+          "id": "p17-missing-segments-small",
+          "title": "Missing segments: small digital display",
+          "caption": "The dashed rectangle identifies missing segments in a separate display.",
+          "alt": "Missing segments: small digital display. The dashed rectangle identifies missing segments in a separate display.",
+          "asset": "p17-missing-segments-small.png",
+          "width": 173,
+          "height": 109,
+          "source": "Training PPT · slide 17 · lower middle"
+        },
+        {
+          "id": "p18-dark-shadow",
+          "title": "Dark shadow on the display",
+          "caption": "The source photograph shows a dark shadow across the screen.",
+          "alt": "Dark shadow on the display. The source photograph shows a dark shadow across the screen.",
+          "asset": "p18-dark-shadow.png",
+          "width": 245,
+          "height": 216,
+          "source": "Training PPT · slide 18 · upper left"
+        },
+        {
+          "id": "p18-garbled-display",
+          "title": "Garbled display",
+          "caption": "The source identifies an abnormal, garbled screen image.",
+          "alt": "Garbled display. The source identifies an abnormal, garbled screen image.",
+          "asset": "p18-garbled-display.png",
+          "width": 331,
+          "height": 200,
+          "source": "Training PPT · slide 18 · upper right"
+        },
+        {
+          "id": "p18-abnormal-color-display",
+          "title": "Abnormal color-display patterns",
+          "caption": "The source combines four abnormal screen patterns in one photograph. All four are retained.",
+          "alt": "Abnormal color-display patterns. The source combines four abnormal screen patterns in one photograph. All four are retained.",
+          "asset": "p18-abnormal-color-display.png",
+          "width": 369,
+          "height": 277,
+          "source": "Training PPT · slide 18 · lower left four-view image"
+        },
+        {
+          "id": "p18-white-startup-screen",
+          "title": "White screen at startup",
+          "caption": "The source identifies the white display appearing when the product is switched on.",
+          "alt": "White screen at startup. The source identifies the white display appearing when the product is switched on.",
+          "asset": "p18-white-startup-screen.png",
+          "width": 312,
+          "height": 199,
+          "source": "Training PPT · slide 18 · lower right"
+        },
+        {
+          "id": "p19-led-not-lit",
+          "title": "LED does not light",
+          "caption": "The yellow ellipse identifies the LED that is not lit.",
+          "alt": "LED does not light. The yellow ellipse identifies the LED that is not lit.",
+          "asset": "p19-led-not-lit.png",
+          "width": 322,
+          "height": 179,
+          "source": "Training PPT · slide 19 · upper left"
+        },
+        {
+          "id": "p19-light-after-shutdown",
+          "title": "Light remains on after shutdown",
+          "caption": "The red circle marks the light that remains on after the product is switched off.",
+          "alt": "Light remains on after shutdown. The red circle marks the light that remains on after the product is switched off.",
+          "asset": "p19-light-after-shutdown.png",
+          "width": 255,
+          "height": 173,
+          "source": "Training PPT · slide 19 · upper middle"
+        },
+        {
+          "id": "p19-adhesive-in-lcd",
+          "title": "Adhesive strand inside the LCD",
+          "caption": "The source identifies an adhesive strand inside the display.",
+          "alt": "Adhesive strand inside the LCD. The source identifies an adhesive strand inside the display.",
+          "asset": "p19-adhesive-in-lcd.png",
+          "width": 182,
+          "height": 100,
+          "source": "Training PPT · slide 19 · lower left"
+        },
+        {
+          "id": "p19-card-display-ok-ng",
+          "title": "Card-reading display: OK / NG",
+          "caption": "Left: card-reading display labeled OK. Right: display labeled NG. Compare the lower characters inside the dashed rectangles.",
+          "alt": "Card-reading display: OK / NG. Left: card-reading display labeled OK. Right: display labeled NG. Compare the lower characters inside the dashed rectangles.",
+          "asset": "p19-card-display-ok-ng.png",
+          "width": 671,
+          "height": 359,
+          "source": "Training PPT · slide 19 · lower right comparison"
+        }
+      ]
+    },
+    {
+      "id": "contamination-hazards",
+      "name": "Contamination & Physical Hazards",
+      "description": "Use the original overview and detail views to locate insects, detached small parts, a hand-scratching surface and blood stains.",
+      "examples": [
+        {
+          "id": "p21-insect-overview-detail",
+          "title": "Insect contamination: overview and detail",
+          "caption": "The red arrow connects the product location on the left to the enlarged insect detail on the right.",
+          "alt": "Insect contamination: overview and detail. The red arrow connects the product location on the left to the enlarged insect detail on the right.",
+          "asset": "p21-insect-overview-detail.png",
+          "width": 493,
+          "height": 195,
+          "source": "Training PPT · slide 21 · upper comparison"
+        },
+        {
+          "id": "p21-insect-blue-tray",
+          "title": "Insect inside a blue tray",
+          "caption": "The circle marks a separate insect-contamination example.",
+          "alt": "Insect inside a blue tray. The circle marks a separate insect-contamination example.",
+          "asset": "p21-insect-blue-tray.png",
+          "width": 363,
+          "height": 264,
+          "source": "Training PPT · slide 21 · lower left"
+        },
+        {
+          "id": "p21-insect-carton",
+          "title": "Insect on the inside of a carton",
+          "caption": "The red ellipse marks the insect on the inside flap.",
+          "alt": "Insect on the inside of a carton. The red ellipse marks the insect on the inside flap.",
+          "asset": "p21-insect-carton.png",
+          "width": 422,
+          "height": 359,
+          "source": "Training PPT · slide 21 · lower right"
+        },
+        {
+          "id": "p22-small-part-pink-ball",
+          "title": "Small part released from a pink ball",
+          "caption": "The source places this photo under “Internal small parts fall out.” A caliper is shown, but no numerical reading is stated in the slide.",
+          "alt": "Small part released from a pink ball. The source places this photo under “Internal small parts fall out.” A caliper is shown, but no numerical reading is stated in the slide.",
+          "asset": "p22-small-part-pink-ball.png",
+          "width": 211,
+          "height": 167,
+          "source": "Training PPT · slide 22 · upper left"
+        },
+        {
+          "id": "p22-returned-ok-comparison",
+          "title": "Returned item / OK item: small-part comparison",
+          "caption": "Left: returned item, with the detached piece indicated by an arrow. Right: OK item. The source’s comparison and ruler remain together.",
+          "alt": "Returned item / OK item: small-part comparison. Left: returned item, with the detached piece indicated by an arrow. Right: OK item. The source’s comparison and ruler remain together.",
+          "asset": "p22-returned-ok-comparison.png",
+          "width": 542,
+          "height": 361,
+          "source": "Training PPT · slide 22 · upper right comparison"
+        },
+        {
+          "id": "p22-small-part-ball-detail",
+          "title": "Detached small parts: product and detail",
+          "caption": "The arrow links the ball and separated parts on the left to a detail of the black component on the right.",
+          "alt": "Detached small parts: product and detail. The arrow links the ball and separated parts on the left to a detail of the black component on the right.",
+          "asset": "p22-small-part-ball-detail.png",
+          "width": 953,
+          "height": 291,
+          "source": "Training PPT · slide 22 · lower comparison"
+        },
+        {
+          "id": "p23-hand-scratching-surface",
+          "title": "Surface that scratches the hand",
+          "caption": "The source places this example under hand scratching / injury. The arrow links the overall yellow part to the close-up of the raised irregularities.",
+          "alt": "Surface that scratches the hand. The source places this example under hand scratching / injury. The arrow links the overall yellow part to the close-up of the raised irregularities.",
+          "asset": "p23-hand-scratching-surface.png",
+          "width": 425,
+          "height": 179,
+          "source": "Training PPT · slide 23 · overview and detail"
+        },
+        {
+          "id": "p24-blood-stains",
+          "title": "Blood stains: overview and detail",
+          "caption": "The source identifies the marks as blood stains. The circle and arrow connect the carton location to the close-up.",
+          "alt": "Blood stains: overview and detail. The source identifies the marks as blood stains. The circle and arrow connect the carton location to the close-up.",
+          "asset": "p24-blood-stains.png",
+          "width": 1263,
+          "height": 460,
+          "source": "Training PPT · slide 24 · overview and detail"
+        }
+      ]
+    }
+  ],
+  "workflow": [
+    {
+      "id": "workflow-step-1",
+      "text": "OQC accepted-product area",
+      "source": "Sheet5 · E5:H7"
+    },
+    {
+      "id": "workflow-step-2",
+      "text": "Tapping and screw function confirmation in the BIQC room",
+      "source": "Sheet5 · E12:H14"
+    },
+    {
+      "id": "workflow-step-3",
+      "text": "BIQC functional confirmation",
+      "source": "Sheet5 · E19:H21"
+    },
+    {
+      "id": "workflow-step-4",
+      "text": "BIQC functional confirmation: OK",
+      "source": "Sheet5 · E26:H28"
+    },
+    {
+      "id": "workflow-step-5",
+      "text": "BIQC accepted-product area",
+      "source": "Sheet5 · E33:H36"
+    },
+    {
+      "id": "workflow-step-6",
+      "text": "Product appearance confirmation before packaging",
+      "source": "Sheet5 · E41:H44"
+    },
+    {
+      "id": "workflow-step-7",
+      "text": "BIQC check for missed inspection: OK, then the next operation",
+      "source": "Sheet5 · E49:H52"
+    }
+  ],
+  "references": [
+    {
+      "id": "ref-molding-slide",
+      "asset": "ref-molding-slide.png",
+      "title": "Training slide excerpt",
+      "caption": "A selected molding-defect slide with its original Chinese labels. The gallery supplies the English captions.",
+      "alt": "Training slide excerpt. A selected molding-defect slide with its original Chinese labels. The gallery supplies the English captions.",
+      "source": "Training PPT · slide 7",
+      "width": 600,
+      "height": 401
+    },
+    {
+      "id": "ref-room-sign",
+      "asset": "ref-room-sign.png",
+      "title": "BIQC room identification",
+      "caption": "The doorway photograph identifies the BIQC room. Sheet1 also lays out one quality-slogan area and two team-slogan areas; no slogan wording is supplied.",
+      "alt": "BIQC room identification. The doorway photograph identifies the BIQC room. Sheet1 also lays out one quality-slogan area and two team-slogan areas; no slogan wording is supplied.",
+      "source": "BIQC workbook · Sheet1 · Picture 1 / A1:K22",
+      "width": 592,
+      "height": 266
+    },
+    {
+      "id": "ref-training-board",
+      "asset": "ref-training-board.png",
+      "title": "Training-board overview",
+      "caption": "Sheet2 contains one embedded board image and no cell text. Its 20 panels repeat the PPT’s example pages; use the gallery for the individual photographs.",
+      "alt": "Training-board overview. Sheet2 contains one embedded board image and no cell text. Its 20 panels repeat the PPT’s example pages; use the gallery for the individual photographs.",
+      "source": "BIQC workbook · Sheet2 · Picture 1",
+      "width": 854,
+      "height": 688
+    }
+  ]
+}

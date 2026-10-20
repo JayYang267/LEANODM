@@ -1,0 +1,33 @@
+/* Editorial testimonial cards. Names and locations are explicitly illustrative. */
+.xyh-testimonials-editorial .xyh-testimonial-heading{margin-bottom:38px}
+.xyh-testimonials-editorial .xyh-review-identity-note{display:inline-block;margin-left:10px;font-size:12px;color:#c2d2ef}
+.xyh-testimonials-editorial .xyh-review-window{padding:3px 2px 18px;margin-inline:-2px}
+.xyh-testimonials-editorial .xyh-quotes{gap:24px}
+.xyh-testimonials-editorial .xyh-quotes>article{flex-basis:calc((100% - 48px)/3);padding:30px 27px 27px;border:1px solid #e1e6ed;border-radius:18px;box-shadow:0 10px 30px #03152f14;transition:border-color .2s,box-shadow .2s}
+.xyh-testimonials-editorial .xyh-quotes>article:hover{border-color:#ec626b;box-shadow:0 12px 32px #03152f24}
+.xyh-review-card-top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}
+.xyh-testimonials-editorial .xyh-review-avatar{width:56px;height:56px;background:#f06a3c;color:#fff;font-size:22px;font-weight:600}
+.xyh-testimonials-editorial article:nth-child(2) .xyh-review-avatar{background:#35b7b1}
+.xyh-testimonials-editorial article:nth-child(3) .xyh-review-avatar{background:#3aabc5}
+.xyh-testimonials-editorial .xyh-quote-mark{height:56px;margin:0;font-size:89px;line-height:1;color:#e6212930;transform:translateY(3px)}
+.xyh-testimonials-editorial .xyh-quotes h3{min-height:2.8em;margin:0 0 18px;font-size:21px;line-height:1.4;font-weight:700;letter-spacing:-.02em;color:#152c4d}
+.xyh-testimonials-editorial .xyh-quotes blockquote{margin:0 0 30px}
+.xyh-testimonials-editorial .xyh-quotes blockquote p{font-size:15px;line-height:1.85;color:#526078}
+.xyh-testimonials-editorial .xyh-review-author{display:block;min-height:0;margin-top:auto;padding-top:21px;border-top:1px solid #e8ecf2}
+.xyh-testimonials-editorial .xyh-review-name{font-size:15px;font-weight:700;line-height:1.6;color:#1c304d}
+.xyh-testimonials-editorial .xyh-review-country{margin-top:5px;font-size:13px;line-height:1.6;color:#788397}
+@media(max-width:1050px){
+  .xyh-testimonials-editorial .xyh-quotes>article{flex-basis:100%;scroll-snap-align:start}
+  .xyh-testimonials-editorial .xyh-quotes h3{min-height:0}
+}
+@media(max-width:760px){
+  .xyh-testimonials-editorial .xyh-testimonial-heading{gap:15px;margin-bottom:27px}
+  .xyh-testimonials-editorial .xyh-review-identity-note{display:block;margin:4px 0 0;font-size:11px}
+  .xyh-testimonials-editorial .xyh-quotes{gap:15px}
+  .xyh-testimonials-editorial .xyh-quotes>article{flex-basis:100%;padding:26px 24px 25px;border-radius:16px}
+  .xyh-review-card-top{margin-bottom:21px}
+  .xyh-testimonials-editorial .xyh-review-avatar{width:51px;height:51px;font-size:20px}
+  .xyh-testimonials-editorial .xyh-quotes h3{font-size:20px;margin-bottom:16px}
+  .xyh-testimonials-editorial .xyh-quotes blockquote p{font-size:15px;line-height:1.85}
+}
+@media(prefers-reduced-motion:reduce){.xyh-testimonials-editorial .xyh-quotes>article{transition:none}}

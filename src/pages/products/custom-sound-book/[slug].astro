@@ -1,0 +1,7 @@
+---
+import SoundBookDetailPage from '../../../layouts/SoundBookDetailPage.astro';
+import { soundBookProducts } from '../../../data/products/sound-book-catalog';
+export function getStaticPaths() { return soundBookProducts.map(product => ({ params: { slug: product.slug }, props: { product } })); }
+const { product } = Astro.props;
+---
+<SoundBookDetailPage product={product} />

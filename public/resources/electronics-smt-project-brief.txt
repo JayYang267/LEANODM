@@ -1,0 +1,39 @@
+LEANODM.com — Electronics & SMT Project Brief
+
+Complete the information available for your project and share it with your existing LEANODM.com contact.
+This file prepares an RFQ; downloading or completing it does not submit an inquiry.
+
+1. Project stage
+   Concept / existing product adaptation / existing board / ready-to-build design
+
+2. Product and purpose
+   Product type:
+   Intended functions, user interaction and power source:
+   Plastic housing, mounting, wiring and interface requirements:
+
+3. Board information (if available)
+   BOM:
+   PCB/Gerber files or existing-board information:
+   Placement/assembly drawings and reference samples:
+   Single-sided or double-sided requirements:
+
+4. Responsibilities to agree
+   Electronics design:
+   Firmware:
+   Component sourcing:
+   SMT/PCB assembly:
+   Housing and finished-product assembly:
+   Functional and other test requirements / acceptance criteria:
+   Packaging and delivery scope:
+
+5. Commercial and market information
+   Prototype and production quantities:
+   Target market:
+   Desired timing:
+   Known compliance or customer requirements:
+
+6. Contact information
+   Name / company:
+   Email or preferred contact method:
+
+MOQ, lead time, equipment availability and the final delivery scope require project review.

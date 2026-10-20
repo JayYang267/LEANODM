@@ -1,4 +1,4 @@
-LEANODM — Product testing project brief
+LEANODM.com — Product testing project brief
 
 Use this checklist to prepare a technical discussion. This file does not add
 acceptance criteria, certify a product, or record a completed test.

@@ -1,0 +1,57 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import '../../styles/quality-control-process.css';
+import '../../styles/electronics-smt.css';
+const title = 'Manufacturing Processes | Tooling, SMT & Assembly | LEANODM.com';
+const description = 'Review Xinyinhai’s manufacturing scope for plastic, silicone and electronic products, including documented tooling, SMT, decoration, assembly and quality controls.';
+const origin = SITE.url;
+const canonical = new URL('/manufacturing/', origin).href;
+const processes = [
+  { name: 'Tooling & Injection Molding', href: '/manufacturing/tooling-injection-molding/', description: 'Plan the plastic parts, tooling and molding requirements for the product.', evidence: 'Read toolroom and equipment references, mold-trial preparation and the documented first-article and production checks.' },
+  { name: 'Electronics & SMT', href: '/manufacturing/electronics-smt/', description: 'Review board assembly, automatic printing, inspection gates and the connection to product integration.', evidence: 'Explore archived single-sided and double-sided workshop routes, inspection gates, maintenance planning and training topics.' },
+  { name: 'Screen Printing & Product Decoration', href: '/manufacturing/screen-printing/', description: 'Coordinate the printed appearance with the product and its manufacturing requirements.', evidence: 'Examine work-instruction photographs of fixture positioning, separate printing layers and comparison with the required appearance.' },
+  { name: 'Assembly & Packaging', href: '/manufacturing/assembly-packaging/', description: 'Connect parts and boards to the documented assembly, inspection and packaging route.', evidence: 'Review fastening and hand-soldering references, assembly checks, foreign-object prevention and the packing route.' },
+];
+const navigation = [{ label: 'Manufacturing processes', href: '#manufacturing-processes' }, { label: 'Reading the evidence', href: '#manufacturing-evidence' }, { label: 'Project requirements', href: '#project-requirements' }];
+const schema = { '@context': 'https://schema.org', '@graph': [
+  { '@type':'WebPage', '@id':`${canonical}#webpage`, url:canonical, name:title, description, inLanguage:'en', isPartOf: { '@id': `${origin}/#website` }, about:{'@id':`${origin}/#xinyinhai`}, breadcrumb:{'@id':`${canonical}#breadcrumbs`} },
+  { '@type':'BreadcrumbList', '@id':`${canonical}#breadcrumbs`, itemListElement:[{ '@type':'ListItem', position:1, name:'Home', item:origin+'/' },{ '@type':'ListItem', position:2, name:'Manufacturing', item:canonical }] },
+] };
+---
+<BaseLayout title={title} description={description} technicalPage technicalNavigation={navigation} technicalPageTitle="Manufacturing" contactHref="#project-requirements" technicalContactLabel="Review Your Project" technicalFooterDescription="Connect your product requirements to the appropriate manufacturing processes.">
+  <Fragment slot="head"><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><meta property="og:image" content={new URL('/images/electronics-smt/overview.png',origin).href} /><script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g,'\\u003c')} /></Fragment>
+  <div class="qc-page smt-page">
+    <section class="qc-hero smt-hub-hero"><div class="qc-container">
+      <nav class="qc-breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><span aria-current="page">Manufacturing</span></li></ol></nav>
+      <p class="qc-eyebrow">LEANODM.com / MANUFACTURING</p><h1>Product Manufacturing Processes</h1>
+      <p class="qc-lead">Review the manufacturing route for your plastic, silicone or electronic product.</p>
+      <p class="qc-intro">LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities for plastic, silicone and electronic products. Explore the documented processes relevant to your product. For silicone components, share the material and design requirements so the applicable manufacturing scope can be reviewed. The route, responsibilities and quality requirements are agreed for the project.</p>
+    </div></section>
+    <div class="qc-container">
+      <section id="manufacturing-processes" class="qc-section">
+        <h2>Explore the manufacturing processes</h2>
+        <div class="smt-hub-grid">{processes.map((process,index) => <article><span class="qc-small-label">{String(index+1).padStart(2,'0')}</span><h3><a href={process.href}>{process.name} ↗</a></h3><p>{process.description}</p><p>{process.evidence}</p></article>)}</div>
+        <a class="qc-text-link" href="/quality/quality-control-process/">Review the Quality Control Process ↗</a>
+      </section>
+      <section id="manufacturing-evidence" class="qc-section">
+        <h2>Read the process evidence in context</h2>
+        <p>The process pages connect archived work instructions, training references, equipment records and factory photographs to the decisions involved in a new project. Source captions distinguish original records from explanatory diagrams.</p>
+        <p>An equipment inventory is a documented baseline. A maintenance plan records scheduled work. A training example explains a topic. Current availability, completed maintenance, product acceptance and applicable certification require their own review; these references do not establish those results.</p>
+        <p>Agree the product revision, materials, reference samples, inspections and tests for the proposed route. Review <a class="smt-inline-link" href="/quality/traceability/">material identification and record links</a> when planning how production and inspection evidence should connect.</p>
+      </section>
+      <section id="project-requirements" class="qc-section">
+        <h2>Choose a starting point for your project</h2>
+        <p>For a concept or new design, review <a class="smt-inline-link" href="/customization/new-product-development/">New Product Development</a>. For an electronics project, prepare the available board and function information in the <a class="smt-inline-link" href="/manufacturing/electronics-smt/#project-requirements">Electronics &amp; SMT project brief</a>.</p>
+        <p>Share the intended use, design status, essential functions, target market and quantity or timing expectations if known. Begin with a non-confidential overview and agree the exchange before sharing restricted drawings or customer information.</p>
+        <div class="qc-actions"><a class="qc-button" href="/rfq/?source=manufacturing-overview#rfq-form">Start your manufacturing inquiry <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="/customization/project-fit/">Review project fit <span aria-hidden="true">↗</span></a></div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  @media (max-width: 360px) {
+    .smt-hub-hero h1 { font-size: 2.5rem; }
+  }
+</style>

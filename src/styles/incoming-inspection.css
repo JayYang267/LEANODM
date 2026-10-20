@@ -215,6 +215,7 @@
   .iqc-project .iqc-button { font-size: .78rem; gap: 20px; padding-inline: 16px; }
 }
 @media (max-width: 640px) {
+  .iqc-control-grid { grid-template-columns: 1fr; }
   .iqc-container { padding-inline: 20px; }
   .iqc-breadcrumb { padding: 19px 0 28px; font-size: .65rem; }
   .iqc-breadcrumb ol { gap: .45rem; }

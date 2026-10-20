@@ -1,0 +1,123 @@
+---
+import CustomizationPage from '../../../layouts/CustomizationPage.astro';
+import Section from '../../../components/CustomizationSection.astro';
+import Table from '../../../components/CustomizationTable.astro';
+import Icon from '../../../components/CustomizationIcon.astro';
+import Flow from '../../../components/CustomizationFlow.astro';
+import { page } from '../../../data/customization/how-we-work';
+---
+<CustomizationPage page={page}>
+  <Section id="starting-point" eyebrow="01 / CHOOSE THE RIGHT START" title="Begin with what you already have" intro="The first review identifies the work that is necessary and the evidence needed to make the next decision.">
+    <div class="b2b-start-routes" aria-label="Choose your project route">
+      <a href="/customization/existing-products/"><Icon name="palette" /><span>Base product<strong>Customization</strong></span></a>
+      <a href="/customization/product-adaptation/"><Icon name="component" /><span>Existing design<strong>Product adaptation</strong></span></a>
+      <a href="/customization/new-product-development/"><Icon name="lightbulb" /><span>New requirement<strong>Product development</strong></span></a>
+      <a href="/customization/oem-manufacturing/"><Icon name="factory" /><span>Released design<strong>OEM manufacturing</strong></span></a>
+    </div>
+    <Table caption="Project starting points and the first useful review" headers={['Your starting point', 'What to bring', 'First decision']} rows={[
+      ['A current product to brand', 'The base product reference, authorized artwork and required colors, finishes or packaging.', 'Is the base suitable, available for authorized customization and compatible with the proposed changes?'],
+      ['An existing product to improve', 'Current drawings or samples, known problems and a clear list of requested changes.', 'Which changes need engineering, tooling revisions and renewed verification?'],
+      ['A new product idea', 'The user, use case, essential functions, market and commercial constraints.', 'Can a feasible product requirement and development scope be defined?'],
+      ['A production-ready design', 'Released drawings, BOM, specifications, samples and tooling information.', 'Is the package complete and suitable for manufacturing transfer?'],
+    ]} />
+    <p>The written scope identifies included work, deliverables, acceptance criteria and dependencies. Prototype, tooling, testing and production requirements are made explicit when applicable. Commercial terms and any specialist work are confirmed for the project.</p>
+  </Section>
+
+  <Section id="review-gates" eyebrow="02 / STAGE INPUTS & OUTPUTS" title="Project Review Gates & Stage Approvals" intro="Your project plan identifies the drawing, prototype, trial, pilot and production reviews that apply. Each review establishes the evidence and decisions needed for the next stage.">
+    <Flow compact label="Cooperation overview; applicable stages are agreed for each project" steps={[
+      { icon: 'messages-square', title: 'Inquiry', text: 'Share your starting point.' },
+      { icon: 'file-search', title: 'Requirement review', text: 'Clarify use, scope and rights.' },
+      { icon: 'scan-search', title: 'Feasibility', text: 'Review risks and dependencies.' },
+      { icon: 'clipboard-list', title: 'Quotation', text: 'Agree scope and commercial terms.' },
+      { icon: 'box', title: 'Sample / prototype', text: 'Evaluate the relevant product revision.' },
+      { icon: 'file-check-2', title: 'Confirmation', text: 'Record the approved baseline.' },
+      { icon: 'wrench', title: 'Tooling / preparation', text: 'Prepare tools, materials and instructions.' },
+      { icon: 'settings-2', title: 'Pilot run / PP', text: 'Check the intended production process.' },
+      { icon: 'factory', title: 'Mass production / MP', text: 'Work to the authorized release package.' },
+      { icon: 'package-check', title: 'QC & delivery', text: 'Record final checks and shipment release.' },
+    ]} />
+    <p class="b2b-gate-caption"><Icon name="git-pull-request-arrow" />The route is agreed for your project. The review gates below define what each decision needs.</p>
+    <Table caption="Review gates from brief to production release" headers={['Review', 'What is evaluated', 'Output needed to move forward']} rows={[
+      ['Brief and feasibility', 'Requirements, intended use, risks, key components, cost assumptions and schedule dependencies.', 'An agreed scope and proposed route, with unresolved feasibility questions identified.'],
+      ['Drawings and prototype', 'Mechanical and electronic fit, safe use, functionality, assembly and manufacturability.', 'Reviewed drawings and sample findings; corrections and customer confirmation for the next commitment.'],
+      ['Specification and tooling authorization', 'Product specification, test plan, materials, packaging and the proposed tooling design.', 'Approved baseline and explicit tooling instruction; agreed control points for trials.'],
+      ['Tool trials and design completion', 'Trial samples, fit and critical dimensions, function, reliability and corrections from earlier trials.', 'Resolved trial findings and the current BOM, controlled drawings and core-material approvals.'],
+      ['PP / pre-production pilot', 'Production materials, assembly methods, fixtures, SOPs, test results, packaging and line feasibility.', 'Pilot findings closed or otherwise resolved under agreed acceptance conditions; required customer approval.'],
+      ['MP / mass production', 'Pre-production meeting, incoming status, first articles and in-process quality against the release package.', 'Authorized production under controlled instructions, with abnormal results investigated.'],
+      ['Shipment and follow-up', 'Final inspection, packing, shipment confirmation and subsequent product feedback.', 'A recorded release decision; feedback and corrective actions carried into future work.'],
+    ]} />
+    <aside class="qc-note">Trial labels such as T1 and T2 identify iterations; the number of trials is project-dependent. PP evaluates the production process before MP. Review meetings are decision points, not automatic approvals or promised calendar durations.</aside>
+  </Section>
+
+  <Section id="responsibilities" eyebrow="03 / BOTH SIDES HAVE A ROLE" title="Who provides what, and who decides?" intro="Xinyinhai’s factory review connects development, quality, production engineering, manufacturing and purchasing. Customer decisions remain part of the same controlled workflow.">
+    <div class="b2b-comparison b2b-responsibility-pair">
+      <article class="b2b-panel"><Icon name="user-round-check" /><span class="b2b-visual-label">CUSTOMER RESPONSIBILITY</span><h3>Define, prioritize and approve</h3><p>Requirements · authorized inputs · consolidated feedback · acceptance decisions</p></article>
+      <article class="b2b-panel b2b-panel--dark"><Icon name="users-round" /><span class="b2b-visual-label">PROJECT TEAM RESPONSIBILITY</span><h3>Review, execute and document</h3><p>Feasibility · agreed engineering work · production controls · review evidence</p></article>
+    </div>
+    <Table caption="Practical customer and project-team responsibilities" headers={['Topic', 'Customer contribution', 'Project-team contribution']} rows={[
+      ['Requirements and rights', 'Define intended use and target markets; provide authorized designs, branding and content.', 'Review feasibility, identify risks and request missing evidence or clarification.'],
+      ['Engineering and samples', 'Confirm priorities and give consolidated feedback on the identified revision.', 'Prepare the agreed engineering work and samples; report findings and proposed actions.'],
+      ['Acceptance and validation', 'Agree acceptance criteria and provide customer-specific standards and available reports.', 'Define applicable checks and records; clarify any external verification or specialist support needed.'],
+      ['Production readiness', 'Approve the agreed sample, packaging and production commitment.', 'Review materials, work instructions, fixtures, pilot findings and production controls.'],
+      ['Changes and follow-up', 'Authorize changes and supply product-use or field feedback with supporting information.', 'Evaluate impact, update controlled information and investigate relevant product or process issues.'],
+    ]} />
+    <p>Each issue needs an owner and a next decision. The agreement defines responsibility for customer-supplied design, software, content, compliance evidence and manufacturing execution. It should not leave either side responsible for an undefined activity it cannot control.</p>
+  </Section>
+
+  <Section id="approval-baseline" eyebrow="04 / FREEZE & SAMPLE APPROVAL" title="Design Freeze & Sample Approval" intro="An approval should identify the exact files or sample, the characteristics accepted and any remaining conditions.">
+    <div class="qc-approval-grid">
+      <div class="qc-approval-rule"><Icon name="lock-keyhole" /><span class="qc-small-label">DESIGN FREEZE</span><h3>A controlled reference for the next commitment</h3><p>Record the approved drawing, BOM and specification revisions. Identify the sample and relevant artwork, packaging and material references. Confirm the scope of approval before tooling or production preparation relies on it.</p></div>
+      <div class="qc-checklist"><Icon name="file-check-2" class="b2b-section-icon" /><h3>What an approval record should resolve</h3><ul><li>Which revision and sample were reviewed?</li><li>Which functional, dimensional, appearance and packaging criteria were accepted?</li><li>Which open issues still require action or verification?</li><li>Who approved the decision, and which stage may now proceed?</li><li>Do the relevant teams hold the same current information?</li></ul></div>
+    </div>
+    <p>Appearance should be evaluated using suitable physical references where color, texture or finish matters. The sample and written criteria work together. See <a href="/quality/appearance-inspection/">appearance inspection</a> for how defined viewing conditions and defect criteria support consistent decisions.</p>
+    <Table caption="Controlled information supporting the approved baseline" headers={['Information', 'Purpose', 'Revision control']} rows={[
+      ['Product definition: BOM and DWG', 'Identify the bill of materials, component specifications and technical drawings used for the approved product.', 'Review and approve changes, then distribute current versions to the departments using them.'],
+      ['Production and inspection: SOP and SIP', 'Connect operating instructions and inspection instructions to the relevant process steps.', 'Issue approved instructions and withdraw obsolete internal copies when the requirements change.'],
+      ['Customer inputs and references', 'Identify the supplied drawings, artwork, color references and written product requirements.', 'Register and distribute the accepted inputs; replace or mark superseded material so the approved reference is clear.'],
+    ]} />
+    <p>A blank form or general check sheet defines what to record. A completed review record identifies the actual revision, findings and decision. Agree which project records can be shared and any confidentiality restrictions as part of the <a href="/quality/">quality review</a>.</p>
+  </Section>
+
+  <Section id="change-control" eyebrow="05 / CONTROL CHANGES" title="Engineering Change Review & Approval" intro="A requested improvement can affect more than the drawing: materials, molds, validation, existing parts and the production plan may all depend on the current revision.">
+    <Flow label="Change request, impact review and verified release" steps={[
+  {
+    "icon": "file-diff",
+    "title": "Identify the requested change",
+    "text": "Reference the affected revision, describe the reason and define the intended result. Distinguish a correction to the agreed scope from an added function or new direction."
+  },
+  {
+    "icon": "clipboard-check",
+    "title": "Review consequences and obtain written confirmation",
+    "text": "Assess engineering work, tooling, procurement, testing, cost and schedule. Resolve responsibility for affected work and materials before implementation is authorized."
+  },
+  {
+    "icon": "refresh-cw",
+    "title": "Update, communicate and verify",
+    "text": "Issue the changed files and instructions to the relevant teams. Identify any affected samples or stock and repeat the required checks. Close the change only with a clear record of the result."
+  }
+]} />
+    <p>For broader engineering changes, review <a href="/customization/product-adaptation/">Product Adaptation</a>. For unresolved rights, safety or responsibility questions, use the <a href="/customization/project-fit/">project fit and working principles</a> to establish what must be clarified before the affected work continues.</p>
+    <p>Order changes affecting agreed quantities, specifications or delivery are recorded, reviewed by the relevant teams and confirmed with the customer. Where a product is subject to certification, assess any additional certification approval separately from the general engineering-change decision.</p>
+  </Section>
+
+  <Section id="after-delivery" eyebrow="06 / FEEDBACK & CORRECTIVE ACTION" title="Turn a reported problem into a reviewed action" intro="Xinyinhai’s documented service procedure records customer feedback and brings quality, engineering and production into the investigation when needed. Agree the communication and evidence needed for the specific issue.">
+    <Flow label="Customer feedback, investigation and corrective-action review" steps={[
+      { icon: 'messages-square', title: 'Record the issue', text: 'Identify the product revision, order or batch, affected quantity and use conditions. Photos, test results or a returned sample help establish what happened.' },
+      { icon: 'scan-search', title: 'Review and agree handling', text: 'Review available inspection and shipment records, investigate the cause and agree the relevant containment, return or other handling with the customer.' },
+      { icon: 'clipboard-check', title: 'Verify the corrective action', text: 'Assign the responsible team, track the action and review its effectiveness before closing it. Carry confirmed permanent changes into controlled documents.' },
+    ]} />
+    <p>For a field issue that needs recovery of affected products, the scope and handling plan are reviewed with the customer using the available batch and shipment evidence. Response timing and service arrangements are agreed for the case. See <a href="/quality/traceability/">Traceability &amp; Materials</a> for the records that support that investigation.</p>
+  </Section>
+</CustomizationPage>
+
+<style>
+.b2b-start-routes {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:24px;}
+.b2b-start-routes a {display:flex;gap:12px;align-items:center;padding:17px 14px;border:1px solid #d9e2ef;border-radius:5px;text-decoration:none!important;background:#f6f8fc;}
+.b2b-start-routes a:hover {border-color:#7e99c0;}
+.b2b-start-routes span {font-size:.67rem;color:#506178;line-height:1.5;}
+.b2b-start-routes strong {display:block;font-size:.82rem;margin-top:4px;color:#183ba3;}
+.b2b-gate-caption {display:flex;gap:12px;align-items:center;padding:14px 18px;background:#f3f6fa;border-left:3px solid #183ba3;font-size:.83rem;}
+.b2b-responsibility-pair {margin-top:0;}
+@media(max-width:1119px) {.b2b-start-routes {grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:599px) {.b2b-start-routes {grid-template-columns:1fr;}.b2b-gate-caption {align-items:flex-start;}}
+</style>

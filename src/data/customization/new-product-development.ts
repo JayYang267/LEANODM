@@ -1,0 +1,58 @@
+import type { CustomizationPageData } from './types';
+
+export const page: CustomizationPageData = {
+  slug: 'new-product-development',
+  title: 'New Product Development from Idea to Production | LEANODM',
+  description: 'Develop a new plastic or electronic product through requirements, engineering, prototypes, DFM, tooling, trial builds and approved production preparation.',
+  h1: 'New Product Development',
+  navTitle: 'New Development',
+  eyebrow: 'BUILDING A NEW PRODUCT',
+  lead: 'New product development creates a new product from requirements through concept, engineering, prototypes and mass-production release.',
+  intro: 'Xinyinhai’s ODM product development route starts with the problem, intended user and functions you need. We review feasibility, develop the agreed plastic and electronic design, and use samples and stage reviews to prepare it for tooling and manufacturing.',
+  serviceType: 'New plastic and electronic product development from idea through engineering and production preparation',
+  summary: [
+    { label: 'Starting point', text: 'An idea, use case, reference sample, sketch or initial specification.' },
+    { label: 'Development scope', text: 'Requirements, concept, engineering and the samples needed to validate the design.' },
+    { label: 'Production route', text: 'DFM, tooling, trial builds, pilot production and approved mass-production release.' },
+  ],
+  highlights: ['Requirements before detailed design', 'Physical evidence at review gates', 'Production preparation included in the plan'],
+  sections: [
+    { label: 'Brief', href: '#product-brief' },
+    { label: 'Stages', href: '#development-stages' },
+    { label: 'Approvals', href: '#approval-gates' },
+    { label: 'Production', href: '#production-readiness' },
+    { label: 'Start', href: '#project-requirements' },
+  ],
+  faqs: [
+    { question: 'Can I start with an idea rather than a drawing?', answer: 'Yes. Explain the intended user, problem, use scenario and essential functions. References or sketches help. The first task is to clarify requirements and feasibility so the proposed development scope has a useful starting point.' },
+    { question: 'What does a prototype prove?', answer: 'That depends on how it is made and what it is intended to test. A form model, functional prototype and tool-made sample answer different questions. We agree the purpose of each sample and record differences from the planned production version.' },
+    { question: 'When is the design ready for tooling?', answer: 'The relevant design, prototype findings, manufacturing considerations and product requirements must be reviewed. Open risks and required corrections are identified, and the customer confirms the applicable design and tooling scope before tool work is authorized.' },
+    { question: 'Can development include electronic functions?', answer: 'The review can include mechanical and electronic integration, power, controls and production testing. Connected features, displays, apps or complex software require individual assessment. Any specialist development and responsibility for it must be agreed in the project scope.' },
+    { question: 'How are development timing and cost established?', answer: 'They depend on design maturity, technical uncertainty, sample iterations, tooling, testing and the production plan. The proposal defines stages and assumptions. A changed requirement is assessed for its effect on the remaining work, cost and schedule.' },
+    { question: 'Which technical files do I receive?', answer: 'The agreement identifies the deliverables, file formats, revision status, usage rights and ownership arrangements. Relevant outputs may include drawings, BOM information, sample findings and production documentation. Confirm native design files or software deliverables explicitly when they are required.' },
+    { question: 'How are document revisions controlled during development?', answer: 'Xinyinhai’s documented procedure requires review and approval of applicable engineering documents before controlled distribution. The release package can include the BOM, technical drawings, operating instructions and inspection instructions. Changes are recorded and assessed, updated information reaches the relevant teams, and obsolete internal copies are withdrawn. The project scope identifies the records and customer approvals required at each stage.' },
+  ],
+  cta: 'Discuss a New Product Idea',
+  briefIntro: 'Share the idea and the decision you need help making. Early information can be incomplete; identify assumptions and essential requirements so we can define the next useful development step.',
+  needs: [
+    'The product purpose, intended users and use scenario.',
+    'Essential functions, appearance references, sketches or available samples.',
+    'Intended markets, use conditions and known safety or test requirements.',
+    'Expected quantities, budget expectations and launch priorities.',
+    'Available brand or design assets, rights to use them and desired deliverables.',
+  ],
+  receives: [
+    'An agreed brief, feasibility findings and development scope with review points.',
+    'Concept and engineering information appropriate to the authorized stage.',
+    'Prototype or sample findings, issue records and the agreed validation evidence.',
+    'Approved design and production information for tooling, pilot work and manufacturing handover.',
+  ],
+  related: [
+    { href: '/customization/existing-products/', label: 'Existing Product Customization', description: 'Use a suitable base product for branding and packaging requirements.' },
+    { href: '/customization/product-adaptation/', label: 'Product Adaptation', description: 'Engineer changes when an existing design is a suitable starting point.' },
+    { href: '/customization/oem-manufacturing/', label: 'OEM Manufacturing', description: 'Transfer a manufacturing-ready customer design into production.' },
+    { href: '/customization/how-we-work/', label: 'How We Work', description: 'See the responsibilities and approvals connecting development stages.' },
+    { href: '/customization/project-fit/', label: 'Project Fit & Working Principles', description: 'Clarify rights, safety, confidentiality and project expectations.' },
+    { href: '/quality/quality-control-process/', label: 'Quality Control Process', description: 'Understand material, production and shipment inspection decisions.' },
+  ],
+};

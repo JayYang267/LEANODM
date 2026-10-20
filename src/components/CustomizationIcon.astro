@@ -1,0 +1,6 @@
+---
+import { Icon } from 'astro-iconset/components';
+interface Props { name: string; class?: string; }
+const { name, class: className } = Astro.props;
+---
+<span class:list={['b2b-icon', className]} aria-hidden="true"><Icon name={`lucide:${name}`} /></span>

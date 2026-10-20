@@ -1,0 +1,71 @@
+---
+import { Icon } from 'astro-iconset/components';
+import type { LeanNavigationMenuData } from './leanNavigation';
+
+interface Props {
+  menu: LeanNavigationMenuData;
+  pathname: string;
+}
+const { menu, pathname } = Astro.props;
+const isCurrent = (href: string) => pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+---
+
+<div class="lean-module-content">
+  <div class="lean-module-heading">
+    <p class="lean-module-title">{menu.title}</p>
+    <p class="lean-module-intro">{menu.intro}</p>
+  </div>
+  <ul class:list={['lean-module-grid', { 'lean-module-grid-three': menu.columns === 3 }]} aria-label={menu.title}>
+    {menu.links.map(link => (
+      <li>
+        <a class="lean-module-card" href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>
+          <span class="lean-module-icon" aria-hidden="true"><Icon name={`lucide:${link.icon}`} /></span>
+          <span class="lean-module-copy">
+            <span class="lean-module-label">{link.label}</span>
+            <span class="lean-module-description">{link.description}</span>
+            {isCurrent(link.href) && <span class="lean-module-current">Current page</span>}
+          </span>
+          <span class="lean-module-arrow" aria-hidden="true"><Icon name="lucide:arrow-up-right" /></span>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .lean-module-content { color:#162c48; }
+  .lean-module-heading { padding:22px 24px 16px; }
+  .lean-module-title { margin:0; color:#162c48; font-size:18px; line-height:1.4; font-weight:700; letter-spacing:-.02em; }
+  .lean-module-intro { margin:4px 0 0; color:#63718a; font-size:13px; line-height:1.5; }
+  .lean-module-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-auto-rows:1fr; gap:12px; list-style:none; margin:0; padding:0 24px 24px; }
+  .lean-module-grid-three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .lean-module-grid li { min-width:0; }
+  .lean-module-grid .lean-module-card { position:relative; display:flex; align-items:flex-start; gap:12px; height:100%; min-height:126px; padding:19px 30px 19px 16px; border:1px solid #dfe6f0; border-radius:8px; background:#fff; color:#162c48; transition:border-color 150ms ease,background 150ms ease; }
+  .lean-module-icon { display:flex; flex:0 0 36px; align-items:center; justify-content:center; width:36px; height:36px; border-radius:8px; background:#f0f4fc; color:#183ba3; }
+  .lean-module-icon :global(svg) { width:20px; height:20px; stroke-width:1.7; }
+  .lean-module-copy { display:block; min-width:0; }
+  .lean-module-label { display:block; color:inherit; font-size:15px; font-weight:700; line-height:1.45; }
+  .lean-module-description { display:block; margin-top:7px; color:#5c6c82; font-size:12px; font-weight:400; line-height:1.6; }
+  .lean-module-arrow { position:absolute; top:20px; right:12px; display:flex; color:#8391a5; }
+  .lean-module-arrow :global(svg) { width:15px; height:15px; }
+  .lean-module-current { display:inline-flex; align-items:center; gap:5px; margin-top:8px; color:#183ba3; font-size:10px; font-weight:650; line-height:1.4; }
+  .lean-module-current::before { content:''; width:4px; height:4px; border-radius:50%; background:currentColor; }
+  .lean-module-grid .lean-module-card[aria-current='page'] { border-color:#aebfe9; background:#f1f5ff; color:#183ba3; }
+  .lean-module-card[aria-current='page'] .lean-module-icon { background:#e0e9ff; }
+  .lean-module-card[aria-current='page'] .lean-module-arrow { color:#183ba3; }
+  .lean-module-grid .lean-module-card:hover { border-color:#9eb4e7; background:#f6f8ff; color:#183ba3; }
+  .lean-module-grid .lean-module-card:focus-visible { outline:3px solid #183ba3; outline-offset:2px; }
+  @media (max-width:1119px) {
+    .lean-module-heading { display:none; }
+    .lean-module-grid,.lean-module-grid-three { grid-template-columns:repeat(2,minmax(0,1fr)); padding:8px 0 16px; gap:10px; }
+    .lean-module-grid .lean-module-card { min-height:116px; }
+  }
+  @media (max-width:639px) {
+    .lean-module-grid,.lean-module-grid-three { grid-template-columns:1fr; }
+    .lean-module-grid .lean-module-card { min-height:92px; padding:15px 32px 15px 14px; }
+    .lean-module-label { font-size:14px; }
+    .lean-module-description { margin-top:4px; }
+    .lean-module-arrow { top:17px; }
+  }
+  @media (prefers-reduced-motion:reduce) { .lean-module-grid .lean-module-card { transition:none; } }
+</style>

@@ -1,0 +1,58 @@
+import type { CustomizationPageData } from './types';
+
+export const page: CustomizationPageData = {
+  slug: 'product-adaptation',
+  title: 'Product Adaptation & Engineering Changes | LEANODM',
+  description: 'Adapt an existing plastic or electronic product through engineering review, revised designs, sample validation and controlled preparation for production.',
+  h1: 'Product Adaptation',
+  navTitle: 'Product Adaptation',
+  eyebrow: 'ENGINEERING AN EXISTING PRODUCT',
+  lead: 'Product adaptation engineers changes to an existing product while retaining an agreed design baseline.',
+  intro: 'Product adaptation starts with an existing product and a clear reason to change it. Xinyinhai’s engineering review considers how the change affects structure, materials, electronic behavior, tooling and production. We then agree the engineering and validation work needed for the revised version.',
+  serviceType: 'Engineering adaptation of an existing plastic or electronic product',
+  summary: [
+    { label: 'Starting point', text: 'An existing product, sample or design with an identifiable revision.' },
+    { label: 'Work to define', text: 'The requested changes, affected parts and performance that must be retained.' },
+    { label: 'Next decision', text: 'Approve the change scope and evidence needed to release the revised product.' },
+  ],
+  highlights: ['Existing design baseline', 'Changes assessed across the product', 'Revised sample and specification approval'],
+  sections: [
+    { label: 'Change Scope', href: '#change-scope' },
+    { label: 'Engineering Review', href: '#engineering-review' },
+    { label: 'Validation', href: '#validation' },
+    { label: 'Change Approval', href: '#change-approval' },
+    { label: 'Project Brief', href: '#project-requirements' },
+  ],
+  faqs: [
+    { question: 'Can you assess an existing product if I only have a sample?', answer: 'A sample can support an initial review. Identify who owns the design and which files or tooling information are available. We first establish what can be verified from the sample and what needs measurement, documentation or further engineering.' },
+    { question: 'Does a material substitution need a new sample?', answer: 'Its effect must be assessed. A different material can change stiffness, shrinkage, assembly fit, appearance or electrical behavior. We agree the sample and testing needed before accepting it into the production specification.' },
+    { question: 'Can adaptation reduce product cost?', answer: 'We can review part count, assembly steps, material options and manufacturing choices. Any saving depends on the resulting design, quantities, tooling and validation work. Alternatives must retain the agreed function, safety and quality requirements.' },
+    { question: 'Can existing tooling be reused or modified?', answer: 'That depends on ownership and permitted use, tool condition, the geometry change and the production process. Tooling review may recommend reuse, modification or replacement. Confirm that decision before authorizing tool work.' },
+    { question: 'What if a requested change affects the whole product?', answer: 'We explain the implications and reassess the route. A change to the core architecture, mechanism or electronic system may require a new development scope, with additional prototypes, reviews and production preparation.' },
+    { question: 'Will the revised product remain compatible with existing parts?', answer: 'Compatibility is a requirement to define at the start. Identify which parts, accessories and versions must work together. We review the affected interfaces, dimensions, assembly and function, then agree interchangeability checks on representative samples before approving the revised configuration.' },
+    { question: 'Does engineering approval also cover product-certification changes?', answer: 'Engineering approval and certification approval are separate decisions. First establish the product certification, market and affected scope. For products within an applicable 3C certification scope, Xinyinhai’s documented change procedure requires the relevant certification approval before producing or selling the changed product. A general design-change approval does not establish that a certificate covers the revised configuration.' },
+  ],
+  cta: 'Review Your Product Modification',
+  briefIntro: 'Describe the current version, the problem or opportunity and the result you want. Include the functions and characteristics that must remain consistent so the review has a clear boundary.',
+  needs: [
+    'Existing product reference, sample photos and available drawings or BOM.',
+    'A marked change list, known issues and requirements to retain.',
+    'Intended users, use conditions and destination markets.',
+    'Available tooling information and your authority to use the design and assets.',
+    'Expected order quantities, timing and sample acceptance requirements.',
+  ],
+  receives: [
+    'A defined change scope with affected parts, open questions and engineering recommendations.',
+    'Revised drawings, material or BOM information where included in the scope.',
+    'An agreed sample and validation plan, with review findings and follow-up actions.',
+    'The approved revision and production handover requirements for the changed product.',
+  ],
+  related: [
+    { href: '/customization/existing-products/', label: 'Existing Product Customization', description: 'For appearance and packaging changes to a suitable base product.' },
+    { href: '/customization/new-product-development/', label: 'New Product Development', description: 'Develop a new product when a suitable starting design is unavailable.' },
+    { href: '/customization/oem-manufacturing/', label: 'OEM Manufacturing', description: 'Prepare an approved customer design for manufacturing execution.' },
+    { href: '/customization/how-we-work/', label: 'How We Work', description: 'Understand responsibilities, review gates and controlled changes.' },
+    { href: '/customization/project-fit/', label: 'Project Fit & Working Principles', description: 'Review rights, safety requirements and practical project boundaries.' },
+    { href: '/manufacturing/tooling-injection-molding/', label: 'Tooling & Injection Molding', description: 'Explore tooling preparation and molded-part production considerations.' },
+  ],
+};

@@ -1,0 +1,171 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import { stages, responsibilities, safetyChecks, processes, finalChecks, defects, documents, faqs as inspectionFaqs } from '../../../data/quality-control-process';
+import '../../../styles/quality-control-process.css';
+
+const title = 'Quality Control Process for OEM & ODM Manufacturing | LEANODM.com';
+const description = 'Explore incoming, first article, process and final inspection, with nonconformity containment, approved disposition, reinspection and corrective action.';
+const route = '/quality/quality-control-process/';
+const origin = SITE.url;
+const canonical = new URL(route, origin).href;
+const navigation = [
+  { label: 'Production flow', href: '#quality-flow' },
+  { label: 'Approval & checks', href: '#first-article' },
+  { label: 'Acceptance criteria', href: '#acceptance-criteria' },
+  { label: 'Nonconformity & CAPA', href: '#release' },
+];
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality', url: '/quality/' }, { name: 'Quality Control Process', url: route }];
+const faqs = [...inspectionFaqs,
+  { question: 'Can a rejected lot be released under a customer concession?', answer: 'The nonconformity procedure requires a documented review and authorized disposition. A concession for rejected finished goods requires customer agreement recorded in the review. Material reviews must not introduce a safety hazard, and customer agreement is required when the order calls for it or customer interests are affected. Production urgency alone is not an approval.' },
+  { question: 'What closes a corrective action?', answer: 'The responsible department identifies the cause and proposes corrective and preventive measures for Quality review. Quality follows implementation and effectiveness; closure requires confirmation. Effective permanent changes are incorporated into the controlled documents so the revised method remains in use.' },
+];
+const schema = {
+  '@context': 'https://schema.org', '@graph': [
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, about: [{ '@id': `${origin}/#xinyinhai` }, { '@type': 'Thing', name: 'Xinyinhai manufacturing quality control process' }] },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.url, item.url.startsWith('#') ? canonical : origin).href })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} technicalPage technicalNavigation={navigation} technicalPageTitle="Quality control" contactHref="#project-requirements" technicalContactLabel="Discuss Your Project">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="qc-page">
+    <section class="qc-hero" aria-labelledby="page-title">
+      <div class="qc-container">
+        <nav class="qc-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, i) => <li>{i < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="qc-hero-grid">
+          <div>
+            <p class="qc-eyebrow">QUALITY / MANUFACTURING PROCESS</p>
+            <h1 id="page-title">Quality Control Process</h1>
+            <p class="qc-lead">Quality control begins before mass production and continues throughout manufacturing.</p>
+            <p class="qc-intro">At Xinyinhai, incoming checks, first article approval, workshop inspection and final QA have defined responsibilities. Inspection criteria, recorded decisions and approval requirements connect each stage.</p>
+            <div class="qc-actions"><Button href="#quality-flow" class="qc-button">Explore the Process <span aria-hidden="true">↓</span></Button><a class="qc-text-link" href="#acceptance-criteria">Review acceptance criteria <span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="qc-overview" aria-label="Quality control sequence">
+            <div class="qc-panel-label"><span>FROM MATERIALS TO FINISHED GOODS</span><span aria-hidden="true">QC</span></div>
+            <ol class="qc-mini-flow">
+              <li><span aria-hidden="true">01</span><div><strong>Incoming materials · IQC</strong><small>Inspect and record the material decision</small></div></li>
+              <li class="qc-gate"><span aria-hidden="true">02</span><div><strong>First article · approval</strong><small>All required inspection and test items must pass</small></div></li>
+              <li><span aria-hidden="true">03</span><div><strong>Production · process inspection</strong><small>Patrol checks, assembly and function verification</small></div></li>
+              <li><span aria-hidden="true">04</span><div><strong>Final QA · acceptance decision</strong><small>Documented inspection supports release</small></div></li>
+            </ol>
+            <p class="qc-panel-note">A process overview based on the factory’s internal inspection documents.</p>
+          </div>
+        </div>
+        <div class="qc-hero-foot"><span>Assigned quality personnel</span><span>Approval before batch production</span><span>Recorded inspection decisions</span></div>
+      </div>
+    </section>
+
+    <div class="qc-container">
+      <section id="quality-flow" class="qc-section" aria-labelledby="flow-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">01 / THE PRODUCTION FLOW</p><h2 id="flow-title">Quality Control at Every Stage of Production</h2></div><p>OEM and ODM quality control connects material acceptance, production approval and finished-product decisions. Process-specific checks take place within production.</p></div>
+        <ol class="qc-stages">{stages.map((stage, i) => <li><span class="qc-step-number">{String(i + 1).padStart(2, '0')}</span><div><h3><a href={`#${stage.target}`}>{stage.name} <span aria-hidden="true">↗</span></a></h3><p>{stage.check}</p><p class="qc-purpose"><strong>Control purpose</strong> {stage.purpose}</p></div></li>)}</ol>
+        <p class="qc-note">The workbook documents inspection acceptance and production approval. It does not define a separate logistics dispatch authorization procedure; “release” here refers to the quality acceptance basis.</p>
+      </section>
+
+      <section id="responsibilities" class="qc-section qc-split" aria-labelledby="responsibility-title">
+        <div><p class="qc-eyebrow">02 / ACCOUNTABILITY</p><h2 id="responsibility-title">A Defined Quality Responsibility Structure</h2><p>Quality responsibility is assigned at process level, with management and engineering support for inspection decisions and improvement.</p><p class="qc-reference">Organization reference<br /><strong>WI-COP1.1-11</strong></p></div>
+        <dl class="qc-responsibilities">{responsibilities.map(item => <div><dt>{item.role}</dt><dd>{item.text}</dd></div>)}</dl>
+      </section>
+
+      <section id="incoming" class="qc-section" aria-labelledby="incoming-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">03 / BEFORE PRODUCTION</p><h2 id="incoming-title">Incoming Material Inspection</h2></div><p>IQC provides an acceptance or rejection decision for raw materials, auxiliary materials and outsourced or subcontracted parts.</p></div>
+        <div class="qc-three-column">
+          <article><span class="qc-small-label">CHECK</span><h3>Compare with the requirements</h3><p>Check dimensions, function and technical parameters, then compare color, printed content and surface condition with engineering drawings or samples. Materials with specified reliability tests follow the relevant laboratory submission requirement.</p></article>
+          <article><span class="qc-small-label">DECIDE & RECORD</span><h3>Document material acceptance</h3><p>The warehouse initiates the incoming inspection report. IQC records sampled defects, their classifications and the decision. Rejected materials go through the documented disposition and, where needed, review process.</p></article>
+          <article><span class="qc-small-label">FEEDBACK</span><h3>Follow up with the supplier</h3><p>IQC reports incoming quality abnormalities to suppliers and Purchasing and periodically evaluates supplier performance.</p></article>
+        </div>
+        <a class="qc-text-link" href="/quality/incoming-inspection/">Explore material-specific Incoming Inspection criteria <span aria-hidden="true">↗</span></a>
+        <p class="qc-source-note">The linked material standard is a separate document with a different MIN AQL value. See the <a href="#acceptance-criteria">document-specific sampling notes</a> before applying either reference.</p>
+      </section>
+
+      <section id="first-article" class="qc-section" aria-labelledby="first-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">04 / THE PRODUCTION APPROVAL GATE</p><h2 id="first-title">First Article Approval Before Mass Production</h2></div><p>Starting a line does not authorize normal batch production. Production submits the first articles; inspectors check them, record the results and obtain approval.</p></div>
+        <div class="qc-approval-grid">
+          <div class="qc-approval-rule"><p class="qc-small-label">FIRST ARTICLE ACCEPTANCE</p><h3>Every required item must pass.</h3><p>Under the first-article standard, <strong>one failing specimen on any inspection or test item makes the submitted first-article batch unacceptable.</strong></p><p>Failed first articles are reviewed with Engineering and Production. Corrected first articles are produced and submitted again.</p><span>WI-COP-7.1.1-01 · §§6.3, 6.6</span></div>
+          <div class="qc-checklist"><h3>What is verified?</h3><ul><li>Function and appearance against the sample and inspection requirements</li><li>Product and packaging consistency, with a clean, uncontaminated appearance</li><li>Safety warnings, markings and instructions for the destination market</li><li>Surface coating adhesion for applicable painted, screen-printed or pad-printed products</li><li>Applicable toy safety inspection and testing</li></ul><p class="qc-source-note">The first-article standard routes approval to Engineering. The patrol standard routes it to the quality lead, with Engineering approval for a new product’s first production run. Both require approval before batch production.</p></div>
+        </div>
+        <p class="qc-note"><strong>Restart is also an approval point.</strong> The production-management procedure requires a first-article check for each production work order before normal production and when production resumes after an interruption. Record confirmation before restarting the batch; a previous approval does not replace this restart check.</p>
+      </section>
+
+      <section id="safety-testing" class="qc-section" aria-labelledby="safety-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">05 / APPLICABLE TOY PRODUCTS</p><h2 id="safety-title">Safety Checks Before Production Release</h2></div><p>For products exported or sold as toys, the first-article standard specifies safety checks according to the destination market. Higher customer test requirements take precedence.</p></div>
+        <div class="qc-safety-list">{safetyChecks.map((test, i) => <article><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><h3>{test.name}</h3><p>{test.text}</p></article>)}</div>
+        <div class="qc-market-note"><div><span class="qc-standard-badge">USA · ASTM F963</span><span class="qc-standard-badge">Europe · EN71</span></div><p>These are standards referenced in the supplied internal documents for applicable products and markets. They do not establish certification or compliance for every product. The applicable edition, product scope and customer requirements need to be confirmed for the project.</p></div>
+        <a class="qc-text-link" href="/quality/product-testing/">Explore the existing Product Testing &amp; Evaluation Plan <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section id="in-process" class="qc-section qc-split" aria-labelledby="patrol-title">
+        <div><p class="qc-eyebrow">06 / DURING PRODUCTION</p><h2 id="patrol-title">In-Process Quality Control</h2><p>In-process quality control (IPQC) brings patrol checks into manufacturing. Inspectors use the production notice, technical documents, work instructions and approved samples to assess current work.</p><div class="qc-frequency"><strong>2-hour intervals</strong><span>Specified by the supplied patrol standard for the workshops it covers; checks depend on the product, process and output in that period.</span></div></div>
+        <ol class="qc-patrol"><li><h3>Prepare and confirm</h3><p>Review production requirements and reference documents, then confirm and record the first article before normal batch production.</p></li><li><h3>Patrol and sample</h3><p>Check operator work against SOP / SIP requirements and sample current output. After the QC control-point inspection passes, patrol sampling must also pass before workshop output enters storage.</p></li><li><h3>Report and follow through</h3><p>Record production abnormalities and inspection results, escalate issues and coordinate corrective action with Engineering. Reworked rejected lots require reinspection.</p></li></ol>
+      </section>
+
+      <section id="process-checks" class="qc-section" aria-labelledby="process-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">07 / ASSIGNED AT THE PROCESS</p><h2 id="process-title">Inspection Responsibilities Across Manufacturing Processes</h2></div><p>Electronics quality inspection and plastic product quality control have assigned workshop responsibilities. Each inspector judges conformity and works to stop nonconforming products entering the next process.</p></div>
+        <dl class="qc-processes">{processes.map((process, i) => <div><dt><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{process.name}</dt><dd>{process.checks}</dd></div>)}</dl>
+      </section>
+
+      <a class="qc-text-link" href="/manufacturing/tooling-injection-molding/#molding-quality">See quality controls inside Tooling &amp; Injection Molding <span aria-hidden="true">↗</span></a>
+
+      <section id="final-inspection" class="qc-section" aria-labelledby="final-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">08 / FINISHED GOODS</p><h2 id="final-title">Final Product Inspection Before Release</h2></div><p>Final QA checks the finished lot and records its acceptance decision. The supplied Finished Product Inspection Standard, WI-COP-8.2.4-01, explicitly covers <strong>toy finished goods</strong>.</p></div>
+        <div class="qc-final-checks">{finalChecks.map(check => <article><h3>{check.name}</h3><p>{check.text}</p></article>)}</div>
+        <div class="qc-final-record"><strong>A recorded lot decision</strong><p>The final inspection report records test results, defect descriptions, defect counts and the decision. The inspector and relevant production supervisor sign the report before it is filed.</p></div>
+        <a class="qc-text-link" href="/quality/appearance-inspection/">See the separate Product Appearance Inspection Standards <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section id="acceptance-criteria" class="qc-section" aria-labelledby="acceptance-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">09 / DEFECT CLASSIFICATION & AQL</p><h2 id="acceptance-title">Defect Classification and Acceptance Criteria</h2></div><p>The definitions below summarize the finished-product standard. Where a unit has more than one defect class, it is counted under the highest severity. Individual defect criteria still govern classification.</p></div>
+        <div class="qc-defects">{defects.map(defect => <article><span class:list={['qc-severity', `qc-severity-${defect.code.toLowerCase()}`]}>{defect.code}</span><h3>{defect.name}</h3><p>{defect.definition}</p></article>)}</div>
+        <div class="qc-sampling-grid">
+          <div><h3>Sampling depends on the inspection stage</h3><p>The workbook specifies single sampling and <strong>General Inspection Level II</strong> for general checks. Incoming and final inspection explicitly use normal sampling plans.</p><p>Final carton selection uses <strong>Special Level S-4</strong>, with enough cartons opened to supply the planned sample. The first-article sample is <strong>6 pieces per submitted batch</strong>; the final safety-test sample is also <strong>6 pieces</strong>.</p><p class="qc-source-note">AQL labels are not measured defect rates, sample sizes or guarantees. Lot size and the applicable sampling table are needed for a lot decision.</p></div>
+          <div class="qc-table-wrap"><table><caption>AQL labels in this process workbook — incoming, in-process product sampling and final inspection</caption><thead><tr><th scope="col">Defect class</th><th scope="col">AQL</th></tr></thead><tbody>{defects.map(defect => <tr><th scope="row">{defect.name} ({defect.code})</th><td>{defect.aql}</td></tr>)}</tbody></table><p>The incoming and finished-product standards reject the lot when a Critical defect is found. First articles have their separate all-items-pass rule.</p></div>
+        </div>
+        <aside class="qc-note"><strong>Keep the document context.</strong> This workbook lists MIN <strong>1.0</strong>. The separate <a href="/quality/incoming-inspection/#sampling-severity">Incoming Material Inspection Standard (TV-QM-S001)</a> lists MIN <strong>2.5</strong>. The supplied sources do not establish which document supersedes the other. Confirm the applicable reference and customer requirements for the order; these values are not interchangeable.</aside>
+      </section>
+
+      <section id="documented-standards" class="qc-section" aria-labelledby="documents-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">10 / DOCUMENTED INSPECTION STANDARDS</p><h2 id="documents-title">Based on Documented Internal Inspection Standards</h2></div><p>This overview draws on Xinyinhai’s supplied Quality Control Process workbook. Document identities provide the basis for the summary without publishing the full internal procedures.</p></div>
+        <div class="qc-document-grid">{documents.map(document => <article><span class="qc-doc-mark" aria-hidden="true">WI</span><h3>{document.name}</h3><p class="qc-document-code">{document.code}</p><p>{document.detail}</p></article>)}</div>
+        <p class="qc-source-note">The workbook also contains Incoming Inspection and Patrol Inspection standards, both labeled WI-COP7.5.1-02, Version D. That repeated identifier is retained as a source limitation. The displayed revisions are historical document references; the supplied workbook does not verify current revision status.</p>
+      </section>
+
+      <section id="release" class="qc-section" aria-labelledby="release-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">11 / NONCONFORMITY & RELEASE</p><h2 id="release-title">Nonconforming Lot Disposition &amp; Reinspection</h2></div><p>A failed result needs an identified owner, a contained lot and an approved disposition. The documented procedure covers incoming materials, production, finished goods, customer inspection failures and returns.</p></div>
+        <ol class="qc-release-flow" aria-label="Nonconformity control and reinspection sequence"><li><span>01</span><strong>Record the failure</strong></li><li><span>02</span><strong>Identify & segregate</strong></li><li><span>03</span><strong>Review disposition</strong></li><li><span>04</span><strong>Obtain approvals</strong></li><li><span>05</span><strong>Correct & reinspect</strong></li><li><span>06</span><strong>Record the decision</strong></li></ol>
+        <div class="qc-release-details">
+          <div><h3>Contain the nonconformity</h3><p>Mark rejected materials or products and keep them in the designated rejected area or container. Record the defect and affected quantity. Incoming rejections go to Purchasing and production planning for return or formal review; customer-supplied material is referred to the customer for disposition.</p></div>
+          <div><h3>Approve the disposition</h3><p>The review may authorize return, sorting, rework, conditional use, downgrade or scrap as applicable. Engineering contributes the technical assessment; authorized management approves the decision. Material review must not introduce a safety hazard. Customer agreement is required when specified by the order or when customer interests are affected; concessions for rejected finished goods require recorded customer agreement.</p></div>
+          <div><h3>Reinspect after correction</h3><p>Failed first articles are corrected and resubmitted for approval. Repaired work in process must pass its assigned inspection before the next operation. Sorted and repaired finished goods return to Quality for inspection. After a customer inspection failure, internal inspection must pass before arranging customer reinspection.</p></div>
+          <div><h3>Keep the decision with the lot</h3><p>Inspection and review records retain the issue, approved action and result; status identification is updated to match. Downgraded goods remain identified and separate. Final QA follows rejected-lot treatment. Under the finished-product safety test procedure, tested specimens are scrapped and cannot be shipped with bulk goods.</p></div>
+        </div>
+        <p class="qc-source-note">These are documented controls, rather than a report of completed dispositions. See <a href="/quality/traceability/">Traceability &amp; Materials</a> for the relationship between status identification, production records and the agreed traceability scope.</p>
+      </section>
+
+      <section id="corrective-action" class="qc-section" aria-labelledby="corrective-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">12 / CORRECTIVE &amp; PREVENTIVE ACTION</p><h2 id="corrective-title">Root Cause, Corrective Action &amp; Effectiveness Review</h2></div><p>Correcting one lot addresses that lot. Corrective and preventive action (CAPA) addresses the cause and the risk of recurrence, with follow-up evidence before closure.</p></div>
+        <div class="qc-three-column">
+          <article><span class="qc-small-label">IDENTIFY &amp; REVIEW</span><h3>Use the available evidence</h3><p>Major quality problems, customer complaints or returns, audit findings and abnormal data trends can initiate action. The responsible department investigates the cause and proposes measures for Quality review before implementation.</p></article>
+          <article><span class="qc-small-label">IMPLEMENT &amp; VERIFY</span><h3>Check whether the action works</h3><p>Quality tracks implementation and the result, with the action register supporting follow-up. Unsatisfactory action remains open. Closure requires confirmation; preventive measures also require their effectiveness to be verified.</p></article>
+          <article><span class="qc-small-label">UPDATE &amp; SUSTAIN</span><h3>Carry the change into controlled work</h3><p>Once measures are confirmed effective, permanent changes are incorporated into the relevant controlled procedures and instructions. Inspection trends and audit follow-up inform further review of the process.</p></article>
+        </div>
+        <p class="qc-note"><strong>For a supplier review:</strong> request an appropriate completed example connecting the issue, cause, approved action, verification and any document revision. The <a href="/quality/">Quality Management System overview</a> explains how document control, competence and management review support these decisions.</p>
+      </section>
+
+      <section id="faq" class="qc-section" aria-labelledby="faq-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">13 / BUYER QUESTIONS</p><h2 id="faq-title">Quality Control Process FAQ</h2></div><p>Practical answers for sourcing, engineering and quality teams planning an OEM or ODM product.</p></div>
+        <div class="qc-faq">{faqs.map(faq => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+      </section>
+    </div>
+
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">YOUR NEXT OEM / ODM PRODUCT</p><h2 id="project-title">Planning a New OEM / ODM Product?</h2><p>Bring your product requirements, drawings, samples, quality expectations and target market into the discussion before tooling and mass production.</p><div class="qc-actions"><Button href="/resources/quality-control-project-brief.txt" class="qc-button">Open the manufacturing review checklist <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="/rfq/?source=quality-control-process#rfq-form">Discuss your quality requirements <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Open the project checklist, or <a href="/resources/quality-control-project-brief.txt" download="LEANODM-quality-control-project-brief.txt">download a copy</a> to complete and share with your existing project contact. Downloading a checklist does not submit an inquiry.</p></div><div class="qc-project-list"><h3>Make the quality requirements clear</h3><ul><li>Product, specification and reference sample</li><li>Destination market and intended users</li><li>Applicable inspection and safety requirements</li><li>Customer acceptance criteria and report needs</li><li>Items to resolve before production approval</li></ul></div></div></section>
+  </div>
+</BaseLayout>

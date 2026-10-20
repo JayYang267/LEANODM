@@ -1,0 +1,61 @@
+LEANODM.com | Product Assembly & Packaging Project Brief
+
+Use this checklist to prepare a manufacturing review or quote request.
+Downloading or completing this file does not submit an enquiry.
+
+1. PRODUCT AND COMPONENTS
+Product / intended use:
+Drawing and specification revisions:
+Component list / bill of materials:
+Plastic, metal and electronic components:
+Reference sample available:
+
+2. ASSEMBLY REQUIREMENTS
+Component positioning and locating features:
+Housing alignment / fit requirements:
+Spring, latch and other mechanical parts:
+Fastening positions and sequence:
+Screw type / size, fixing materials and fixture requirements:
+Torque specification, verification method and required records:
+Manual or automatic fastening considerations:
+Moving surfaces and lubrication requirements:
+Surface cleanliness and cosmetic requirements:
+
+3. HAND-SOLDERED CONNECTIONS (WHERE APPLICABLE)
+Connection drawing, wire / terminal / pad details:
+Solder material and component heat limits:
+Tip / tooling and temperature / time requirements to confirm:
+Acceptable joint reference and defect criteria:
+Required electrical / mechanical verification:
+
+4. INSPECTION
+Color, transparency and surface criteria:
+Print position, accuracy and clarity:
+Opening, closing and locking requirements:
+Component retention requirements:
+Applicable inspection criteria and reference samples:
+First-piece confirmation and in-process inspection requirements:
+NG segregation, rework and reinspection requirements:
+Additional tests to review (do not assume included):
+
+5. PACKAGING
+Product, component and accessory set:
+Individual bagging requirements:
+Protection / inserts and cleanliness requirements:
+Placement and arrangement:
+Carton and presentation specifications:
+Artwork and label requirements to review:
+Packed quantity and carton count requirements:
+Loose parts, tool / sharp-object control and foreign-object checks:
+BIQC / final inspection scope and required customer inspection:
+
+6. PROJECT SCOPE
+Required development / molding / assembly / packing scope:
+Target quantity:
+Intended market:
+Requested timing:
+Open engineering questions:
+
+Project scope, acceptance criteria and any external operations need to be
+confirmed before production. Provide the information necessary for review;
+agree how restricted drawings and customer information will be exchanged.

@@ -1,0 +1,156 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import { Icon } from 'astro-iconset/components';
+import { Image, getImage } from 'astro:assets';
+import Diagram from '../../../components/ScreenPrintingDiagram.astro';
+import fixturePhoto from '../../../assets/screen-printing/fixture-positioning.png';
+import basePhoto from '../../../assets/screen-printing/base-layer-printing.png';
+import surfacePhoto from '../../../assets/screen-printing/surface-layer-detail.png';
+import { printingRoute, printingNavigation, printingControls, printingSteps, printingChecks, printingRisks, printingRequirements, printingApplications, printingMethods, printingFaqs } from '../../../data/screen-printing';
+import '../../../styles/quality-control-process.css';
+import '../../../styles/screen-printing.css';
+
+const title = 'Plastic Screen Printing & Product Decoration | LEANODM.com';
+const description = 'Screen printing for plastic parts and electronic products, with fixture positioning, layered graphics and visual QC. Review archived screen-printing process evidence from Xinyinhai.';
+const origin = SITE.url;
+const canonical = new URL(printingRoute, origin).href;
+const socialImage = await getImage({ src: basePhoto, width: 960, format: 'webp' });
+const imageUrl = new URL(socialImage.src, origin).href;
+const imageAlt = 'Archived manufacturing photograph of an operator screen printing a base layer on a plastic part';
+const contact = import.meta.env.PUBLIC_CONTACT_URL;
+const contactHref = contact && /^(https?:\/\/|mailto:)/i.test(contact) ? contact : undefined;
+const briefHref = '/resources/screen-printing-project-brief.txt';
+const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Manufacturing', url: '/manufacturing/' }, { name: 'Screen Printing & Product Decoration', url: printingRoute }];
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'Service', '@id': `${canonical}#service`, name: 'Screen Printing & Product Decoration', serviceType: 'Screen printing for plastic and electronic product manufacturing projects', provider: { '@id': `${origin}/#xinyinhai` }, url: canonical, description },
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#xinyinhai` }, image: imageUrl, mainEntity: { '@id': `${canonical}#service` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` } },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, i) => ({ '@type': 'ListItem', position: i + 1, name: item.name, item: new URL(item.url, origin).href })) },
+    { '@type': 'FAQPage', '@id': `${canonical}#faq`, mainEntity: printingFaqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} technicalPage technicalNavigation={printingNavigation} technicalPageTitle="Screen printing" contactHref="#project-requirements" technicalContactLabel="Discuss Your Project" technicalFooterDescription="Share the part drawing, artwork, material, color reference and target quantity for a printing review.">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="960" />
+    <meta property="og:image:height" content="720" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+  <div class="qc-page sp-page">
+    <section class="qc-hero sp-hero" aria-labelledby="page-title">
+      <div class="qc-container">
+        <nav class="qc-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, i) => <li>{i < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="qc-hero-grid">
+          <div>
+            <p class="qc-eyebrow">MANUFACTURING / PRODUCT DECORATION</p>
+            <h1 id="page-title">Screen Printing for Plastic &amp; Electronic Products</h1>
+            <p class="qc-lead">Logo, text and graphic printing with defined positioning, layer sequence and visual checks.</p>
+            <p class="qc-intro">Xinyinhai’s archived work instructions show how decoration connects with molding and assembly. They document fixtures, separate printing steps and sample comparison. We review the setup for your part and artwork.</p>
+            <div class="qc-actions"><Button href="#project-requirements" class="qc-button">Discuss Your Project <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="#printing-brief">Request a Manufacturing Review <span aria-hidden="true">↓</span></a></div>
+          </div>
+          <figure class="sp-hero-evidence">
+            <div class="sp-photo-label"><span>PROCESS EVIDENCE</span><span>ARCHIVED PHOTOGRAPH</span></div>
+            <Image src={basePhoto} alt={imageAlt} width={960} height={720} widths={[480, 720, 960]} sizes="(max-width: 859px) calc(100vw - 48px), 48vw" format="webp" loading="eager" fetchpriority="high" class="sp-evidence-image" />
+            <figcaption><span class="sp-caption-index">01</span><div><strong>The print starts with a positioned part.</strong><p>Original work-instruction photograph: screen lowered over a fixture-held plastic part for base-layer printing.</p></div></figcaption>
+          </figure>
+        </div>
+        <div class="qc-hero-foot"><span>Fixture-based positioning</span><span>Layer-by-layer printing</span><span>Defined visual inspection</span><span>Molding-to-assembly review</span></div>
+      </div>
+    </section>
+
+    <div class="qc-container">
+      <section class="qc-section" aria-labelledby="controls-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">01 / THE CONTROL POINTS</p><h2 id="controls-title">What screen-printing controls are documented at Xinyinhai?</h2></div><p>Position, color, clarity and part condition need explicit references. These are the practical control points reflected in the archived printing and inspection instructions.</p></div>
+        <div class="sp-control-grid">{printingControls.map((item, i) => <article><div class="sp-control-top"><Icon name={`lucide:${item.icon}`} aria-hidden="true" /><span>{String(i + 1).padStart(2, '0')}</span></div><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+      </section>
+
+      <section id="process" class="qc-section" aria-labelledby="process-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">02 / FROM REQUIREMENT TO REFERENCE</p><h2 id="process-title">A defined screen printing sequence</h2></div><p>Review the requirement, locate the part, print in sequence and inspect the result. The archived flow directly connects base-layer printing, surface-layer printing and QC.</p></div>
+        <ol class="sp-process" aria-label="Screen printing review and production sequence">{printingSteps.map((item, i) => <li class:list={{ 'sp-print-stage': i >= 2 && i <= 4, 'sp-inspect-stage': i >= 5 }}><div class="sp-stage-head"><span>{String(i + 1).padStart(2, '0')}</span><Icon name={`lucide:${item.icon}`} aria-hidden="true" /></div><div><span class="sp-stage-group">{item.group}</span><h3>{item.title}</h3><p>{item.detail}</p></div></li>)}</ol>
+        <div class="sp-process-key"><span><i aria-hidden="true"></i>Part positioning &amp; printing</span><span><i aria-hidden="true"></i>Inspection &amp; reference check</span></div>
+        <p class="qc-source-note">The seven-step review framework adds artwork and preparation decisions around the documented printing sequence. Layer count, surface preparation and drying or curing requirements must be agreed for the actual project.</p>
+      </section>
+
+      <section id="fixture-positioning" class="qc-section" aria-labelledby="fixture-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">03 / POSITION BEFORE PRINTING</p><h2 id="fixture-title">Fixture Positioning for Screen Printing</h2></div><p>The archived instruction places the plastic part in a locating fixture in a specified orientation before the screen is lowered. The fixture provides a physical reference for the print location.</p></div>
+        <div class="sp-fixture-grid">
+          <figure class="sp-photo"><Image src={fixturePhoto} alt="Archived work-instruction photograph showing hands placing a transparent plastic part into a screen-printing locating fixture" width={960} height={540} widths={[480, 720, 960]} sizes="(max-width: 859px) calc(100vw - 32px), 50vw" format="webp" loading="lazy" class="sp-evidence-image" /><figcaption>Internal work-instruction example showing fixture-based part positioning before screen printing. Cropped from the original photograph.</figcaption></figure>
+          <figure class="sp-drawing"><div class="sp-drawing-label">POSITIONING PRINCIPLE <span>SCHEMATIC / NOT TO SCALE</span></div><Diagram kind="fixture" /><figcaption>Control orientation and support the part relative to the intended print area.</figcaption></figure>
+        </div>
+        <dl class="sp-fixture-benefits"><div><dt>Repeatable orientation</dt><dd>Use the same defined loading direction.</dd></div><div><dt>Print-location control</dt><dd>Relate artwork placement to the located part.</dd></div><div><dt>Operator consistency</dt><dd>Give the loading step a clear physical reference.</dd></div><div><dt>Repeated production</dt><dd>Review fixture fit and the reference before a new run.</dd></div></dl>
+      </section>
+
+      <section id="layer-registration" class="qc-section" aria-labelledby="layers-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">04 / BASE LAYER → SURFACE LAYER → QC</p><h2 id="layers-title">Print Layer Alignment &amp; Registration</h2></div><p>For multi-layer graphics, each printing step must maintain alignment with the previous layer and the agreed artwork. The two archived work instructions show separate base-layer and surface-layer operations.</p></div>
+        <div class="sp-layer-grid">
+          <div class="sp-layer-panel"><span class="qc-small-label">LAYER REGISTRATION / ILLUSTRATIVE ARTWORK</span><Diagram kind="layers" /><ol class="sp-layer-notes"><li><strong>Print the base</strong><span>Establish the first graphic layer.</span></li><li><strong>Locate again</strong><span>Position the base-printed part for the next operation.</span></li><li><strong>Print &amp; compare</strong><span>Inspect the relationship between the layers.</span></li></ol></div>
+          <figure class="sp-surface-photo"><Image src={surfacePhoto} alt="Detail from the archived surface-layer printing instruction showing the operator drawing a squeegee across the inked screen" width={410} height={545} widths={[280, 410]} sizes="(max-width: 599px) 180px, 270px" format="webp" loading="lazy" class="sp-evidence-image" /><figcaption><strong>Surface-layer operation</strong>Real squeegee detail from the second work instruction.</figcaption></figure>
+        </div>
+        <p class="qc-source-note">This is one documented layer sequence. It does not establish a universal process for every multi-color design. Colors in the schematic illustrate alignment; they are not a customer artwork or a print-performance claim.</p>
+      </section>
+
+      <section id="quality-checks" class="qc-section" aria-labelledby="quality-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">05 / LOOK AT THE RESULT</p><h2 id="quality-title">What gets checked on a printed plastic part?</h2></div><p>The inspection instruction names six visual criteria and directs the inspector to the sample. For a new project, agree the sample and written requirements that define acceptance.</p></div>
+        <div class="sp-qc-grid"><div class="sp-reference-panel"><span class="qc-small-label">REFERENCE → COMPARISON → DECISION</span><h3>A defined reference makes inspection useful.</h3><Diagram kind="inspection" /><p>Approve the artwork, placement, color reference and cosmetic criteria together.</p><span class="sp-diagram-note">Illustrative inspection principle</span></div><ol class="sp-qc-checklist">{printingChecks.map(item => <li><span aria-hidden="true">✓</span><div><h3>{item.title}</h3><p>{item.detail}</p></div></li>)}</ol></div>
+        <p class="qc-source-note">Visual checks do not establish adhesion or wear resistance. Specify any additional validation during the project review. <a href="/quality/product-testing/">Explore product-testing planning</a>.</p>
+      </section>
+
+      <section id="printing-risks" class="qc-section" aria-labelledby="risks-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">06 / RISK → CONTROL</p><h2 id="risks-title">Make appearance risks visible</h2></div><p>Positioning and inspection help manage printing risks. The controls below show what to check and compare; they do not imply defect-free output or an unverified yield.</p></div>
+        <dl class="sp-risk-list">{printingRisks.map(item => <div><dt>{item.risk}</dt><dd><span aria-hidden="true">→</span>{item.control}</dd></div>)}</dl>
+      </section>
+
+      <section id="manufacturing-integration" class="qc-section" aria-labelledby="integration-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">07 / ONE PRODUCT, CONNECTED OPERATIONS</p><h2 id="integration-title">From molded part to finished decoration</h2></div><p>We review plastic manufacturing, decoration and assembly as connected parts of your product project. Print access and handling requirements help determine when decoration belongs in the sequence.</p></div>
+        <ol class="sp-integration" aria-label="Illustrative integrated manufacturing sequence">
+          <li><Icon name="lucide:box" aria-hidden="true" /><span>01</span><h3><a href="/manufacturing/tooling-injection-molding/">Injection molding <span aria-hidden="true">↗</span></a></h3><p>Part geometry, material &amp; finish</p></li>
+          <li class="sp-current"><Icon name="lucide:layers" aria-hidden="true" /><span>02</span><h3>Screen printing</h3><p>Locate, print &amp; compare</p></li>
+          <li><Icon name="lucide:component" aria-hidden="true" /><span>03</span><h3><a href="/manufacturing/assembly-packaging/">Assembly <span aria-hidden="true">↗</span></a></h3><p>Protect decorated surfaces</p></li>
+          <li><Icon name="lucide:clipboard-check" aria-hidden="true" /><span>04</span><h3><a href="/quality/quality-control-process/">Inspection <span aria-hidden="true">↗</span></a></h3><p>Check the complete product</p></li>
+          <li><Icon name="lucide:package" aria-hidden="true" /><span>05</span><h3>Packaging</h3><p>Define handling &amp; protection</p></li>
+        </ol>
+        <div class="sp-integration-foot"><p>The final route depends on the part. Printing may need to happen before assembly if the assembled product restricts screen or fixture access. <a href="/customization/oem-manufacturing/#production-controls">Review the OEM manufacturing controls</a>.</p><a class="qc-text-link" href="/customization/existing-products/#customization-options">Review customization options <span aria-hidden="true">↗</span></a></div>
+      </section>
+
+      <section id="manufacturing-evidence" class="qc-section sp-evidence-record" aria-labelledby="evidence-title">
+        <div><p class="qc-eyebrow">08 / MANUFACTURING EVIDENCE</p><h2 id="evidence-title">Working instructions behind the control points</h2><p>Xinyinhai’s archived manufacturing work instructions show documented positioning, layered printing and visual inspection controls. They provide historical process evidence; the setup and validation for your product are confirmed during review.</p></div>
+        <ol class="sp-evidence-ledger"><li><span>01</span><div><h3>Process flow</h3><p>Base layer → surface layer → QC.</p></div></li><li><span>02</span><div><h3>Base-layer work instruction</h3><p>Specified part orientation, locating fixture and screen operation.</p></div></li><li><span>03</span><div><h3>Surface-layer work instruction</h3><p>Position the base-printed part for the next printing step.</p></div></li><li><span>04</span><div><h3>Inspection criteria</h3><p>Six visual checks with a reference-sample comparison.</p></div></li></ol>
+      </section>
+
+      <section id="applications" class="qc-section" aria-labelledby="applications-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">09 / APPLICATION FIT</p><h2 id="applications-title">Where plastic screen printing can fit</h2></div><p>These are application types to review, subject to the actual material, geometry, artwork and intended use. The archived product example does not define the current product range.</p></div>
+        <div class="sp-application-grid">{printingApplications.map(item => <article><Icon name={`lucide:${item.icon}`} aria-hidden="true" /><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
+      </section>
+
+      <section id="decoration-methods" class="qc-section" aria-labelledby="methods-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">10 / CHOOSE FOR THE PART</p><h2 id="methods-title">Screen printing or another decoration method?</h2></div><p>Decoration method selection depends on geometry, material, artwork, durability and production requirements. Use the comparison to frame a review, then confirm the route with the actual part.</p></div>
+        <div class="qc-table-wrap sp-method-table" role="region" aria-label="Decoration method comparison; scroll horizontally if needed" tabindex="0"><table><caption>General selection guidance. Alternative methods are not presented as verified in-house capabilities.</caption><thead><tr><th scope="col">Method</th><th scope="col">What it offers</th><th scope="col">What to review</th></tr></thead><tbody>{printingMethods.map((method, i) => <tr class:list={{ 'sp-method-current': i === 0 }}><th scope="row">{method.name}</th><td>{method.use}</td><td>{method.review}</td></tr>)}</tbody></table></div>
+        <details class="sp-technical-references"><summary>Technical references for method selection</summary><p>General process guidance: <a href="https://www.nazdar.com/Portals/0/TDS/NAZDAR_PowerPrint_1600_UV_Screen_Ink_Series.html">Nazdar: substrate compatibility</a>; <a href="https://teca-print.com/wp-content/uploads/2024/01/Teca-Print_We-introduce-ourselves.pdf">Teca-Print: pad printing</a>; <a href="https://label.averydennison.com/content/dam/averydennison/lpm-responsive/europe/english/documents/whitepaper/product/automotive-electronics-industrial/automotive/wp-eu-durables-whitepaper-challenging-surfaces-en.pdf">Avery Dennison: label adhesion</a>; <a href="https://www.serigraph.com/wp-content/uploads/2021/01/InMoldDecoratingBasics.pdf">Serigraph: in-mold decoration</a>; <a href="https://www.trumpf.com/en_US/solutions/applications/laser-marking/laser-marking-plastic/">TRUMPF: laser marking plastics</a>. These references do not identify the inks or equipment used at Xinyinhai.</p></details>
+      </section>
+
+      <section id="printing-brief" class="qc-section" aria-labelledby="brief-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">11 / PREPARE A USEFUL INQUIRY</p><h2 id="brief-title">What we need to review your printing requirement</h2></div><p>Send the part and the artwork together. A logo file alone does not establish print access, material compatibility, color acceptance or the production setup.</p></div>
+        <div class="sp-requirements">{printingRequirements.map((item, i) => <article><span class="sp-brief-label"><span>{String(i + 1).padStart(2, '0')}</span>{item.tag}</span><h3>{item.title}</h3><p>{item.detail}</p></article>)}</div>
+        <p class="qc-source-note">A Pantone reference communicates your requested color; it is not a claim of instrument-based color matching or a universal color-difference tolerance. Confirm the physical sample and acceptance method together.</p>
+      </section>
+
+      <section id="faq" class="qc-section" aria-labelledby="faq-title">
+        <div class="qc-heading"><div><p class="qc-eyebrow">12 / BUYER QUESTIONS</p><h2 id="faq-title">Screen printing questions, answered directly</h2></div><p>Key decisions for procurement, product and engineering teams reviewing printed plastic parts.</p></div>
+        <div class="qc-faq">{printingFaqs.map(faq => <details class="sp-faq-item"><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div>
+      </section>
+    </div>
+
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">YOUR NEXT PRODUCT</p><h2 id="project-title">Need Screen Printing for a Plastic Product?</h2><p>Share your part drawing, artwork, material, color requirement and target quantity. Bring decoration into the manufacturing review while the product is still being defined.</p><div class="qc-actions"><Button href={contactHref || '/rfq/?source=manufacturing-screen-printing#rfq-form'} class="qc-button">Discuss Your Printing Requirement <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="/manufacturing/">Explore Manufacturing Processes <span aria-hidden="true">↗</span></a></div></div><div id="printing-inquiry" class="qc-project-list"><h3>Prepare your printing brief</h3><ul><li>Part drawing and print location</li><li>Artwork, layers and color reference</li><li>Material, finish and sample</li><li>Acceptance criteria and target quantity</li></ul><a class="sp-download" href={briefHref} download>Download the Printing Project Brief <span aria-hidden="true">↓</span></a><p class="qc-project-note">Use the inquiry form to prepare your brief, or share it with your existing project contact. This download prepares your inquiry; it does not submit it.</p></div></div></section>
+  </div>
+</BaseLayout>

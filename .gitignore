@@ -22,3 +22,22 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Private authoring files and separately delivered large website videos
+internal/
+work/
+scripts/__pycache__/
+/public/media/activities/video-2be2cf5a6952.mp4
+/public/media/activities/video-3bdbfbf7567e.mp4
+/public/media/activities/video-47be107de194.mp4
+/public/media/activities/video-5a24b3eb43ba.mp4
+/public/media/activities/video-68acca630e7b.mp4
+/public/media/activities/video-6edf7b89e64e.mp4
+/public/media/activities/video-9c40bafc1542.mp4
+/public/media/activities/video-e4bbaacf438f.mp4
+/public/media/home-factory/factory-tour-soft-1080p.mp4
+/public/media/home-factory/factory-tour-soft-4k.mp4
+
+# Private inspector-training source working copies and local QA
+.inspector-source-review/
+.inspector-qa/

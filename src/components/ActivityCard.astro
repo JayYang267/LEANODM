@@ -1,0 +1,18 @@
+---
+import { activityCategories, type Activity } from '../data/activities';
+interface Props { activity: Activity; eager?: boolean; archive?: boolean }
+const { activity, eager = false, archive = false } = Astro.props;
+const category = activityCategories.find(item => item.id === activity.category)!;
+---
+<article class="activity-card" data-activity-card={archive ? activity.slug : undefined}>
+  <a class="activity-card-image" href={`/about/activities/${activity.slug}/`} tabindex="-1" aria-hidden="true">
+    <img src={activity.cover.thumbnail} alt={activity.title} width={activity.cover.width} height={activity.cover.height} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    {activity.videoCount > 0 && <span class="activity-video-badge"><span aria-hidden="true">▶</span> {activity.videoCount} {activity.videoCount === 1 ? 'video' : 'videos'}</span>}
+  </a>
+  <div class="activity-card-body">
+    <div class="activity-card-meta"><span>{category.shortTitle}</span>{activity.date ? <time datetime={activity.date}>{activity.dateLabel}</time> : <span>{activity.dateLabel}</span>}</div>
+    <h3><a href={`/about/activities/${activity.slug}/`}>{activity.title}<span aria-hidden="true">↗</span></a></h3>
+    <p>{activity.summary}</p>
+    <div class="activity-card-foot"><span>{activity.imageCount} {activity.imageCount === 1 ? 'photo' : 'photos'}{activity.videoCount > 0 && ` · ${activity.videoCount} ${activity.videoCount === 1 ? 'video' : 'videos'}`}</span><span aria-hidden="true">View story →</span></div>
+  </div>
+</article>

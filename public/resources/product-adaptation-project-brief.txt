@@ -1,0 +1,37 @@
+LEANODM.com — Product Adaptation project brief
+
+Describe the current version, the problem or opportunity and the result you want. Include the functions and characteristics that must remain consistent so the review has a clear boundary.
+
+Company / contact:
+Project reference and current revision:
+Decision owner:
+Date:
+
+PROJECT INFORMATION
+1. Existing product reference, sample photos and available drawings or BOM.
+Your response:
+
+2. A marked change list, known issues and requirements to retain.
+Your response:
+
+3. Intended users, use conditions and destination markets.
+Your response:
+
+4. Available tooling information and your authority to use the design and assets.
+Your response:
+
+5. Expected order quantities, timing and sample acceptance requirements.
+Your response:
+
+Known questions / missing information:
+
+Requested next decision:
+
+Attachments available for an agreed confidential review (list only):
+
+NEXT STEP
+Share the completed brief through your existing project contact or the contact link shown on the page, if available.
+Agree the confidential exchange before sending restricted drawings, code or third-party information. Supply only materials you own or are authorized to share.
+Downloading or completing this file does not submit a project or authorize work. Scope, deliverables, acceptance criteria and commercial terms remain subject to review and agreement.
+
+Page: https://www.leanodm.com/customization/product-adaptation/

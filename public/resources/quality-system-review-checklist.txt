@@ -1,0 +1,52 @@
+LEANODM.com SUPPLIER QUALITY REVIEW CHECKLIST
+
+Complete this brief and share it with your LEANODM.com contact.
+
+1. PROJECT SCOPE
+Product and intended use:
+Destination market and intended users:
+Proposed manufacturing activities:
+Drawing / BOM / specification revision:
+Reference sample and customer acceptance criteria:
+
+2. REVIEW TOPICS
+[ ] Requirement review and document revision control
+[ ] Supplier approval and incoming material verification
+[ ] First article, in-process and final inspection
+[ ] Product testing and measurement equipment control
+[ ] Material-batch, production and delivery record links
+[ ] Customer-supplied material identification and protection
+[ ] Nonconforming-product disposition and reinspection
+[ ] Corrective action and effectiveness review
+[ ] Training and competency evaluation
+[ ] Applicable quality-system or product-certification evidence
+
+3. TRACEABILITY REQUIREMENTS
+Order or shipment reference:
+Required lot, batch, date-code or serial identification:
+Records to retrieve and the links between them:
+Retention and access requirements:
+Any customer-supplied materials:
+
+4. EVIDENCE REQUEST
+Manufacturing legal entity and site to be reviewed:
+Relevant procedures or redacted record examples required:
+If certification is required, specify scheme, scope and edition:
+Certificate legal entity, location, issuer, validity and verification needs:
+Confidentiality or customer restrictions:
+
+5. INVESTIGATION INFORMATION (IF APPLICABLE)
+Product / order / shipment / visible batch reference:
+Affected quantity and defect description:
+Photos, packaging labels or samples available:
+Immediate containment needs:
+
+6. DECISIONS TO AGREE
+Applicable specifications and approved revision:
+Sampling and test plan:
+Customer approvals and change notification:
+Record access and review arrangements:
+Open questions and next review step:
+
+This is a buyer preparation checklist. It is not an inspection record,
+test result, quality certificate or completed audit.
