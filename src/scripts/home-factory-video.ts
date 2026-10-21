@@ -65,6 +65,22 @@ export function initFactoryVideo() {
       if (!film.getAttribute('src')) { film.src = film.dataset.source!; film.load(); }
       film.play().catch(() => { /* Native controls remain available. */ });
     });
+    dialog.querySelectorAll<HTMLAnchorElement>('[data-factory-film-source]').forEach(link => {
+      link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        if (filmError) filmError.hidden = true;
+        if (film.src !== link.href || film.error) {
+          const currentTime = film.currentTime;
+          film.addEventListener('loadedmetadata', () => {
+            film.currentTime = Math.min(currentTime, film.duration || currentTime);
+          }, { once: true });
+          film.src = link.href;
+          film.load();
+        }
+        film.play().catch(() => { /* Native controls remain available. */ });
+      });
+    });
     close.addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', event => {
       const rect = dialog.getBoundingClientRect();
