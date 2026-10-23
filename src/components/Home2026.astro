@@ -64,16 +64,18 @@ const schema = {
         width="1920" height="1080" muted loop playsinline preload="none"
         aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback></video>
       <div class="xyh-wrap xyh-hero-content">
-        <p class="xyh-welcome" lang="en"><span aria-hidden="true"></span>{homeCopy.welcome}</p>
-        <h1 id="home-title">{homeCopy.title}</h1>
-        <p class="xyh-hero-intro">{homeCopy.intro}</p>
-        <div class="xyh-actions" lang="en"><a class="xyh-button" href="/rfq/">Start your inquiry <Icon name="arrow-up-right" /></a><a class="xyh-secondary-link" href="#how-we-work">See how it works <Icon name="arrow-down" /></a></div>
+        <div class="xyh-hero-lead">
+          <p class="xyh-welcome" lang="en"><span aria-hidden="true"></span>{homeCopy.welcome}</p>
+          <h1 id="home-title">{homeCopy.title}</h1>
+          <p class="xyh-hero-intro">{homeCopy.intro}</p>
+          <div class="xyh-actions" lang="en"><a class="xyh-button" href="/rfq/">Start your inquiry <Icon name="arrow-up-right" /></a><a class="xyh-secondary-link" href="#how-we-work">See how it works <Icon name="arrow-down" /></a></div>
+        </div>
+        <div class="xyh-factory-toolbar" lang="en"><a class="xyh-factory-watch" href="/media/home-factory/factory-tour-soft-1080p.mp4" data-factory-watch aria-haspopup="dialog" aria-controls="factory-film"><span class="xyh-factory-play"><Icon name="play" /></span><span>Watch factory film<small>1 min 41 sec</small></span></a></div>
         <div class="xyh-hero-stats">
           <div><p>{homeCopy.history}</p><p class="xyh-years" lang="en"><span class="xyh-years-number">{experience[0]}<strong>40</strong></span> <span class="xyh-years-caption">{experience[1].trim()}</span></p></div>
           <div><p>{developed[0]}<span>3,000+</span>{developed[1]}</p></div>
           <div><p>{delivered[0]}{delivered[1] && <span>{delivered[1]}</span>}{delivered[2]}</p></div>
         </div>
-        <div class="xyh-factory-toolbar" lang="en"><a class="xyh-factory-watch" href="/media/home-factory/factory-tour-soft-1080p.mp4" data-factory-watch aria-haspopup="dialog" aria-controls="factory-film"><span class="xyh-factory-play"><Icon name="play" /></span><span>Watch factory film<small>1 min 41 sec</small></span></a></div>
       </div>
     </section>
 
