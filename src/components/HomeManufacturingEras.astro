@@ -12,14 +12,28 @@ const images = [
   { image: leanAssembly, alt: 'Organized assembly lines and material flow in the Xinyinhai production workshop' },
 ];
 ---
-<ol class="xyh-manufacturing-eras" id="manufacturing-eras" aria-label="China manufacturing approaches" data-manufacturing-eras data-default-era="2" data-active-era="2">
-  {manufacturingEras.map((era, index) => <li class:list={['xyh-era-card', { 'is-active': index === 2 }]} data-era-card>
-    <div class="xyh-era-media">
-      <Image src={images[index].image} alt={images[index].alt} widths={[360, 640, Math.min(960, images[index].image.width)]} sizes="(max-width: 980px) 90vw, 52vw" loading="lazy" format="webp" quality={85} />
+<div class="xyh-manufacturing-eras" id="manufacturing-eras" role="region" aria-roledescription="carousel" aria-label="China manufacturing approaches" data-manufacturing-eras data-default-era="2" data-active-era="2">
+  <div class="xyh-era-viewport" data-era-viewport>
+    <ol class="xyh-era-track" id="manufacturing-eras-track" data-era-track>
+      {manufacturingEras.map((era, index) => <li class:list={['xyh-era-card', { 'is-active': index === 2 }]} data-era-card role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${manufacturingEras.length}`}>
+        <div class="xyh-era-media">
+          <Image src={images[index].image} alt={images[index].alt} widths={[360, 640, Math.min(960, images[index].image.width)]} sizes="(max-width: 900px) 90vw, 52vw" loading="lazy" format="webp" quality={85} draggable="false" />
+        </div>
+        <div class="xyh-era-copy">
+          <h3 id={`manufacturing-era-title-${index + 1}`}>{era.title}</h3>
+          <p>{era.text}</p>
+        </div>
+      </li>)}
+    </ol>
+  </div>
+  <div class="xyh-era-controls" data-era-controls>
+    <div class="xyh-era-positions" role="group" aria-label="Choose a manufacturing approach">
+      {manufacturingEras.map((era, index) => <button type="button" class:list={['xyh-era-position', { 'is-active': index === 2 }]} data-era-trigger data-era-index={index} aria-label={`Show ${era.title}`} aria-pressed={index === 2 ? 'true' : 'false'} aria-controls="manufacturing-eras-track">{index + 1}.0</button>)}
     </div>
-    <div class="xyh-era-copy">
-      <h3><button type="button" id={`manufacturing-era-trigger-${index + 1}`} data-era-trigger aria-expanded="true" aria-controls={`manufacturing-era-detail-${index + 1}`}>{era.title}</button></h3>
-      <div class="xyh-era-detail" id={`manufacturing-era-detail-${index + 1}`} role="region" aria-labelledby={`manufacturing-era-trigger-${index + 1}`} data-era-detail><p>{era.text}</p></div>
+    <div class="xyh-era-arrows" role="group" aria-label="Browse manufacturing approaches">
+      <button type="button" class="xyh-era-arrow" data-era-prev aria-label="Previous manufacturing approach" aria-controls="manufacturing-eras-track"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6" /></svg></button>
+      <button type="button" class="xyh-era-arrow" data-era-next aria-label="Next manufacturing approach" aria-controls="manufacturing-eras-track"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
     </div>
-  </li>)}
-</ol>
+  </div>
+  <p class="xyh-era-status" role="status" aria-live="polite" aria-atomic="true" data-era-status></p>
+</div>

@@ -48,7 +48,7 @@ export const customerTypes = [
 ];
 export const workflowSteps = [
   { number: '01', title: 'Send a request', icon: 'send', text: 'Send a request, reference sample or specifications, along with your target market and estimated quantity.' },
-  { number: '02', title: 'Review your project', icon: 'clipboard-check', text: 'Review feasibility, customization options, MOQ, estimated costs and timelines before moving forward.' },
+  { number: '02', title: 'Review & meeting', icon: 'clipboard-check', text: 'Meet with you to discuss project requirements, review feasibility and customization options, and align on MOQ, estimated costs and timelines. Together, we confirm the project scope and approve the project kickoff.' },
   { number: '03', title: 'Develop & approve', icon: 'layers', text: 'Develop and refine the product, then approve samples against agreed requirements.' },
   { number: '04', title: 'Start production', icon: 'factory', text: 'Move into production with agreed specifications, process checks and final inspection.' },
   { number: '05', title: 'Ship & follow up', icon: 'truck', text: 'Coordinate shipment and documentation, with follow-up support for quality feedback and repeat orders.' },
