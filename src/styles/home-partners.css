@@ -1,0 +1,11 @@
+/* Keep the logo rail compact after removing its visible heading. */
+.xyh-partners{padding-block:24px 20px}
+.xyh-partners.is-ready .xyh-ticker-track{animation-duration:65s}
+.xyh-partner-rail>li.is-wide-logo{flex-basis:190px}
+.xyh-partner-rail>li.is-wide-logo img{max-width:164px}
+.xyh-partner-rail>li.is-monochrome img{filter:grayscale(1);opacity:.62}
+@media(max-width:760px){
+  .xyh-partners{padding-block:18px 16px}
+  .xyh-partner-rail>li.is-wide-logo{flex-basis:152px}
+  .xyh-partner-rail>li.is-wide-logo img{max-width:136px}
+}

@@ -16,6 +16,12 @@ import lezhi from '../assets/home/partners/lezhi-xiaotiandi.png';
 import auchan from '../assets/home/partners/auchan.png';
 import argos from '../assets/home/partners/argos.png';
 import wb from '../assets/home/partners/wb-japan.png';
+import alibaba from '../assets/home/partners/official-alibaba-com.png';
+import amazon from '../assets/home/partners/official-amazon.png';
+import kickstarter from '../assets/home/partners/official-kickstarter.svg?url';
+import indiegogo from '../assets/home/partners/official-indiegogo.png';
+import nvidia from '../assets/home/partners/official-nvidia.svg?url';
+import openai from '../assets/home/partners/official-openai.svg?url';
 import startupScene from '../assets/home/customer-roles/startup-abstract-v5.png';
 import brandScene from '../assets/home/customer-roles/brand-abstract-v5.png';
 import procurementScene from '../assets/home/customer-roles/procurement-abstract-v5.png';
@@ -23,6 +29,7 @@ import '../styles/home-2026.css';
 import '../styles/home-workflow.css';
 import '../styles/home-factory-video.css';
 import '../styles/home-testimonials.css';
+import '../styles/home-partners.css';
 
 const title = 'Custom Plastic & Electronic Manufacturing | LEANODM';
 const description = 'Custom plastic and electronic product development and mass production through lean manufacturing. Educational toys, gifts and souvenirs, IP stationery, and consumer electronics.';
@@ -37,6 +44,12 @@ const customerScenes = [
   { image: procurementScene, alt: 'Abstract illustration of coordinated gift sets, event passes and bulk packaging for corporate, government and event buyers' },
 ];
 const partners = [
+  { name: 'Alibaba.com', image: alibaba, wide: true },
+  { name: 'Amazon', image: amazon },
+  { name: 'Kickstarter', vector: kickstarter, width: 320, height: 34, wide: true },
+  { name: 'Indiegogo', image: indiegogo, wide: true },
+  { name: 'NVIDIA', vector: nvidia, width: 2072, height: 396, wide: true, monochrome: true },
+  { name: 'OpenAI', vector: openai, width: 1127, height: 305, monochrome: true },
   { name: 'Benesse', image: benesse }, { name: 'BANDAI', image: bandai },
   { name: 'beiens', image: beiens }, { name: 'Lezhi Xiaotiandi', image: lezhi },
   { name: 'Auchan', image: auchan }, { name: 'Argos', image: argos }, { name: 'WB JAPAN', image: wb },
@@ -120,7 +133,11 @@ const schema = {
       <ManufacturingEras />
     </div></section>
 
-    <section class="xyh-partners xyh-ticker" id="partners" aria-labelledby="partners-title" tabindex="0" data-ticker><div class="xyh-wrap"><div class="xyh-rail-heading"><h2 id="partners-title">Major Clients</h2></div></div><div class="xyh-ticker-window"><div class="xyh-ticker-track"><ul class="xyh-partner-rail" id="partner-rail" aria-label="Major clients">{partners.map(partner => <li><Image src={partner.image} alt={partner.name} width={Math.min(partner.image.width, 300)} format="webp" quality={95} loading="lazy" /></li>)}</ul></div></div></section>
+    <section class="xyh-partners xyh-ticker" id="partners" aria-label="Brand logos" tabindex="0" data-ticker>
+      <div class="xyh-ticker-window"><div class="xyh-ticker-track"><ul class="xyh-partner-rail" id="partner-rail">{partners.map(partner => <li class:list={{ 'is-wide-logo': 'wide' in partner && partner.wide, 'is-monochrome': 'monochrome' in partner && partner.monochrome }} data-brand={partner.name}>
+        {'vector' in partner ? <img src={partner.vector} alt={partner.name} width={partner.width} height={partner.height} loading="lazy" decoding="async" /> : <Image src={partner.image} alt={partner.name} width={Math.min(partner.image.width, 300)} format="webp" quality={95} loading="lazy" />}
+      </li>)}</ul></div></div>
+    </section>
 
     <HomeAwards />
 
