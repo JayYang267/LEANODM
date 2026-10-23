@@ -51,7 +51,7 @@ export const workflowSteps = [
   { number: '02', title: 'Review & meeting', icon: 'clipboard-check', text: 'Meet with you to discuss project requirements, review feasibility and customization options, and align on MOQ, estimated costs and timelines. Together, we confirm the project scope and approve the project kickoff.' },
   { number: '03', title: 'Develop & approve', icon: 'layers', text: 'Develop and refine the product, then approve samples against agreed requirements.' },
   { number: '04', title: 'Start production', icon: 'factory', text: 'Move into production with agreed specifications, process checks and final inspection.' },
-  { number: '05', title: 'Ship & follow up', icon: 'truck', text: 'Coordinate shipment and documentation, with follow-up support for quality feedback and repeat orders.' },
+  { number: '05', title: 'Packaging & delivery', icon: 'truck', text: 'Pack finished products to the agreed requirements, prepare shipping documents, and coordinate loading, transportation and delivery to the agreed destination.' },
 ];
 export const manufacturingEras = [
   { title: 'China Manufacturing 1.0: Value for money', text: '(Sacrificing quality in pursuit of low prices leads to progressively poorer quality. Consumers notice the decline, gradually lose trust in the brand, and the brand ultimately loses market share.)' },
