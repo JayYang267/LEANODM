@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomeFooter from '../market/HomeFooter.astro';
+import Icon from '../CustomizationIcon.astro';
+import CategoryTree from './CategoryTree.astro';
+import CatalogCover from './CatalogCover.astro';
+import CatalogPagination from './CatalogPagination.astro';
+import { SITE } from '../../config/site';
+import { productCategories, catalogPath } from '../../data/products/categories';
+import { catalogItemsForPath } from '../../data/products/catalog-items';
+import { catalogPagePath, paginateCatalog } from '../../data/products/pagination';
+import '../../styles/product-overview.css';
+
+interface Props { pageNumber?: number; }
+const { pageNumber = 1 } = Astro.props;
+const catalogItems = catalogItemsForPath('/products/');
+const page = paginateCatalog(catalogItems, pageNumber);
+const currentPath = catalogPagePath('/products/', page.currentPage);
+const title = `${page.currentPage > 1 ? `Products – Page ${page.currentPage}` : 'Products'} | Toys & Consumer electronics | LEANODM.com`;
+const description = 'Browse toys and consumer electronics. Explore sound books, learning sound toys, sound modules and other product categories on LEANODM.com.';
+const canonical = new URL(currentPath, SITE.url).href;
+const breadcrumb = [{ name: 'Home', path: '/' }, { name: 'Products', path: '/products/' }, ...(page.currentPage > 1 ? [{ name: `Page ${page.currentPage}`, path: currentPath }] : [])];
+const listedItems = page.items.map(concept => ({ name: concept.name, url: concept.canonical }));
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'CollectionPage', '@id': `${canonical}#webpage`, url: canonical,
+      name: title, description, inLanguage: 'en',
+      isPartOf: { '@id': `${SITE.url}/#website` },
+      about: { '@id': `${SITE.url}/#xinyinhai` },
+      breadcrumb: { '@id': `${canonical}#breadcrumbs` },
+      mainEntity: { '@type': 'ItemList', itemListElement: listedItems.map((item, index) => ({ '@type': 'ListItem', position: page.offset + index + 1, ...item })) },
+    },
+    {
+      '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`,
+      itemListElement: breadcrumb.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.path, SITE.url).href })),
+    },
+  ],
+};
+---
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    {page.currentPage > 1 && <link rel="prev" href={new URL(catalogPagePath('/products/', page.currentPage - 1), SITE.url).href} />}
+    {page.currentPage < page.totalPages && <link rel="next" href={new URL(catalogPagePath('/products/', page.currentPage + 1), SITE.url).href} />}
+    <meta property="og:url" content={canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:image" content={`${SITE.url}/brand/leanodm-wordmark.png`} />
+    <meta property="og:image:alt" content="LEANODM.com website wordmark" />
+    <script id="catalog-schema" type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />
+  </Fragment>
+  <div class="product-overview">
+    <div class="products-wrap">
+      <header class="products-intro">
+        <h1>Products</h1>
+        <p>Toys &amp; Consumer electronics</p>
+      </header>
+
+      <div class="products-layout">
+        <aside class="products-sidebar" data-products-sidebar>
+          <details class="products-category-panel" data-products-category-panel open>
+            <summary><h2>Product categories</h2><Icon name="chevron-down" /></summary>
+            <nav class="products-category-nav" aria-label="Product categories">
+              <a class="products-category-all" href="/products/" aria-current="page">All Products</a>
+              {productCategories.map(category => <section class="products-category-root">
+                <h3><a href={catalogPath(category)}>{category.label}</a></h3>
+                {category.children && <CategoryTree categories={category.children} currentPath="/products/" />}
+              </section>)}
+            </nav>
+          </details>
+        </aside>
+        <div class="products-main">
+          <nav class="products-breadcrumb" aria-label="Breadcrumb">
+            <ol>{breadcrumb.map((item, index) => <li>{index === breadcrumb.length - 1 ? <span aria-current="page">{item.name}</span> : <a href={item.path}>{item.name}</a>}</li>)}</ol>
+          </nav>
+
+      <section class="products-gallery" aria-labelledby="products-gallery-title">
+        <div class="products-gallery-heading">
+          <h2 id="products-gallery-title">Products &amp; concepts</h2>
+          <p>{page.start}–{page.end} of {page.totalItems} products &amp; concepts</p>
+        </div>
+        <div class="products-grid">
+          {page.items.map((concept, index) => <article class="products-item" data-product-listing-card>
+            <a class="products-item-image" href={concept.path} aria-label={`View ${concept.name}`}>
+              <CatalogCover concept={concept} loading={index < 3 ? 'eager' : 'lazy'} sizes="(max-width: 599px) 44vw, (max-width: 900px) 45vw, 330px" />
+            </a>
+            <div class="products-item-content">
+              <h3><a href={concept.path}>{concept.name}</a></h3>
+            </div>
+          </article>)}
+        </div>
+        <CatalogPagination basePath="/products/" currentPage={page.currentPage} totalPages={page.totalPages} />
+      </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  <HomeFooter slot="footer" />
+</BaseLayout>
+<script>
+  import '../../scripts/product-overview';
+</script>

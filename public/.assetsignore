@@ -1,0 +1,12 @@
+# These exact oversized videos already use the stable GitHub Release 302 rules
+# in _redirects. Preserve _redirects and the original video files unchanged.
+/media/activities/video-2be2cf5a6952.mp4
+/media/activities/video-3bdbfbf7567e.mp4
+/media/activities/video-47be107de194.mp4
+/media/activities/video-5a24b3eb43ba.mp4
+/media/activities/video-68acca630e7b.mp4
+/media/activities/video-6edf7b89e64e.mp4
+/media/activities/video-9c40bafc1542.mp4
+/media/activities/video-e4bbaacf438f.mp4
+/media/home-factory/factory-tour-soft-1080p.mp4
+/media/home-factory/factory-tour-soft-4k.mp4

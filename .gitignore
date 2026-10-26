@@ -23,6 +23,10 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
+# Private inspector-training source working copies and local QA
+.inspector-source-review/
+.inspector-qa/
+
 # Private authoring files and separately delivered large website videos
 internal/
 work/
@@ -37,7 +41,3 @@ scripts/__pycache__/
 /public/media/activities/video-e4bbaacf438f.mp4
 /public/media/home-factory/factory-tour-soft-1080p.mp4
 /public/media/home-factory/factory-tour-soft-4k.mp4
-
-# Private inspector-training source working copies and local QA
-.inspector-source-review/
-.inspector-qa/

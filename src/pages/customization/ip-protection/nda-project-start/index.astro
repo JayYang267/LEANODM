@@ -1,0 +1,52 @@
+---
+import IPPage from '@layouts/IPProtectionPage.astro';
+import Icon from '../../../../components/CustomizationIcon.astro';
+import { confidentialInquiryHref } from '../../../../data/ip-protection';
+---
+<IPPage pageKey="start">
+  <section class="ip-section" id="nda-signing">
+    <div class="ip-section-heading"><h2>Arrange NDA review and signing.</h2><p>Agree the confidentiality terms before sharing restricted project information. You may propose your own NDA; your project contact will coordinate the review, confirm the signing parties and arrange the agreed signing process.</p></div>
+    <div class="ip-split">
+      <div>
+        <h3>Start with your NDA requirements</h3>
+        <ul class="ip-checklist"><li>Your preferred NDA or confidentiality requirements</li><li>The project contact and proposed signing parties</li><li>The signing method and sequence for exchanging project information</li></ul>
+        <div class="ip-actions"><a class="ip-button" href={confidentialInquiryHref}>Request NDA review &amp; signing <Icon name="arrow-up-right" /></a></div>
+        <p class="ip-small">The NDA is signed through the process confirmed with your project contact.</p>
+      </div>
+      <div>
+        <h3>Brief the whole production team before mass production</h3>
+        <p>Before mass production, our production managers give all personnel involved in production a comprehensive confidentiality briefing based on the signed NDA.</p>
+        <ul class="ip-checklist"><li>The confidential information and materials covered by the agreement</li><li>The agreed limits on access, use and sharing</li><li>Each person’s confidentiality responsibilities during production</li></ul>
+      </div>
+    </div>
+  </section>
+  <section class="ip-section" id="confidential-start">
+    <div class="ip-section-heading"><h2>Four steps to an agreed project start.</h2><p>The first inquiry establishes a useful starting point. Confidentiality, the information exchange and commercial terms are then confirmed before detailed work begins.</p></div>
+    <ol class="ip-flow ip-flow-four">
+      <li><h3>Send a non-sensitive overview</h3><p>Describe the product category, intended use, development stage and support needed. Indicate that an NDA discussion is required before detailed files are shared.</p></li>
+      <li><h3>Discuss and confirm the NDA</h3><p>Use your own NDA as a basis for negotiation if preferred. Both sides confirm the scope, parties and signing process; the NDA is signed separately.</p></li>
+      <li><h3>Agree the information handover</h3><p>Confirm the approved recipients, file list, versions, transfer channel, access needs and any special handling requirements before restricted information is exchanged.</p></li>
+      <li><h3>Confirm terms and start</h3><p>Agree the work scope, fees, customer-designated ownership, deliverables, handover formats, review points and project responsibilities, then authorize the agreed work.</p></li>
+    </ol>
+    <p class="ip-note"><strong>A request to discuss confidentiality is not a signed NDA.</strong> This page explains the cooperation process. The RFQ option records your request; the NDA is negotiated and signed through a mutually confirmed process.</p>
+  </section>
+  <section class="ip-section" id="first-inquiry">
+    <div class="ip-section-heading"><h2>Enough context to start. Detailed files after agreement.</h2><p>Use the existing RFQ for a concise first discussion. You do not need to disclose the technical solution or restricted commercial detail to explain the project’s general purpose.</p></div>
+    <div class="ip-split">
+      <div><h3>Useful in the initial overview</h3><ul class="ip-checklist"><li>Product category and intended use</li><li>Current stage: idea, existing design, prototype or production transfer</li><li>General functions and the development or manufacturing support needed</li><li>Target market and broad regulatory requirements, if known</li><li>Approximate quantity, target timing and budget context, if available</li><li>Your NDA discussion request and appropriate project contact</li></ul></div>
+      <div><h3>Share through the agreed route later</h3><ul class="ip-checklist"><li>Detailed CAD, drawings and complete specifications</li><li>Circuit files, component details and restricted technical packages</li><li>Source code, production firmware and encrypted programming packages</li><li>Cryptographic keys or other provisioning materials</li><li>Unreleased audio, artwork, packaging and product content</li><li>Sensitive cost, purchasing, business or third-party information</li></ul></div>
+    </div>
+    <p class="ip-note">Before the detailed exchange, identify which materials are needed for the next task and who may receive them. Use the mutually agreed channel and handling instructions, including separate arrangements for keys or other sensitive provisioning materials where required.</p>
+    <a class="ip-text-link" href={confidentialInquiryHref}>Open the RFQ with the NDA discussion option selected <Icon name="arrow-up-right" /></a>
+  </section>
+  <section class="ip-section" id="project-agreement">
+    <div class="ip-section-heading"><h2>Turn the discussion into a clear project agreement.</h2><p>Confidentiality and ownership work alongside the scope and delivery plan. Confirm the decision points before starting the relevant development or manufacturing activity.</p></div>
+    <dl class="ip-record">
+      <div><dt>Scope & responsibilities</dt><dd>Define the product, required work, customer inputs, approved outside work and who makes each approval.</dd></div>
+      <div><dt>Fees & ownership</dt><dd>Confirm the one-time development fee, payment terms and the customer or customer-designated rights holder for the project results.</dd></div>
+      <div><dt>Deliverables & handover</dt><dd>List the files, formats, agreed source files, tooling and technical information to be delivered, with handover arrangements.</dd></div>
+      <div><dt>Reviews & changes</dt><dd>Agree the review gates, acceptance criteria, revision approvals, confidentiality requirements and change process.</dd></div>
+    </dl>
+    <a class="ip-text-link" href="/customization/how-we-work/">Explore the wider development and manufacturing workflow <Icon name="arrow-up-right" /></a>
+  </section>
+</IPPage>

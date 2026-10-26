@@ -36,21 +36,46 @@ export const certificationItems = [
 ] as const;
 
 export const productScope = [
-  { name: 'Educational toys', icon: 'blocks' },
-  { name: 'Gifts and souvenirs', icon: 'gift' },
-  { name: 'IP stationery', icon: 'pencil-ruler' },
-  { name: 'Consumer electronics', icon: 'cpu' },
+  { name: 'Toys', icon: 'blocks', href: '/products/plastic-electronic-toys/' },
+  { name: 'Consumer electronics', icon: 'cpu', href: '/products/plastic-electronic-products/' },
 ];
 export const customerTypes = [
-  { title: 'Entrepreneurs & Startups', text: 'For individuals and teams starting to develop a product. We help you move from an idea through development to mass production.', icon: 'lightbulb' },
-  { title: 'IP Owners & Brands', text: 'For IP companies and product brands with established production, seeking to improve product quality, strengthen brand value and increase business competitiveness.', icon: 'gem' },
+  { title: 'Entrepreneurs', text: 'For individual founders starting with a product idea. We help define requirements, develop the design and build prototypes to prepare your product for mass production.', icon: 'lightbulb' },
+  { title: 'Startups', text: 'For startup teams taking a concept or prototype into production. We support design refinement, testing and production planning to help prepare plastic and electronic products for mass production.', icon: 'layers' },
+  { title: 'IP Owners', text: 'With extensive experience and a diverse portfolio of projects, we help IP owners, licensors and authorized licensees develop products around characters, stories and other creative assets. Through collaborative design, development and lean manufacturing, we transform those assets into highly reliable, market-ready plastic and electronic products.', details: 'We help you deliver quality branded products to your audience, strengthen your brand and create new revenue opportunities from your IP.', icon: 'gem' },
+  { title: 'Product Brands', text: 'For established brands seeking better product quality and more consistent production. We support design refinement, process improvements and quality control to help strengthen brand value and competitiveness.', icon: 'clipboard-check' },
+  {
+    title: 'Design & Engineering Firms',
+    text: 'Your hardware ODM partner from mold tooling to mass production.',
+    audiences: [
+      'Electronics Design Firm',
+      'Hardware Product Development Firm',
+      'Product Design & Engineering Firm',
+      'Embedded Systems Design Consultancy',
+    ],
+    details: 'You lead design and engineering. We handle tooling, pilot builds, PCBA integration, assembly and testing as an extension of your team.',
+    icon: 'layers',
+  },
   { title: 'Business, Government & Events', text: 'For companies and government agencies seeking corporate gifts or mascot merchandise for sporting events and other activities.', details: 'Relevant buyers include companies purchasing standard products in bulk, official event organizers and import agents.', icon: 'flag' },
 ];
+const requestStepOptions = [
+  { title: 'New Product Development', text: 'Start with just an idea.', href: '/customization/new-product-development/' },
+  { title: 'Product Adaptation', text: 'Start with a reference product.', href: '/customization/product-adaptation/' },
+  { title: 'Existing Product Customization', text: 'Fundamentally improve the mass-production quality of an existing product.', href: '/customization/existing-products/' },
+];
 export const workflowSteps = [
-  { number: '01', title: 'Send a request', icon: 'send', text: 'Send a request, reference sample or specifications, along with your target market and estimated quantity.' },
+  { number: '01', title: 'Send a request', icon: 'send', text: 'Send a request, reference sample or specifications.', options: requestStepOptions },
   { number: '02', title: 'Review & meeting', icon: 'clipboard-check', text: 'Meet with you to discuss project requirements, review feasibility and customization options, and align on MOQ, estimated costs and timelines. Together, we confirm the project scope and approve the project kickoff.' },
-  { number: '03', title: 'Develop & approve', icon: 'layers', text: 'Develop and refine the product, then approve samples against agreed requirements.' },
-  { number: '04', title: 'Start production', icon: 'factory', text: 'Move into production with agreed specifications, process checks and final inspection.' },
+  {
+    number: '03', title: 'Develop & approve', icon: 'layers', text: 'We prepare PCBA prototypes and 3D-printed models. You review and approve the final sample against the agreed requirements.',
+    confidentiality: {
+      title: 'NDA & confidentiality',
+      text: 'We sign an NDA with you. Before mass production, our production managers give everyone involved in production a comprehensive confidentiality briefing based on the signed agreement.',
+      label: 'Arrange NDA signing',
+      href: '/customization/ip-protection/nda-project-start/#nda-signing',
+    },
+  },
+  { number: '04', title: 'Start production', icon: 'factory', text: 'Manufacture molds, procure raw materials and begin mass production to agreed specifications, with in-process checks and final inspection.' },
   { number: '05', title: 'Packaging & delivery', icon: 'truck', text: 'Pack finished products to the agreed requirements, prepare shipping documents, and coordinate loading, transportation and delivery to the agreed destination.' },
 ];
 export const manufacturingEras = [

@@ -1,3 +1,11 @@
+# IP protection moved into the ODM & OEM project guidance.
+/customization/ /customization/how-we-work/ 301
+/about/ip-protection/ /customization/ip-protection/ 301
+/about/ip-protection/confidentiality/ /customization/ip-protection/confidentiality/ 301
+/about/ip-protection/design-ownership/ /customization/ip-protection/design-ownership/ 301
+/about/ip-protection/samples-tooling/ /customization/ip-protection/samples-tooling/ 301
+/about/ip-protection/nda-project-start/ /customization/ip-protection/nda-project-start/ 301
+
 # Original-quality website videos delivered separately from the static build.
 /media/activities/video-2be2cf5a6952.mp4 https://github.com/JayYang267/LEANODM/releases/download/site-media-2026-10-20/d3a51730c068-video-2be2cf5a6952.mp4 302
 /media/activities/video-3bdbfbf7567e.mp4 https://github.com/JayYang267/LEANODM/releases/download/site-media-2026-10-20/9505e39bbc3c-video-3bdbfbf7567e.mp4 302

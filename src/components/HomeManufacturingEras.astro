@@ -1,23 +1,27 @@
 ---
 import { Image } from 'astro:assets';
 import { manufacturingEras } from '../data/home';
-import volumeConcept from '../assets/home/manufacturing-eras/value-for-money-concept-v1.png';
+import Icon from './CustomizationIcon.astro';
+import volumeReference from '../assets/home/manufacturing-eras/manufacturing-1-external-reference.jpg';
 import precisionConcept from '../assets/home/manufacturing-eras/exceptional-quality-concept-v1.png';
-import leanAssembly from '../assets/home/xinyinhai-assembly.png';
+import leanAssembly from '../assets/home/lean-workshop-video-68-8s-no-label.png';
 import '../styles/home-manufacturing-eras.css';
 
 const images = [
-  { image: volumeConcept, alt: 'Concept image of simple electronic product housings prepared for high-volume assembly' },
+  { image: volumeReference, alt: 'External reference photograph of workers in blue uniforms seated along an assembly line' },
   { image: precisionConcept, alt: 'Concept image of a refined electronic product under precision optical inspection' },
-  { image: leanAssembly, alt: 'Organized assembly lines and material flow in the Xinyinhai production workshop' },
+  { image: leanAssembly, alt: 'Assembly workstations and operators in the Xinyinhai workshop' },
 ];
+const manufacturingOneSource = 'https://huahuiapp.obs.cn-south-1.myhuaweicloud.com/news/contentImg/241004/20241004092431_84797.jpg';
+const responsiveWidths = (width: number) => [...new Set([Math.min(360, width), Math.min(640, width), Math.min(960, width)])];
 ---
 <div class="xyh-manufacturing-eras" id="manufacturing-eras" role="region" aria-roledescription="carousel" aria-label="China manufacturing approaches" data-manufacturing-eras data-default-era="2" data-active-era="2">
   <div class="xyh-era-viewport" data-era-viewport>
     <ol class="xyh-era-track" id="manufacturing-eras-track" data-era-track>
-      {manufacturingEras.map((era, index) => <li class:list={['xyh-era-card', { 'is-active': index === 2 }]} data-era-card role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${manufacturingEras.length}`}>
+      {manufacturingEras.map((era, index) => <li class:list={['xyh-era-card', { 'is-active': index === 2, 'xyh-era-card--lean': index === 2, 'xyh-era-card--reference': index === 0 }]} data-era-card role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${manufacturingEras.length}`}>
         <div class="xyh-era-media">
-          <Image src={images[index].image} alt={images[index].alt} widths={[360, 640, Math.min(960, images[index].image.width)]} sizes="(max-width: 900px) 90vw, 52vw" loading="lazy" format="webp" quality={85} draggable="false" />
+          <Image src={images[index].image} alt={images[index].alt} widths={responsiveWidths(images[index].image.width)} sizes="(max-width: 900px) 90vw, 52vw" loading="lazy" format="webp" quality={85} draggable="false" />
+          {index === 0 && <a class="xyh-era-image-source" href={manufacturingOneSource} target="_blank" rel="noopener noreferrer">External image source<Icon name="external-link" /></a>}
         </div>
         <div class="xyh-era-copy">
           <h3 id={`manufacturing-era-title-${index + 1}`}>{era.title}</h3>
@@ -27,12 +31,9 @@ const images = [
     </ol>
   </div>
   <div class="xyh-era-controls" data-era-controls>
-    <div class="xyh-era-positions" role="group" aria-label="Choose a manufacturing approach">
-      {manufacturingEras.map((era, index) => <button type="button" class:list={['xyh-era-position', { 'is-active': index === 2 }]} data-era-trigger data-era-index={index} aria-label={`Show ${era.title}`} aria-pressed={index === 2 ? 'true' : 'false'} aria-controls="manufacturing-eras-track">{index + 1}.0</button>)}
-    </div>
     <div class="xyh-era-arrows" role="group" aria-label="Browse manufacturing approaches">
-      <button type="button" class="xyh-era-arrow" data-era-prev aria-label="Previous manufacturing approach" aria-controls="manufacturing-eras-track"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5m6 6-6-6 6-6" /></svg></button>
-      <button type="button" class="xyh-era-arrow" data-era-next aria-label="Next manufacturing approach" aria-controls="manufacturing-eras-track"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></button>
+      <button type="button" class="xyh-era-arrow" data-era-prev aria-label="Previous manufacturing approach" aria-controls="manufacturing-eras-track"><svg width="32" height="48" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 5-12 15 12 15" /></svg></button>
+      <button type="button" class="xyh-era-arrow" data-era-next aria-label="Next manufacturing approach" aria-controls="manufacturing-eras-track"><svg width="32" height="48" viewBox="0 0 24 40" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 5 12 15-12 15" /></svg></button>
     </div>
   </div>
   <p class="xyh-era-status" role="status" aria-live="polite" aria-atomic="true" data-era-status></p>

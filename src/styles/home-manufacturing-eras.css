@@ -1,17 +1,24 @@
 /* Without JavaScript all three articles remain readable, with 3.0 first. */
-.xyh-manufacturing-eras{margin-top:45px!important;min-width:0}
+.xyh-manufacturing-eras{position:relative;margin-top:45px!important;min-width:0}
 .xyh-era-track{display:flex;flex-direction:column;gap:24px;list-style:none;margin:0;padding:0}
-.xyh-manufacturing-eras .xyh-era-card{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);min-width:0;min-height:490px;padding:0;border:1px solid #ffffff40;border-radius:8px;overflow:hidden;background:#fff;color:var(--ink)}
+.xyh-manufacturing-eras .xyh-era-card{box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);min-width:0;min-height:400px;padding:0;border:1px solid #ffffff40;border-radius:8px;overflow:hidden;background:#fff;color:var(--ink)}
 .xyh-manufacturing-eras .xyh-era-card.is-active{order:-1}
 .xyh-era-media{position:relative;min-width:0;min-height:100%;overflow:hidden;background:#082356}
 .xyh-era-media img{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;user-select:none}
-.xyh-era-copy{align-self:center;min-width:0;padding:40px 38px}
+.xyh-era-card--lean .xyh-era-media img{object-fit:contain}
+.xyh-era-card--reference .xyh-era-media img{object-fit:contain}
+.xyh-home .xyh-era-image-source{position:absolute;left:12px;bottom:12px;z-index:1;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% - 24px);min-height:36px;padding:8px 10px;border-radius:4px;background:#fff;color:#102950;font-size:12px;font-weight:600;line-height:1.4;text-decoration:underline;text-underline-offset:3px}
+.xyh-home .xyh-era-image-source .b2b-icon{width:14px;height:14px}
+.xyh-home .xyh-era-image-source:hover{color:#183ba3}
+.xyh-home .xyh-era-image-source:focus-visible{outline:3px solid #ff963a;outline-offset:3px}
+.xyh-era-copy{align-self:center;min-width:0;padding:32px}
 .xyh-manufacturing-eras .xyh-era-card h3{margin:0;font-size:clamp(24px,2.25vw,32px);line-height:1.25;letter-spacing:-.025em;color:inherit}
 .xyh-manufacturing-eras .xyh-era-copy p{margin:24px 0 0;font-size:15px;line-height:1.85;color:#526078}
 .xyh-era-controls{display:none}
 .xyh-era-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* The enhanced rail keeps a stable panel size while its image and copy travel together. */
+.xyh-manufacturing-eras.is-enhanced{padding-inline:48px}
 .xyh-manufacturing-eras.is-enhanced .xyh-era-viewport{overflow:hidden;border-radius:8px;touch-action:pan-y pinch-zoom}
 .xyh-manufacturing-eras.is-enhanced .xyh-era-track{flex-direction:row;align-items:stretch;gap:0;will-change:transform}
 .xyh-manufacturing-eras.is-enhanced .xyh-era-card{flex:0 0 100%;order:0}
@@ -20,34 +27,36 @@
 .xyh-manufacturing-eras.is-enhanced.is-resetting .xyh-era-track{transition:none}
 .xyh-manufacturing-eras.is-enhanced .xyh-era-media img{transform:scale(1.025);transition:transform .65s ease}
 .xyh-manufacturing-eras.is-enhanced .xyh-era-card.is-active .xyh-era-media img{transform:scale(1)}
-.xyh-manufacturing-eras.is-enhanced .xyh-era-controls{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:24px}
-.xyh-era-positions,.xyh-era-arrows{display:flex;align-items:center;gap:10px}
-.xyh-manufacturing-eras .xyh-era-position,.xyh-manufacturing-eras .xyh-era-arrow{display:inline-flex;align-items:center;justify-content:center;min-height:46px;margin:0;padding:0;border:1px solid #ffffff61;background:transparent;color:#fff;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease}
-.xyh-manufacturing-eras .xyh-era-position{min-width:58px;padding:0 14px;border-radius:4px;font:inherit;font-size:14px;font-weight:700;line-height:1}
-.xyh-manufacturing-eras .xyh-era-position.is-active{background:#fff;border-color:#fff;color:#123c85}
-.xyh-manufacturing-eras .xyh-era-arrow{width:46px;border-radius:50%;flex-shrink:0}
-.xyh-manufacturing-eras .xyh-era-position:focus-visible,.xyh-manufacturing-eras .xyh-era-arrow:focus-visible{outline:3px solid #fff;outline-offset:4px}
-@media(hover:hover){.xyh-manufacturing-eras .xyh-era-position:hover,.xyh-manufacturing-eras .xyh-era-arrow:hover{background:#fff;color:#123c85;border-color:#fff}}
+.xyh-manufacturing-eras.is-enhanced .xyh-era-controls,.xyh-era-arrows{position:absolute;inset:0;pointer-events:none}
+.xyh-manufacturing-eras.is-enhanced .xyh-era-controls{display:block}
+.xyh-manufacturing-eras .xyh-era-arrow{position:absolute;top:50%;display:inline-flex;align-items:center;justify-content:center;width:44px;height:64px;margin:0;padding:0;border:0;border-radius:0;background:transparent;color:#ff963a;cursor:pointer;pointer-events:auto;transform:translateY(-50%);transition:color .18s ease}
+.xyh-era-arrow[data-era-prev]{left:0}
+.xyh-era-arrow[data-era-next]{right:0}
+.xyh-era-arrow svg{display:block;flex-shrink:0}
+.xyh-manufacturing-eras .xyh-era-arrow:focus-visible{outline:3px solid #fff;outline-offset:2px}
+@media(hover:hover){.xyh-manufacturing-eras .xyh-era-arrow:hover{color:#ffd09a}}
 @media(max-width:1100px){.xyh-era-copy{padding:32px 28px}}
 @media(max-width:900px){
   .xyh-manufacturing-eras{margin-top:32px!important}
+  .xyh-manufacturing-eras.is-enhanced{padding-inline:40px}
   .xyh-manufacturing-eras .xyh-era-card{grid-template-columns:minmax(0,1fr);grid-template-rows:clamp(220px,50vw,380px) 1fr;min-height:0}
   .xyh-era-media{min-height:0;height:100%}
   .xyh-era-copy{align-self:start;padding:28px}
   .xyh-manufacturing-eras .xyh-era-card h3{font-size:25px;line-height:1.3}
   .xyh-manufacturing-eras .xyh-era-copy p{margin-top:20px;font-size:15px;line-height:1.8}
-  .xyh-manufacturing-eras.is-enhanced .xyh-era-controls{margin-top:20px}
 }
 @media(max-width:480px){
-  .xyh-manufacturing-eras.is-enhanced .xyh-era-controls{gap:10px}
-  .xyh-manufacturing-eras .xyh-era-card{grid-template-rows:210px 1fr}
+  .xyh-home .xyh-era-image-source{left:8px;bottom:8px;min-height:44px;max-width:calc(100% - 16px);font-size:11px}
+  .xyh-manufacturing-eras.is-enhanced{padding-inline:24px}
+  .xyh-manufacturing-eras .xyh-era-card{grid-template-rows:clamp(160px,50vw,210px) 1fr}
   .xyh-era-copy{padding:25px 22px 28px}
   .xyh-manufacturing-eras .xyh-era-card h3{font-size:23px}
-  .xyh-era-positions,.xyh-era-arrows{gap:7px}
-  .xyh-manufacturing-eras .xyh-era-position{min-width:48px;padding-inline:10px}
-  .xyh-manufacturing-eras .xyh-era-arrow{width:44px;min-height:44px}
+  .xyh-manufacturing-eras .xyh-era-arrow{height:56px}
+  .xyh-era-arrow[data-era-prev]{left:-8px}
+  .xyh-era-arrow[data-era-next]{right:-8px}
+  .xyh-era-arrow svg{width:26px;height:40px}
 }
 @media(prefers-reduced-motion:reduce){
-  .xyh-manufacturing-eras.is-enhanced.is-ready .xyh-era-track,.xyh-manufacturing-eras.is-enhanced .xyh-era-media img,.xyh-manufacturing-eras .xyh-era-position,.xyh-manufacturing-eras .xyh-era-arrow{transition:none}
+  .xyh-manufacturing-eras.is-enhanced.is-ready .xyh-era-track,.xyh-manufacturing-eras.is-enhanced .xyh-era-media img,.xyh-manufacturing-eras .xyh-era-arrow{transition:none}
   .xyh-manufacturing-eras.is-enhanced .xyh-era-media img{transform:none}
 }

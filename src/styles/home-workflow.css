@@ -1,21 +1,20 @@
-/* Homepage process cards, with a shared visual rhythm from request to delivery. */
+/* One expanded step and four directly selectable previews; no carousel controls. */
 .xyh-work .xyh-steps {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 20px;
+  gap: 14px;
   align-items: stretch;
 }
 
 .xyh-work .xyh-steps > li {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0;
-  align-items: flex-start;
   min-width: 0;
-  min-height: 446px;
-  padding: 0 22px 28px;
-  border: 0;
-  background: #eaf2fd;
+  min-height: 450px;
+  padding: 20px;
+  border: 1px solid #d9e3f1;
+  background: #f7f9fd;
 }
 
 .xyh-work .xyh-steps > li::after {
@@ -23,110 +22,292 @@
 }
 
 .xyh-work .xyh-step-number {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
   display: grid;
   place-items: center;
-  flex: 0 0 auto;
-  width: 54px;
-  height: 54px;
-  margin-bottom: 25px;
+  width: 42px;
+  height: 42px;
   background: var(--blue);
   color: #fff;
-  font-size: 25px;
+  font-size: 21px;
   line-height: 1;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
-.xyh-work .xyh-step-copy h3 {
-  margin: 0 0 12px;
+.xyh-work .xyh-step-heading {
+  margin: 0;
   color: var(--ink);
-  font-size: clamp(16px, 1.3vw, 18px);
+  font-size: 17px;
   line-height: 1.35;
-  letter-spacing: -.025em;
-  white-space: normal;
+  letter-spacing: -.015em;
 }
 
-.xyh-work .xyh-step-copy p {
+.xyh-work .xyh-step-trigger {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.xyh-work .xyh-step-trigger:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 5px;
+}
+
+.xyh-work .xyh-step-detail {
+  margin-top: 10px;
+}
+
+.xyh-work .xyh-step-detail[hidden] {
+  display: none;
+}
+
+.xyh-work .xyh-step-detail p {
+  margin: 0;
   color: #465872;
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 1.7;
 }
 
-.xyh-work .xyh-step-art {
-  flex: 0 0 auto;
-  align-self: center;
-  width: calc(100% + 10px);
-  max-width: 240px;
-  margin-top: auto;
-  padding-top: 25px;
+.xyh-work .xyh-step-confidentiality {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid #cbd9ed;
 }
 
-.xyh-step-art svg {
+.xyh-work .xyh-step-confidentiality h4 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.xyh-work .xyh-step-confidentiality p {
+  margin-top: 8px;
+}
+
+.xyh-work .xyh-step-nda-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  margin-top: 7px;
+  color: var(--blue);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.xyh-work .xyh-step-nda-link:hover {
+  color: #05296d;
+}
+
+.xyh-work .xyh-step-nda-link:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.xyh-work .xyh-step-options ul {
+  display: grid;
+  gap: 0;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.xyh-work .xyh-step-options li + li {
+  border-top: 1px solid #cbd9ed;
+}
+
+.xyh-work .xyh-step-options a {
+  display: grid;
+  gap: 3px;
+  min-height: 44px;
+  padding: 10px 8px;
+  border-radius: 3px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.xyh-work .xyh-step-option-title {
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.45;
+}
+
+.xyh-work .xyh-step-option-summary {
+  color: #4b5f7c;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+.xyh-work .xyh-step-options a:hover {
+  background: #fff;
+}
+
+.xyh-work .xyh-step-options a:hover .xyh-step-option-title {
+  color: var(--blue);
+}
+
+.xyh-work .xyh-step-options a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.xyh-work .xyh-step-art {
+  display: flex;
+  flex: 0 0 230px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  height: 230px;
+  margin-bottom: 20px;
+  padding-top: 42px;
+}
+
+.xyh-work .xyh-step-art svg {
   display: block;
   width: 100%;
-  height: auto;
+  max-width: 310px;
+  height: 100%;
   overflow: hidden;
 }
 
 /* Blend the illustration sheet margins into the card background. */
-.xyh-workflow-illustration[data-step="03"],
-.xyh-workflow-illustration[data-step="04"],
-.xyh-workflow-illustration[data-step="05"] {
+.xyh-workflow-illustration {
   mix-blend-mode: darken;
 }
 
-@media (min-width: 761px) and (max-width: 1100px) {
-  .xyh-work .xyh-steps {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 22px;
+@media (min-width: 1101px) {
+  .xyh-work .xyh-steps[data-workflow-ready] {
+    display: flex;
   }
 
-  .xyh-work .xyh-steps > li {
-    grid-column: span 2;
-    min-height: 430px;
-    padding-inline: 24px;
+  .xyh-work [data-workflow-ready] > li {
+    flex: 1 1 0;
+    min-height: 600px;
+    padding-inline: 16px;
+    cursor: pointer;
+    transition: flex-grow 340ms cubic-bezier(.2, .7, .2, 1),
+      background-color 240ms ease, border-color 240ms ease;
   }
 
-  .xyh-work .xyh-steps > li:nth-child(4) {
-    grid-column: 2 / span 2;
+  .xyh-work [data-workflow-ready] > li.is-active {
+    flex-grow: 2.55;
+    border-color: var(--blue);
+    background: #eaf2fd;
   }
 
-  .xyh-work .xyh-step-copy h3 {
-    font-size: 18px;
+  .xyh-work [data-workflow-ready] .xyh-step-heading {
+    font-size: clamp(11.5px, .94vw, 14px);
+    white-space: nowrap;
+  }
+
+  .xyh-work [data-workflow-ready] .is-active .xyh-step-heading {
+    font-size: 20px;
+  }
+
+  .xyh-work [data-workflow-ready] .xyh-step-art svg {
+    max-width: 134px;
+    transition: max-width 340ms cubic-bezier(.2, .7, .2, 1);
+  }
+
+  .xyh-work [data-workflow-ready] .is-active .xyh-step-art svg {
+    max-width: 310px;
+  }
+
+  .xyh-work [data-workflow-ready] .xyh-step-detail {
+    animation: xyh-work-detail-in 240ms ease both;
   }
 }
 
-@media (max-width: 760px) {
+@keyframes xyh-work-detail-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 1100px) {
   .xyh-work .xyh-steps {
     grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
-    max-width: 460px;
+    gap: 12px;
+    max-width: 760px;
     margin-inline: auto;
   }
 
   .xyh-work .xyh-steps > li {
-    min-height: 395px;
-    padding: 0 28px 26px;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 14px 16px;
+    align-items: center;
+    min-height: 0;
+    padding: 18px;
+  }
+
+  .xyh-work [data-workflow-ready] > li.is-active {
+    border-color: var(--blue);
+    background: #eaf2fd;
   }
 
   .xyh-work .xyh-step-number {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 22px;
-    font-size: 24px;
+    position: static;
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0;
   }
 
-  .xyh-work .xyh-step-copy h3 {
-    font-size: 21px;
+  .xyh-work .xyh-step-heading {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 16px;
   }
 
-  .xyh-work .xyh-step-copy p {
+  .xyh-work .xyh-step-detail {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin: 0;
+  }
+
+  .xyh-work .xyh-step-detail p {
     font-size: 15px;
-    line-height: 1.75;
   }
 
   .xyh-work .xyh-step-art {
-    max-width: 225px;
-    padding-top: 20px;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    height: 210px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .xyh-work [data-workflow-ready] > li:not(.is-active) .xyh-step-art {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xyh-work [data-workflow-ready] > li,
+  .xyh-work [data-workflow-ready] .xyh-step-art svg,
+  .xyh-work [data-workflow-ready] .xyh-step-detail,
+  .xyh-work .xyh-step-options a {
+    animation: none;
+    transition: none;
   }
 }

@@ -46,7 +46,7 @@ const footerContactLabel = goesToInquiry ? leanInquiryNavigation.label : contact
       <nav aria-label="LEANODM primary footer navigation">
         <h2>LEANODM</h2>
         <ul>
-          {leanPrimaryNavigation.filter(item => item.label !== 'ODM & OEM' && item.label !== 'Manufacturing' && item.label !== 'About' && isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}
+          {leanPrimaryNavigation.filter(item => item.label !== 'ODM & OEM' && item.label !== 'Capabilities' && item.label !== 'About' && isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}
         </ul>
         <h2 class="quality-footer-title">About</h2>
         <ul>{leanAboutNavigation.filter(item => isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul>
@@ -56,7 +56,7 @@ const footerContactLabel = goesToInquiry ? leanInquiryNavigation.label : contact
       <nav aria-label="LEANODM secondary footer navigation">
         <h2>ODM &amp; OEM</h2>
         <ul>{leanCustomizationNavigation.filter(item => isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul>
-        <h2 class="quality-footer-title"><a href="/manufacturing/">Manufacturing</a></h2>
+        <h2 class="quality-footer-title"><a href="/manufacturing/">Capabilities</a></h2>
         <ul>{leanManufacturingNavigation.filter(item => isAvailable(item.href)).map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul>
         {secondaryNavigation.length > 0 && <><h2 class="quality-footer-title">Explore</h2><ul>{secondaryNavigation.map(item => <li><a href={item.href}>{item.label}</a></li>)}</ul></>}
       </nav>

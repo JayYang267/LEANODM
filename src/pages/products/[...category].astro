@@ -1,0 +1,31 @@
+---
+import ProductCatalog from '../../components/products/ProductCatalog.astro';
+import ProductOverview from '../../components/products/ProductOverview.astro';
+import { catalogEntries, type CatalogEntry } from '../../data/products/categories';
+import { catalogItemsForPath } from '../../data/products/catalog-items';
+import { catalogPagePath, paginateCatalog } from '../../data/products/pagination';
+export function getStaticPaths() {
+  const categoryPages = catalogEntries.flatMap(entry => {
+    const { totalPages } = paginateCatalog(catalogItemsForPath(entry.path));
+    return Array.from({ length: totalPages }, (_, index) => {
+      const pageNumber = index + 1;
+      return {
+        params: { category: catalogPagePath(entry.path, pageNumber).replace(/^\/products\//, '').replace(/\/$/, '') },
+        props: { entry, pageNumber },
+      };
+    });
+  });
+  const { totalPages } = paginateCatalog(catalogItemsForPath('/products/'));
+  const rootPages = Array.from({ length: totalPages - 1 }, (_, index) => {
+    const pageNumber = index + 2;
+    return {
+      params: { category: catalogPagePath('/products/', pageNumber).replace(/^\/products\//, '').replace(/\/$/, '') },
+      props: { entry: undefined, pageNumber },
+    };
+  });
+  return [...categoryPages, ...rootPages];
+}
+interface Props { entry?: CatalogEntry; pageNumber?: number; }
+const { entry, pageNumber = 1 } = Astro.props;
+---
+{entry ? <ProductCatalog entry={entry} pageNumber={pageNumber} /> : <ProductOverview pageNumber={pageNumber} />}

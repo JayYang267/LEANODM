@@ -1,0 +1,20 @@
+---
+import AboutPhoto from './AboutPhoto.astro';
+import type { ProductionEquipmentVisual } from '../data/production-equipment';
+
+interface Props {
+  item: ProductionEquipmentVisual;
+  class?: string;
+  eager?: boolean;
+  sizes?: string;
+}
+const { item, class: className, eager = false, sizes } = Astro.props;
+const isReference = item.kind === 'reference';
+---
+<div class:list={['pe-source-visual', { 'pe-equipment-reference': isReference }, className]}
+  data-source-slide={item.slide} data-source-asset={item.asset} data-equipment-section={item.section}>
+  <AboutPhoto class="pe-photo" src={item.src} alt={item.alt} title={item.title} caption={item.caption}
+    source={isReference ? 'Company equipment profile · equipment reference' : 'Xinyinhai factory photograph'} eager={eager} sizes={sizes} />
+  {isReference && <span class="pe-reference-label">Equipment reference</span>}
+  {item.note && <p class="pe-visual-note">{item.note}</p>}
+</div>

@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import player from '../assets/home/customer-roles/ip-background-v8/player-blank-card.png';
+import littleRedRidingHood from '../assets/home/customer-roles/ip-background-v8/little-red-riding-hood.png';
+import pinocchio from '../assets/home/customer-roles/ip-background-v8/pinocchio.png';
+import alice from '../assets/home/customer-roles/ip-background-v8/alice.png';
+import snowWhite from '../assets/home/customer-roles/ip-background-v8/snow-white.png';
+import cinderella from '../assets/home/customer-roles/ip-background-v8/cinderella.png';
+
+const characters = [
+  { image: pinocchio, name: 'pinocchio' },
+  { image: alice, name: 'alice' },
+  { image: snowWhite, name: 'snow-white' },
+  { image: cinderella, name: 'cinderella' },
+  { image: littleRedRidingHood, name: 'red-riding-hood' },
+];
+---
+<div class="xyh-ip-scene" role="img" aria-label="Illustrative composition of a story card player with a plain inserted card, with Little Red Riding Hood, Pinocchio, Alice, Snow White and Cinderella arranged behind it on white">
+  {characters.map(character => <Image
+    class={`xyh-ip-layer xyh-ip-character xyh-ip-${character.name}`}
+    src={character.image}
+    alt=""
+    aria-hidden="true"
+    widths={[180, Math.min(360, character.image.width)]}
+    sizes="(max-width: 760px) 22vw, 110px"
+    format="webp"
+    quality={90}
+    loading="lazy"
+    draggable="false"
+  />)}
+  <Image class="xyh-ip-layer xyh-ip-player" src={player} alt="" aria-hidden="true" widths={[360, 720, 1080]} sizes="(max-width: 760px) 80vw, 440px" format="webp" quality={90} loading="lazy" draggable="false" />
+</div>
+
+<style>
+  .xyh-ip-scene{position:relative;isolation:isolate;width:100%;aspect-ratio:3/2;overflow:hidden;background:#fff}
+  .xyh-ip-scene .xyh-ip-layer{position:absolute;display:block;max-width:none;object-fit:contain;object-position:center top;aspect-ratio:auto;user-select:none}
+  .xyh-ip-scene .xyh-ip-character{z-index:1;top:2%;width:22%;height:60%}
+  .xyh-ip-scene .xyh-ip-pinocchio{left:1%;width:24%;height:61%}
+  .xyh-ip-scene .xyh-ip-alice{left:21%;width:21%;height:61%}
+  .xyh-ip-scene .xyh-ip-snow-white{left:39%;width:22%;height:59%}
+  .xyh-ip-scene .xyh-ip-cinderella{left:58%;width:24%;height:60%}
+  .xyh-ip-scene .xyh-ip-red-riding-hood{left:78%;top:3%;width:21%;height:53%}
+  .xyh-ip-scene .xyh-ip-player{z-index:2;left:6%;top:20%;width:88%;height:88%}
+</style>

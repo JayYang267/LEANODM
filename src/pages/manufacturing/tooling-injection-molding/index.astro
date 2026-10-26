@@ -104,6 +104,7 @@ const schema = {
         <div class="qc-heading"><div><p class="qc-eyebrow">04 / EQUIPMENT & SUPPORT</p><h2 id="equipment-title">What equipment supports injection molding?</h2></div><p>The inventory lists injection molding machines together with drying, mixing, temperature control, part handling and runner-recovery equipment.</p></div>
         <div class="qc-table-wrap" tabindex="0" role="region" aria-label="Equipment table; scroll horizontally to read all columns"><table><caption>Documented equipment baseline for supplier evaluation</caption><thead><tr><th scope="col">Equipment</th><th scope="col">Documented provision</th><th scope="col">Role in the process</th></tr></thead><tbody>{moldingEquipment.map(row => <tr><th scope="row">{row.item}</th><td>{row.provision}</td><td>{row.purpose}</td></tr>)}</tbody></table></div>
         <p class="qc-source-note">Factory evidence: equipment inventory, equipment-management references and machine-parameter workbook. Tonnage is a nominal clamping-force class, not part weight, injection pressure or a guaranteed component-size limit. Machine fit also requires the mold dimensions, opening and ejection requirements to be checked.</p>
+        <a class="qc-text-link" href="/capabilities/production-equipment/#molding">Explore molding equipment examples and the workshop <span aria-hidden="true">↗</span></a>
       </section>
 
       <section id="process-control" class="qc-section" aria-labelledby="process-title">

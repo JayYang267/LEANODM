@@ -1,0 +1,34 @@
+---
+import { activities } from '../../data/activities';
+import Icon from '../CustomizationIcon.astro';
+
+interface Props {
+  slug: string;
+  title: string;
+  period: string;
+  alt: string;
+  caption: string;
+}
+
+const { slug, title, period, alt, caption } = Astro.props;
+const activity = activities.find(item => item.slug === slug);
+if (!activity || activity.cover.kind !== 'image') {
+  throw new Error(`IP page activity photograph not found: ${slug}`);
+}
+const image = activity.cover;
+const source = `Xinyinhai activity archive · ${activity.title} · ${period}`;
+---
+<figure class="ip-activity-photo" id={`ip-photo-${slug}`} data-ip-activity={slug}>
+  <a class="ip-activity-image" href={image.src} data-lightbox="ip-training-photographs" data-title={title}
+    data-caption={`${caption} ${period}.`} data-source={source} data-width={image.width} data-height={image.height}
+    aria-label={`Enlarge photograph: ${title}`}>
+    <img src={image.src} alt={alt} width={image.width} height={image.height} loading="lazy" decoding="async" />
+    <span class="ip-activity-enlarge"><Icon name="arrow-up-right" /> View photo</span>
+  </a>
+  <figcaption>
+    <span class="ip-activity-period">{period}</span>
+    <strong class="ip-activity-title">{title}</strong>
+    <p>{caption}</p>
+    <a class="ip-activity-source" href={`/about/activities/${slug}/`}>View activity record <Icon name="arrow-up-right" /></a>
+  </figcaption>
+</figure>

@@ -34,8 +34,8 @@ export default function MobileMenu() {
               <p className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">ODM &amp; OEM</p>
               {leanCustomizationNavigation.map(item => <Dialog.Close asChild key={item.href}><a href={item.href} className="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-primary-50">{item.label}</a></Dialog.Close>)}
             </div>
-            <div aria-label="Manufacturing pages" className="border-t border-slate-200 pt-2">
-              <p className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Manufacturing</p>
+            <div aria-label="Capabilities pages" className="border-t border-slate-200 pt-2">
+              <p className="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-slate-500">Capabilities</p>
               {leanManufacturingNavigation.map(item => <Dialog.Close asChild key={item.href}><a href={item.href} className="block px-4 py-3 text-base font-medium text-slate-700 hover:bg-primary-50">{item.label}</a></Dialog.Close>)}
             </div>
             <div aria-label="Quality pages" className="border-t border-slate-200 pt-2">

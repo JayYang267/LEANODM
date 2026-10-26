@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-iconset/components';
 import { rfqProjectOptions, rfqProjectPrompts } from '../data/rfq';
+import { NDA_REQUEST_TEXT } from '../utils/rfq';
 const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
 ---
 
@@ -11,7 +12,12 @@ const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
     <div class="rfq-contact-fields">
       <div class="rfq-field"><label for="rfq-email">Email <span class="rfq-required">Required</span></label><input id="rfq-email" name="email" type="email" autocomplete="email" inputmode="email" maxlength="254" required aria-describedby="rfq-email-hint rfq-email-error" placeholder="you@company.com" /><p id="rfq-email-hint" class="rfq-field-hint">Personal or company email is welcome.</p><p id="rfq-email-error" class="rfq-field-error" data-error-for="email" hidden></p></div>
     </div>
-    <div class="rfq-field rfq-description-field"><label for="rfq-details">Tell us about your project <span class="rfq-required">Required</span></label><p id="rfq-details-hint" class="rfq-field-hint">What is it for? What should it do? Tell us whether you have an idea, a product or a design.</p><textarea id="rfq-details" name="details" rows="4" maxlength="6000" required aria-describedby="rfq-details-hint rfq-details-error" placeholder="For example: we would like an interactive toy with lights and sound for a retail gift range. We have an initial idea and need help choosing the next step."></textarea><p id="rfq-details-error" class="rfq-field-error" data-error-for="details" hidden></p></div>
+    <div class="rfq-field rfq-description-field"><label for="rfq-details">Tell us about your project <span class="rfq-required">Required</span></label><p id="rfq-details-hint" class="rfq-field-hint">Start with a non-sensitive overview: intended use, core functions and whether you have an idea, a product or a design.</p><textarea id="rfq-details" name="details" rows="4" maxlength="6000" required aria-describedby="rfq-details-hint rfq-details-error" placeholder="For example: we would like an interactive toy with lights and sound for a retail gift range. We have an initial idea and need help choosing the next step."></textarea><p id="rfq-details-error" class="rfq-field-error" data-error-for="details" hidden></p></div>
+    <div class="rfq-confidentiality">
+      <label for="rfq-nda"><input id="rfq-nda" type="checkbox" name="ndaRequest" value={NDA_REQUEST_TEXT} aria-describedby="rfq-nda-hint" /><span>{NDA_REQUEST_TEXT}</span></label>
+      <p id="rfq-nda-hint">This adds an NDA discussion request to your inquiry; it does not sign an NDA. We can review your own NDA. Share detailed drawings, programs and keys only through agreed channels after confidentiality arrangements are confirmed.</p>
+      <a href="/customization/ip-protection/nda-project-start/">How to start a confidential project <span aria-hidden="true">↗</span></a>
+    </div>
     <fieldset class="rfq-type-group"><legend>What kind of project? <span class="rfq-optional">Choose what fits</span></legend><div class="rfq-type-options">
       {rfqProjectOptions.map(option => <label class:list={['rfq-type-option', { 'rfq-type-unsure': option.value === 'not-sure' }]}><input type="radio" name="projectType" value={option.value} checked={option.value === 'not-sure'} /><span class="rfq-type-icon" aria-hidden="true"><Icon name={`lucide:${option.icon}`} /></span><span class="rfq-type-copy"><strong>{option.label}</strong><span>{option.text}</span></span><span class="rfq-radio-mark" aria-hidden="true"><Icon name="lucide:check" /></span></label>)}
     </div></fieldset>
@@ -25,10 +31,10 @@ const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
           <div class="rfq-field"><label for="rfq-timeline">Preferred delivery timing <span class="rfq-optional">Optional</span></label><input id="rfq-timeline" name="timeline" maxlength="200" placeholder="Target date, season or flexible" /></div>
         </div>
         <div class="rfq-field"><label for="rfq-source">Product or page reference <span class="rfq-optional">Optional</span></label><input id="rfq-source" name="source" maxlength="500" placeholder="Product name, model or the page you came from" /></div>
-        <div class="rfq-field"><label for="rfq-referenceLinks">Reference links <span class="rfq-optional">Optional</span></label><textarea id="rfq-referenceLinks" name="referenceLinks" rows="2" maxlength="2000" aria-describedby="rfq-referenceLinks-hint rfq-referenceLinks-error" placeholder="https://… (one link per line)"></textarea><p id="rfq-referenceLinks-hint" class="rfq-field-hint">Product references or a file-sharing link you are authorized to share.</p><p id="rfq-referenceLinks-error" class="rfq-field-error" data-error-for="referenceLinks" hidden></p></div>
+        <div class="rfq-field"><label for="rfq-referenceLinks">Reference links <span class="rfq-optional">Optional</span></label><textarea id="rfq-referenceLinks" name="referenceLinks" rows="2" maxlength="2000" aria-describedby="rfq-referenceLinks-hint rfq-referenceLinks-error" placeholder="https://… (one link per line)"></textarea><p id="rfq-referenceLinks-hint" class="rfq-field-hint">Use non-sensitive product references you are authorized to share. Agree a channel before linking restricted files.</p><p id="rfq-referenceLinks-error" class="rfq-field-error" data-error-for="referenceLinks" hidden></p></div>
         {rfqProjectPrompts.map(prompt => <fieldset class="rfq-project-panel" data-project-panel={prompt.type} hidden disabled><legend class="rfq-sr-only">Additional {prompt.label.toLowerCase()} information</legend><div class="rfq-field"><label for={`rfq-${prompt.name}`}>{prompt.label} <span class="rfq-optional">Optional</span></label><p class="rfq-field-hint" id={`rfq-${prompt.name}-hint`}>{prompt.hint}</p><textarea id={`rfq-${prompt.name}`} name={prompt.name} rows="3" maxlength="3000" aria-describedby={`rfq-${prompt.name}-hint`} placeholder={prompt.placeholder}></textarea></div></fieldset>)}
         <div class="rfq-field"><label for="rfq-requirements">Testing or other requirements <span class="rfq-optional">Optional</span></label><textarea id="rfq-requirements" name="requirements" rows="2" maxlength="2000" placeholder="Intended users, required tests or certifications, budget or confidentiality needs, if known."></textarea><p class="rfq-field-hint">Your market and requirements help define the review for this product.</p></div>
-        <div class="rfq-attachment-note"><Icon name="lucide:paperclip" aria-hidden="true" /><p><strong>Have drawings or photos?</strong> File upload is currently unavailable. Email your available files to <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>, or add a reference link above. Agree a confidential exchange before sharing restricted files.</p></div>
+        <div class="rfq-attachment-note"><Icon name="lucide:paperclip" aria-hidden="true" /><p><strong>Have drawings or photos?</strong> File upload is currently unavailable. Email your non-sensitive overview to <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>, or add a non-sensitive reference link above. Detailed drawings, programs, keys and other restricted files follow through agreed channels after confidentiality arrangements are confirmed.</p></div>
       </div>
     </details>
   </fieldset>
@@ -42,3 +48,11 @@ const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
   </div>
 </form>
 <script>import '../scripts/rfq';</script>
+<style>
+  .rfq-confidentiality { margin-top:20px; padding:15px; border:1px solid #dce3ed; border-left:3px solid #183ba3; border-radius:7px; background:#f5f8ff; }
+  .rfq-confidentiality label { display:flex; align-items:flex-start; gap:10px; min-height:44px; cursor:pointer; font-size:13px; font-weight:650; line-height:1.65; color:#26364d; }
+  .rfq-confidentiality input { flex:none; width:20px; height:20px; margin-top:1px; accent-color:#183ba3; cursor:pointer; }
+  .rfq-confidentiality input:focus-visible { outline:3px solid #7393ed; outline-offset:4px; }
+  .rfq-confidentiality p { margin:4px 0 7px; font-size:11px; line-height:1.75; color:#526078; }
+  .rfq-confidentiality a { display:inline-flex; align-items:center; gap:5px; min-height:44px; color:#183ba3; text-decoration:underline; text-underline-offset:3px; font-size:12px; font-weight:650; line-height:1.6; }
+</style>

@@ -1,0 +1,48 @@
+---
+import IPPage from '../../../layouts/IPProtectionPage.astro';
+import Icon from '../../../components/CustomizationIcon.astro';
+const controls = [
+  { icon: 'file-lock-2', title: 'Encrypted firmware installation', text: 'Prepare and use the approved encrypted firmware or programming package with a compatible project workflow. Control the release, distribution and use of that package for manufacturing.', basis: 'Approved firmware revision, compatible programming method and package release permission.' },
+  { icon: 'key-round', title: 'Key management', text: 'Limit access to cryptographic keys and provisioning materials to authorized roles. Agree how keys are generated or provided, used, transferred, retained and revoked or closed for the project.', basis: 'Named responsibilities and an agreed key-handling lifecycle, separate from routine production-file distribution.' },
+  { icon: 'shield-check', title: 'Chip read protection', text: 'Configure and verify the supported read-protection or access restrictions for the selected chip and architecture. Review their effects on testing, debugging, updates and repair before release.', basis: 'Chip-specific settings and verification criteria. These controls reduce exposure; they are not a promise that extraction is impossible.' },
+  { icon: 'list-checks', title: 'Authorized programming quantity', text: 'Set the authorized production quantity in the agreed programming workflow. Track usage, failures and approved retries, then reconcile the run before closing or approving further quantity.', basis: 'Agreed counting rules, production authorization and a reconciled programming record.' },
+];
+---
+<IPPage pageKey="programming">
+  <section class="ip-section" id="protection-controls">
+    <div class="ip-section-heading"><h2>Four controls with different purposes.</h2><p>Encryption, keys, chip access and quantity authorization address different risks. They are combined according to the selected chip, tools and product architecture, with the settings confirmed for the project.</p></div>
+    <div class="ip-controls">{controls.map(control => <article><h3><Icon name={control.icon} />{control.title}</h3><p>{control.text}</p><dl><dt>Confirm before production</dt><dd>{control.basis}</dd></dl></article>)}</div>
+    <p class="ip-note">Protection mechanisms differ between chips and toolchains. We confirm the compatible configuration and the validation scope for your project; this page does not claim universal chip support or publish sensitive programming settings.</p>
+  </section>
+  <section class="ip-section" id="programming-flow">
+    <div class="ip-section-heading"><h2>Release the version and the permission together.</h2><p>The approved firmware, protection settings and quantity form one production baseline. A change to any of them is reviewed before the changed run proceeds.</p></div>
+    <ol class="ip-flow">
+      <li><h3>Confirm the protection plan</h3><p>Review chip, toolchain, architecture, key responsibilities, access permissions, quantity rules and repair or update requirements.</p></li>
+      <li><h3>Approve the firmware version</h3><p>Identify the released build and programming package. Record the approved revision and authorized recipients.</p></li>
+      <li><h3>Validate the setup</h3><p>Check programming, required product behavior and agreed protection settings against the approved plan before production release.</p></li>
+      <li><h3>Program the production run</h3><p>Use the approved release and authorized quantity. Restrict access to the materials needed for the production task and record exceptions.</p></li>
+      <li><h3>Reconcile and close</h3><p>Account for successful units, failures, retries and remaining authorization under the agreed rules. Close or renew access and quantity permissions as required.</p></li>
+    </ol>
+    <a class="ip-text-link" href="/manufacturing/electronics-smt/">See how programming connects with Electronics & SMT <Icon name="arrow-up-right" /></a>
+  </section>
+  <section class="ip-section" id="firmware-handover">
+    <div class="ip-section-heading"><h2>Separate development delivery from manufacturing access.</h2><p>Source code, production firmware and encrypted packages are handled according to the agreed project requirements. Receiving a production package does not grant access to every development asset or key.</p></div>
+    <dl class="ip-record">
+      <div><dt>Source code & agreed source files</dt><dd>Confirm scope, dependencies, file formats, licensing and handover arrangements in the development agreement.</dd></div>
+      <div><dt>Production firmware</dt><dd>Identify the approved release and the files necessary for the agreed programming and product verification work.</dd></div>
+      <div><dt>Encrypted programming package</dt><dd>Release only to authorized recipients and the approved compatible workflow, with the agreed quantity controls.</dd></div>
+      <div><dt>Keys & manufacturing permissions</dt><dd>Confirm the responsible roles and approved channel. Keep access within the agreed task; review retention, revocation and closure.</dd></div>
+    </dl>
+    <a class="ip-text-link" href="/customization/ip-protection/design-ownership/#handover-scope">Define development ownership and technical deliverables <Icon name="arrow-up-right" /></a>
+  </section>
+  <section class="ip-section" id="exceptions">
+    <div class="ip-section-heading"><h2>Plan for retries, repairs and later changes.</h2><p>A failed attempt or a repeat order needs a defined route. It does not create unrestricted programming permission.</p></div>
+    <div class="ip-table-wrap" tabindex="0" role="region" aria-label="Programming changes and exception controls"><table class="ip-table"><caption>Exception and change controls to confirm for the project</caption><thead><tr><th scope="col">Situation</th><th scope="col">Controlled response</th><th scope="col">Record or approval</th></tr></thead><tbody>
+      <tr><th scope="row">Failed programming & retry</th><td>Identify the failure and check the approved retry and counting rules before reprogramming.</td><td>Failed attempts, affected units, approved retries and quantity balance.</td></tr>
+      <tr><th scope="row">Rework & after-sales repair</th><td>Use the agreed access and recovery route. Review whether protection settings permit the required repair.</td><td>Authorized repair scope, firmware revision and programming disposition.</td></tr>
+      <tr><th scope="row">Firmware update</th><td>Approve the new build, confirm compatibility and verify the defined update path before release.</td><td>Version change, verification and update authorization.</td></tr>
+      <tr><th scope="row">Additional production quantity</th><td>Reconcile the previous run and obtain approval for the additional allocation.</td><td>Additional quantity permission and run reconciliation.</td></tr>
+      <tr><th scope="row">Protection-setting change</th><td>Review security, test, update and repair implications before applying a revised configuration.</td><td>Approved settings baseline, validation and release decision.</td></tr>
+    </tbody></table></div>
+  </section>
+</IPPage>

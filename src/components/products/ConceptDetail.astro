@@ -1,0 +1,264 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import HomeFooter from '@components/market/HomeFooter.astro';
+import CatalogCover from './CatalogCover.astro';
+import { SITE } from '@config/site';
+import readyDemoRecords from '../../data/products/concept-demo-3d-ready.json';
+import {
+  conceptCollection,
+  ORIGINAL_CONCEPTS_PATH,
+  type OriginalConcept,
+} from '../../data/products/original-concepts';
+import '../../styles/original-product-concept.css';
+
+interface Props { concept: OriginalConcept; }
+interface ReadyConceptDemo {
+  slug: string;
+  durationSeconds: number;
+  width: number;
+  height: number;
+  posterWidth: number;
+  posterHeight: number;
+  createdAt: string;
+  creditsHref?: string;
+}
+const { concept } = Astro.props;
+const imageWidth = concept.imageWidth ?? 1400;
+const imageHeight = concept.imageHeight ?? 1080;
+
+const imageUrl = new URL(concept.image, SITE.url).href;
+// Add a record only after finished-clip QA; all values describe the encoded assets.
+// createdAt is the actual asset creation date/time in ISO 8601 form.
+const readyDemos: readonly ReadyConceptDemo[] = readyDemoRecords;
+const readyDemo = readyDemos.find(demo => demo.slug === concept.slug);
+const pageModified = readyDemo && Date.parse(readyDemo.createdAt) > Date.parse(concept.reviewedOn)
+  ? readyDemo.createdAt
+  : concept.reviewedOn;
+const coverUrl = new URL(`/images/products/catalog-covers/${concept.slug}-800.webp`, SITE.url).href;
+const websiteId = `${SITE.url}/#website`;
+const manufacturingSubjectId = `${SITE.url}/#xinyinhai`;
+const conceptId = `${concept.canonical}#concept`;
+const demoId = `${concept.canonical}#concept-demo`;
+const demoPath = `/media/concept-demos/3d/${concept.slug}`;
+const demoVideo = `${demoPath}.mp4`;
+const demoCaptions = `${demoPath}.vtt`;
+const demoPoster = `${demoPath}-poster.webp`;
+const demoVideoUrl = new URL(demoVideo, SITE.url).href;
+const demoPosterUrl = new URL(demoPoster, SITE.url).href;
+const breadcrumbId = `${concept.canonical}#breadcrumb`;
+const breadcrumbs = [
+  { name: 'All Products', path: '/products/' },
+  { name: 'Toys', path: '/products/plastic-electronic-toys/' },
+  { name: conceptCollection.name, path: ORIGINAL_CONCEPTS_PATH },
+  { name: concept.shortName, path: concept.path },
+];
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${concept.canonical}#webpage`,
+      url: concept.canonical,
+      name: concept.name,
+      description: concept.description,
+      inLanguage: 'en',
+      isPartOf: { '@id': websiteId },
+      about: { '@id': manufacturingSubjectId },
+      mainEntity: { '@id': conceptId },
+      breadcrumb: { '@id': breadcrumbId },
+      primaryImageOfPage: { '@type': 'ImageObject', url: readyDemo ? demoPosterUrl : coverUrl, width: readyDemo ? readyDemo.posterWidth : 800, height: readyDemo ? readyDemo.posterHeight : 800 },
+      dateModified: pageModified,
+    },
+    {
+      '@type': 'CreativeWork',
+      '@id': conceptId,
+      url: concept.canonical,
+      name: concept.name,
+      description: `${concept.summary} ${concept.statusDetail}`,
+      image: imageUrl,
+      ...(readyDemo ? { video: { '@id': demoId } } : {}),
+      inLanguage: 'en',
+      version: concept.revision,
+      creativeWorkStatus: concept.status,
+      dateModified: concept.reviewedOn,
+    },
+    ...(readyDemo ? [{
+      '@type': 'VideoObject',
+      '@id': demoId,
+      name: `${concept.shortName}: how to play / use`,
+      description: `A ${readyDemo.durationSeconds}-second rendered 3D concept interaction showing the proposed use of ${concept.shortName}. This is a digital design animation, not footage of a physical prototype.`,
+      thumbnailUrl: demoPosterUrl,
+      contentUrl: demoVideoUrl,
+      embedUrl: demoId,
+      duration: `PT${readyDemo.durationSeconds}S`,
+      width: readyDemo.width,
+      height: readyDemo.height,
+      uploadDate: readyDemo.createdAt,
+      inLanguage: 'en',
+      isPartOf: { '@id': conceptId },
+    }] : []),
+    {
+      '@type': 'BreadcrumbList',
+      '@id': breadcrumbId,
+      itemListElement: breadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        item: new URL(item.path, SITE.url).href,
+      })),
+    },
+  ],
+};
+---
+
+<BaseLayout title={concept.title} description={concept.description} mainId="original-concept-content">
+  <Fragment slot="head">
+    <link rel="canonical" href={concept.canonical} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:url" content={concept.canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content={concept.imageAlt} />
+    <meta property="og:image:width" content={String(imageWidth)} />
+    <meta property="og:image:height" content={String(imageHeight)} />
+    <meta name="twitter:url" content={concept.canonical} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={concept.imageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(pageSchema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="original-concept-page" style={`--oc-image-aspect: ${imageWidth} / ${imageHeight}`}>
+    <div class="oc-container">
+      <nav class="oc-breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          {breadcrumbs.map((item, index) => (
+            <li>
+              {index < breadcrumbs.length - 1 ? <a href={item.path}>{item.name}</a> : <span aria-current="page">{item.name}</span>}
+            </li>
+          ))}
+        </ol>
+      </nav>
+
+      <section class="oc-hero" aria-labelledby="concept-title">
+        <div class="oc-hero-copy">
+          <a class="oc-collection-link" href={ORIGINAL_CONCEPTS_PATH}>{conceptCollection.name}</a>
+          <h1 id="concept-title">{concept.name}</h1>
+          <p class="oc-mobile-stage">{concept.stageSummary}</p>
+          <p class="oc-hero-summary">{concept.summary}</p>
+          <aside class="oc-status-note" aria-labelledby="concept-status-title">
+            <h2 id="concept-status-title">{concept.status}</h2>
+            <p>{concept.statusDetail}</p>
+          </aside>
+          <div class="oc-actions">
+            <a class="oc-button" href={concept.rfqHref}>Discuss this concept</a>
+            <a class="oc-text-link" href="#proposed-play">Explore the idea</a>
+          </div>
+        </div>
+        <figure class="oc-hero-figure">
+          {readyDemo ? <>
+            <div class="oc-demo-video-surface">
+              <video id="concept-demo" class="oc-demo-video" controls playsinline preload="none" poster={demoPoster} width={readyDemo.width} height={readyDemo.height} aria-label={`${concept.shortName}: how to play / use rendered 3D concept interaction`} aria-describedby="concept-demo-caption concept-demo-note">
+                <source src={demoVideo} type="video/mp4" />
+                <track src={demoCaptions} kind="captions" srclang="en" label="English" default />
+                <p>Your browser does not support embedded video. <a href={demoVideo}>Open the concept animation</a> or <a href={demoVideo} download={`${concept.slug}-concept-demo.mp4`}>download the MP4</a>.</p>
+              </video>
+            </div>
+            <figcaption id="concept-demo-caption">How to play / use <span aria-hidden="true">·</span> Concept animation <span aria-hidden="true">·</span> {concept.revision}</figcaption>
+            <p class="oc-demo-video-note" id="concept-demo-note">{readyDemo.durationSeconds}-second rendered 3D concept interaction with English captions. Proposed use only; not footage of a physical prototype.</p>
+            <p class="oc-demo-video-links"><a href={demoVideo} target="_blank" rel="noopener">Open video</a><a href={demoVideo} download={`${concept.slug}-concept-demo.mp4`}>Download MP4</a><a href={concept.image} target="_blank" rel="noopener">View concept rendering</a>{readyDemo.creditsHref && <a href={readyDemo.creditsHref} target="_blank" rel="noopener">Animation credits</a>}</p>
+          </> : <>
+            <div class="oc-image-surface oc-catalog-cover-surface"><CatalogCover concept={concept} loading="eager" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1000px) 48vw, 600px" /></div>
+            <figcaption>Digital concept rendering <span aria-hidden="true">·</span> {concept.revision}</figcaption>
+          </>}
+        </figure>
+      </section>
+    </div>
+
+    <section id="proposed-play" class="oc-section oc-play-section" aria-labelledby="play-heading">
+      <div class="oc-container">
+        <div class="oc-section-heading">
+          <div><h2 id="play-heading">{concept.introHeading}</h2></div>
+          <p>{concept.intro}</p>
+        </div>
+        <ol class="oc-play-steps">
+          {concept.playSteps.map((step, index) => (
+            <li><span class="oc-step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.description}</p></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="oc-section oc-form-section" aria-labelledby="form-heading">
+      <div class="oc-container">
+        <div class="oc-section-heading">
+          <div><h2 id="form-heading">{concept.formHeading}</h2></div>
+          <p>{concept.formDescription}</p>
+        </div>
+        <div class="oc-gallery" style={`--oc-gallery-columns: ${Math.min(concept.gallery.length, 3)}`}>
+          {concept.gallery.map(view => (
+            <figure>
+              <div class="oc-gallery-image"><img src={view.src} alt={view.alt} width={imageWidth} height={imageHeight} loading="lazy" decoding="async" /></div>
+              <figcaption>{view.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+        <p class="oc-gallery-note">All views are digital concept images, not photographs of a physical prototype.</p>
+      </div>
+    </section>
+
+    <section class="oc-section oc-input-section" aria-labelledby="inputs-heading">
+      <div class="oc-container oc-input-layout">
+        <div class="oc-input-intro">
+          
+          <h2 id="inputs-heading">Proposed design inputs</h2>
+        </div>
+        <div class="oc-table-wrap">
+          <table>
+            <caption>{concept.shortName} concept design directions — not verified production specifications</caption>
+            <tbody>{concept.proposedInputs.map(([label, value]) => <tr><th scope="row">{label}</th><td>{value}</td></tr>)}</tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="oc-section oc-discussion-section" aria-labelledby="discussion-heading">
+      <div class="oc-container oc-discussion-layout">
+        <div>
+          
+          <h2 id="discussion-heading">{concept.discussionHeading}</h2>
+          <p>{concept.discussionDescription}</p>
+          <a class="oc-text-link" href={concept.rfqHref}>Share your requirements</a>
+        </div>
+        <ul class="oc-discussion-options">{concept.discussionOptions.map(option => <li>{option}</li>)}</ul>
+      </div>
+    </section>
+
+    <section class="oc-section oc-pathway-section" aria-labelledby="pathway-heading">
+      <div class="oc-container">
+        <div class="oc-section-heading oc-section-heading-single"><div><h2 id="pathway-heading">From an idea to a development decision</h2></div></div>
+        <ol class="oc-development-steps">
+          {concept.developmentSteps.map((step, index) => (
+            <li><span class="oc-step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3>{step.title}</h3><p>{step.description}</p></li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section class="oc-section oc-faq-section" aria-labelledby="faq-heading">
+      <div class="oc-container oc-faq-layout">
+        <div><h2 id="faq-heading">Questions about this concept</h2></div>
+        <div class="oc-faq-list">
+          {concept.faqs.map(faq => <details><summary>{faq.question}</summary><div class="oc-faq-answer"><p>{faq.answer}</p></div></details>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="oc-final-section" aria-labelledby="closing-heading">
+      <div class="oc-container oc-final-layout">
+        <div><h2 id="closing-heading">{concept.closingHeading}</h2><p>{concept.closingDescription}</p></div>
+        <div class="oc-final-actions"><a class="oc-button" href={concept.rfqHref}>Discuss this concept</a><a class="oc-text-link" href={ORIGINAL_CONCEPTS_PATH}>Back to {conceptCollection.name}</a></div>
+      </div>
+    </section>
+  </div>
+
+  <HomeFooter slot="footer" />
+</BaseLayout>

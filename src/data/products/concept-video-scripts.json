@@ -1,0 +1,206 @@
+[
+  {
+    "slug": "say-island-picture-guessing-game-concept",
+    "shortName": "Say Island",
+    "scene": "guess",
+    "intro": "Digital concept: a face-to-face picture game with spoken clues and human judgement.",
+    "steps": [
+      { "title": "Look at the picture", "caption": "The clue giver would view the picture; the guesser sits on the opaque-back side.", "focus": [0.47, 0.41] },
+      { "title": "Give a clue", "caption": "Describe the picture with words or gestures without revealing its name.", "focus": [0.47, 0.41] },
+      { "title": "Let players judge", "caption": "Another player guesses; people decide the answer, without speech recognition or automatic judging.", "focus": [0.47, 0.41] },
+      { "title": "Mark and take turns", "caption": "Use the proposed correct or skip buttons, then take turns with the next picture.", "focus": [0.55, 0.68] }
+    ]
+  },
+  {
+    "slug": "listennest-open-cup-headphone-concept",
+    "shortName": "ListenNest",
+    "scene": "audio",
+    "intro": "Digital concept: headphones with proposed Bluetooth audio and three physical controls.",
+    "steps": [
+      { "title": "Review fit and setup", "caption": "An adult would review fit and audio setup; physical evaluation is still required.", "focus": [0.31, 0.55] },
+      { "title": "Connect an audio source", "caption": "A proposed Bluetooth module would connect an audio source without a companion app.", "focus": [0.75, 0.71] },
+      { "title": "Play and pause deliberately", "caption": "Three proposed controls would manage playback and the agreed volume policy.", "focus": [0.80, 0.73] },
+      { "title": "Take a break and store", "caption": "Pause listening, then store; charging and shutdown details still need validation.", "focus": [0.75, 0.71] }
+    ]
+  },
+  {
+    "slug": "picture-harbor-turning-picture-drum-concept",
+    "shortName": "Picture Harbor",
+    "scene": "drum",
+    "intro": "Digital concept: a manually turned picture drum with proposed recorded audio.",
+    "steps": [
+      { "title": "Turn to a picture", "caption": "Turn the proposed side control to bring one of six original picture faces into the window.", "focus": [0.82, 0.55] },
+      { "title": "Let the position settle", "caption": "The visible face would select its approved recording after the drum settles.", "focus": [0.39, 0.51] },
+      { "title": "Replay or choose a language", "caption": "Proposed replay and language controls would use the agreed recordings.", "focus": [0.45, 0.71] },
+      { "title": "Take another turn", "caption": "Turn manually to another picture; no drive motor or loose cards are proposed.", "focus": [0.82, 0.55] }
+    ]
+  },
+  {
+    "slug": "sound-steps-two-card-sound-pairing-concept",
+    "shortName": "Sound Steps",
+    "scene": "pair",
+    "intro": "Digital concept: two visible word-part cards paired with approved audio recordings.",
+    "steps": [
+      { "title": "Place two original cards", "caption": "Place a left and a right original card so both word parts remain visible.", "focus": [0.55, 0.42] },
+      { "title": "Check the pair", "caption": "The proposed optical codes would identify both cards and look up an approved pair.", "focus": [0.55, 0.49] },
+      { "title": "Hear parts or the whole", "caption": "The left, right and whole-word controls would replay the approved recordings.", "focus": [0.40, 0.58] },
+      { "title": "Change one part", "caption": "Change one card; an unapproved pair would get a neutral prompt, not an invented pronunciation.", "focus": [0.70, 0.42] }
+    ]
+  },
+  {
+    "slug": "language-meadow-picture-audio-playboard-concept",
+    "shortName": "Language Meadow",
+    "scene": "playboard",
+    "intro": "Digital concept: a picture playboard with six proposed press areas and recorded language audio.",
+    "steps": [
+      { "title": "Prepare a scene", "caption": "An adult would place an original panel and select its matching theme.", "focus": [0.51, 0.46] },
+      { "title": "Press a picture area", "caption": "Each of six proposed press areas would play a short recorded word or description.", "focus": [0.37, 0.36] },
+      { "title": "Choose a language", "caption": "A dedicated control would switch between the agreed language recordings.", "focus": [0.55, 0.62] },
+      { "title": "Explore together", "caption": "Revisit pictures and share turns; the concept would not judge pronunciation.", "focus": [0.28, 0.43] }
+    ]
+  },
+  {
+    "slug": "readloop-acoustic-voice-guide-concept",
+    "shortName": "ReadLoop",
+    "scene": "voice",
+    "intro": "Digital concept: passive self-listening with no batteries or AI.",
+    "steps": [
+      { "title": "Review the positioning", "caption": "The proposed guide stays outside the mouth and ear; fit still needs prototype evaluation.", "focus": [0.30, 0.71] },
+      { "title": "Read in a gentle voice", "caption": "Read gently; the passive concept would guide your own voice without electronic amplification.", "focus": [0.30, 0.71] },
+      { "title": "Listen and adjust naturally", "caption": "Listen to your own voice and adjust naturally; no recognition or scoring is proposed.", "focus": [0.29, 0.17] },
+      { "title": "Put away and clean", "caption": "Put the guide away; cleaning and storage methods still need evaluation.", "focus": [0.59, 0.58] }
+    ]
+  },
+  {
+    "slug": "routinerail-visual-routine-timer-concept",
+    "shortName": "RoutineRail",
+    "scene": "routine",
+    "intro": "Digital concept: three visible activity stages with proposed time and pause controls.",
+    "steps": [
+      { "title": "Prepare three stages", "caption": "An adult would define the three-stage activity sequence and its time intervals.", "focus": [0.56, 0.64] },
+      { "title": "Choose the current activity", "caption": "A proposed physical stage button would identify the current activity.", "focus": [0.44, 0.60] },
+      { "title": "See and pause the interval", "caption": "The screen would show time and state; a deliberate pause would interrupt the countdown.", "focus": [0.27, 0.41] },
+      { "title": "Move on together", "caption": "Confirm the next stage together; the proposed sequence would not advance silently.", "focus": [0.68, 0.69] }
+    ]
+  },
+  {
+    "slug": "timepebble-visual-interval-timer-concept",
+    "shortName": "TimePebble",
+    "scene": "timer",
+    "intro": "Digital concept: a standalone visual timer with a dial-selected interval.",
+    "steps": [
+      { "title": "Set an interval", "caption": "Turn the proposed dial to select an interval without using a phone.", "focus": [0.67, 0.55] },
+      { "title": "Start the countdown", "caption": "A deliberate press would start the interval shown on the display.", "focus": [0.32, 0.73] },
+      { "title": "Pause or continue", "caption": "A separate pause action would preserve the remaining time before continuing.", "focus": [0.39, 0.43] },
+      { "title": "Finish and reset", "caption": "Review the visible end state, then reset; an alert remains an optional design direction.", "focus": [0.39, 0.43] }
+    ]
+  },
+  {
+    "slug": "benchleaf-digital-observation-bench-concept",
+    "shortName": "BenchLeaf",
+    "scene": "observe",
+    "intro": "Digital concept: a shared observation bench with proposed manual focus and image capture.",
+    "steps": [
+      { "title": "Choose a dry sample", "caption": "An adult would prepare a dry leaf or fabric and check the intended power source.", "focus": [0.46, 0.75] },
+      { "title": "Place and illuminate", "caption": "Place the sample on the open platform; controlled reflected lighting is proposed.", "focus": [0.46, 0.75] },
+      { "title": "Focus together", "caption": "Adjust the proposed manual focus while comparing surface detail on the shared screen.", "focus": [0.54, 0.57] },
+      { "title": "Save and discuss", "caption": "A proposed capture flow and adult-managed wired export would support later discussion.", "focus": [0.58, 0.21] }
+    ]
+  },
+  {
+    "slug": "pocketarc-screen-free-camera-concept",
+    "shortName": "PocketArc",
+    "scene": "camera",
+    "intro": "Digital concept: a screen-free camera for capture now and adult-led review later.",
+    "steps": [
+      { "title": "Choose an observation task", "caption": "An adult would check power and storage and explain that photos are reviewed later.", "focus": [0.27, 0.55] },
+      { "title": "Frame a subject", "caption": "Use the proposed fixed window for rough framing during a short photo activity.", "focus": [0.29, 0.33] },
+      { "title": "Press and wait", "caption": "Press the proposed capture control and wait for the distinct saving-status feedback.", "focus": [0.69, 0.29] },
+      { "title": "Review together", "caption": "An adult would export files by cable and choose pictures to discuss without a cloud account.", "focus": [0.81, 0.74] }
+    ]
+  },
+  {
+    "slug": "trailframe-two-grip-camera-concept",
+    "shortName": "TrailFrame",
+    "scene": "camera",
+    "intro": "Digital concept: a two-grip camera with proposed rear preview and adult-managed wired export.",
+    "steps": [
+      { "title": "Agree a photo task", "caption": "An adult would introduce an observation task and check storage and power.", "focus": [0.44, 0.49] },
+      { "title": "Hold and frame", "caption": "Hold both grips and frame a subject on the proposed rear preview display.", "focus": [0.79, 0.60] },
+      { "title": "Capture and review", "caption": "The large proposed shutter would take a photo, followed by a simple review flow.", "focus": [0.77, 0.36] },
+      { "title": "Share with an adult", "caption": "An adult would manage wired export and choose pictures to discuss; no wireless sharing is proposed.", "focus": [0.44, 0.49] }
+    ]
+  },
+  {
+    "slug": "pattern-pebble",
+    "shortName": "Pattern Pebble",
+    "scene": "sequence",
+    "intro": "Digital concept: a tabletop game for watching, listening and repeating short sequences.",
+    "steps": [
+      { "title": "Choose a short round", "caption": "Choose a short proposed round and watch the demonstration.", "focus": [0.44, 0.45] },
+      { "title": "Watch and listen", "caption": "Watch and listen as the shape buttons present a sequence.", "focus": [0.53, 0.29] },
+      { "title": "Repeat the sequence", "caption": "Wait for the input cue, then repeat the sequence with the shape buttons.", "focus": [0.27, 0.46] },
+      { "title": "Replay or share a turn", "caption": "Replay, choose a shorter round or pass the turn to another player.", "focus": [0.44, 0.45] }
+    ]
+  },
+  {
+    "slug": "logic-harbor",
+    "shortName": "Logic Harbor",
+    "scene": "quiz",
+    "intro": "Digital concept: original question cards, manually entered IDs and four picture-answer buttons.",
+    "steps": [
+      { "title": "Choose an original card", "caption": "An adult would choose an original question card for the proposed round.", "focus": [0.43, 0.39] },
+      { "title": "Confirm its card ID", "caption": "Enter and confirm the original card's printed ID before answering.", "focus": [0.84, 0.43] },
+      { "title": "Choose a picture answer", "caption": "Choose one of the card's four picture options and press its matching button.", "focus": [0.73, 0.46] },
+      { "title": "Discuss and change the card", "caption": "Discuss the proposed feedback, try again or choose another original card.", "focus": [0.40, 0.40] }
+    ]
+  },
+  {
+    "slug": "pathshift-captive-sliding-puzzle-concept",
+    "shortName": "PathShift",
+    "scene": "slide",
+    "intro": "Digital concept: a manually judged sliding puzzle with proposed retained pieces and no batteries.",
+    "steps": [
+      { "title": "Choose a challenge", "caption": "Choose an original starting layout and identify the target area.", "focus": [0.47, 0.37] },
+      { "title": "Move the retained pieces", "caption": "Move the pieces along the proposed tracks; retention still needs physical testing.", "focus": [0.42, 0.48] },
+      { "title": "Check the target", "caption": "Compare the large piece with the target by eye; no automatic board judgement is proposed.", "focus": [0.47, 0.37] },
+      { "title": "Reset and try again", "caption": "Reset with an adult's guidance and choose a new challenge.", "focus": [0.50, 0.49] }
+    ]
+  },
+  {
+    "slug": "grid-grove",
+    "shortName": "Grid Grove",
+    "scene": "search",
+    "intro": "Digital concept: a printed search card, shared finding order and manually finished timed round.",
+    "steps": [
+      { "title": "Place a search card", "caption": "Insert an original printed search card into the proposed board.", "focus": [0.51, 0.44] },
+      { "title": "Agree a route and begin", "caption": "Agree a finding order with your partner, then start the proposed timer.", "focus": [0.42, 0.62] },
+      { "title": "Find with a partner", "caption": "Point to each target in order while your partner observes.", "focus": [0.35, 0.37] },
+      { "title": "Finish and compare", "caption": "Finish the round manually, compare your route and swap cards.", "focus": [0.22, 0.54] }
+    ]
+  },
+  {
+    "slug": "echo-trail",
+    "shortName": "Echo Trail",
+    "scene": "listening",
+    "intro": "Digital concept: short listening rounds with tones or spoken cues and four shape-marked buttons.",
+    "steps": [
+      { "title": "Choose a listening round", "caption": "Choose a short proposed listening round with an adult.", "focus": [0.57, 0.37] },
+      { "title": "Listen to the cues", "caption": "Listen to the short sequence of tones or spoken cues.", "focus": [0.35, 0.30] },
+      { "title": "Respond with the buttons", "caption": "Respond with the four proposed shape-marked buttons.", "focus": [0.52, 0.48] },
+      { "title": "Replay or share a turn", "caption": "Replay, pause or swap turns before another listening round.", "focus": [0.57, 0.37] }
+    ]
+  },
+  {
+    "slug": "quiz-compass-audio-quiz-game-concept",
+    "shortName": "Quiz Compass",
+    "scene": "quiz",
+    "intro": "Digital concept: reviewed offline audio questions with three answer buttons and dedicated replay.",
+    "steps": [
+      { "title": "Choose a theme", "caption": "An adult or player would select one of the proposed question themes.", "focus": [0.35, 0.27] },
+      { "title": "Listen to a short question", "caption": "Listen to a short question and three options from the proposed reviewed offline content pack.", "focus": [0.35, 0.27] },
+      { "title": "Choose an answer", "caption": "Press one of three answer buttons; the proposed response would use a stored answer table.", "focus": [0.21, 0.42] },
+      { "title": "Hear and take turns", "caption": "Hear the short explanation, replay if needed, then pass the turn.", "focus": [0.51, 0.40] }
+    ]
+  }
+]

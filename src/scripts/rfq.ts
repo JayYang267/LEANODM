@@ -67,6 +67,17 @@ function initializeInquiry(form: HTMLFormElement) {
     return JSON.stringify(inquiry);
   }
 
+  function applyDraft(values: Partial<InquiryDraft>, queryDefaults = false) {
+    for (const [name, value] of Object.entries(values)) {
+      const control = form.elements.namedItem(name);
+      if (control instanceof HTMLInputElement && control.type === 'checkbox') {
+        control.checked = control.value === value;
+        if (queryDefaults) control.defaultChecked = control.checked;
+      } else if (control instanceof RadioNodeList) control.value = value;
+      else if (control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement) control.value = value;
+    }
+  }
+
   // An explicit same-tab handoff may contain contact details. Its opaque token
   // is the only handoff value in the URL; existing browser-restored input wins.
   try {
@@ -74,22 +85,14 @@ function initializeInquiry(form: HTMLFormElement) {
     const saved = readInquiryHandoff(window.sessionStorage, token);
     if (saved) {
       const merged = mergeInquiryDraft(draft(), saved.draft);
-      for (const [name, value] of Object.entries(merged)) {
-        const control = form.elements.namedItem(name);
-        if (control instanceof RadioNodeList) control.value = value;
-        else if (control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement) control.value = value;
-      }
+      applyDraft(merged);
     }
   } catch {
     // Disabled storage leaves the existing query and email alternatives intact.
   }
 
   const inherited = readQueryDraft(new URLSearchParams(window.location.search), draft());
-  for (const [name, value] of Object.entries(inherited)) {
-    const control = form.elements.namedItem(name);
-    if (control instanceof RadioNodeList) control.value = value;
-    else if (control instanceof HTMLInputElement || control instanceof HTMLTextAreaElement || control instanceof HTMLSelectElement) control.value = value;
-  }
+  applyDraft(inherited, true);
 
   function synchronizePanels() {
     const type = draft().projectType;
@@ -248,6 +251,23 @@ function initializeInquiry(form: HTMLFormElement) {
   }
   form.addEventListener('input', editDraft);
   form.addEventListener('change', editDraft);
+  form.addEventListener('reset', event => {
+    if (busy) {
+      event.preventDefault();
+      return;
+    }
+    // Native reset applies after this event. Refresh the brief and feedback
+    // against those defaults, including an NDA preference inherited from its CTA.
+    queueMicrotask(() => {
+      draftVersion++;
+      acceptedSignature = null;
+      synchronizePanels();
+      observedSignature = signature();
+      clearFeedback();
+      updateEmailDraft();
+      buttonsDisabled(false);
+    });
+  });
 
   synchronizePanels();
   updateEmailDraft();

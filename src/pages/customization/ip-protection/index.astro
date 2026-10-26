@@ -1,0 +1,77 @@
+---
+import IPPage from '@layouts/IPProtectionPage.astro';
+import Icon from '../../../components/CustomizationIcon.astro';
+import TrainingShowcase from '../../../components/ip/TrainingShowcase.astro';
+import ImageLightbox from '../../../components/ImageLightbox.astro';
+import { ipPages, type IPPageKey } from '../../../data/ip-protection';
+const detailKeys: IPPageKey[] = ['confidentiality', 'ownership', 'samples', 'programming', 'start'];
+const icons = ['folder-lock', 'file-check-2', 'boxes', 'key-round', 'handshake'];
+const stages = [
+  { id: 'consultation', name: 'Consultation', title: 'Share only what the first review needs', text: 'Begin with a non-sensitive product overview. Discuss the NDA, approved contacts and information exchange before providing restricted design or commercial details.', record: 'Confidentiality arrangement, project contacts and agreed exchange route.' },
+  { id: 'development', name: 'Development', title: 'Keep development files tied to an approved revision', text: 'Authorize access by role. Control drawings, electronics, firmware and content revisions, document design approvals, and confirm ownership and the technical handover scope.', record: 'Project permissions, approved revisions, review decisions and deliverable list.' },
+  { id: 'supply-chain', name: 'Supply chain', title: 'Extend confidentiality to approved outside work', text: 'Approve outside parties and release only the materials needed for the task. Apply confidentiality requirements, control physical transfers and keep handover and return records.', record: 'Recipient approval, controlled release scope and item movement records.' },
+  { id: 'production', name: 'Mass production', title: 'Use the approved information and authorized quantities', text: 'Issue current work information to the relevant production and quality roles. Control access to project areas, samples and tooling; apply the agreed firmware and programming controls.', record: 'Production release, item custody, inspection and programming reconciliation records as applicable.' },
+  { id: 'closure', name: 'Project closure', title: 'Close access and physical items with traceable decisions', text: 'Complete the agreed technical and tooling handover. Reconcile samples, surplus and defective items; arrange approved return, controlled retention or destruction. Adjust permissions and retain the required records.', record: 'Handover acknowledgment, quantity reconciliation, disposition and access-closure records.' },
+];
+---
+<IPPage pageKey="overview">
+  <section class="ip-section" id="protected-assets">
+    <div class="ip-section-heading"><h2>Protect more than the final design.</h2><p>Information and physical items are managed together. An early concept, an unfinished prototype and an obsolete production file can all contain valuable customer IP.</p></div>
+    <dl class="ip-record">
+      <div><dt>Ideas & commercial information</dt><dd>Product concepts, briefs, specifications, quotations, purchasing plans and restricted business information.</dd></div>
+      <div><dt>Design & electronic files</dt><dd>Industrial and mechanical designs, drawings, CAD, circuit designs, electronic records and technical documents.</dd></div>
+      <div><dt>Firmware & content</dt><dd>Programs, agreed source files, production firmware, encrypted packages, audio, artwork and packaging files.</dd></div>
+      <div><dt>Samples & tooling</dt><dd>Prototypes, molds, trial parts, samples, sensitive components, packaging, surplus and defective items.</dd></div>
+    </dl>
+    <p class="ip-note">Xinyinhai’s implemented framework covers personnel permissions, confidentiality training, document control, controlled areas, samples and tooling, supply-chain confidentiality, scrap and destruction, internal audits, traceable records and abnormal-event handling. Project-specific requirements are confirmed before the relevant work or transfer.</p>
+  </section>
+  <section class="ip-section" id="project-stages">
+    <div class="ip-section-heading"><h2>Protection follows the project.</h2><p>Responsibilities and records change as the work moves forward. Select a stage to see the controls that support the next decision.</p></div>
+    <div class="ip-stage-explorer" data-stage-explorer>
+      <nav class="ip-stage-tabs" aria-label="Project lifecycle stages">{stages.map((stage, index) => <a id={`tab-${stage.id}`} href={`#stage-${stage.id}`} data-stage-tab><span>{index + 1}</span>{stage.name}</a>)}</nav>
+      <div class="ip-stage-panels">{stages.map(stage => <article id={`stage-${stage.id}`} data-stage-panel><h3>{stage.title}</h3><p>{stage.text}</p><dl><dt>Typical control record</dt><dd>{stage.record}</dd></dl></article>)}</div>
+    </div>
+    <div class="ip-split" style="margin-top:32px"><div><h3>People and outside parties</h3><p>Confidentiality requirements cover the development, production, quality and project personnel who actually participate, plus approved outside parties. Access follows the work need and changes when responsibilities change.</p></div><div><h3>Review and corrective action</h3><p>Internal review and audits check the controls and records. A concern is reported, contained and investigated, with customer notification as appropriate to the facts and agreed obligations, corrective action and recorded closure.</p></div></div>
+    <TrainingShowcase />
+  </section>
+  <section class="ip-section" id="protection-details">
+    <div class="ip-section-heading"><h2>Find the protection detail you need.</h2><p>Five connected guides explain how information, rights, physical items and production firmware are controlled—and how to start the conversation.</p></div>
+    <ul class="ip-domain-list">{detailKeys.map((key, index) => <li><a href={ipPages[key].path}><Icon name={icons[index]} /><strong>{ipPages[key].title}</strong><span>{ipPages[key].lead}</span><Icon name="arrow-up-right" /></a></li>)}</ul>
+  </section>
+  <ImageLightbox />
+</IPPage>
+<script>
+  document.querySelectorAll<HTMLElement>('[data-stage-explorer]').forEach(explorer => {
+    const tabs = [...explorer.querySelectorAll<HTMLAnchorElement>('[data-stage-tab]')];
+    const panels = [...explorer.querySelectorAll<HTMLElement>('[data-stage-panel]')];
+    const list = explorer.querySelector('nav');
+    if (!list || tabs.length !== panels.length) return;
+    list.setAttribute('role', 'tablist');
+    const select = (index: number, focus = false) => {
+      tabs.forEach((tab, i) => {
+        tab.setAttribute('aria-selected', String(i === index));
+        tab.tabIndex = i === index ? 0 : -1;
+        panels[i].hidden = i !== index;
+      });
+      if (focus) tabs[index].focus();
+    };
+    tabs.forEach((tab, index) => {
+      tab.setAttribute('role', 'tab');
+      tab.setAttribute('aria-controls', panels[index].id);
+      panels[index].setAttribute('role', 'tabpanel');
+      panels[index].setAttribute('aria-labelledby', tab.id);
+      panels[index].tabIndex = 0;
+      tab.addEventListener('click', event => { event.preventDefault(); select(index); });
+      tab.addEventListener('keydown', event => {
+        const key = event.key;
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End', ' '].includes(key)) return;
+        event.preventDefault();
+        const next = key === 'Home' ? 0 : key === 'End' ? tabs.length - 1 : key === 'ArrowLeft' ? (index - 1 + tabs.length) % tabs.length : key === 'ArrowRight' ? (index + 1) % tabs.length : index;
+        select(next, true);
+      });
+    });
+    const initial = panels.findIndex(panel => `#${panel.id}` === window.location.hash);
+    select(initial >= 0 ? initial : 0);
+    window.addEventListener('hashchange', () => { const index = panels.findIndex(panel => `#${panel.id}` === window.location.hash); if (index >= 0) select(index); });
+  });
+</script>

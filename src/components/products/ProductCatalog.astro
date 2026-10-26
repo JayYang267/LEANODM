@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import HomeFooter from '../market/HomeFooter.astro';
+import CategoryTree from './CategoryTree.astro';
+import CatalogCover from './CatalogCover.astro';
+import CatalogPagination from './CatalogPagination.astro';
+import { SITE } from '../../config/site';
+import { productCategories, catalogPath, type CatalogEntry } from '../../data/products/categories';
+import { ORIGINAL_CONCEPTS_PATH } from '../../data/products/original-concepts';
+import { catalogItemsForPath } from '../../data/products/catalog-items';
+import { catalogPagePath, paginateCatalog } from '../../data/products/pagination';
+import '../../styles/product-catalog.css';
+
+interface Props { entry?: CatalogEntry; pageNumber?: number; }
+const { entry, pageNumber = 1 } = Astro.props;
+const currentPath = entry?.path ?? '/products/';
+const visibleItems = catalogItemsForPath(currentPath);
+const page = paginateCatalog(visibleItems, pageNumber);
+const pagePath = catalogPagePath(currentPath, page.currentPage);
+const category = entry?.category;
+const heading = category?.label ?? 'All product categories';
+const title = category ? `${category.label}${page.currentPage > 1 ? ` – Page ${page.currentPage}` : ''} | Products | LEANODM.com` : 'Products | Toys & Consumer electronics | LEANODM.com';
+const description = category?.description ?? 'Browse toys and consumer electronics. Explore sound books, learning sound toys, sound modules and other product categories on LEANODM.com.';
+const canonical = new URL(pagePath, SITE.url).href;
+const breadcrumb = [{ name: 'Home', path: '/' }, { name: 'Products', path: '/products/' }, ...(entry ? [...entry.ancestors, entry.category].map(item => ({ name: item.label, path: catalogPath(item) })) : []), ...(page.currentPage > 1 ? [{ name: `Page ${page.currentPage}`, path: pagePath }] : [])];
+const isConceptCollection = currentPath === ORIGINAL_CONCEPTS_PATH;
+const hasCollectionGrid = currentPath === '/products/plastic-electronic-toys/';
+const ProductHeading = hasCollectionGrid ? 'h3' : 'h4';
+const isEmptyArchive = Boolean(entry && entry.ancestors.length > 0 && visibleItems.length === 0);
+const itemCountLabel = isConceptCollection
+  ? `digital ${page.totalItems === 1 ? 'concept' : 'concepts'}`
+  : currentPath === '/products/plastic-electronic-toys/' ? 'products & concepts'
+    : page.totalItems === 1 ? 'product' : 'products';
+const listedItems = page.items.map(item => ({ name: item.name, url: item.canonical }));
+const schema = { '@context': 'https://schema.org', '@graph': [
+  { '@type': 'CollectionPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${SITE.url}/#website` }, about: { '@id': `${SITE.url}/#xinyinhai` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, ...(listedItems.length ? { mainEntity: { '@type': 'ItemList', itemListElement: listedItems.map((item, index) => ({ '@type': 'ListItem', position: page.offset + index + 1, ...item })) } } : {}) },
+  { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumb.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.path, SITE.url).href })) },
+] };
+---
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    {page.currentPage > 1 && <link rel="prev" href={new URL(catalogPagePath(currentPath, page.currentPage - 1), SITE.url).href} />}
+    {page.currentPage < page.totalPages && <link rel="next" href={new URL(catalogPagePath(currentPath, page.currentPage + 1), SITE.url).href} />}
+    <meta property="og:url" content={canonical} />
+    <meta name="robots" content={isEmptyArchive ? 'noindex, follow' : 'index, follow'} />
+    <meta property="og:image" content={`${SITE.url}/brand/leanodm-wordmark.png`} />
+    <meta property="og:image:alt" content="LEANODM.com website wordmark" />
+    <script id="catalog-schema" type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />
+  </Fragment>
+  <div class="product-catalog" data-product-catalog data-catalog-path={pagePath} data-catalog-base-path={currentPath}>
+    <header class="catalog-masthead"><div class="catalog-wrap"><h1>Products</h1><p>Toys &amp; Consumer electronics</p></div></header>
+    <div class="catalog-wrap catalog-layout">
+      <aside class="catalog-sidebar" id="product-categories">
+        <nav aria-label="Product categories">
+          <h2 class="catalog-sidebar-title">Product categories</h2>
+          <a class="catalog-all" href="/products/" data-catalog-link aria-current={currentPath === '/products/' ? 'page' : undefined}>All Products</a>
+          {productCategories.map(root => <section class:list={['catalog-root', { 'catalog-root-branch': Boolean(root.children) }]}>
+            <h3><a href={catalogPath(root)} data-catalog-link aria-current={currentPath === catalogPath(root) ? 'page' : undefined}>{root.label}</a></h3>
+            {root.children && <CategoryTree categories={root.children} currentPath={currentPath} />}
+          </section>)}
+        </nav>
+      </aside>
+      <div class="catalog-main catalog-main-products-grid" data-catalog-view>
+        <a class="catalog-mobile-categories" href="#product-categories">Browse product categories</a>
+        <nav class="catalog-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumb.map((item, index) => <li>{index === breadcrumb.length - 1 ? <span aria-current="page">{item.name}</span> : <a href={item.path} data-catalog-link={item.path.startsWith('/products/') ? true : undefined}>{item.name}</a>}</li>)}</ol></nav>
+        <header class="catalog-selection"><h2 id="catalog-selection-title" tabindex="-1">{heading}</h2></header>
+        <section class="catalog-results" aria-labelledby={hasCollectionGrid ? 'catalog-selection-title' : 'catalog-results-title'}>
+          {!hasCollectionGrid && <div class="catalog-results-heading"><h3 id="catalog-results-title">{isConceptCollection ? 'Original concept proposals' : 'Product listings'}</h3><span>{visibleItems.length ? `${page.start}–${page.end} of ${page.totalItems} ${itemCountLabel}` : '0 products'}</span></div>}
+          {visibleItems.length > 0 ? <>
+            <div class="catalog-concept-list">
+              {page.items.map(concept => <article class="catalog-concept-card" data-product-listing-card>
+                <a class="catalog-concept-image" href={concept.path} aria-label={`View ${concept.name}`}><CatalogCover concept={concept} sizes="(max-width: 700px) 46vw, (max-width: 1000px) 25vw, 300px" /></a>
+                <div class="catalog-concept-content">
+                  <ProductHeading><a href={concept.path}>{concept.name}</a></ProductHeading>
+                </div>
+              </article>)}
+            </div>
+            <CatalogPagination basePath={currentPath} currentPage={page.currentPage} totalPages={page.totalPages} />
+          </> : <div class="catalog-empty">
+            <svg class="catalog-empty-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="9" y="12" width="30" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M17 12V8h14v4M18 23h12m-12 7h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <h4>No products listed yet</h4>
+            <p>{category ? 'There are currently no product listings in this category.' : 'Browse the categories to explore the product structure. Product listings have not been added yet.'}</p>
+          </div>}
+        </section>
+      </div>
+    </div>
+    <p class="catalog-status" role="status" aria-live="polite" aria-atomic="true" data-catalog-status></p>
+  </div>
+  <HomeFooter slot="footer" />
+</BaseLayout>
+<script>
+  import '../../scripts/product-catalog';
+</script>

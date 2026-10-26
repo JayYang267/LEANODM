@@ -1,0 +1,44 @@
+---
+import { catalogPagePath } from '../../data/products/pagination';
+
+interface Props {
+  basePath: string;
+  currentPage: number;
+  totalPages: number;
+}
+
+const { basePath, currentPage, totalPages } = Astro.props;
+const pageCount = Number.isSafeInteger(totalPages) && totalPages > 0 ? totalPages : 1;
+const activePage = Math.min(
+  Number.isSafeInteger(currentPage) && currentPage > 0 ? currentPage : 1,
+  pageCount,
+);
+const pages = Array.from({ length: pageCount }, (_, index) => index + 1);
+---
+
+{pageCount > 1 && <nav class="product-pagination" aria-label="Product pagination">
+  <ol>
+    <li>{activePage > 1
+      ? <a href={catalogPagePath(basePath, activePage - 1)} rel="prev" aria-label="Previous page">Previous</a>
+      : <span class="product-pagination-disabled" aria-disabled="true">Previous</span>}
+    </li>
+    {pages.map(page => <li>
+      <a href={catalogPagePath(basePath, page)} aria-label={`Page ${page}`} aria-current={page === activePage ? 'page' : undefined}>{page}</a>
+    </li>)}
+    <li>{activePage < pageCount
+      ? <a href={catalogPagePath(basePath, activePage + 1)} rel="next" aria-label="Next page">Next</a>
+      : <span class="product-pagination-disabled" aria-disabled="true">Next</span>}
+    </li>
+  </ol>
+</nav>}
+
+<style>
+  .product-pagination{--pagination-blue:var(--catalog-blue,var(--products-blue,#183ba3));--pagination-line:var(--catalog-line,var(--products-line,#dce2eb));max-width:100%;margin-top:36px}
+  .product-pagination ol{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;max-width:100%;margin:0;padding:0;list-style:none}
+  .product-pagination li{flex:0 0 auto;margin:0;padding:0}
+  .product-pagination a,.product-pagination-disabled{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:44px;min-height:44px;padding:8px 12px;border:1px solid var(--pagination-line);border-radius:4px;background:#fff;color:var(--pagination-blue);font-size:14px;font-weight:600;line-height:1.4;text-align:center;text-decoration:none}
+  .product-pagination a[aria-current="page"]{border-color:var(--pagination-blue);background:var(--pagination-blue);color:#fff}
+  .product-pagination a:not([aria-current="page"]):hover{border-color:var(--pagination-blue);background:#edf2fc}
+  .product-pagination a:focus-visible{outline:3px solid var(--pagination-blue);outline-offset:3px}
+  .product-pagination-disabled{color:var(--catalog-muted,var(--products-muted,#53627a));background:#f4f6fa}
+</style>

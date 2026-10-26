@@ -1,0 +1,13 @@
+---
+import ConceptDetail from '@components/products/ConceptDetail.astro';
+import { originalConcepts, sayIslandConcept, type OriginalConcept } from '../../../../data/products/original-concepts';
+
+export function getStaticPaths() {
+  return originalConcepts.filter(concept => concept.slug !== sayIslandConcept.slug).map(concept => ({
+    params: { slug: concept.slug }, props: { concept },
+  }));
+}
+interface Props { concept: OriginalConcept; }
+const { concept } = Astro.props;
+---
+<ConceptDetail concept={concept} />

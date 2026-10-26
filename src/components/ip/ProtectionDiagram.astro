@@ -1,0 +1,21 @@
+---
+interface Props { labels: [string, string, string]; note: string; }
+const { labels, note } = Astro.props;
+---
+<figure class="ip-diagram">
+  <svg viewBox="0 0 440 240" fill="none" aria-hidden="true" focusable="false">
+    <path d="M90 120h87m86 0h87" stroke="#183ba3" stroke-width="2" />
+    <path d="m164 114 9 6-9 6m170-12 9 6-9 6" stroke="#183ba3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="25" y="72" width="72" height="96" rx="4" fill="white" stroke="#a3b5d2" stroke-width="2" />
+    <path d="M43 94h34m-34 14h34m-34 14h21" stroke="#183ba3" stroke-width="2" stroke-linecap="round" />
+    <rect x="176" y="64" width="88" height="112" rx="5" fill="#183ba3" />
+    <rect x="200" y="112" width="40" height="34" rx="3" stroke="white" stroke-width="2" />
+    <path d="M207 112v-9a13 13 0 0 1 26 0v9m-13 14v7" stroke="white" stroke-width="2" stroke-linecap="round" />
+    <rect x="344" y="72" width="72" height="96" rx="4" fill="white" stroke="#a3b5d2" stroke-width="2" />
+    <path d="m362 118 11 11 25-26" stroke="#183ba3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M61 180v23h319v-23" stroke="#a3b5d2" stroke-width="1.5" stroke-dasharray="4 5" />
+    <circle cx="220" cy="203" r="5" fill="#e62129" />
+  </svg>
+  <ol>{labels.map(label => <li>{label}</li>)}</ol>
+  <figcaption>{note}</figcaption>
+</figure>

@@ -33,7 +33,11 @@ const cropWidth = step === '05' ? 390 : 345;
 const cropTop = step === '04' ? 330 : 370;
 const cropHeight = step === '04' ? 360 : 333;
 const viewportWidth = isMeeting ? workflowSheet.width : cropWidth;
-const viewportHeight = isMeeting ? workflowSheet.height : 333;
+const viewportHeight = isMeeting ? workflowSheet.height : cropHeight;
+const viewportX = isMeeting ? 0 : (cropLeft[step] ?? cropLeft['01']);
+const viewportY = isMeeting ? 0 : cropTop;
+// The viewBox scales the sheet; a source-space clip also hides adjacent steps in its letterboxed margins.
+const clipId = `workflow-crop-${step}`;
 const viewport = isMeeting
   ? `0 0 ${viewportWidth} ${viewportHeight}`
   : `${cropLeft[step] ?? cropLeft['01']} ${cropTop} ${cropWidth} ${cropHeight}`;
@@ -52,9 +56,11 @@ const illustration = await getImage({
   width={viewportWidth}
   height={viewportHeight}
   preserveAspectRatio="xMidYMax meet"
+  overflow="hidden"
   data-step={step}
   aria-hidden="true"
   focusable="false"
 >
-  <image href={illustration.src} x="0" y="0" width={workflowSheet.width} height={workflowSheet.height} />
+  <defs><clipPath id={clipId} clipPathUnits="userSpaceOnUse"><rect x={viewportX} y={viewportY} width={viewportWidth} height={viewportHeight} /></clipPath></defs>
+  <image href={illustration.src} x="0" y="0" width={workflowSheet.width} height={workflowSheet.height} clip-path={`url(#${clipId})`} />
 </svg>

@@ -10,6 +10,7 @@ const { links, pathname } = Astro.props;
 const businessLinks = links.filter(link => link.group === 'business');
 const guideLinks = links.filter(link => link.group === 'guide');
 const isCurrent = (href: string) => pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+const guideCurrent = (href: string) => isCurrent(href) ? 'page' : pathname.startsWith(href) ? 'location' : undefined;
 ---
 
 <div class="lean-customization-content">
@@ -35,7 +36,7 @@ const isCurrent = (href: string) => pathname.replace(/\/$/, '') === href.replace
   {guideLinks.length > 0 && <div class="lean-cooperation-guides">
     <p class="lean-guides-label">Working together</p>
     <ul class="lean-guides-links" aria-label="Cooperation guides">
-      {guideLinks.map(link => <li><a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}<span aria-hidden="true">→</span></a></li>)}
+      {guideLinks.map(link => <li><a href={link.href} aria-current={guideCurrent(link.href)}>{link.label}<span aria-hidden="true">→</span></a></li>)}
     </ul>
   </div>}
 </div>
@@ -67,7 +68,7 @@ const isCurrent = (href: string) => pathname.replace(/\/$/, '') === href.replace
   .lean-guides-links { display:flex; align-items:center; flex-wrap:wrap; column-gap:20px; list-style:none; margin:0; padding:0; }
   .lean-guides-links a { display:flex; align-items:center; gap:9px; min-height:44px; padding:6px 0; color:#56657a; font-size:12px; font-weight:500; line-height:1.5; }
   .lean-guides-links a span { color:#7e8ba0; }
-  .lean-guides-links a:hover,.lean-guides-links a[aria-current='page'] { color:#183ba3; background:transparent; text-decoration:underline; text-underline-offset:4px; }
+  .lean-guides-links a:hover,.lean-guides-links a[aria-current] { color:#183ba3; background:transparent; text-decoration:underline; text-underline-offset:4px; }
   @media (max-width:1119px) {
     .lean-business-heading { padding:10px 0 14px; }
     .lean-business-title { font-size:16px; }

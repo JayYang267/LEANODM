@@ -1,0 +1,220 @@
+---
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Button from '../../../components/ui/Button.astro';
+import Icon from '../../../components/CustomizationIcon.astro';
+import AboutPhoto from '../../../components/AboutPhoto.astro';
+import EquipmentVisual from '../../../components/EquipmentVisual.astro';
+import ImageLightbox from '../../../components/ImageLightbox.astro';
+import { SITE } from '../../../config/site';
+import { equipmentVisuals } from '../../../data/production-equipment';
+import padPrinting from '../../../assets/production-equipment/pad-printing.webp';
+import moldCare from '../../../assets/tooling-injection-molding/mold-guide-maintenance.jpg';
+import '../../../styles/production-equipment.css';
+
+const factoryFloor = equipmentVisuals.image81.src;
+const title = 'Manufacturing Equipment & Production Lines | LEANODM.com';
+const description = 'Explore Xinyinhai’s molding, pad printing, SMT, COB, assembly and packaging equipment, with real workshop views for plastic and electronic product projects.';
+const canonical = new URL('/capabilities/production-equipment/', SITE.url).href;
+const og = await getImage({ src: factoryFloor, width: Math.min(1200, factoryFloor.width), format: 'webp', quality: 80 });
+const ogImage = new URL(og.src, SITE.url).href;
+const breadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Capabilities', url: '/manufacturing/' },
+  { name: 'Production Equipment', url: '/capabilities/production-equipment/' },
+];
+const navigation = [
+  { label: 'Overview', href: '#equipment-overview' },
+  { label: 'Molding', href: '#molding' },
+  { label: 'Pad printing', href: '#pad-printing' },
+  { label: 'Electronics', href: '#electronics' },
+  { label: 'Assembly & packaging', href: '#assembly-packaging' },
+];
+const inventory = [
+  { label: 'Molding Machines', quantity: 24, unit: 'machines', href: '#molding' },
+  { label: 'Pad Printing Machines', quantity: 12, unit: 'machines', href: '#pad-printing' },
+  { label: 'COB Machines', quantity: 5, unit: 'machines', href: '#electronics' },
+  { label: 'SMT Lines', quantity: 2, unit: 'lines', href: '#electronics' },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': `${canonical}#webpage`, name: title, description, url: canonical, inLanguage: 'en', isPartOf: { '@id': `${SITE.url}/#website` }, about: { '@id': `${SITE.url}/#xinyinhai` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, primaryImageOfPage: { '@type': 'ImageObject', url: ogImage, width: og.options.width, height: og.options.height } },
+    { '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumbs`, itemListElement: breadcrumbs.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.url, SITE.url).href })) },
+  ],
+};
+---
+
+<BaseLayout title={title} description={description} technicalPage technicalPageTitle="Production Equipment" technicalNavigation={navigation}
+  contactHref="/rfq/#rfq-form" technicalContactLabel="Discuss Your Project"
+  technicalFooterDescription="Share your product and manufacturing requirements for a project-specific review.">
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Production workshop at Xinyinhai" />
+    <meta property="og:image:width" content={String(og.options.width)} />
+    <meta property="og:image:height" content={String(og.options.height)} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content="Production workshop at Xinyinhai" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <div class="pe-page">
+    <section class="pe-hero" aria-labelledby="equipment-title">
+      <div class="pe-container">
+        <nav class="pe-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, index) => <li>{index < breadcrumbs.length - 1 ? <a href={item.url}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
+        <div class="pe-hero-grid">
+          <div>
+            <h1 id="equipment-title">Manufacturing Equipment &amp; Production Lines</h1>
+            <p class="pe-lead">A closer look at the equipment behind Xinyinhai’s plastic and electronic product manufacturing—from molding and decoration to electronics, assembly and packaging.</p>
+            <p>Explore the production resources supporting toys, gifts and consumer electronic product projects.</p>
+            <div class="pe-actions">
+              <Button href="/rfq/#rfq-form" class="pe-button">Discuss Your Project <Icon name="arrow-up-right" /></Button>
+              <a class="pe-link" href="#equipment-overview">Explore Equipment <Icon name="arrow-down" /></a>
+            </div>
+          </div>
+          <EquipmentVisual item={equipmentVisuals.image81} eager sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />
+        </div>
+      </div>
+    </section>
+
+    <div class="pe-container">
+      <section id="equipment-overview" class="pe-overview" aria-labelledby="overview-title">
+        <div class="pe-overview-heading"><h2 id="overview-title">Equipment at a glance</h2><p>Xinyinhai’s listed production equipment</p></div>
+        <dl class="pe-inventory">{inventory.map(item => <div><dt><a href={item.href}>{item.label}</a></dt><dd><strong>{item.quantity}</strong>{' '}<span>{item.unit}</span></dd></div>)}</dl>
+        <div class="pe-model-overview">
+          <p><strong>Assembly:</strong> 6 product models at the same time</p>
+          <p><strong>Packaging:</strong> 6 product models at the same time</p>
+          <a class="pe-link" href="#assembly-packaging">Explore parallel production <Icon name="arrow-down" /></a>
+        </div>
+      </section>
+
+      <section id="molding" class="pe-section" aria-labelledby="molding-title">
+        <div class="pe-split">
+          <EquipmentVisual item={equipmentVisuals.image76} sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />
+          <div class="pe-copy">
+            <h2 id="molding-title">Molding</h2>
+            <span class="pe-equipment-label">24 Molding Machines</span>
+            <p>Molding equipment supports the plastic housings, covers and structural parts that bring a product together. Xinyinhai’s tooling and injection molding process connects mold preparation and trials with production.</p>
+            <dl class="pe-use"><dt>For your product</dt><dd>Review the material, part geometry and mold requirements to establish a suitable production setup.</dd></dl>
+            <a class="pe-link" href="/manufacturing/tooling-injection-molding/">Explore tooling &amp; injection molding <Icon name="arrow-up-right" /></a>
+          </div>
+        </div>
+        <div class="pe-visual-pair pe-molding-details">
+          <EquipmentVisual item={equipmentVisuals.image58} sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />
+          <EquipmentVisual item={equipmentVisuals.image75} sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />
+        </div>
+      </section>
+
+      <section id="pad-printing" class="pe-section" aria-labelledby="printing-title">
+        <div class="pe-printing">
+          <div class="pe-printing-summary">
+            <strong>12 Pad Printing Machines</strong>
+            <AboutPhoto class="pe-photo" src={padPrinting} alt="Pad printing equipment positioned above molded plastic housings"
+              title="Pad printing equipment" caption="Pad and fixture at the printing station."
+              source="Xinyinhai company film" sizes="(min-width: 1280px) 400px, (min-width: 761px) 34vw, calc(100vw - 84px)" />
+          </div>
+          <div class="pe-copy">
+            <h2 id="printing-title">Pad Printing</h2>
+            <p>Pad printing transfers artwork onto a component’s surface. It can support logos, symbols and decorative details on molded parts, depending on the surface and artwork.</p>
+            <dl class="pe-use"><dt>For your product</dt><dd>Share the artwork, print position, part material and finish so the decoration method and fixture needs can be reviewed.</dd></dl>
+            <a class="pe-link" href="/manufacturing/screen-printing/">Explore printing &amp; product decoration <Icon name="arrow-up-right" /></a>
+          </div>
+        </div>
+        <div class="pe-gallery-group">
+          <div class="pe-gallery-heading"><h3>UV &amp; transfer printing equipment</h3><p>UV printing and six-color transfer printing complement the pad printing setup. The part material, shape, finish and artwork guide the choice of method.</p></div>
+          <div class="pe-image-grid pe-image-grid--two">
+            {[equipmentVisuals.image70, equipmentVisuals.image71].map(item => <EquipmentVisual item={item} sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />)}
+          </div>
+        </div>
+        <div class="pe-gallery-group">
+          <h3>Decoration workshop areas</h3>
+          <div class="pe-image-grid pe-image-grid--three pe-workshop-grid">
+            {[equipmentVisuals.image73, equipmentVisuals.image72, equipmentVisuals.image74].map(item => <EquipmentVisual item={item} sizes="(min-width: 1280px) 385px, (min-width: 761px) 30vw, calc(100vw - 40px)" />)}
+          </div>
+        </div>
+      </section>
+
+      <section id="electronics" class="pe-section pe-electronics" aria-labelledby="electronics-title">
+        <div class="pe-electronics-heading">
+          <div><h2 id="electronics-title">Electronics: SMT &amp; COB</h2><dl class="pe-electronics-counts"><div><dt>SMT lines</dt><dd>2</dd></div><div><dt>COB machines</dt><dd>5</dd></div></dl></div>
+          <div class="pe-copy"><p>SMT lines support surface-mount component assembly. Die bonding and wire bonding equipment support chip-on-board work, with the production route reviewed against the circuit design.</p><a class="pe-link" href="/manufacturing/electronics-smt/">Explore electronics &amp; SMT <Icon name="arrow-up-right" /></a></div>
+        </div>
+        <div class="pe-workshop-pair">
+          <EquipmentVisual item={equipmentVisuals.image79} sizes="(min-width: 1280px) 590px, (min-width: 761px) 47vw, calc(100vw - 40px)" />
+          <div class="pe-electronics-detail">
+            <EquipmentVisual item={equipmentVisuals.image78} sizes="(min-width: 1280px) 590px, (min-width: 761px) 47vw, calc(100vw - 40px)" />
+            <p class="pe-equipment-note">Placement, inspection, die attach and wire interconnection each have a different role. Equipment selection follows the PCB design and product requirements.</p>
+          </div>
+        </div>
+        <div class="pe-gallery-group">
+          <div class="pe-gallery-heading"><h3>Surface-mount placement &amp; inspection</h3><p>Component feeding and placement are followed by the applicable inspection checks. AOI is automated optical inspection of PCB assemblies.</p></div>
+          <div class="pe-image-grid pe-image-grid--three">
+            {[equipmentVisuals.image60, equipmentVisuals.image68, equipmentVisuals.image69].map(item => <EquipmentVisual item={item} sizes="(min-width: 1280px) 385px, (min-width: 761px) 30vw, calc(100vw - 40px)" />)}
+          </div>
+        </div>
+        <div class="pe-gallery-group">
+          <div class="pe-gallery-heading"><h3>Die attach &amp; wire bonding</h3><p>Die bonding positions the IC; wire bonding forms the electrical interconnections for the applicable COB assembly.</p></div>
+          <div class="pe-image-grid pe-image-grid--two">
+            {[equipmentVisuals.image67, equipmentVisuals.image61].map(item => <EquipmentVisual item={item} sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />)}
+          </div>
+        </div>
+        <div class="pe-gallery-group">
+          <div class="pe-gallery-heading"><h3>Selective soldering &amp; soldering workstations</h3><p>Selective wave soldering equipment and downstream soldering workstations support the connections and assembly operations specified for the product.</p></div>
+          <div class="pe-image-grid pe-image-grid--two">
+            {[equipmentVisuals.image59, equipmentVisuals.image77].map(item => <EquipmentVisual item={item} sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />)}
+          </div>
+        </div>
+        <p class="pe-equipment-note">Share the PCB design, component requirements and intended testing to review the electronics setup for your product.</p>
+      </section>
+
+      <section id="assembly-packaging" class="pe-section" aria-labelledby="assembly-title">
+        <div class="pe-assembly-heading">
+          <h2 id="assembly-title">Assembly &amp; Packaging</h2>
+          <p>Workstations bring plastic parts and electronics into finished products, followed by packaging to the agreed specification. Both stages support multiple product models at the same time.</p>
+        </div>
+        <div class="pe-assembly-grid">
+          <EquipmentVisual item={equipmentVisuals.image80} sizes="(min-width: 1280px) 700px, (min-width: 761px) 55vw, calc(100vw - 40px)" />
+          <div>
+            <dl class="pe-parallel">
+              <div><dt>Assembly</dt><dd><strong>6 product models</strong> at the same time<small>Component fitting and product assembly.</small></dd></div>
+              <div><dt>Packaging</dt><dd><strong>6 product models</strong> at the same time<small>Product packing and presentation.</small></dd></div>
+            </dl>
+            <a class="pe-link" href="/manufacturing/assembly-packaging/">Explore assembly &amp; packaging <Icon name="arrow-up-right" /></a>
+          </div>
+        </div>
+        <div class="pe-gallery-group">
+          <div class="pe-gallery-heading"><h3>Soldering, fastening &amp; joining</h3><p>Dedicated equipment supports soldered connections, screw fastening and ultrasonic joining, with fixtures and settings reviewed for the product.</p></div>
+          <div class="pe-image-grid pe-image-grid--three">
+            {[equipmentVisuals.image64, equipmentVisuals.image63, equipmentVisuals.image62].map(item => <EquipmentVisual item={item} sizes="(min-width: 1280px) 385px, (min-width: 761px) 30vw, calc(100vw - 40px)" />)}
+          </div>
+        </div>
+        <div class="pe-gallery-group">
+          <div class="pe-gallery-heading"><h3>Label application &amp; gasket placement</h3><p>Application equipment supports labels and battery-cover gaskets. The component, placement position and fixture are defined for each product.</p></div>
+          <div class="pe-image-grid pe-image-grid--two">
+            {[equipmentVisuals.image65, equipmentVisuals.image66].map(item => <EquipmentVisual item={item} sizes="(min-width: 1280px) 594px, (min-width: 761px) 48vw, calc(100vw - 40px)" />)}
+          </div>
+        </div>
+      </section>
+
+      <p class="pe-image-context">Selected photographs conceal confidential screen and product details. Equipment-reference images identify the pictured examples.</p>
+      <section class="pe-section pe-care" aria-labelledby="care-title">
+        <Image class="pe-care-image" src={moldCare} alt="Lubricant being applied to a mold guide post during maintenance" width={160} height={200} format="webp" loading="lazy" />
+        <div><h2 id="care-title">Equipment care &amp; workplace practice</h2><p>Factory photographs and working instructions add context to the equipment on the floor.</p></div>
+        <div class="pe-care-links">
+          <div><p>Mold-care instructions cover cleaning, lubrication and checks before the next installation.</p><a class="pe-link" href="/manufacturing/tooling-injection-molding/#mold-maintenance">Review mold care <Icon name="arrow-up-right" /></a></div>
+          <div><p>Assembly training references cover fastening tools and torque checking, with settings defined for the product.</p><a class="pe-link" href="/manufacturing/assembly-packaging/">Review assembly practices <Icon name="arrow-up-right" /></a></div>
+        </div>
+      </section>
+    </div>
+
+    <section id="project-inquiry" class="pe-inquiry" aria-labelledby="inquiry-title">
+      <div class="pe-container pe-inquiry-grid">
+        <div><h2 id="inquiry-title">Plan production around your product</h2><p>Tell us your product type, main manufacturing processes and expected order quantity. Our team can review the production route and equipment fit with you.</p></div>
+        <div><Button href="/rfq/#rfq-form" class="pe-button">Discuss Your Project <Icon name="arrow-up-right" /></Button><p class="pe-inquiry-note">Specific capacity and lead time depend on the product requirements and production schedule. Current equipment availability is confirmed during project review.</p></div>
+      </div>
+    </section>
+  </div>
+  <ImageLightbox />
+</BaseLayout>

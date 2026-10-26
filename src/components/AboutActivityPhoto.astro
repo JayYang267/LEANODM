@@ -1,0 +1,31 @@
+---
+import { activities } from '../data/activities';
+import Icon from './CustomizationIcon.astro';
+
+interface Props {
+  slug: string;
+  alt: string;
+  caption: string;
+}
+
+const { slug, alt, caption } = Astro.props;
+const activity = activities.find(item => item.slug === slug);
+if (!activity) throw new Error(`About page activity not found: ${slug}`);
+const media = activity.cover;
+const isVideo = media.kind === 'video';
+const image = activity.coverImageUrl;
+const source = `Xinyinhai activity archive · ${activity.title} · ${activity.dateLabel}`;
+const viewerCaption = `${caption} ${activity.dateLabel}.`;
+---
+<figure class="about-photo about-activity-photo" data-activity-image={slug}>
+  <a href={image} data-lightbox="about-activity-photographs" data-title={activity.title} data-caption={viewerCaption} data-source={source}
+    data-width={media.width} data-height={media.height} aria-label={`Enlarge photograph: ${activity.title}`}>
+    <img src={image} alt={alt} width={media.width} height={media.height} loading="lazy" decoding="async" />
+    <span class="about-photo-enlarge"><Icon name="arrow-up-right" /> View photo</span>
+  </a>
+  <figcaption>
+    <div class="about-activity-meta">{isVideo && <span>Video still · </span>}{activity.date ? <time datetime={activity.date}>{activity.dateLabel}</time> : <span>{activity.dateLabel}</span>}</div>
+    <h3 class="about-activity-title"><a href={`/about/activities/${slug}/`} aria-label={`${isVideo ? 'View video record' : 'View activity record'}: ${activity.title}`} data-activity-record>{activity.title}<Icon name="arrow-up-right" /></a></h3>
+    <p>{caption}</p>
+  </figcaption>
+</figure>

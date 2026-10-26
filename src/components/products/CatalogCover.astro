@@ -1,0 +1,18 @@
+---
+import type { CatalogItem } from '../../data/products/catalog-items';
+interface Props { concept: CatalogItem; loading?: 'eager' | 'lazy'; sizes?: string; }
+const { concept, loading = 'lazy', sizes = '(max-width: 599px) calc(100vw - 40px), (max-width: 900px) 45vw, 330px' } = Astro.props;
+const optimizedSlugs = new Set([
+  'say-island-picture-guessing-game-concept', 'listennest-open-cup-headphone-concept',
+  'picture-harbor-turning-picture-drum-concept', 'sound-steps-two-card-sound-pairing-concept',
+  'language-meadow-picture-audio-playboard-concept', 'readloop-acoustic-voice-guide-concept',
+  'routinerail-visual-routine-timer-concept', 'timepebble-visual-interval-timer-concept',
+  'benchleaf-digital-observation-bench-concept', 'pocketarc-screen-free-camera-concept',
+  'trailframe-two-grip-camera-concept', 'pattern-pebble', 'logic-harbor',
+  'pathshift-captive-sliding-puzzle-concept', 'grid-grove', 'echo-trail',
+  'quiz-compass-audio-quiz-game-concept',
+]);
+const optimized = optimizedSlugs.has(concept.slug);
+const base = `/images/products/catalog-covers/${concept.slug}`;
+---
+<img src={optimized ? `${base}-800.webp` : concept.image} srcset={optimized ? `${base}-400.webp 400w, ${base}-800.webp 800w` : undefined} sizes={optimized ? sizes : undefined} alt={concept.imageAlt} width={optimized ? 800 : concept.imageWidth ?? 1400} height={optimized ? 800 : concept.imageHeight ?? 1080} loading={loading} decoding="async" />

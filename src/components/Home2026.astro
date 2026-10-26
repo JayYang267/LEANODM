@@ -6,9 +6,10 @@ import Icon from './CustomizationIcon.astro';
 import ManufacturingEras from './HomeManufacturingEras.astro';
 import HomeAwards from './HomeAwards.astro';
 import HomeWorkflowIllustration from './HomeWorkflowIllustration.astro';
+import HomeIpProductScene from './HomeIpProductScene.astro';
+import HomeCapabilityIcon from './HomeCapabilityIcon.astro';
 import { SITE } from '../config/site';
 import { homeCopy, certificationItems, productScope, customerTypes, workflowSteps, testimonials, homeFaqs } from '../data/home';
-import leanWorkshopStill from '../assets/home/lean-workshop-video-68-8s-enhanced.png';
 import benesse from '../assets/home/partners/benesse.png';
 import bandai from '../assets/home/partners/bandai.png';
 import beiens from '../assets/home/partners/beiens.png';
@@ -23,13 +24,18 @@ import indiegogo from '../assets/home/partners/official-indiegogo.png';
 import nvidia from '../assets/home/partners/official-nvidia.svg?url';
 import openai from '../assets/home/partners/official-openai.svg?url';
 import startupScene from '../assets/home/customer-roles/startup-abstract-v5.png';
-import brandScene from '../assets/home/customer-roles/brand-abstract-v5.png';
+import brandScene from '../assets/home/customer-roles/ip-background-v8/player-blank-card.png';
+import brandIdentityScene from '../assets/home/customer-roles/brand-abstract-v5.png';
 import procurementScene from '../assets/home/customer-roles/procurement-abstract-v5.png';
 import '../styles/home-2026.css';
+import '../styles/home-capabilities.css';
+import '../styles/home-customers.css';
 import '../styles/home-workflow.css';
 import '../styles/home-factory-video.css';
 import '../styles/home-testimonials.css';
 import '../styles/home-partners.css';
+import '../styles/home-value.css';
+import '../styles/home-layout.css';
 
 const title = 'Custom Plastic & Electronic Manufacturing | LEANODM';
 const description = 'Custom plastic and electronic product development and mass production through lean manufacturing. Educational toys, gifts and souvenirs, IP stationery, and consumer electronics.';
@@ -40,7 +46,10 @@ const developed = homeCopy.developed.split('3,000+');
 const delivered = homeCopy.delivered.split(/(1,000,000,000\+)/);
 const customerScenes = [
   { image: startupScene, alt: 'Abstract illustration of a product idea progressing from drawings and an electronic prototype to repeat production' },
-  { image: brandScene, alt: 'Abstract illustration of one original design carried across a product, packaging and stationery' },
+  { image: startupScene, alt: 'Concept illustration of an electronic product prototype and matching units prepared for repeat production' },
+  { image: brandScene, alt: 'Concept composition of a plain story card player with fairy-tale characters arranged behind it on white', whiteBackground: true, characterScene: true },
+  { image: brandIdentityScene, alt: 'Abstract illustration of a coordinated product, packaging and stationery design for a product brand' },
+  { image: startupScene, alt: 'Abstract illustration of a product idea progressing from drawings and an electronic prototype to repeat production' },
   { image: procurementScene, alt: 'Abstract illustration of coordinated gift sets, event passes and bulk packaging for corporate, government and event buyers' },
 ];
 const partners = [
@@ -106,31 +115,63 @@ const schema = {
 
     <section class="xyh-section xyh-scope" aria-labelledby="scope-title"><div class="xyh-wrap">
       <div class="xyh-section-heading"><h2 id="scope-title">Product Capabilities</h2><span class="xyh-section-rule" aria-hidden="true"></span></div>
-      <ul class="xyh-scope-grid">{productScope.map((item, i) => <li><div class="xyh-scope-art" aria-hidden="true"><span class="xyh-scope-index">0{i + 1}</span><Icon name={item.icon} /><span class="xyh-orbit"></span></div><h3>{item.name}</h3></li>)}</ul>
+      <ul class="xyh-scope-grid">{productScope.map(item => <li><a class="xyh-scope-link" href={item.href}><div class="xyh-scope-art" aria-hidden="true"><HomeCapabilityIcon name={item.icon} /></div><h3>{item.name}</h3></a></li>)}</ul>
     </div></section>
 
     <section class="xyh-section xyh-customers" aria-labelledby="customers-title"><div class="xyh-wrap">
       <div class="xyh-section-heading"><h2 id="customers-title">Who Is Our Lean ODM Approach For?</h2></div>
-      <ul class="xyh-customer-grid">{customerTypes.map((item, index) => <li>
-        <div class="xyh-customer-art"><Image src={customerScenes[index].image} alt={customerScenes[index].alt} widths={[360, 540, 810]} sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 980px) 42vw, (min-width: 1476px) 410px, 30vw" loading="lazy" format="webp" quality={85} /></div>
-        <div class="xyh-customer-copy"><h3>{item.title}</h3><p>{item.text}</p>{item.details && <p class="xyh-customer-details">{item.details}</p>}</div>
-      </li>)}</ul>
+      <div class="xyh-customer-intro">
+        <p>Lean manufacturing helps us deliver consistently high-quality products while saving customers the time and expense of building their own development and production teams. A dependable manufacturing partner also helps reduce defects, warranty claims and recalls that can erode consumer trust, damage brand value and create legal exposure.</p>
+      </div>
+      <div class="xyh-audience-layout" data-home-customers>{customerTypes.map((item, index) => <div class="xyh-audience-item" style={`--customer-row: ${index + 1}`} data-customer-item>
+        <button class="xyh-audience-trigger" type="button" id={`customer-type-${index + 1}`} aria-controls={`customer-detail-${index + 1}`} aria-expanded="true" data-customer-trigger>
+          <span>{item.title}</span><span class="xyh-audience-indicator" aria-hidden="true"></span>
+        </button>
+        <article class="xyh-audience-panel" id={`customer-detail-${index + 1}`} aria-labelledby={`customer-heading-${index + 1}`} data-customer-panel>
+          <h3 class="xyh-audience-heading" id={`customer-heading-${index + 1}`}>{item.title}</h3>
+          <div class="xyh-audience-body">
+            <div class="xyh-audience-copy">
+              <p>{item.text}</p>
+              {'audiences' in item && item.audiences && <ul class="xyh-audience-list">{item.audiences.map(audience => <li>{audience}</li>)}</ul>}
+              {item.details && <p class="xyh-audience-details">{item.details}</p>}
+            </div>
+            <div class:list={['xyh-audience-art', { 'xyh-audience-art-white': customerScenes[index].whiteBackground }]}>{customerScenes[index].characterScene ? <HomeIpProductScene /> : <Image src={customerScenes[index].image} alt={customerScenes[index].alt} widths={[360, 540, 810, 1080]} sizes="(max-width: 760px) calc(100vw - 88px), (max-width: 1100px) 42vw, (min-width: 1376px) 440px, 32vw" loading="lazy" format="webp" quality={85} />}</div>
+          </div>
+        </article>
+      </div>)}</div>
+      <div class="xyh-customer-intro xyh-customer-trust">
+        <p>Long-term partnerships depend on trust. We help safeguard your ideas, designs and project information through strict confidentiality procedures and project-specific non-disclosure agreements. <a href="/customization/ip-protection/">Explore our IP &amp; Confidentiality safeguards.</a></p>
+      </div>
     </div></section>
 
     <section class="xyh-section xyh-work" id="how-we-work" aria-labelledby="work-title" lang="en"><div class="xyh-wrap">
       <div class="xyh-work-heading"><p class="xyh-eyebrow">HOW WE WORK</p><h2 id="work-title">From Your Product Idea<br /> to Production &amp; Delivery</h2><p class="xyh-work-intro">Start with an idea, a sample or a specification. We’ll help you define the next steps.</p></div>
-      <ol class="xyh-steps">{workflowSteps.map(step => <li>
-        <span class="xyh-step-number">{step.number}</span>
-        <div class="xyh-step-copy"><h3>{step.title}</h3><p>{step.text}</p></div>
+      <ol class="xyh-steps" data-home-workflow>{workflowSteps.map(step => <li data-workflow-card>
+        <span class="xyh-step-number" aria-hidden="true">{step.number}</span>
         <div class="xyh-step-art" aria-hidden="true"><HomeWorkflowIllustration step={step.number} /></div>
+        <h3 class="xyh-step-heading"><button class="xyh-step-trigger" type="button" id={`work-step-${step.number}`} aria-label={`${step.number}. ${step.title}`} aria-controls={`work-detail-${step.number}`} aria-expanded="true" data-workflow-trigger>{step.title}</button></h3>
+        <div class="xyh-step-detail" id={`work-detail-${step.number}`} role="region" aria-labelledby={`work-step-${step.number}`} data-workflow-detail>
+          <p>{step.text}</p>
+          {step.options && <nav class="xyh-step-options" aria-label="Explore your project starting point"><ul>{step.options.map(option => <li><a href={option.href}><span class="xyh-step-option-title">{option.title}</span><span class="xyh-step-option-summary">{option.text}</span></a></li>)}</ul></nav>}
+          {step.confidentiality && <section class="xyh-step-confidentiality" aria-labelledby={`work-nda-title-${step.number}`}>
+            <h4 id={`work-nda-title-${step.number}`}>{step.confidentiality.title}</h4>
+            <p>{step.confidentiality.text}</p>
+            <a class="xyh-step-nda-link" href={step.confidentiality.href}>{step.confidentiality.label}<span aria-hidden="true">→</span></a>
+          </section>}
+        </div>
       </li>)}</ol>
       <div class="xyh-work-actions"><a class="xyh-text-link" href="/customization/how-we-work/">Explore Our Development Process →</a></div>
     </div></section>
 
     <section class="xyh-section xyh-value" aria-labelledby="value-title"><div class="xyh-wrap">
-      <div class="xyh-value-top"><div><h2 id="value-title">Lean Manufacturing Means<span>Quality-to-Price Ratio</span></h2><p class="xyh-value-intro">{homeCopy.valueIntro}</p></div><figure><Image class="xyh-lean-workshop-photo" src={leanWorkshopStill} alt="Assembly workstations and operators in the Xinyinhai workshop" widths={[480, 800, 1200, 1600]} sizes="(max-width: 760px) calc(100vw - 50px), (max-width: 1100px) 42vw, (max-width: 1376px) 39vw, 537px" loading="lazy" format="webp" quality={95} /></figure></div>
-      <p class="xyh-value-body">{homeCopy.valueBody.split(/(factory management|quality management)/i).map(part => part.toLowerCase() === 'factory management' ? <a href="/about/activities/?category=improvement#archive">{part}</a> : part.toLowerCase() === 'quality management' ? <a href="/quality/quality-control-process/">{part}</a> : part)}</p>
+      <h2 class="xyh-value-heading" id="value-title">Lean Manufacturing Means <span>Quality-to-Price Ratio</span></h2>
+      <div class="xyh-value-copy">
+        <p>{homeCopy.valueIntro}</p>
+      </div>
       <ManufacturingEras />
+      <div class="xyh-value-copy xyh-value-summary">
+        <p>{homeCopy.valueBody.split(/(factory management|quality management)/i).map(part => part.toLowerCase() === 'factory management' ? <a href="/about/activities/?category=improvement#archive">{part}</a> : part.toLowerCase() === 'quality management' ? <a href="/quality/quality-control-process/">{part}</a> : part)}</p>
+      </div>
     </div></section>
 
     <section class="xyh-partners xyh-ticker" id="partners" aria-label="Brand logos" tabindex="0" data-ticker>
@@ -142,14 +183,20 @@ const schema = {
     <HomeAwards />
 
     <section class="xyh-section xyh-testimonials xyh-testimonials-editorial" aria-labelledby="testimonials-title" data-testimonials><div class="xyh-wrap">
-      <div class="xyh-testimonial-heading"><div><h2 id="testimonials-title">What Our Customers Say</h2><p>Customer feedback: <span class="xyh-review-identity-note">Names and locations are illustrative.</span></p></div><div class="xyh-review-controls"><button type="button" data-review-direction="-1" aria-label="Previous customer testimonial"><Icon name="arrow-left" /></button><button type="button" data-review-direction="1" aria-label="Next customer testimonial"><Icon name="arrow-right" /></button></div></div>
-      <div class="xyh-review-window"><div class="xyh-quotes" data-review-track>{testimonials.map((item, index) => <article id={`customer-review-${index + 1}`} aria-labelledby={`review-title-${index + 1}`} data-review-card>
+      <div class="xyh-testimonial-heading"><h2 id="testimonials-title">What Our Customers Say</h2></div>
+      <div class="xyh-review-stage">
+      <div class="xyh-review-window"><div class="xyh-quotes" id="customer-testimonial-track" data-review-track>{testimonials.map((item, index) => <article id={`customer-review-${index + 1}`} aria-labelledby={`review-title-${index + 1}`} data-review-card>
         <div class="xyh-review-card-top"><span class="xyh-review-avatar" aria-hidden="true">{item.name.charAt(0)}</span><span class="xyh-quote-mark" aria-hidden="true">“</span></div>
         <h3 id={`review-title-${index + 1}`}>{item.title}</h3>
         <blockquote id={`review-text-${index + 1}`}><p>{item.text}</p></blockquote>
         <footer class="xyh-review-author"><p class="xyh-review-name">{item.name}</p><p class="xyh-review-country">{item.country}</p></footer>
       </article>)}</div></div>
-      <div class="xyh-review-pagination" aria-label="Choose a customer testimonial">{testimonials.map((item, index) => <button type="button" data-review-index={index} aria-label={`Show testimonial by ${item.name}`} aria-pressed={index === 0 ? 'true' : 'false'}></button>)}</div>
+      <button class="xyh-review-arrow xyh-review-arrow-prev" type="button" data-review-direction="-1" aria-controls="customer-testimonial-track" aria-label="Previous customer testimonial"><Icon name="arrow-left" /></button>
+      <button class="xyh-review-arrow xyh-review-arrow-next" type="button" data-review-direction="1" aria-controls="customer-testimonial-track" aria-label="Next customer testimonial"><Icon name="arrow-right" /></button>
+      </div>
+      <div class="xyh-review-navigation">
+        <div class="xyh-review-pagination" aria-label="Choose a customer testimonial">{testimonials.map((item, index) => <button type="button" data-review-index={index} aria-label={`Show testimonial by ${item.name}`} aria-pressed={index === 0 ? 'true' : 'false'}></button>)}</div>
+      </div>
     </div></section>
 
     <section class="xyh-section xyh-faq" id="faq" aria-labelledby="faq-title"><div class="xyh-wrap xyh-faq-layout"><div><h2 id="faq-title">Frequently Asked Questions</h2><div class="xyh-faq-art" aria-hidden="true"><Icon name="messages-square" /></div></div><div class="xyh-faq-list">{homeFaqs.map(faq => <details><summary><h3>{faq.question}</h3><Icon name="plus" /></summary><div class="xyh-faq-answer"><p>{faq.answer}</p></div></details>)}</div></div></section>
@@ -160,11 +207,28 @@ const schema = {
   <noscript><style>.xyh-ticker-window{overflow:visible;mask-image:none}.xyh-ticker-track{width:100%;display:block}.xyh-ticker-track>ul{width:100%;min-width:0;flex-wrap:wrap;justify-content:center;gap:20px!important}</style></noscript>
 </BaseLayout>
 
+<style>
+  .xyh-scope-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .xyh-scope-link { display: block; color: inherit; text-decoration: none; }
+  .xyh-scope-link:is(:hover, :focus-visible) .xyh-scope-art { border-bottom-color: var(--blue); }
+  .xyh-scope-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 7px; }
+  @media (max-width: 540px) {
+    .xyh-scope-grid { grid-template-columns: 1fr; }
+    .xyh-scope-art { height: 190px; }
+  }
+</style>
+
 <script>
   import { initFactoryVideo } from '../scripts/home-factory-video';
   import { initManufacturingEras } from '../scripts/home-manufacturing-eras';
+  import { initHomeWorkflow } from '../scripts/home-workflow';
+  import { initHomeCustomers } from '../scripts/home-customers';
+  import { initTestimonials } from '../scripts/home-testimonials';
   initFactoryVideo();
   initManufacturingEras();
+  initHomeWorkflow();
+  initHomeCustomers();
+  initTestimonials();
   for (const ticker of document.querySelectorAll<HTMLElement>('[data-ticker]')) {
     const track = ticker.querySelector<HTMLElement>('.xyh-ticker-track');
     const list = track?.querySelector('ul');
@@ -176,37 +240,5 @@ const schema = {
     duplicate.setAttribute('inert', '');
     track.append(duplicate);
     ticker.classList.add('is-ready');
-  }
-  for (const section of document.querySelectorAll<HTMLElement>('[data-testimonials]')) {
-    const track = section.querySelector<HTMLElement>('[data-review-track]');
-    const cards = Array.from(section.querySelectorAll<HTMLElement>('[data-review-card]'));
-    const dots = Array.from(section.querySelectorAll<HTMLButtonElement>('[data-review-index]'));
-    let current = 0;
-    const select = (index: number) => {
-      if (!track || !cards.length) return;
-      current = (index + cards.length) % cards.length;
-      // On desktop, show all three cards with the selected one first.
-      // On small screens, move to its original position in the scroll rail.
-      if (matchMedia('(min-width: 1051px)').matches) {
-        cards.forEach((card, i) => card.style.order = String((i - current + cards.length) % cards.length));
-      } else {
-        cards.forEach(card => card.style.removeProperty('order'));
-        track.scrollTo({ left: cards[current].offsetLeft - cards[0].offsetLeft, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
-      }
-      dots.forEach((dot, i) => dot.setAttribute('aria-pressed', String(i === current)));
-    };
-    section.classList.add('reviews-ready');
-    for (const button of section.querySelectorAll<HTMLButtonElement>('[data-review-direction]')) button.addEventListener('click', () => select(current + Number(button.dataset.reviewDirection)));
-    dots.forEach((dot, i) => dot.addEventListener('click', () => select(i)));
-    track?.addEventListener('scroll', () => {
-      if (matchMedia('(min-width: 1051px)').matches || !track || !cards.length) return;
-      const start = cards[0].offsetLeft;
-      const nearest = cards.reduce((best, card, index) =>
-        Math.abs(card.offsetLeft - start - track.scrollLeft) < Math.abs(cards[best].offsetLeft - start - track.scrollLeft) ? index : best, 0);
-      current = nearest;
-      dots.forEach((dot, i) => dot.setAttribute('aria-pressed', String(i === current)));
-    }, { passive: true });
-    const desktop = matchMedia('(min-width: 1051px)');
-    desktop.addEventListener('change', () => select(current));
   }
 </script>

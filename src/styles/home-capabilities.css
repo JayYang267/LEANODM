@@ -1,0 +1,18 @@
+.xyh-scope .xyh-scope-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.xyh-scope .xyh-scope-link{display:block;text-align:center}
+.xyh-scope .xyh-scope-art{height:235px;border-bottom:0}
+.xyh-scope .xyh-capability-icon{display:block;width:280px;max-width:82%;height:auto;overflow:visible;transition:transform 220ms ease-out}
+.xyh-scope .xyh-scope-link h3{padding-top:22px;line-height:1.35;text-align:center}
+.xyh-scope .xyh-scope-link:focus-visible{outline:3px solid var(--blue);outline-offset:6px;border-radius:2px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .xyh-scope .xyh-scope-link:hover .xyh-capability-icon{transform:translateY(-3px)}
+}
+@media(max-width:760px){
+  .xyh-scope .xyh-scope-art{height:160px}
+  .xyh-scope .xyh-capability-icon{width:200px;max-width:96%}
+  .xyh-scope .xyh-scope-link h3{padding-top:14px;font-size:17px;line-height:1.4}
+}
+@media(max-width:380px){
+  .xyh-scope .xyh-scope-art{height:136px}
+  .xyh-scope .xyh-scope-link h3{font-size:16px}
+}

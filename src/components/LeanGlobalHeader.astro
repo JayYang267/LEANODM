@@ -26,6 +26,7 @@ const primaryNavigation = leanPrimaryNavigation.flatMap((item) => {
 });
 const secondaryNavigation = leanSecondaryNavigation.filter(item => isAvailable(item.href));
 const isCurrent = (href: string) => Astro.url.pathname.replace(/\/$/, '') === href.replace(/\/$/, '');
+const isInSection = (href: string) => isCurrent(href) || Astro.url.pathname.startsWith(href);
 ---
 
 <header class="lean-global-header">
@@ -37,16 +38,13 @@ const isCurrent = (href: string) => Astro.url.pathname.replace(/\/$/, '') === hr
 
     <nav class="lean-global-desktop" aria-label="LEANODM global navigation">
       {primaryNavigation.map((item) => item.links ? (
-        item.overview ? <div class:list={['lean-nav-group', { 'lean-modular-nav-group': !!modularMenus[item.label], 'is-active': isCurrent(item.href) || item.links.some(link => isCurrent(link.href)) }]}>
-          <a class="lean-nav-parent" href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label}</a>
-          <details class="lean-quality-menu">
-            <summary aria-label={`Show ${item.label} pages`}><span aria-hidden="true">⌄</span></summary>
-            <nav class:list={['lean-quality-panel', { 'lean-modular-panel': !!modularMenus[item.label], 'lean-modular-panel-wide': modularMenus[item.label]?.columns === 3 }]} aria-label={`${item.label} pages`}>
-              {modularMenus[item.label] ? <LeanNavigationMenu menu={modularMenus[item.label]} pathname={Astro.url.pathname} /> : item.links.map(link => <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>)}
-            </nav>
-          </details>
-        </div> :
-        <details class:list={['lean-quality-menu', { 'lean-customization-menu': item.label === 'ODM & OEM', 'is-active': item.links.some(link => isCurrent(link.href)) }]}>
+        item.overview ? <details class:list={['lean-quality-menu', 'lean-nav-group', { 'lean-modular-nav-group': !!modularMenus[item.label], 'is-active': isInSection(item.href) || item.links.some(link => isInSection(link.href)) }]}>
+          <summary>{item.label} <span aria-hidden="true">⌄</span></summary>
+          <nav class:list={['lean-quality-panel', { 'lean-modular-panel': !!modularMenus[item.label], 'lean-modular-panel-wide': modularMenus[item.label]?.columns === 3 }]} aria-label={`${item.label} pages`}>
+            {modularMenus[item.label] ? <LeanNavigationMenu menu={modularMenus[item.label]} pathname={Astro.url.pathname} overviewHref={item.href} /> : <><a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>{item.label} overview</a>{item.links.map(link => <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>)}</>}
+          </nav>
+        </details> :
+        <details class:list={['lean-quality-menu', { 'lean-customization-menu': item.label === 'ODM & OEM', 'is-active': isInSection(item.href) || item.links.some(link => isInSection(link.href)) }]}>
           <summary>{item.label} <span aria-hidden="true">⌄</span></summary>
           <nav class:list={['lean-quality-panel', { 'lean-customization-panel': item.label === 'ODM & OEM' }]} aria-label={`${item.label} pages`}>
             {item.label === 'ODM & OEM' ? <LeanCustomizationMenu links={customizationLinks} pathname={Astro.url.pathname} /> : item.links.map(link => <a href={link.href} aria-current={isCurrent(link.href) ? 'page' : undefined}>{link.label}</a>)}
@@ -149,18 +147,14 @@ const isCurrent = (href: string) => Astro.url.pathname.replace(/\/$/, '') === hr
 </script>
 
 <style>
-  .lean-nav-group { position:relative; display:flex; align-items:center; flex-shrink:0; }
-  .lean-nav-group > .lean-quality-menu { position:static; }
-  .lean-nav-parent { display:flex; align-items:center; min-height:44px; padding:.45rem .5rem; color:#26364d; font-size:.84rem; font-weight:650; white-space:nowrap; }
-  .lean-nav-group .lean-quality-menu > summary { min-width:44px; justify-content:center; padding:.45rem .25rem; }
+  .lean-nav-group { position:relative; flex-shrink:0; }
   .lean-nav-group { border-radius:0.375rem; }
-  .lean-nav-group.is-active, .lean-nav-group:has(> .lean-quality-menu[open]) { color:#183ba3; background:#f1f5fb; }
-  .lean-nav-group.is-active > .lean-nav-parent, .lean-nav-group:has(> .lean-quality-menu[open]) > .lean-nav-parent { color:#183ba3; }
+  .lean-nav-group.is-active, .lean-nav-group[open] { color:#183ba3; background:#f1f5fb; }
   .lean-quality-menu { position:relative; }
   .lean-quality-menu summary { cursor:pointer; list-style:none; display:flex; gap:5px; align-items:center; min-height:44px; padding:8px 0; color:#26364d; font-size:.875rem; font-weight:650; }
   .lean-quality-menu summary::-webkit-details-marker { display:none; }
   .lean-quality-panel { position:absolute; top:100%; left:0; width:320px; max-width:calc(100vw - 32px); max-height:calc(100dvh - var(--lean-global-header-height) - 16px); overflow-y:auto; overscroll-behavior:contain; padding:10px; border:1px solid #dce3ec; background:white; box-shadow:0 12px 30px #17233520; border-radius:5px; }
-  .lean-global-desktop > .lean-quality-menu:last-child .lean-quality-panel,
+  .lean-global-desktop > .lean-quality-menu:not(.lean-modular-nav-group):last-child .lean-quality-panel,
   .lean-global-desktop > .lean-nav-group:not(.lean-modular-nav-group):last-child .lean-quality-panel { left:auto; right:0; }
   .lean-quality-panel a { display:block; min-height:44px; padding:11px 12px; }
   .lean-quality-panel a:hover,.lean-quality-panel a[aria-current] { background:#f1f5fb; color:#183ba3; }
@@ -291,7 +285,8 @@ const isCurrent = (href: string) => Astro.url.pathname.replace(/\/$/, '') === hr
     background: #fff1f2;
   }
 
-  a.lean-global-contact {
+  a.lean-global-contact,
+  .lean-global-panel > a.lean-global-contact {
     justify-content: center;
     min-height: 44px;
     padding: 0.68rem 1rem;
@@ -303,7 +298,8 @@ const isCurrent = (href: string) => Astro.url.pathname.replace(/\/$/, '') === hr
     white-space: nowrap;
   }
 
-  a.lean-global-contact:hover {
+  a.lean-global-contact:hover,
+  .lean-global-panel > a.lean-global-contact:hover {
     color: white;
     background: #c71923;
   }
@@ -433,19 +429,11 @@ const isCurrent = (href: string) => Astro.url.pathname.replace(/\/$/, '') === hr
   }
 
   @media (min-width: 1120px) {
-    .lean-nav-group > .lean-nav-parent { padding-right:0.15rem; }
-    .lean-nav-group > .lean-nav-parent,
-    .lean-nav-group > .lean-quality-menu > summary { background:transparent; }
-  }
-
-  @media (min-width: 1120px) and (any-pointer: fine) {
-    .lean-nav-group > .lean-quality-menu > summary { min-width:28px; padding-inline:0.25rem; }
+    .lean-nav-group > summary { border-radius:0.375rem; }
+    .lean-nav-group:is(:hover,:focus-within,[open],.is-active) > summary { color:#183ba3; background:#f1f5fb; }
   }
 
   @media (min-width: 1120px) and (any-hover: hover) {
-    .lean-nav-group:hover { background:#f1f5fb; }
-    .lean-nav-group:hover > .lean-nav-parent,
-    .lean-nav-group:hover > .lean-quality-menu > summary { color:#183ba3; }
     .lean-global-desktop > .lean-quality-menu > summary:hover { color:#183ba3; background:#f1f5fb; }
   }
 

@@ -1,0 +1,60 @@
+.imported-product {
+  --product-ink: #102950;
+  --product-muted: #53627a;
+  --product-line: #dce2eb;
+  color: var(--product-ink);
+  background: #fff;
+  font: 16px/1.75 Arial, Helvetica, sans-serif;
+  padding: 28px 0 80px;
+}
+.imported-product *, .imported-product *::before, .imported-product *::after { box-sizing: border-box; }
+.imported-product :is(h1,h2,h3,p,ul,ol,dl,dd) { margin: 0; }
+.imported-product a { color: inherit; text-decoration: none; }
+.imported-product a:focus-visible { outline: 3px solid #183ba3; outline-offset: 4px; }
+.imported-product-wrap { width: min(1240px, calc(100% - 96px)); margin-inline: auto; }
+.imported-product-breadcrumb { color: var(--product-muted); font-size: 12px; margin-bottom: 30px; }
+.imported-product-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 5px 10px; padding: 0; list-style: none; }
+.imported-product-breadcrumb li { display: flex; align-items: baseline; gap: 10px; }
+.imported-product-breadcrumb li + li::before { content: '/'; color: #8b97aa; }
+.imported-product a:hover { color: #183ba3; text-decoration: underline; text-underline-offset: 4px; }
+.imported-product-intro { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 64px; padding-bottom: 54px; }
+.imported-product-hero { border: 1px solid var(--product-line); padding: 24px; }
+.imported-product img { display: block; max-width: 100%; height: auto; }
+.imported-product-hero img { width: 100%; aspect-ratio: 1; object-fit: contain; }
+.imported-product-category { display: inline-block; color: #183ba3 !important; font-size: 14px; font-weight: 700; padding-block: 10px; }
+.imported-product h1 { font-size: clamp(26px, 2.65vw, 38px); line-height: 1.28; font-weight: 700; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.imported-product-sections { display: flex; flex-wrap: wrap; gap: 4px 22px; border-top: 1px solid var(--product-line); margin-top: 30px; padding-top: 14px; }
+.imported-product-sections a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; font-weight: 700; }
+.imported-product-content { max-width: 960px; margin-inline: auto; }
+.imported-product-content section { padding-block: 34px; border-top: 1px solid var(--product-line); scroll-margin-top: calc(var(--lean-global-header-height, 80px) + 24px); }
+.imported-product h2 { font-size: clamp(24px, 2.3vw, 30px); line-height: 1.3; font-weight: 700; margin-bottom: 25px; }
+.imported-product h3 { font-size: 20px; line-height: 1.4; font-weight: 700; margin-block: 25px 15px; }
+.imported-product table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.imported-product :is(th,td) { padding: 13px 20px; border: 1px solid var(--product-line); text-align: left; overflow-wrap: anywhere; }
+.imported-product thead { background: #102950; color: white; }
+.imported-product th { font-weight: 700; }
+.imported-product tbody th { width: 40%; background: #f4f6fa; font-weight: 400; }
+.imported-product-description-images { margin-top: 28px; }
+.imported-product-description-images img { width: min(100%, 800px); margin-inline: auto; }
+.imported-product-description-images img + img { margin-top: 20px; }
+.imported-product-packing { list-style: none; padding: 0; }
+.imported-product-packing li + li { margin-top: 5px; }
+.imported-product-packing-image { width: 100%; margin-top: 24px; }
+.imported-product dl > div + div { margin-top: 18px; }
+.imported-product dt { font-weight: 700; }
+.imported-product-delivery-image { width: min(100%, 600px); margin-top: 26px; }
+@media (max-width: 900px) {
+  .imported-product-wrap { width: calc(100% - 48px); }
+  .imported-product-intro { gap: 30px; }
+  .imported-product-hero { padding: 16px; }
+}
+@media (max-width: 650px) {
+  .imported-product { padding-block: 20px 48px; font-size: 15px; }
+  .imported-product-wrap { width: calc(100% - 32px); }
+  .imported-product-breadcrumb { margin-bottom: 20px; }
+  .imported-product-intro { grid-template-columns: 1fr; gap: 20px; padding-bottom: 32px; }
+  .imported-product h1 { font-size: 27px; }
+  .imported-product-sections { margin-top: 20px; gap: 0 18px; }
+  .imported-product :is(th,td) { padding: 12px; }
+  .imported-product-content section { padding-block: 28px; }
+}

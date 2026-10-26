@@ -1,0 +1,30 @@
+---
+import ActivityPhoto from './ActivityPhoto.astro';
+import Icon from '../CustomizationIcon.astro';
+import '../../styles/ip-activity-photos.css';
+
+const photos = [
+  { slug: 'internal-production-discussion-2020-05', title: 'Project confidentiality training', period: 'May 2020', alt: 'Employees wearing face masks during a project confidentiality briefing in Xinyinhai’s meeting room', caption: 'Employee confidentiality training for a mass-production project during the COVID-19 pandemic.' },
+  { slug: 'peer-learning-discussion-2020-11-17', title: 'Confidentiality review with supervisors and line leaders', period: 'November 2020', alt: 'Production supervisors and line leaders seated around a table reviewing projected working information', caption: 'Production supervisors and line leaders discussing and reinforcing project confidentiality requirements.' },
+  { slug: 'production-team-training-2023', title: 'Production-team training', period: 'July 2023', alt: 'Production employees attending a factory-floor presentation on product and work instructions', caption: 'Employees reviewing product and work instructions during a production-team learning session.' },
+  { slug: 'employee-learning-session-2021', title: 'Employee learning and discussion', period: 'May 2021', alt: 'Xinyinhai employees attending a learning session with projected material in the factory meeting room', caption: 'A meeting-room learning session for Xinyinhai employees, with projected material and group discussion.' },
+];
+---
+<section class="ip-training-showcase" aria-labelledby="ip-training-title" data-ip-carousel data-interval="3000">
+  <h3 id="ip-training-title">Training and confidentiality in practice</h3>
+  <div class="ip-carousel-stage">
+    <div class="ip-carousel-track" id="ip-training-photographs" aria-live="off">
+      {photos.map(photo => <ActivityPhoto {...photo} />)}
+    </div>
+    <div class="ip-carousel-controls" role="group" aria-label="Training photograph controls" aria-describedby="ip-carousel-help" data-ip-carousel-controls hidden>
+      <button class="ip-carousel-arrow ip-carousel-arrow-prev" type="button" data-ip-photo-direction="-1" aria-controls="ip-training-photographs" aria-label="Previous training photograph"><Icon name="arrow-left" /></button>
+      <button class="ip-carousel-arrow ip-carousel-arrow-next" type="button" data-ip-photo-direction="1" aria-controls="ip-training-photographs" aria-label="Next training photograph"><Icon name="arrow-right" /></button>
+    </div>
+  </div>
+  <p class="ip-carousel-assistive" id="ip-carousel-help">Photographs change every three seconds. Use the arrows to browse. Rotation pauses during hover, keyboard focus or enlarged viewing.</p>
+  <p class="ip-carousel-assistive" role="status" aria-live="polite" data-ip-carousel-status></p>
+</section>
+<script>
+  import { initIPTrainingCarousel } from '../../scripts/ip-training-carousel';
+  initIPTrainingCarousel();
+</script>

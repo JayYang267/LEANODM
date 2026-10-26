@@ -7,6 +7,7 @@ export const PROJECT_TYPES = {
 } as const;
 
 export type ProjectType = keyof typeof PROJECT_TYPES;
+export const NDA_REQUEST_TEXT = 'I need to discuss an NDA before sharing detailed files.';
 export type InquiryDraft = {
   email: string;
   details: string;
@@ -18,6 +19,7 @@ export type InquiryDraft = {
   timeline?: string;
   referenceLinks?: string;
   requirements?: string;
+  ndaRequest?: string;
   source?: string;
   customizationNotes?: string;
   adaptationNotes?: string;
@@ -51,6 +53,7 @@ export function readDraft(data: FormData): InquiryDraft {
   const type = projectType(value('projectType')) ?? 'not-sure';
   const draft: InquiryDraft = { email: value('email'), details: value('details'), projectType: type };
   for (const field of optionalFields) if (value(field)) draft[field] = value(field);
+  if (value('ndaRequest') === NDA_REQUEST_TEXT) draft.ndaRequest = NDA_REQUEST_TEXT;
   if (type !== 'not-sure') {
     const field = noteFields[type];
     if (value(field)) draft[field] = value(field);
@@ -85,6 +88,7 @@ function queryText(value: string | null, limit: number): string {
 
 export function readQueryDraft(query: URLSearchParams, existing: Partial<InquiryDraft>): Partial<InquiryDraft> {
   const values: Partial<InquiryDraft> = {};
+  if (query.get('nda') === '1' && !existing.ndaRequest) values.ndaRequest = NDA_REQUEST_TEXT;
   const first = (names: string[], limit: number) => {
     for (const name of names) {
       const text = queryText(query.get(name), limit);
@@ -130,6 +134,7 @@ const briefFields: [keyof InquiryDraft, string][] = [
 
 export function formatBrief(draft: InquiryDraft): string {
   const lines = ['LEANODM project inquiry', '', `Project type: ${PROJECT_TYPES[draft.projectType]}`, '', 'Project description:', draft.details.trim()];
+  if (draft.ndaRequest === NDA_REQUEST_TEXT) lines.push('', 'Confidentiality request:', NDA_REQUEST_TEXT);
   for (const [field, label] of briefFields) if (draft[field]?.trim()) lines.push('', `${label}:`, draft[field]!.trim());
   if (draft.projectType !== 'not-sure') {
     const notes = draft[noteFields[draft.projectType]]?.trim();

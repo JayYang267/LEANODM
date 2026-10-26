@@ -12,7 +12,8 @@ export function initManufacturingEras(scope: ParentNode = document) {
     const previous = root.querySelector<HTMLButtonElement>('[data-era-prev]');
     const next = root.querySelector<HTMLButtonElement>('[data-era-next]');
     const status = root.querySelector<HTMLElement>('[data-era-status]');
-    if (!track || !viewport || !previous || !next || cards.length < 2 || triggers.length !== cards.length) continue;
+    // Number selectors are optional when the carousel uses only its side arrows.
+    if (!track || !viewport || !previous || !next || cards.length < 2 || (triggers.length > 0 && triggers.length !== cards.length)) continue;
 
     const configuredDefault = Number(root.dataset.defaultEra);
     let active = Number.isInteger(configuredDefault) && configuredDefault >= 0 && configuredDefault < cards.length ? configuredDefault : cards.length - 1;
@@ -68,8 +69,8 @@ export function initManufacturingEras(scope: ParentNode = document) {
         card.classList.toggle('is-active', selected);
         card.setAttribute('aria-hidden', String(!selected));
         card.inert = !selected;
-        triggers[cardIndex].classList.toggle('is-active', selected);
-        triggers[cardIndex].setAttribute('aria-pressed', String(selected));
+        triggers[cardIndex]?.classList.toggle('is-active', selected);
+        triggers[cardIndex]?.setAttribute('aria-pressed', String(selected));
       });
       const previousTransform = track.style.transform;
       setOffset();
@@ -94,6 +95,7 @@ export function initManufacturingEras(scope: ParentNode = document) {
     next.addEventListener('click', () => select(active + 1));
     root.addEventListener('keydown', event => {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
+      if (event.target instanceof Element && event.target.closest('a[href], input, textarea, select, [contenteditable="true"]')) return;
       const destinations: Record<string, number> = { ArrowLeft: active - 1, ArrowRight: active + 1, Home: 0, End: cards.length - 1 };
       if (!(event.key in destinations)) return;
       event.preventDefault();
@@ -102,6 +104,7 @@ export function initManufacturingEras(scope: ParentNode = document) {
 
     let gesture: { pointer: number; x: number; y: number; offset: number; horizontal: boolean } | undefined;
     viewport.addEventListener('pointerdown', event => {
+      if (event.target instanceof Element && event.target.closest('a[href], button, input, textarea, select, [contenteditable="true"]')) return;
       if (moving || gesture || !event.isPrimary || (event.pointerType !== 'touch' && event.pointerType !== 'pen')) return;
       settleBoundary();
       gesture = { pointer: event.pointerId, x: event.clientX, y: event.clientY, offset: 0, horizontal: false };

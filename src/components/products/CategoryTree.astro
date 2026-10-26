@@ -1,0 +1,21 @@
+---
+import { catalogPath, type ProductCategory } from '../../data/products/categories';
+interface Props { categories: ProductCategory[]; currentPath: string; }
+const { categories, currentPath } = Astro.props;
+---
+<ul class="catalog-tree">
+  {categories.map(category => {
+    const path = catalogPath(category);
+    const expanded = false;
+    const id = `category-${category.slug}`;
+    return <li>
+      <div class="catalog-tree-row">
+        <a href={path} data-catalog-link data-category-disclosure={category.children ? true : undefined} aria-controls={category.children ? id : undefined} aria-expanded={category.children ? String(expanded) : undefined} aria-current={currentPath === path ? 'page' : undefined}>
+          <span>{category.label}</span>
+          {category.children && <svg class="catalog-expand-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m7 4 6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg>}
+        </a>
+      </div>
+      {category.children && <div id={id} data-category-children hidden={!expanded}><Astro.self categories={category.children} currentPath={currentPath} /></div>}
+    </li>;
+  })}
+</ul>

@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../../../../layouts/BaseLayout.astro';
+import HomeFooter from '../../../../../../components/market/HomeFooter.astro';
+import { SITE } from '../../../../../../config/site';
+import { babyMusicalDrum as product } from '../../../../../../data/products/imported-products';
+import { catalogEntries, catalogPath } from '../../../../../../data/products/categories';
+import '../../../../../../styles/imported-product.css';
+
+const category = catalogEntries.find(entry => entry.path === product.categoryPath)!;
+const breadcrumb = [
+  { name: 'Home', path: '/' },
+  { name: 'Products', path: '/products/' },
+  ...[...category.ancestors, category.category].map(item => ({ name: item.label, path: catalogPath(item) })),
+  { name: 'Baby Musical Light-Up Drum', path: product.path },
+];
+const description = 'Baby musical electronic light-up drum toy: specifications, product description, packing and delivery information.';
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebPage', '@id': `${product.canonical}#webpage`, url: product.canonical, name: product.name, description, inLanguage: 'en', isPartOf: { '@id': `${SITE.url}/#website` }, breadcrumb: { '@id': `${product.canonical}#breadcrumbs` }, primaryImageOfPage: { '@type': 'ImageObject', contentUrl: new URL(product.image, SITE.url).href, width: product.imageWidth, height: product.imageHeight } },
+    { '@type': 'BreadcrumbList', '@id': `${product.canonical}#breadcrumbs`, itemListElement: breadcrumb.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: new URL(item.path, SITE.url).href })) },
+  ],
+};
+---
+<BaseLayout title={`${product.name} | LEANODM.com`} description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={product.canonical} />
+    <meta property="og:url" content={product.canonical} />
+    <meta property="og:image" content={new URL(product.image, SITE.url).href} />
+    <meta property="og:image:alt" content={product.imageAlt} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\u003c')} />
+  </Fragment>
+  <article class="imported-product">
+    <div class="imported-product-wrap">
+      <nav class="imported-product-breadcrumb" aria-label="Breadcrumb">
+        <ol>{breadcrumb.map((item, index) => <li>{index === breadcrumb.length - 1 ? <span aria-current="page">{item.name}</span> : <a href={item.path}>{item.name}</a>}</li>)}</ol>
+      </nav>
+      <header class="imported-product-intro">
+        <div class="imported-product-hero">
+          <img src={product.image} alt={product.imageAlt} width={product.imageWidth} height={product.imageHeight} loading="eager" fetchpriority="high" decoding="async" />
+        </div>
+        <div class="imported-product-summary">
+          <a class="imported-product-category" href={product.categoryPath}>{category.category.label}</a>
+          <h1>{product.name}</h1>
+          <nav class="imported-product-sections" aria-label="Product information">
+            <a href="#specification">Specification</a>
+            <a href="#product-description">Product Description</a>
+            <a href="#packing-delivery">Packing &amp; Delivery</a>
+          </nav>
+        </div>
+      </header>
+      <div class="imported-product-content">
+        <section id="specification" aria-labelledby="specification-heading">
+          <h2 id="specification-heading">Specification</h2>
+          <table>
+            <thead><tr><th scope="col">item</th><th scope="col">value</th></tr></thead>
+            <tbody>{product.specification.map(row => <tr><th scope="row">{row.label}</th><td>{row.value}</td></tr>)}</tbody>
+          </table>
+        </section>
+        <section id="product-description" aria-labelledby="product-description-heading">
+          <h2 id="product-description-heading">Product Description</h2>
+          <p>{product.description}</p>
+          <div class="imported-product-description-images">
+            {product.descriptionImages.map(image => <img {...image} loading="lazy" decoding="async" />)}
+          </div>
+        </section>
+        <section id="packing-delivery" aria-labelledby="packing-delivery-heading">
+          <h2 id="packing-delivery-heading">Packing &amp; Delivery</h2>
+          <h3>Packing</h3>
+          <ul class="imported-product-packing">{product.packing.map(line => <li>{line}</li>)}</ul>
+          <img class="imported-product-packing-image" {...product.packingImage} loading="lazy" decoding="async" />
+          <h3>Delivery</h3>
+          <dl>{product.delivery.map(item => <div><dt>{item.label}</dt><dd>{item.value}</dd></div>)}</dl>
+          <img class="imported-product-delivery-image" {...product.deliveryImage} loading="lazy" decoding="async" />
+        </section>
+      </div>
+    </div>
+  </article>
+  <HomeFooter slot="footer" />
+</BaseLayout>

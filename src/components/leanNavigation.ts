@@ -27,7 +27,8 @@ export const inquiryHrefForPage = (pathname: string) =>
 
 export const leanPrimaryNavigation: readonly LeanNavigationItem[] = [
   { label: 'ODM & OEM', href: '/customization/' },
-  { label: 'Manufacturing', href: '/manufacturing/', overview: true },
+  { label: 'Products', href: '/products/' },
+  { label: 'Capabilities', href: '/manufacturing/', overview: true },
   { label: 'Quality', href: '/quality/', overview: true },
   { label: 'About', href: '/about/', overview: true },
 ];
@@ -43,11 +44,14 @@ export const leanCustomizationNavigation: readonly LeanCustomizationNavigationIt
   { label: 'New Product Development', href: '/customization/new-product-development/', group: 'business', icon: 'lightbulb', description: 'From a new product brief to a production-ready design.' },
   { label: 'OEM Manufacturing', href: '/customization/oem-manufacturing/', group: 'business', icon: 'factory', description: 'Manufacturing from your approved design and specifications.' },
   { label: 'How We Work', href: '/customization/how-we-work/', group: 'guide' },
+  { label: 'IP & Confidentiality', href: '/customization/ip-protection/', group: 'guide' },
   { label: 'Project Fit & Working Principles', href: '/customization/project-fit/', group: 'guide' },
 ];
 
 export const leanManufacturingNavigation: readonly LeanNavigationCardItem[] = [
+  { label: 'Production Equipment', href: '/capabilities/production-equipment/', icon: 'factory', description: 'Equipment, production areas and multi-model assembly and packaging.' },
   { label: 'Electronics & SMT', href: '/manufacturing/electronics-smt/', icon: 'circuit-board', description: 'PCB assembly, soldering and electronic production processes.' },
+  { label: 'Secure Programming', href: '/manufacturing/secure-programming/', icon: 'lock-keyhole', description: 'Controlled firmware installation, key handling and authorized programming quantities.' },
   { label: 'Tooling & Injection Molding', href: '/manufacturing/tooling-injection-molding/', icon: 'blocks', description: 'Tool development, mold trials and injection-molded parts.' },
   { label: 'Screen Printing & Product Decoration', href: '/manufacturing/screen-printing/', icon: 'paintbrush', description: 'Artwork, surface preparation, printing and decoration processes.' },
   { label: 'Assembly & Packaging', href: '/manufacturing/assembly-packaging/', icon: 'package-check', description: 'Product assembly, line checks and final packaging.' },
@@ -74,7 +78,7 @@ export const leanQualityNavigation: readonly LeanNavigationCardItem[] = [
 ];
 
 export const leanModularNavigation: Readonly<Record<string, LeanNavigationMenuData>> = {
-  Manufacturing: {
+  Capabilities: {
     title: 'Manufacturing capabilities',
     intro: 'Explore the processes behind your product.',
     links: leanManufacturingNavigation,
@@ -88,7 +92,7 @@ export const leanModularNavigation: Readonly<Record<string, LeanNavigationMenuDa
     title: 'About Xinyinhai',
     intro: 'Manufacturing background, people and practices.',
     links: leanAboutNavigation,
-    columns: 3,
+    columns: 2,
   },
 };
 

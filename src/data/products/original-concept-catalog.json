@@ -1,0 +1,2009 @@
+[
+  {
+    "id": "listennest-open-cup-headphone-concept-r01",
+    "slug": "listennest-open-cup-headphone-concept",
+    "shortName": "ListenNest",
+    "name": "ListenNest Open-Cup Headphone Concept",
+    "title": "ListenNest Open-Cup Headphone Concept | LEANODM",
+    "description": "Explore ListenNest, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A proposed vented headphone concept with a headband, tactile playback controls and a Bluetooth audio module route. Fit, sound exposure, battery performance and radio compliance have not been physically validated.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Listening with deliberate controls",
+    "intro": "A proposed vented headphone concept with a headband, tactile playback controls and a Bluetooth audio module route. Fit, sound exposure, battery performance and radio compliance have not been physically validated.",
+    "formHeading": "A vented headphone direction",
+    "formDescription": "The proposed headband carries two vented ear cups and tactile playback controls. Cup spacing, cushion contact, adjustment, sound exposure, battery housing and radio performance require physical evaluation.",
+    "playSteps": [
+      {
+        "title": "Review fit and setup",
+        "description": "A future prototype would need adult-led fit and audio setup before any age grading is established."
+      },
+      {
+        "title": "Connect an audio source",
+        "description": "The proposed module route would support basic Bluetooth audio, without a companion app."
+      },
+      {
+        "title": "Play and pause deliberately",
+        "description": "Three physical controls would manage playback and the proposed volume policy."
+      },
+      {
+        "title": "Take a break and store",
+        "description": "Listening reminders, shutdown and protected charging would need validation in development."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Form",
+        "Vented over-ear cups and a load-distributing headband"
+      ],
+      [
+        "Connection",
+        "Bluetooth audio module route proposed; no companion app"
+      ],
+      [
+        "Controls",
+        "Three tactile playback / volume controls"
+      ],
+      [
+        "Power",
+        "Protected single-cell rechargeable battery concept"
+      ],
+      [
+        "Concept envelope",
+        "Approximately 182 W × 166 H × 72 D mm"
+      ],
+      [
+        "Not established",
+        "Sound exposure, fit, age grading, runtime, IP or certification"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Audience, market and age grading",
+      "Original content or interaction rules",
+      "Form, materials and proportions",
+      "Power and component selection, where applicable",
+      "Prototype scope, validation and cost targets"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is this an existing physical product?",
+        "answer": "No. This is an original digital concept for review. No physical prototype, mould tooling, custom PCB or physical validation has been completed."
+      },
+      {
+        "question": "Are the proposed functions and dimensions verified?",
+        "answer": "No. They are design starting points for a development brief. Real components, usability, materials, safety and performance need evaluation."
+      },
+      {
+        "question": "Can this be adapted for our project?",
+        "answer": "Audience, appearance, interaction and applicable content can be discussed. Feasibility, ownership, scope, cost and validation responsibilities need agreement before development."
+      }
+    ],
+    "image": "/images/products/original-concepts/listennest-open-cup-headphone-concept/hero.png",
+    "imageAlt": "Digital concept rendering of ListenNest, listennest open-cup headphone. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/listennest-open-cup-headphone-concept/front.png",
+        "alt": "Front view of the ListenNest digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/listennest-open-cup-headphone-concept/detail.png",
+        "alt": "Detail view of the ListenNest digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "picture-harbor-turning-picture-drum-concept-r01",
+    "slug": "picture-harbor-turning-picture-drum-concept",
+    "shortName": "Picture Harbor",
+    "name": "Picture Harbor Turning Picture Drum Concept",
+    "title": "Picture Harbor Turning Picture Drum Concept | LEANODM",
+    "description": "Explore Picture Harbor, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A single-piece tabletop audio concept with a manually turned, six-face picture drum behind a fixed window. It explores an alternative to loose picture cards, with a clear trade-off in content capacity.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Turn a picture, then listen together",
+    "intro": "A single-piece tabletop audio concept with a manually turned, six-face picture drum behind a fixed window. It explores an alternative to loose picture cards, with a clear trade-off in content capacity.",
+    "formHeading": "A picture drum within one tabletop body",
+    "formDescription": "A manually turned six-face picture drum sits behind a fixed viewing window. The proposed body combines a stable foot and separate replay and language controls. Position sensing, detents, access and pinch clearances remain untested.",
+    "playSteps": [
+      {
+        "title": "Turn to a picture",
+        "description": "A large manual side control is proposed to bring one of six original picture faces into the fixed window."
+      },
+      {
+        "title": "Settle the position",
+        "description": "An internal absolute-position code would link the visible face to its approved recording; transition positions would not trigger random audio."
+      },
+      {
+        "title": "Replay or change language",
+        "description": "Two controls are proposed for replaying the current face and selecting an agreed language version."
+      },
+      {
+        "title": "Take another turn",
+        "description": "Turn the drum to explore another picture. The proposed mechanism is manual, without a drive motor or loose picture cards."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Form",
+        "Single-piece tabletop picture drum with fixed clear window"
+      ],
+      [
+        "Picture medium",
+        "Six original printed faces, not an electronic screen"
+      ],
+      [
+        "Position route",
+        "Absolute optical index considered; physical feasibility unvalidated"
+      ],
+      [
+        "Controls",
+        "Manual side turn control plus replay/language buttons"
+      ],
+      [
+        "Indicative envelope",
+        "About178W×110D×118H mm including the side control"
+      ],
+      [
+        "Content limit",
+        "Six-face starting point; larger libraries would require a different development decision"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Value of single-piece use versus loose cards",
+      "Number/size of picture faces",
+      "Language and audio layers",
+      "Manual rotation feel, window and stability",
+      "Adult maintenance, prototype and validation scope"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is the window an electronic screen?",
+        "answer": "No. The recommended concept uses original printed faces on a manual drum behind a fixed clear window."
+      },
+      {
+        "question": "How does it know which picture is showing?",
+        "answer": "An internal absolute optical index is a proposed route. Its alignment and reliability still need physical tests; stored incremental counts alone are not the proposal."
+      },
+      {
+        "question": "Can customers download unlimited new pictures?",
+        "answer": "No. The six-face printed medium has a real capacity limit. Different content would need an agreed module or architecture change during development."
+      },
+      {
+        "question": "Is this concept ready to order?",
+        "answer": "No. It is an original digital concept for review. Feasibility, physical prototypes, tooling, electronics and validation would need a separately agreed development project."
+      },
+      {
+        "question": "Can it be adapted for our brand or market?",
+        "answer": "Content, languages, appearance, audience and intended changes can be discussed. Feasibility, ownership, project scope, cost and market-specific safety work would need agreement."
+      },
+      {
+        "question": "What are the price, MOQ and lead time?",
+        "answer": "They have not been set. A meaningful quotation requires an agreed specification, prototype scope, feasibility review and supplier assessment."
+      }
+    ],
+    "image": "/images/products/original-concepts/picture-harbor-turning-picture-drum-concept/hero.png",
+    "imageAlt": "Digital concept rendering of Picture Harbor, picture harbor turning picture drum. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/picture-harbor-turning-picture-drum-concept/front.png",
+        "alt": "Front view of the Picture Harbor digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/picture-harbor-turning-picture-drum-concept/detail.png",
+        "alt": "Detail view of the Picture Harbor digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "sound-steps-two-card-sound-pairing-concept-r01",
+    "slug": "sound-steps-two-card-sound-pairing-concept",
+    "shortName": "Sound Steps",
+    "name": "Sound Steps Two-Card Sound Pairing Concept",
+    "title": "Sound Steps Two-Card Sound Pairing Concept | LEANODM",
+    "description": "Explore Sound Steps, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A proposed offline sound-pairing desk toy with two visible card positions and separate segment/replay actions. Coded original cards and a reviewed combination library are ideas for feasibility assessment, not a validated reading product.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Change one part and hear the pair",
+    "intro": "A proposed offline sound-pairing desk toy with two visible card positions and separate segment/replay actions. Coded original cards and a reviewed combination library are ideas for feasibility assessment, not a validated reading product.",
+    "formHeading": "Two visible card positions",
+    "formDescription": "The proposed desk body separates two card positions from segment and whole-word playback controls. Original coded cards and a reviewed audio library are development inputs. Card detection, handling, content accuracy and physical fit remain unvalidated.",
+    "playSteps": [
+      {
+        "title": "Place two original cards",
+        "description": "A left and right card are proposed to keep two word parts visible side by side."
+      },
+      {
+        "title": "Check the pair",
+        "description": "The intended optical-code route would identify the card type and ID before looking up an approved combination."
+      },
+      {
+        "title": "Hear a part or the whole",
+        "description": "Separate controls are proposed for replaying either part and a reviewed whole-word recording."
+      },
+      {
+        "title": "Change one part",
+        "description": "Players can replace a card and compare the result. Unapproved pairs would receive a neutral prompt, not an invented pronunciation."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Form",
+        "Two-card tabletop dock; no electronic screen proposed"
+      ],
+      [
+        "Card route",
+        "Original printed optical codes considered; not RFID or camera recognition"
+      ],
+      [
+        "Audio",
+        "Reviewed stored combinations, not open-ended AI speech or pronunciation scoring"
+      ],
+      [
+        "Controls",
+        "Left-part, right-part and whole-word playback actions"
+      ],
+      [
+        "Indicative body",
+        "About190W×132D×44H mm; inserted cards increase the height to about121mm"
+      ],
+      [
+        "Status",
+        "Optical, card, content and physical usability feasibility unvalidated"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Target reading readiness and language",
+      "Card size, identification and print tolerances",
+      "Approved combinations and recording review",
+      "Manual versus optical preparation route",
+      "Prototype scope, cost and safety assessment"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Does the concept use RFID cards?",
+        "answer": "No RFID route is proposed for the recommended direction. Printed optical codes are a candidate approach that still needs physical feasibility testing."
+      },
+      {
+        "question": "Will every pair make a spoken word?",
+        "answer": "No. The idea uses an approved combination list. Unknown or unsuitable pairs would not generate arbitrary speech."
+      },
+      {
+        "question": "Is this a tested phonics teaching product?",
+        "answer": "No. It is a digital product concept. Content suitability, age grading, usability and learning outcomes have not been validated."
+      },
+      {
+        "question": "Is this concept ready to order?",
+        "answer": "No. It is an original digital concept for review. Feasibility, physical prototypes, tooling, electronics and validation would need a separately agreed development project."
+      },
+      {
+        "question": "Can it be adapted for our brand or market?",
+        "answer": "Content, languages, appearance, audience and intended changes can be discussed. Feasibility, ownership, project scope, cost and market-specific safety work would need agreement."
+      },
+      {
+        "question": "What are the price, MOQ and lead time?",
+        "answer": "They have not been set. A meaningful quotation requires an agreed specification, prototype scope, feasibility review and supplier assessment."
+      }
+    ],
+    "image": "/images/products/original-concepts/sound-steps-two-card-sound-pairing-concept/hero.png",
+    "imageAlt": "Digital concept rendering of Sound Steps, sound steps two-card sound pairing. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/sound-steps-two-card-sound-pairing-concept/front.png",
+        "alt": "Front view of the Sound Steps digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/sound-steps-two-card-sound-pairing-concept/detail.png",
+        "alt": "Detail view of the Sound Steps digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "language-meadow-picture-audio-playboard-concept-r01",
+    "slug": "language-meadow-picture-audio-playboard-concept",
+    "shortName": "Language Meadow",
+    "name": "Language Meadow Picture Audio Playboard Concept",
+    "title": "Language Meadow Picture Audio Playboard Concept | LEANODM",
+    "description": "Explore Language Meadow, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A wide, screen-free picture playboard concept with six large press areas and a proposed two-language audio route. Original scene panels and an adult theme-selection step form the starting point for development discussion.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Explore a scene through pictures and sound",
+    "intro": "A wide, screen-free picture playboard concept with six large press areas and a proposed two-language audio route. Original scene panels and an adult theme-selection step form the starting point for development discussion.",
+    "formHeading": "A wide board with six press areas",
+    "formDescription": "Six large press areas are arranged across a low tabletop board. Original scene panels and adult theme selection are proposed to connect pictures with a reviewed audio set. Panel alignment, key response, sound exposure and age grading still require evaluation.",
+    "playSteps": [
+      {
+        "title": "Prepare a scene",
+        "description": "An adult places one of the proposed original panels and selects the matching theme."
+      },
+      {
+        "title": "Press a large picture area",
+        "description": "Six defined press areas are intended to connect a picture with a short recorded word or description."
+      },
+      {
+        "title": "Choose a language",
+        "description": "A dedicated control is proposed for switching between the agreed language versions."
+      },
+      {
+        "title": "Explore together",
+        "description": "Players can revisit pictures and take turns; the concept does not judge pronunciation or promise learning outcomes."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Form",
+        "Flat, wide picture board with six large press zones"
+      ],
+      [
+        "Theme selection",
+        "Adult selects a matching panel/theme in the initial route; no automatic card recognition claimed"
+      ],
+      [
+        "Audio",
+        "Two-language short recordings proposed; final content/licensing to be developed"
+      ],
+      [
+        "Operation",
+        "Offline; no electronic screen, camera, microphone or cloud route proposed"
+      ],
+      [
+        "Indicative body",
+        "About210W×160D×34H mm; design starting point only"
+      ],
+      [
+        "Age grading",
+        "Not established; intended audience and safety requirements need review"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Original scene and vocabulary themes",
+      "Language and recording choices",
+      "Number/shape of picture press zones",
+      "Panel preparation and recognition options",
+      "Materials, cleaning and prototype scope"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Does it recognise any picture card automatically?",
+        "answer": "No. The initial direction uses an adult-selected theme matched to an original scene panel. Automatic coded-panel recognition is only an option to evaluate later."
+      },
+      {
+        "question": "Is the picture area an electronic screen?",
+        "answer": "No electronic screen is proposed. Printed original pictures sit over defined press areas."
+      },
+      {
+        "question": "Does it evaluate a child’s pronunciation?",
+        "answer": "No. The proposed device plays reviewed recordings; people provide the conversation and guidance."
+      },
+      {
+        "question": "Is this concept ready to order?",
+        "answer": "No. It is an original digital concept for review. Feasibility, physical prototypes, tooling, electronics and validation would need a separately agreed development project."
+      },
+      {
+        "question": "Can it be adapted for our brand or market?",
+        "answer": "Content, languages, appearance, audience and intended changes can be discussed. Feasibility, ownership, project scope, cost and market-specific safety work would need agreement."
+      },
+      {
+        "question": "What are the price, MOQ and lead time?",
+        "answer": "They have not been set. A meaningful quotation requires an agreed specification, prototype scope, feasibility review and supplier assessment."
+      }
+    ],
+    "image": "/images/products/original-concepts/language-meadow-picture-audio-playboard-concept/hero.png",
+    "imageAlt": "Digital concept rendering of Language Meadow, language meadow picture audio playboard. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/language-meadow-picture-audio-playboard-concept/front.png",
+        "alt": "Front view of the Language Meadow digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/language-meadow-picture-audio-playboard-concept/detail.png",
+        "alt": "Detail view of the Language Meadow digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "readloop-acoustic-voice-guide-concept-r01",
+    "slug": "readloop-acoustic-voice-guide-concept",
+    "shortName": "ReadLoop",
+    "name": "ReadLoop Acoustic Voice Guide Concept",
+    "title": "ReadLoop Acoustic Voice Guide Concept | LEANODM",
+    "description": "Explore ReadLoop, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A proposed screen-free acoustic guide for hearing one’s own reading voice. The selected idea uses a passive external sound path rather than batteries, recording or speech recognition; acoustic performance is untested.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Hear a reading voice through a passive path",
+    "intro": "A proposed screen-free acoustic guide for hearing one’s own reading voice. The selected idea uses a passive external sound path rather than batteries, recording or speech recognition; acoustic performance is untested.",
+    "formHeading": "An external acoustic guide",
+    "formDescription": "The selected direction uses a passive external sound path between a speaking opening and a listening opening. It proposes no batteries or recording. Positioning, acoustic response, cleanability and comfort must be tested before claims can be made.",
+    "playSteps": [
+      {
+        "title": "Review the positioning",
+        "description": "The proposed guide would sit outside the mouth and ear, without insertion. Fit must be evaluated in a prototype."
+      },
+      {
+        "title": "Read in a gentle voice",
+        "description": "The concept explores passive self-listening rather than electronic amplification."
+      },
+      {
+        "title": "Listen and adjust naturally",
+        "description": "The reader would hear their own voice; no recognition, scoring or therapeutic outcome is proposed."
+      },
+      {
+        "title": "Put away and clean",
+        "description": "A future design would need an evaluated cleaning and storage process."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Route",
+        "Passive acoustic concept; no electronics in the selected version"
+      ],
+      [
+        "Operation",
+        "Handheld external voice path; no insertion"
+      ],
+      [
+        "Media",
+        "No recordings, app or answer bank"
+      ],
+      [
+        "Concept envelope",
+        "Approximately 80 W × 126 H × 34 D mm"
+      ],
+      [
+        "Next test",
+        "Positioning, hygiene, acoustic gain and sound exposure"
+      ],
+      [
+        "Performance",
+        "No proven educational, medical or hearing benefit"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Audience, market and age grading",
+      "Original content or interaction rules",
+      "Form, materials and proportions",
+      "Power and component selection, where applicable",
+      "Prototype scope, validation and cost targets"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is this an existing physical product?",
+        "answer": "No. This is an original digital concept for review. No physical prototype, mould tooling, custom PCB or physical validation has been completed."
+      },
+      {
+        "question": "Are the proposed functions and dimensions verified?",
+        "answer": "No. They are design starting points for a development brief. Real components, usability, materials, safety and performance need evaluation."
+      },
+      {
+        "question": "Can this be adapted for our project?",
+        "answer": "Audience, appearance, interaction and applicable content can be discussed. Feasibility, ownership, scope, cost and validation responsibilities need agreement before development."
+      }
+    ],
+    "image": "/images/products/original-concepts/readloop-acoustic-voice-guide-concept/hero.png",
+    "imageAlt": "Digital concept rendering of ReadLoop, readloop acoustic voice guide. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/readloop-acoustic-voice-guide-concept/front.png",
+        "alt": "Front view of the ReadLoop digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/readloop-acoustic-voice-guide-concept/detail.png",
+        "alt": "Detail view of the ReadLoop digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "routinerail-visual-routine-timer-concept-r01",
+    "slug": "routinerail-visual-routine-timer-concept",
+    "shortName": "RoutineRail",
+    "name": "RoutineRail Visual Routine Timer Concept",
+    "title": "RoutineRail Visual Routine Timer Concept | LEANODM",
+    "description": "Explore RoutineRail, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A proposed offline routine timer that pairs three physical activity stages with a colour time display. A digital direction for shared routines and customer development review, without a companion app in the proposed first version.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Make the next stage visible together",
+    "intro": "A proposed offline routine timer that pairs three physical activity stages with a colour time display. A digital direction for shared routines and customer development review, without a companion app in the proposed first version.",
+    "formHeading": "Three physical stages beside a time display",
+    "formDescription": "The proposed tabletop rail puts three activity stages alongside a colour time display and deliberate controls. Original stage graphics, pause behaviour and progression would be reviewed with intended users. The concept has no validated behavioural or learning benefit.",
+    "playSteps": [
+      {
+        "title": "Prepare three stages",
+        "description": "An adult would define the activity sequence and time intervals."
+      },
+      {
+        "title": "Choose the current activity",
+        "description": "A physical stage button would identify the current step."
+      },
+      {
+        "title": "See and pause the interval",
+        "description": "The screen would show time and state; an intentional pause would interrupt the countdown."
+      },
+      {
+        "title": "Move on together",
+        "description": "Players would confirm the next stage, rather than have the device silently advance."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Format",
+        "Three-stage tabletop routine and interval timer"
+      ],
+      [
+        "Display",
+        "Landscape colour screen with shape and position cues"
+      ],
+      [
+        "Controls",
+        "Three stage buttons and an adult setup dial"
+      ],
+      [
+        "Connection",
+        "Offline proposed first version; no app"
+      ],
+      [
+        "Power",
+        "Replaceable 3-AA arrangement proposed"
+      ],
+      [
+        "Concept envelope",
+        "Approximately 240 W × 92 H × 98 D mm"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Audience, market and age grading",
+      "Original content or interaction rules",
+      "Form, materials and proportions",
+      "Power and component selection, where applicable",
+      "Prototype scope, validation and cost targets"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is this an existing physical product?",
+        "answer": "No. This is an original digital concept for review. No physical prototype, mould tooling, custom PCB or physical validation has been completed."
+      },
+      {
+        "question": "Are the proposed functions and dimensions verified?",
+        "answer": "No. They are design starting points for a development brief. Real components, usability, materials, safety and performance need evaluation."
+      },
+      {
+        "question": "Can this be adapted for our project?",
+        "answer": "Audience, appearance, interaction and applicable content can be discussed. Feasibility, ownership, scope, cost and validation responsibilities need agreement before development."
+      }
+    ],
+    "image": "/images/products/original-concepts/routinerail-visual-routine-timer-concept/hero.png",
+    "imageAlt": "Digital concept rendering of RoutineRail, routinerail visual routine timer. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/routinerail-visual-routine-timer-concept/front.png",
+        "alt": "Front view of the RoutineRail digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/routinerail-visual-routine-timer-concept/detail.png",
+        "alt": "Detail view of the RoutineRail digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "timepebble-visual-interval-timer-concept-r01",
+    "slug": "timepebble-visual-interval-timer-concept",
+    "shortName": "TimePebble",
+    "name": "TimePebble Visual Interval Timer Concept",
+    "title": "TimePebble Visual Interval Timer Concept | LEANODM",
+    "description": "Explore TimePebble, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A proposed offline visual interval timer with a low tabletop body, a clear monochrome display and a side dial. Designed as a starting point for simple shared timing, not a proven focus aid.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Set, pause and finish one interval",
+    "intro": "A proposed offline visual interval timer with a low tabletop body, a clear monochrome display and a side dial. Designed as a starting point for simple shared timing, not a proven focus aid.",
+    "formHeading": "A low timer with a side dial",
+    "formDescription": "A low tabletop body separates the monochrome time display from a side-setting dial and start/pause action. Dial force, display visibility, sound cues, battery access and stability are proposed design questions, not tested specifications.",
+    "playSteps": [
+      {
+        "title": "Set an interval",
+        "description": "A side dial would select a proposed time interval without a phone."
+      },
+      {
+        "title": "Start the countdown",
+        "description": "A deliberate press would start the displayed interval."
+      },
+      {
+        "title": "Pause or continue",
+        "description": "A separate pause action would preserve the remaining time."
+      },
+      {
+        "title": "Finish and reset",
+        "description": "An optional alert and a visible end state would support the next activity."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Display",
+        "Monochrome segmented LCD direction; final glass not selected"
+      ],
+      [
+        "Controls",
+        "Side dial and separate pause action"
+      ],
+      [
+        "Connection",
+        "Offline; no app or wireless proposed"
+      ],
+      [
+        "Power",
+        "Replaceable 2-AA concept arrangement"
+      ],
+      [
+        "Concept envelope",
+        "Approximately 118 W × 76 H × 60 D mm"
+      ],
+      [
+        "Accuracy and runtime",
+        "Not measured; no production specification established"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Audience, market and age grading",
+      "Original content or interaction rules",
+      "Form, materials and proportions",
+      "Power and component selection, where applicable",
+      "Prototype scope, validation and cost targets"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is this an existing physical product?",
+        "answer": "No. This is an original digital concept for review. No physical prototype, mould tooling, custom PCB or physical validation has been completed."
+      },
+      {
+        "question": "Are the proposed functions and dimensions verified?",
+        "answer": "No. They are design starting points for a development brief. Real components, usability, materials, safety and performance need evaluation."
+      },
+      {
+        "question": "Can this be adapted for our project?",
+        "answer": "Audience, appearance, interaction and applicable content can be discussed. Feasibility, ownership, scope, cost and validation responsibilities need agreement before development."
+      }
+    ],
+    "image": "/images/products/original-concepts/timepebble-visual-interval-timer-concept/hero.png",
+    "imageAlt": "Digital concept rendering of TimePebble, timepebble visual interval timer. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/timepebble-visual-interval-timer-concept/front.png",
+        "alt": "Front view of the TimePebble digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/timepebble-visual-interval-timer-concept/detail.png",
+        "alt": "Detail view of the TimePebble digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "benchleaf-digital-observation-bench-concept-r01",
+    "slug": "benchleaf-digital-observation-bench-concept",
+    "shortName": "BenchLeaf",
+    "name": "BenchLeaf Digital Observation Bench Concept",
+    "title": "BenchLeaf Digital Observation Bench Concept | LEANODM",
+    "description": "A proposed digital observation bench with a stable sample stage and fixed screen. An unvalidated original concept for customer co-development.",
+    "summary": "A tabletop observation concept with a stable sample area, fixed shared display and manual focus direction. Optics and image performance remain unvalidated.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Place, focus and compare discoveries together.",
+    "intro": "The idea puts sample stability and understandable focusing before large zoom numbers. The starting use case is adult-guided viewing of safe, dry everyday surfaces.",
+    "formHeading": "A fixed display above an open sample workspace",
+    "formDescription": "The proposed bench combines a low base, an open dry-sample stage and a bridge-mounted optical pod. A raised fixed rear screen is positioned above the bridge for a proposed shared viewing direction, with front controls and a side focus wheel. Viewing, reach, stability, optics and physical fit still need evaluation.",
+    "playSteps": [
+      {
+        "title": "Choose a safe dry sample",
+        "description": "An adult prepares an everyday surface such as a dry leaf or fabric and checks the power source."
+      },
+      {
+        "title": "Place and illuminate",
+        "description": "The sample sits on the proposed open platform, with controlled reflected light as the starting direction."
+      },
+      {
+        "title": "Focus together",
+        "description": "A manual focus control and shared screen are proposed for comparing visible surface details."
+      },
+      {
+        "title": "Save and discuss",
+        "description": "A capture flow and adult-managed wired export would support later comparison and discussion."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Observation direction",
+        "Adult-guided viewing of safe dry surfaces"
+      ],
+      [
+        "Optics",
+        "Lens, useful field of view and resolution not established"
+      ],
+      [
+        "Display",
+        "Fixed shared colour screen proposed"
+      ],
+      [
+        "Focus",
+        "Manual vertical adjustment direction; travel and mechanism need validation"
+      ],
+      [
+        "Power",
+        "External 5 V supply direction; suitable source to be selected"
+      ],
+      [
+        "Design envelope",
+        "Approximately 176 W × 164 D × 250 H mm; not physically verified"
+      ],
+      [
+        "Development stage",
+        "Digital concept; no optical or physical performance validation"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Requirements can be explored during a future development brief, subject to feasibility, ownership, cost and validation agreement.",
+    "discussionOptions": [
+      "Safe sample tasks and target audience",
+      "Optical module, lighting and calibration scope",
+      "Screen position, focus control and sample access",
+      "Original UI, exercises and languages",
+      "Power, wired export and maintenance requirements",
+      "Prototype, cost and market-specific validation plan"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the task",
+        "description": "Define the audience, market, intended changes and commercial constraints."
+      },
+      {
+        "title": "Test low-cost ideas",
+        "description": "Evaluate a paper/screen mock-up and a full-size form model before custom electronics or tooling."
+      },
+      {
+        "title": "Check real components",
+        "description": "Assess imaging, controls, power, structure and applicable safety requirements with actual modules."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, quotations and validation responsibilities before development decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target audience, market and intended changes. Start with a concept review, not an order for an existing physical product.",
+    "faqs": [
+      {
+        "question": "What magnification or resolution does BenchLeaf provide?",
+        "answer": "Neither has been established. Lens properties, field of view, sensor sampling, lighting and real target tests are needed. Digital enlargement or sensor pixel count alone does not prove optical detail."
+      },
+      {
+        "question": "Can it be used for medical work or to identify bacteria?",
+        "answer": "No such capability is proposed or established. This concept starts with guided exploration of safe dry everyday surfaces, not diagnosis, pathogen handling or precision measurement."
+      },
+      {
+        "question": "Is it a handheld microscope?",
+        "answer": "The selected direction is a fixed tabletop bench with a shared display. A handheld or hinged-screen format is not part of this proposed MVP."
+      },
+      {
+        "question": "Is a battery or wireless sharing included?",
+        "answer": "The starting concept uses external power and adult-managed wired export. No internal battery or wireless sharing is proposed."
+      },
+      {
+        "question": "Do the images show working optics or a physical sample?",
+        "answer": "No. They show a digital concept model. No physical prototype, mould tooling, custom PCB, optical test or other physical validation has been completed."
+      },
+      {
+        "question": "Can the concept be developed for our market?",
+        "answer": "The observation tasks, optics, form and content can be discussed in a development brief. Age grading, feasibility, ownership, cost and applicable safety requirements need evaluation before development."
+      }
+    ],
+    "image": "/images/products/original-concepts/benchleaf-digital-observation-bench-concept/hero.png",
+    "imageAlt": "Digital concept rendering of BenchLeaf, benchleaf digital observation bench. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/benchleaf-digital-observation-bench-concept/front.png",
+        "alt": "Front view of the BenchLeaf digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/benchleaf-digital-observation-bench-concept/detail.png",
+        "alt": "Detail view of the BenchLeaf digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "pocketarc-screen-free-camera-concept-r01",
+    "slug": "pocketarc-screen-free-camera-concept",
+    "shortName": "PocketArc",
+    "name": "PocketArc Screen-Free Camera Concept",
+    "title": "PocketArc Screen-Free Camera Concept | LEANODM",
+    "description": "A proposed screen-free pocket camera for collecting everyday details and reviewing together later. An unvalidated original concept for co-development.",
+    "summary": "A pocket photo-collection concept with a fixed framing window, one capture control and adult-managed wired review. No display or wireless sharing is proposed.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Collect the moment. Review it together later.",
+    "intro": "The starting idea keeps capture simple and postpones picture selection until an adult-led review. The value of this screen-free experience still needs user evaluation.",
+    "formHeading": "A compact camera with a fixed framing window",
+    "formDescription": "A proposed open framing window sits above a fixed camera area. It is a guide for rough composition, not an optical zoom system. Alignment, parallax, grip and component fit remain untested.",
+    "playSteps": [
+      {
+        "title": "Choose an observation task",
+        "description": "An adult checks power and storage and explains that pictures will be reviewed later."
+      },
+      {
+        "title": "Frame a subject",
+        "description": "The proposed fixed window guides rough composition during a walk or short activity."
+      },
+      {
+        "title": "Press and wait",
+        "description": "One capture control and distinct status feedback are proposed for taking and saving a photo."
+      },
+      {
+        "title": "Review together",
+        "description": "An adult would export the files by cable and choose pictures to discuss, without a cloud account."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Experience",
+        "Screen-free still-photo collection"
+      ],
+      [
+        "Framing",
+        "Fixed open window for rough composition; calibration needed"
+      ],
+      [
+        "Controls",
+        "One capture/power control with status feedback proposed"
+      ],
+      [
+        "Data direction",
+        "Adult-managed wired export; no wireless sharing proposed"
+      ],
+      [
+        "Design envelope",
+        "Approximately 84 W × 64 H × 34 D mm; not physically verified"
+      ],
+      [
+        "Development stage",
+        "Digital concept; image quality and age grading not established"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Requirements can be explored during a future development brief, subject to feasibility, ownership, cost and validation agreement.",
+    "discussionOptions": [
+      "Target activity and adult review flow",
+      "Framing window and grip evaluation",
+      "Original colours, UI signals and identity",
+      "Lens, storage and battery choices",
+      "Export compatibility and privacy requirements",
+      "Prototype scope, cost and validation plan"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the task",
+        "description": "Define the audience, market, intended changes and commercial constraints."
+      },
+      {
+        "title": "Test low-cost ideas",
+        "description": "Evaluate a paper/screen mock-up and a full-size form model before custom electronics or tooling."
+      },
+      {
+        "title": "Check real components",
+        "description": "Assess imaging, controls, power, structure and applicable safety requirements with actual modules."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, quotations and validation responsibilities before development decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target audience, market and intended changes. Start with a concept review, not an order for an existing physical product.",
+    "faqs": [
+      {
+        "question": "Does PocketArc have a screen?",
+        "answer": "The selected concept is screen-free. Pictures would be reviewed after adult-managed wired export. This trade-off still needs user testing."
+      },
+      {
+        "question": "Is the framing window an optical zoom lens?",
+        "answer": "No. It is a proposed fixed guide for rough composition. Field of view, parallax and useful working distances need evaluation with real camera components."
+      },
+      {
+        "question": "Are image resolution and battery life confirmed?",
+        "answer": "No. Output dimensions are not a guarantee of useful image detail, and battery capacity alone does not establish runtime."
+      },
+      {
+        "question": "Does it record video, sound or upload wirelessly?",
+        "answer": "Those features are outside this proposed still-photo MVP. The starting idea uses a simple capture flow and adult-managed wired review."
+      },
+      {
+        "question": "Do the images show a physical prototype?",
+        "answer": "No. They are digital concept views. No physical prototype, mould tooling, custom PCB or physical validation has been completed."
+      },
+      {
+        "question": "Can we order it or get a production price?",
+        "answer": "It is a concept for review and possible co-development. Specification, feasibility, ownership, quotation and validation would need agreement first."
+      }
+    ],
+    "image": "/images/products/original-concepts/pocketarc-screen-free-camera-concept/hero.png",
+    "imageAlt": "Digital concept rendering of PocketArc, pocketarc screen-free camera. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/pocketarc-screen-free-camera-concept/front.png",
+        "alt": "Front view of the PocketArc digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/pocketarc-screen-free-camera-concept/detail.png",
+        "alt": "Detail view of the PocketArc digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "trailframe-two-grip-camera-concept-r01",
+    "slug": "trailframe-two-grip-camera-concept",
+    "shortName": "TrailFrame",
+    "name": "TrailFrame Two-Grip Camera Concept",
+    "title": "TrailFrame Two-Grip Camera Concept | LEANODM",
+    "description": "A proposed two-grip camera for shared observation and adult-managed review. An unvalidated original concept available for customer co-development.",
+    "summary": "An offline camera concept with two integrated grip areas, a picture preview screen and a clear capture-and-review flow. Digital design only, for customer review.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Frame a moment, then tell its story.",
+    "intro": "A proposed camera-first experience for shared walks and observation tasks, with fewer entertainment modes competing for attention.",
+    "formHeading": "Two grip areas around a central camera",
+    "formDescription": "The proposed wide body separates the grip zones from the lens and rear display. Grip spacing, weight, buttons and component fit still need physical evaluation.",
+    "playSteps": [
+      {
+        "title": "Agree a photo task",
+        "description": "An adult introduces an observation idea and checks storage and power."
+      },
+      {
+        "title": "Hold and frame",
+        "description": "The user holds the two grip areas and frames a subject on the proposed rear display."
+      },
+      {
+        "title": "Capture and review",
+        "description": "A large shutter is proposed for taking a picture, followed by a simple review flow."
+      },
+      {
+        "title": "Share with an adult",
+        "description": "An adult would manage wired export and choose pictures to discuss. No wireless sharing is proposed."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Experience",
+        "Offline capture and review with a two-grip posture"
+      ],
+      [
+        "Controls",
+        "A large shutter and two review/menu controls are proposed"
+      ],
+      [
+        "Display",
+        "A landscape preview display is a design direction"
+      ],
+      [
+        "Power",
+        "Protected rechargeable battery arrangement under evaluation"
+      ],
+      [
+        "Design envelope",
+        "Approximately 158 W × 96 H × 48 D mm; not physically verified"
+      ],
+      [
+        "Age grading",
+        "Not established; target audience needs evaluation"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Requirements can be explored during a future development brief, subject to feasibility, ownership, cost and validation agreement.",
+    "discussionOptions": [
+      "Observation tasks and target audience",
+      "Original UI, languages and visual identity",
+      "Grip spacing, colours and surface finishes",
+      "Lens/display/component choices",
+      "Battery, storage and adult export workflow",
+      "Prototype scope and market-specific validation"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the task",
+        "description": "Define the audience, market, intended changes and commercial constraints."
+      },
+      {
+        "title": "Test low-cost ideas",
+        "description": "Evaluate a paper/screen mock-up and a full-size form model before custom electronics or tooling."
+      },
+      {
+        "title": "Check real components",
+        "description": "Assess imaging, controls, power, structure and applicable safety requirements with actual modules."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, quotations and validation responsibilities before development decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target audience, market and intended changes. Start with a concept review, not an order for an existing physical product.",
+    "faqs": [
+      {
+        "question": "Is TrailFrame an existing physical camera?",
+        "answer": "No. It is a digital product concept. No physical prototype, tooling, custom PCB or physical validation has been completed."
+      },
+      {
+        "question": "What image resolution and zoom are available?",
+        "answer": "They have not been established. Sensor output size, lens quality, focus and usable detail require component selection and real image tests. No zoom claim is offered."
+      },
+      {
+        "question": "Does it include games, wireless sharing or voice recording?",
+        "answer": "These are outside the proposed MVP. The starting point is offline picture capture and review with adult-managed wired export."
+      },
+      {
+        "question": "What age is it suitable for?",
+        "answer": "Final age grading, content suitability and safety requirements remain to be evaluated."
+      },
+      {
+        "question": "Can it be adapted for our range?",
+        "answer": "Appearance, grip arrangement, UI and requirements can be discussed in a development brief, subject to feasibility, ownership, cost and validation agreement."
+      },
+      {
+        "question": "What are the price, MOQ and lead time?",
+        "answer": "They are not set. They require an agreed specification, prototype scope and supplier assessment."
+      }
+    ],
+    "image": "/images/products/original-concepts/trailframe-two-grip-camera-concept/hero.png",
+    "imageAlt": "Digital concept rendering of TrailFrame, trailframe two-grip camera. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/trailframe-two-grip-camera-concept/front.png",
+        "alt": "Front view of the TrailFrame digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/trailframe-two-grip-camera-concept/detail.png",
+        "alt": "Detail view of the TrailFrame digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "pattern-pebble-r01",
+    "slug": "pattern-pebble",
+    "shortName": "Pattern Pebble",
+    "name": "Pattern Pebble Sequence Game Concept",
+    "title": "Pattern Pebble Sequence Game Concept | LEANODM",
+    "description": "A compact offline sequence-game concept with six shape-marked light-and-sound buttons around a shared tabletop disc. Unvalidated concept for customer selection and reference.",
+    "summary": "A compact offline sequence-game concept with six shape-marked light-and-sound buttons around a shared tabletop disc.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Watch, listen and repeat a short sequence",
+    "intro": "Pattern Pebble explores quick, repeatable rounds that a child or family can play around one small object. The proposed MVP generates local tones and sequences without a screen, microphone or account.",
+    "formHeading": "A shared disc with six shape-marked buttons",
+    "formDescription": "Six shape-marked response buttons surround a compact tabletop disc, with a separate start/pause action. Local light and sound cues are proposed. Button reach, cue timing, sound exposure and understandable feedback need user and physical evaluation.",
+    "playSteps": [
+      {
+        "title": "Choose a short round",
+        "description": "Choose a short round and watch the demonstration."
+      },
+      {
+        "title": "Watch and listen",
+        "description": "Watch and listen as the shape buttons form a sequence."
+      },
+      {
+        "title": "Repeat the sequence",
+        "description": "Repeat the sequence after the input cue."
+      },
+      {
+        "title": "Replay or share a turn",
+        "description": "Try a shorter round, replay or pass the turn."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Response controls",
+        "Six proposed shape-marked response buttons"
+      ],
+      [
+        "Round control",
+        "One start / pause control"
+      ],
+      [
+        "Feedback direction",
+        "Local light cues and speaker-generated tones"
+      ],
+      [
+        "Proposed first version",
+        "No screen, microphone, wireless or personal profile in the proposed MVP"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Number of buttons and shape recognition",
+      "Sequence rules and turn-taking",
+      "Key force, desk stability and speaker volume",
+      "Materials, original sound design and cost target"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is the shown object ready to order?",
+        "answer": "No. It is an unvalidated product concept for customer discussion, with no mold, PCB or working physical sample."
+      },
+      {
+        "question": "Does it prove or measure memory improvement?",
+        "answer": "No. It proposes a sequence game and makes no therapeutic, diagnostic or educational-efficacy claim."
+      },
+      {
+        "question": "Does it need an app?",
+        "answer": "No app is proposed for the selected MVP. Tone generation and sequence rules would run locally."
+      },
+      {
+        "question": "Can the rules or appearance be customized?",
+        "answer": "Button count, shapes, colors, sound design and turn-taking rules can be discussed. Engineering, content and physical tests remain ahead."
+      }
+    ],
+    "image": "/images/products/original-concepts/pattern-pebble/hero.png",
+    "imageAlt": "Digital concept rendering of Pattern Pebble, pattern pebble sequence game. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/pattern-pebble/front.png",
+        "alt": "Front view of the Pattern Pebble digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/pattern-pebble/detail.png",
+        "alt": "Detail view of the Pattern Pebble digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "logic-harbor-r01",
+    "slug": "logic-harbor",
+    "shortName": "Logic Harbor",
+    "name": "Logic Harbor Card Workbench Concept",
+    "title": "Logic Harbor Card Workbench Concept | LEANODM",
+    "description": "A tabletop card-learning concept that pairs one clear picture question with four physical answer positions. Unvalidated concept for customer selection and reference.",
+    "summary": "A tabletop card-learning concept that pairs one clear picture question with four physical answer positions.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Choose a picture and discuss the answer",
+    "intro": "Logic Harbor explores a quieter way to present a single original card task. A proposed adult-entered card ID links the printed question to local feedback, without a camera or automatic card reader in the MVP.",
+    "formHeading": "One card position and four answer controls",
+    "formDescription": "A tabletop card position sits above four physical answer buttons in a two-by-two layout. An adult would enter and confirm the printed card ID. Automatic optical card reading is outside the proposed first version; card matching and feedback remain untested.",
+    "playSteps": [
+      {
+        "title": "Choose an original card",
+        "description": "An adult selects one original question card."
+      },
+      {
+        "title": "Confirm its card ID",
+        "description": "Enter and confirm its printed card ID."
+      },
+      {
+        "title": "Choose a picture answer",
+        "description": "Choose one of four picture options and press the matching button."
+      },
+      {
+        "title": "Discuss and change the card",
+        "description": "Discuss the feedback, try again or change the card."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Answer layout",
+        "Four proposed physical answer buttons in a 2 × 2 arrangement"
+      ],
+      [
+        "Adult setup",
+        "Adult card-ID selection and confirmation controls"
+      ],
+      [
+        "Feedback direction",
+        "Small card-ID display and local speaker"
+      ],
+      [
+        "Card matching",
+        "Manual ID matching; no optical card recognition in the proposed MVP"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Card-ID reliability and adult setup",
+      "Original question content, age fit and languages",
+      "Card materials, retention and storage",
+      "Key reach, acoustic limits and production feasibility"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is there a working physical sample?",
+        "answer": "No. This is a concept for customer selection and reference. No mold, PCB or physical prototype has been built or tested."
+      },
+      {
+        "question": "Does the device read a card automatically?",
+        "answer": "The proposed MVP uses an adult-entered card ID. The adult must match and confirm the ID printed on the card."
+      },
+      {
+        "question": "Are learning improvements proven?",
+        "answer": "No. The concept defines a card-and-button play experience; no educational efficacy, intelligence score or developmental result is claimed."
+      },
+      {
+        "question": "Can the card set be customized?",
+        "answer": "Original subjects, languages, artwork and answer rules can be discussed. Content review, licensing and validation remain part of development."
+      }
+    ],
+    "image": "/images/products/original-concepts/logic-harbor/hero.png",
+    "imageAlt": "Digital concept rendering of Logic Harbor, logic harbor card workbench. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/logic-harbor/front.png",
+        "alt": "Front view of the Logic Harbor digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/logic-harbor/detail.png",
+        "alt": "Detail view of the Logic Harbor digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "pathshift-captive-sliding-puzzle-concept-r01",
+    "slug": "pathshift-captive-sliding-puzzle-concept",
+    "shortName": "PathShift",
+    "name": "PathShift Captive Sliding Puzzle Concept",
+    "title": "PathShift Captive Sliding Puzzle Concept | LEANODM",
+    "description": "Explore PathShift, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "A proposed screen-free sliding puzzle with retained pieces and original spatial challenges. The selected mechanical route uses human judgement, not magnetic piece recognition or AI.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Plan a route with pieces that stay on the board",
+    "intro": "A proposed screen-free sliding puzzle with retained pieces and original spatial challenges. The selected mechanical route uses human judgement, not magnetic piece recognition or AI.",
+    "formHeading": "A retained-piece sliding puzzle",
+    "formDescription": "The selected mechanical direction keeps puzzle pieces within a bounded sliding path. Original printed challenges guide play while people judge the result. Piece movement, retention, gaps, wear and cleaning require physical prototypes and safety review.",
+    "playSteps": [
+      {
+        "title": "Choose a challenge",
+        "description": "An original starting layout and a target area would define the task."
+      },
+      {
+        "title": "Move the retained pieces",
+        "description": "The proposed tracks keep pieces with the board while allowing spatial moves. Retention still needs physical testing."
+      },
+      {
+        "title": "Check the target",
+        "description": "Players compare the large piece with the target area; the concept does not automatically judge the board."
+      },
+      {
+        "title": "Reset and try again",
+        "description": "An adult-guided reset and a new challenge would begin another round."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Format",
+        "Screen-free 4×4 retained-piece puzzle direction"
+      ],
+      [
+        "Power",
+        "No electronics or battery required for the selected route"
+      ],
+      [
+        "Decision",
+        "Human target confirmation; no AI or automatic detection"
+      ],
+      [
+        "Concept envelope",
+        "Approximately 188 W × 180 D × 32 H mm"
+      ],
+      [
+        "Content",
+        "Original challenge layouts; only an illustrative digital path has been checked"
+      ],
+      [
+        "Validation",
+        "Retention, finger clearances, difficulty and materials untested"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Audience, market and age grading",
+      "Original content or interaction rules",
+      "Form, materials and proportions",
+      "Power and component selection, where applicable",
+      "Prototype scope, validation and cost targets"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is this an existing physical product?",
+        "answer": "No. This is an original digital concept for review. No physical prototype, mould tooling, custom PCB or physical validation has been completed."
+      },
+      {
+        "question": "Are the proposed functions and dimensions verified?",
+        "answer": "No. They are design starting points for a development brief. Real components, usability, materials, safety and performance need evaluation."
+      },
+      {
+        "question": "Can this be adapted for our project?",
+        "answer": "Audience, appearance, interaction and applicable content can be discussed. Feasibility, ownership, scope, cost and validation responsibilities need agreement before development."
+      }
+    ],
+    "image": "/images/products/original-concepts/pathshift-captive-sliding-puzzle-concept/hero.png",
+    "imageAlt": "Digital concept rendering of PathShift, pathshift captive sliding puzzle. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/pathshift-captive-sliding-puzzle-concept/front.png",
+        "alt": "Front view of the PathShift digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/pathshift-captive-sliding-puzzle-concept/detail.png",
+        "alt": "Detail view of the PathShift digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "grid-grove-r01",
+    "slug": "grid-grove",
+    "shortName": "Grid Grove",
+    "name": "Grid Grove Visual Search Board Concept",
+    "title": "Grid Grove Visual Search Board Concept | LEANODM",
+    "description": "A paper-first visual-search board concept with a full 5 × 5 card area and a simple local timer. Unvalidated concept for customer selection and reference.",
+    "summary": "A paper-first visual-search board concept with a full 5 × 5 card area and a simple local timer.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Find a route and compare it together",
+    "intro": "Grid Grove explores a calm tabletop format for pointing, searching and taking turns. The selected direction keeps the task on a large printed card; the electronics only time the round.",
+    "formHeading": "A full paper card area beside a simple timer",
+    "formDescription": "The proposed board preserves a full five-by-five printed search area with a small reflective time display. A partner observes the search and finish is marked manually. Card retention, sight lines, display readability and the timing experience still need evaluation.",
+    "playSteps": [
+      {
+        "title": "Place a search card",
+        "description": "Insert an original printed search card."
+      },
+      {
+        "title": "Agree a route and begin",
+        "description": "Agree on a finding order and start the timer."
+      },
+      {
+        "title": "Find with a partner",
+        "description": "Point to each target while a partner observes."
+      },
+      {
+        "title": "Finish and compare",
+        "description": "Finish manually, compare the route and swap cards."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Timer controls",
+        "Two proposed timer controls"
+      ],
+      [
+        "Printed-card area",
+        "150 × 150 mm visible printed-card area"
+      ],
+      [
+        "Display direction",
+        "Small reflective elapsed-time display"
+      ],
+      [
+        "Result judgement",
+        "Manual finish and human observation; no automatic answer judging"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Card size, legibility and game rules",
+      "Timer controls and accuracy target",
+      "Original card pack and languages",
+      "Materials, cleanability and adult supervision"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is this a physical prototype?",
+        "answer": "No. The shown form is a digital product concept. Tooling, electronics and physical validation have not been carried out."
+      },
+      {
+        "question": "Does it automatically check the search order?",
+        "answer": "No. A player or partner observes the printed card and ends the timer manually."
+      },
+      {
+        "question": "Are the cards shown final content?",
+        "answer": "No. Card artwork and rules are proposed original content for development and review."
+      },
+      {
+        "question": "Does it measure concentration or learning gains?",
+        "answer": "No diagnostic or educational-outcome claim is made. The display would show elapsed time only."
+      }
+    ],
+    "image": "/images/products/original-concepts/grid-grove/hero.png",
+    "imageAlt": "Digital concept rendering of Grid Grove, grid grove visual search board. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/grid-grove/front.png",
+        "alt": "Front view of the Grid Grove digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/grid-grove/detail.png",
+        "alt": "Detail view of the Grid Grove digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "echo-trail-r01",
+    "slug": "echo-trail",
+    "shortName": "Echo Trail",
+    "name": "Echo Trail Listening Game Concept",
+    "title": "Echo Trail Listening Game Concept | LEANODM",
+    "description": "An original, offline tabletop listening-game concept with four large, shape-marked response buttons and replay-led turns. Unvalidated concept for customer selection and reference.",
+    "summary": "An original, offline tabletop listening-game concept with four large, shape-marked response buttons and replay-led turns.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Listen, respond and share another turn",
+    "intro": "Echo Trail explores a compact shared play surface for listening, responding and taking turns. Proposed cues can be tones, short spoken prompts or simple action instructions; the final content and interaction rules are open for development.",
+    "formHeading": "Four shape-marked response buttons",
+    "formDescription": "The proposed tabletop body places four large response buttons around a local speaker and small progress display. An adult setup/pause action supports shared turns. Cue content, response timing, hand reach and sound exposure require testing.",
+    "playSteps": [
+      {
+        "title": "Choose a listening round",
+        "description": "Choose a short listening round with an adult."
+      },
+      {
+        "title": "Listen to the cues",
+        "description": "Listen to a small sequence of tones or spoken cues."
+      },
+      {
+        "title": "Respond with the buttons",
+        "description": "Respond using four shape-marked buttons."
+      },
+      {
+        "title": "Replay or share a turn",
+        "description": "Replay, pause or swap turns for another round."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Response controls",
+        "Four proposed physical response buttons"
+      ],
+      [
+        "Adult setup",
+        "One adult setup / pause control"
+      ],
+      [
+        "Feedback direction",
+        "Local speaker and a small progress display"
+      ],
+      [
+        "Proposed first version",
+        "No microphone, camera, account or wireless connection in the proposed MVP"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Target age and adult facilitation",
+      "Language, cue length and original audio rights",
+      "Volume control and acoustic validation",
+      "Button size, force and color / shape coding"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Is this a finished or available product?",
+        "answer": "No. This is an unvalidated product concept for customer discussion. No mold, PCB or working physical prototype has been made."
+      },
+      {
+        "question": "Does it assess or improve attention?",
+        "answer": "No assessment or educational outcome is claimed. The proposed product supports a defined listening and button-response game."
+      },
+      {
+        "question": "Can content or languages change?",
+        "answer": "Languages and original cue packs can be discussed. Capacity, content licensing and production feasibility require development."
+      },
+      {
+        "question": "Does it need a phone?",
+        "answer": "The proposed tabletop MVP operates locally. A phone-based alternative was explored separately and is not the selected direction."
+      }
+    ],
+    "image": "/images/products/original-concepts/echo-trail/hero.png",
+    "imageAlt": "Digital concept rendering of Echo Trail, echo trail listening game. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/echo-trail/front.png",
+        "alt": "Front view of the Echo Trail digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/echo-trail/detail.png",
+        "alt": "Detail view of the Echo Trail digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  },
+  {
+    "id": "quiz-compass-audio-quiz-game-concept-r01",
+    "slug": "quiz-compass-audio-quiz-game-concept",
+    "shortName": "Quiz Compass",
+    "name": "Quiz Compass Audio Quiz Game Concept",
+    "title": "Quiz Compass Audio Quiz Game Concept | LEANODM",
+    "description": "Explore Quiz Compass, an original digital concept for customer review and possible co-development. No physical prototype or validation is complete.",
+    "summary": "An offline audio quiz concept with three clear answer buttons and a separate replay control. A compact tabletop direction for shared questions and short turns, presented as a digital idea for customer review.",
+    "status": "Digital concept only",
+    "stageSummary": "Digital concept · Not physically validated",
+    "statusDetail": "No physical prototype, mould tooling, custom PCB or physical validation has been completed. The images show digital concept models, not an existing physical product. Presented for customer selection, reference and possible co-development; not production-ready.",
+    "revision": "Concept R01",
+    "reviewedOn": "2026-10-24",
+    "introHeading": "Listen to a question and choose a response",
+    "intro": "An offline audio quiz concept with three clear answer buttons and a separate replay control. A compact tabletop direction for shared questions and short turns, presented as a digital idea for customer review.",
+    "formHeading": "Three answers and a separate replay control",
+    "formDescription": "A low circular tabletop body separates three answer buttons from a replay control. Spoken prompts and a stored answer table are proposed for offline rounds. Button differentiation, content correctness, sound exposure and shared use remain unvalidated.",
+    "playSteps": [
+      {
+        "title": "Choose a theme",
+        "description": "An adult or player selects one of the proposed question themes."
+      },
+      {
+        "title": "Listen to a short question",
+        "description": "The proposed device reads a question and three concise options from a reviewed offline content pack."
+      },
+      {
+        "title": "Choose an answer",
+        "description": "Players press one of three buttons. A stored answer table, rather than speech recognition, determines the response."
+      },
+      {
+        "title": "Hear and take turns",
+        "description": "A short explanation and the next question support shared turns; replay remains a dedicated action."
+      }
+    ],
+    "proposedInputs": [
+      [
+        "Form",
+        "Low circular tabletop body with short hand-held use considered"
+      ],
+      [
+        "Controls",
+        "Three answer buttons plus a separate replay/pause control"
+      ],
+      [
+        "Content route",
+        "Small reviewed audio packs; final content and languages to be developed"
+      ],
+      [
+        "Operation",
+        "Offline; no microphone, camera or wireless route proposed"
+      ],
+      [
+        "Indicative body",
+        "About142mm diameter; design dimensions, not verified specifications"
+      ],
+      [
+        "Audience",
+        "Exploratory family/early-primary direction; final age grading not established"
+      ]
+    ],
+    "discussionHeading": "A starting point for your product brief",
+    "discussionDescription": "Choose this direction as a reference, then define what your customers need. These are possible development discussions, not confirmed ready-made options.",
+    "discussionOptions": [
+      "Question themes and content review",
+      "Language and recording style",
+      "Button icons and colour identity",
+      "Hand-held versus tabletop priorities",
+      "Power, audio level and prototype scope"
+    ],
+    "developmentSteps": [
+      {
+        "title": "Agree the brief",
+        "description": "Define the audience, sales market, intended experience, original content, changes and commercial constraints."
+      },
+      {
+        "title": "Check the experience",
+        "description": "Use simple mock-ups and a full-size form model to assess the proposed task before committing to tooling or custom electronics."
+      },
+      {
+        "title": "Evaluate feasibility",
+        "description": "Review real components or mechanisms, power where applicable, usability, structure and market-specific safety requirements."
+      },
+      {
+        "title": "Decide whether to develop",
+        "description": "Agree scope, ownership, budget, prototype stages and validation responsibilities. Tooling and production assessment would be later decisions."
+      }
+    ],
+    "closingHeading": "Would this direction fit your product range?",
+    "closingDescription": "Share your target market, intended users and changes. Begin with a concept review and a development brief.",
+    "faqs": [
+      {
+        "question": "Does it recognise spoken answers?",
+        "answer": "No speech recognition is proposed. Players choose from three physical buttons and a stored answer table."
+      },
+      {
+        "question": "Why is there no electronic screen?",
+        "answer": "The initial direction focuses on listening and shared turns. Whether that makes questions easier to use must be tested with mock-ups."
+      },
+      {
+        "question": "How many questions are included?",
+        "answer": "No final commercial content pack exists. The internal concept uses a small seed-library scenario; actual content and languages would be agreed during development."
+      },
+      {
+        "question": "Is this concept ready to order?",
+        "answer": "No. It is an original digital concept for review. Feasibility, physical prototypes, tooling, electronics and validation would need a separately agreed development project."
+      },
+      {
+        "question": "Can it be adapted for our brand or market?",
+        "answer": "Content, languages, appearance, audience and intended changes can be discussed. Feasibility, ownership, project scope, cost and market-specific safety work would need agreement."
+      },
+      {
+        "question": "What are the price, MOQ and lead time?",
+        "answer": "They have not been set. A meaningful quotation requires an agreed specification, prototype scope, feasibility review and supplier assessment."
+      }
+    ],
+    "image": "/images/products/original-concepts/quiz-compass-audio-quiz-game-concept/hero.png",
+    "imageAlt": "Digital concept rendering of Quiz Compass, quiz compass audio quiz game. Not a physical prototype.",
+    "gallery": [
+      {
+        "src": "/images/products/original-concepts/quiz-compass-audio-quiz-game-concept/front.png",
+        "alt": "Front view of the Quiz Compass digital concept. Proposed form, not a physical prototype.",
+        "caption": "Front · Proposed arrangement"
+      },
+      {
+        "src": "/images/products/original-concepts/quiz-compass-audio-quiz-game-concept/detail.png",
+        "alt": "Detail view of the Quiz Compass digital concept. Geometry and features remain subject to physical validation.",
+        "caption": "Detail · Proposed form and interfaces"
+      }
+    ],
+    "imageWidth": 1440,
+    "imageHeight": 1080
+  }
+]
