@@ -24,6 +24,14 @@ def build(stage):
     turn = FrictionTurn(stage, "manual_turn_knob", (1, 0, 0), (0, 64, 70),
                         wrist=(.65, -.7, .4), dorsal=(1, 0, .45),
                         follow_wrist_rotation=False)
+    # Keep the artificial far sleeve opening beyond the right image edge.
+    # Only its last ring moves; the wrist fit and contact pose stay unchanged.
+    sleeve = turn.hand.cuff
+    sleeve_end = max(vertex.co.z for vertex in sleeve.data.vertices)
+    for vertex in sleeve.data.vertices:
+        if vertex.co.z > sleeve_end - 1e-6:
+            vertex.co.z += .020
+    sleeve.data.update()
     replay_normal = top_normal(stage, "replay_language_key_0")
     replay = stage.pointer("replay_language_key_0", normal=replay_normal,
                            wrist=(-1.0, -.50, .65), radius_mm=10)
