@@ -143,5 +143,15 @@
     "posterWidth": 1280,
     "posterHeight": 720,
     "createdAt": "2026-10-26T16:14:37.697Z"
+  },
+  {
+    "slug": "readloop-acoustic-voice-guide-concept",
+    "durationSeconds": 28,
+    "width": 1920,
+    "height": 1080,
+    "posterWidth": 1280,
+    "posterHeight": 720,
+    "createdAt": "2026-10-26T16:34:18.264Z",
+    "creditsHref": "/media/concept-demos/3d/credits.html#head-reference"
   }
 ]
