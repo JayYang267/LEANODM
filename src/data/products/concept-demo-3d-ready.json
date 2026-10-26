@@ -134,5 +134,14 @@
     "posterHeight": 720,
     "createdAt": "2026-10-26T15:46:55.277Z",
     "creditsHref": "/media/concept-demos/3d/credits.html#head-reference"
+  },
+  {
+    "slug": "picture-harbor-turning-picture-drum-concept",
+    "durationSeconds": 28,
+    "width": 1920,
+    "height": 1080,
+    "posterWidth": 1280,
+    "posterHeight": 720,
+    "createdAt": "2026-10-26T16:14:37.697Z"
   }
 ]
