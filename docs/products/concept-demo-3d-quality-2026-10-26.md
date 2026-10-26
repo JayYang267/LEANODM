@@ -10,6 +10,8 @@ The initial PathShift and PictureHarbor clips were later found to contain abrupt
 
 See [the native film pipeline](native-concept-film-pipeline.md) for source, private input requirements and the review-to-release procedure. Historical work and QA files named below are private evidence paths, not files required for the website build.
 
+ReadLoop's first complete repair clip was subsequently blocked for a sleeve-lighting artifact. Ray probes showed the visible sleeve crossed the nearby one-sided fill-light plane, producing a hard grey ellipse that resembled an open tube. Its scene now moves only that fill light four times farther from the studio focus, with emitting size multiplied by four and power by sixteen. The product, grasp, camera, visibility, timeline and audio specification are unchanged across all 672 compared frames. CPU previews and exact switch/shadow pairs pass, and every visible sleeve surface stays at least 0.683 m in front of the emitter plane. This is source preflight evidence; only a new independently reviewed encoded clip may replace the blocked movie.
+
 ## Rejected batch and containment
 
 The previous batch of 17 concept demo videos is rejected. Its static product images, two-dimensional diagrams and explanatory text do not provide the requested product interaction and three-dimensional animation. That batch must not serve as the final product demonstration.

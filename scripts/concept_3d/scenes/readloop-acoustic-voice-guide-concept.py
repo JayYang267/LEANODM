@@ -38,6 +38,15 @@ def grasp_digit(hand,digit,target_world):
     bpy.context.view_layer.update()
 
 def build(stage):
+    # The carried forearm extends beyond the native product's studio volume.
+    # Keep its visible sleeve in front of the one-sided fill emitter instead
+    # of cutting through that light plane. Angular size and radiant density
+    # at the original studio focus stay unchanged.
+    fill = stage.scene.objects['Soft fill']
+    fill_distance_factor = 4.0
+    fill.location = stage.focus + (fill.location-stage.focus)*fill_distance_factor
+    fill.data.size *= fill_distance_factor
+    fill.data.energy *= fill_distance_factor**2
     head,meshes=head_reference(stage,width=.150,height=None,top=.26,location=(-.10,.04,0))
     floor=min(v.co.z for o in meshes for v in o.data.vertices)
     head.location.z-=floor
