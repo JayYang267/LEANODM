@@ -25,5 +25,14 @@
     "posterWidth": 1280,
     "posterHeight": 720,
     "createdAt": "2026-10-26T12:41:31.345Z"
+  },
+  {
+    "slug": "echo-trail",
+    "durationSeconds": 26,
+    "width": 1920,
+    "height": 1080,
+    "posterWidth": 1280,
+    "posterHeight": 720,
+    "createdAt": "2026-10-26T12:53:08.969Z"
   }
 ]
