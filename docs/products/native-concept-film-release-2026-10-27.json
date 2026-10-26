@@ -1,0 +1,772 @@
+{
+  "schemaVersion": 1,
+  "description": "Accepted native concept-film release snapshot; digital demonstrations of proposed use, not validated physical prototypes.",
+  "verifiedAt": "2026-10-26T16:45:08.674Z",
+  "filmCommit": "05dd335e3f0002de17288f9d1b6c7d2b73d6f49f",
+  "sourceCodeCommit": "c95b99c1813fa4ab2da26b646fe1cf92fbd81666",
+  "origin": "https://leanodm.com",
+  "verification": {
+    "conceptPages": 17,
+    "videoElements": 17,
+    "videoObjects": 17,
+    "nativeMediaAssets": 51,
+    "creditsAssets": 1,
+    "assetChecks": "Live MP4/poster SHA256 matched accepted local bytes; VTT and credits text matched after line-ending normalization."
+  },
+  "sourceBundle": {
+    "scriptFiles": 39,
+    "files": [
+      {
+        "file": "scripts/audit-native-concept.py",
+        "sha256": "fd40776cefb0d775fed5723498dfd578746474a78578473d32e84a526f9297c2",
+        "bytes": 1541
+      },
+      {
+        "file": "scripts/concept_3d/articulated_hand.py",
+        "sha256": "55b3dd80ca22292cacb64408b782348b8413c6ea6ba4cfa9ec3ea7872941e6db",
+        "bytes": 20495
+      },
+      {
+        "file": "scripts/concept_3d/demo_stage.py",
+        "sha256": "5ee2036ea277226d4a023ac7d8ab60af6a40a489868227065c64ef51cca6e751",
+        "bytes": 11908
+      },
+      {
+        "file": "scripts/concept_3d/native_scene.py",
+        "sha256": "476f410354b3ee54f8fcd13d6961abca37b29f2567aeab8cfe54edf094bb41b8",
+        "bytes": 19051
+      },
+      {
+        "file": "scripts/concept_3d/scene_cache.py",
+        "sha256": "fea20b0b67a4bbc05537efea57d7f3eca613fa6760ace779a2111278aa84c1ce",
+        "bytes": 4919
+      },
+      {
+        "file": "scripts/concept_3d/scenes/_capture_puzzle.py",
+        "sha256": "3daf5a95d8f24c2155a4cc89d6a90dc69f7672e579c4fedd1d918471d5ab2bc0",
+        "bytes": 13902
+      },
+      {
+        "file": "scripts/concept_3d/scenes/_game_interaction.py",
+        "sha256": "c896d31e09c5493ec603e31c529db500f3559bf6cb2e6026bd266d816f871dc4",
+        "bytes": 7150
+      },
+      {
+        "file": "scripts/concept_3d/scenes/_human_context.py",
+        "sha256": "17d752184627a75b2a14f91c50fd2d7e6774629f136760a7ac62d4b342e5a938",
+        "bytes": 2917
+      },
+      {
+        "file": "scripts/concept_3d/scenes/_language_timer_tools.py",
+        "sha256": "8a317d9228e9bc1aa9b93c9cf5607dcc6ef8797507127dcf2222beb6e7fd5fcd",
+        "bytes": 7546
+      },
+      {
+        "file": "scripts/concept_3d/scenes/benchleaf-digital-observation-bench-concept.py",
+        "sha256": "182bb7f3f6a081d50b8811666ed6c76fe045e3f1926bbbcfe924f75487b4cd25",
+        "bytes": 3224
+      },
+      {
+        "file": "scripts/concept_3d/scenes/echo-trail.py",
+        "sha256": "bfde5ae4eb4d11aa949326b4f02cbd22354f1a1bb9ec145164fce5dfce87bcbd",
+        "bytes": 2215
+      },
+      {
+        "file": "scripts/concept_3d/scenes/grid-grove.py",
+        "sha256": "91d9e2ede68c7c495368f379514a69323391b15f8851adaffe6cfed8953ff37b",
+        "bytes": 2833
+      },
+      {
+        "file": "scripts/concept_3d/scenes/language-meadow-picture-audio-playboard-concept.py",
+        "sha256": "ca84190d5381f95082cd087bd1f090097c9e52d46a7cde966d307b405e4c7b57",
+        "bytes": 3211
+      },
+      {
+        "file": "scripts/concept_3d/scenes/listennest-open-cup-headphone-concept.py",
+        "sha256": "c7589872cfc04e28cb91adbca9fe18010171040fd112846ec45e472d8eb372bd",
+        "bytes": 5768
+      },
+      {
+        "file": "scripts/concept_3d/scenes/logic-harbor.py",
+        "sha256": "b29a4dd16121a113701cc2adec027880e9706d02b640bea59fe7751a3479e69c",
+        "bytes": 1997
+      },
+      {
+        "file": "scripts/concept_3d/scenes/pathshift-captive-sliding-puzzle-concept.py",
+        "sha256": "eead340e4c193a8179710fa7cf496750baefdcce9c62ce398b8d0f736d53cc98",
+        "bytes": 2152
+      },
+      {
+        "file": "scripts/concept_3d/scenes/pattern-pebble.py",
+        "sha256": "07fb70adce1cb784591f145e54bfbb7350b1fb0259526aaf74fb36bd1e356337",
+        "bytes": 1803
+      },
+      {
+        "file": "scripts/concept_3d/scenes/picture-harbor-turning-picture-drum-concept.py",
+        "sha256": "3d2d37bd5c5b9fe32f87d9a9f3eb08cbb8da544a03d0a3be87bd9a6bb7241b88",
+        "bytes": 3075
+      },
+      {
+        "file": "scripts/concept_3d/scenes/pocketarc-screen-free-camera-concept.py",
+        "sha256": "b4709989a1b5df7a0272affe6f4d8ff34a6dbeb5626f9aea4fbdda849b4a4391",
+        "bytes": 4053
+      },
+      {
+        "file": "scripts/concept_3d/scenes/quiz-compass-audio-quiz-game-concept.py",
+        "sha256": "fb75b68a40faa091b57836b118705f593ec0262b9b5aae407a116fe35f6cc6b9",
+        "bytes": 2615
+      },
+      {
+        "file": "scripts/concept_3d/scenes/readloop-acoustic-voice-guide-concept.py",
+        "sha256": "c7958bc522c381692ad92d098e48c788ad5178057b21081fc58d5043d09d4d8b",
+        "bytes": 9615
+      },
+      {
+        "file": "scripts/concept_3d/scenes/routinerail-visual-routine-timer-concept.py",
+        "sha256": "09247c9981f624ed12e4fc7a67e32e2ebb10ff779f5a2b67e936aa8ef3896888",
+        "bytes": 3394
+      },
+      {
+        "file": "scripts/concept_3d/scenes/sound-steps-two-card-sound-pairing-concept.py",
+        "sha256": "3e911754b507ffae51717cba33494cf5426974c911dd0a1b43db062eb390d6bd",
+        "bytes": 4302
+      },
+      {
+        "file": "scripts/concept_3d/scenes/timepebble-visual-interval-timer-concept.py",
+        "sha256": "8a4f871d49c67961afe1a340b71e5c414bd970eebf07edd88c87b623d2ff1495",
+        "bytes": 3532
+      },
+      {
+        "file": "scripts/concept_3d/scenes/trailframe-two-grip-camera-concept.py",
+        "sha256": "98a15f318d1b7dbb78139b3fe79832eb5a6cdaeda62f4e7a17f8b8f8ad4c4c4c",
+        "bytes": 3167
+      },
+      {
+        "file": "scripts/concept_3d/visibility_gate.py",
+        "sha256": "b5e90812080802f22ee7ae8d8be28a4faa7bef6903973fa3670c7884e6b74974",
+        "bytes": 4215
+      },
+      {
+        "file": "scripts/encode-native-concept.mjs",
+        "sha256": "bace0ada184c59dd4eb8f377cdd98b11dda1ce037e6450d0258fd183828d5dc0",
+        "bytes": 4362
+      },
+      {
+        "file": "scripts/encode-say-island-3d.mjs",
+        "sha256": "76dc02e62c92e6333db6e77f1b9b2ff54b39ad13ec3682c61e29e45f95649ca6",
+        "bytes": 4517
+      },
+      {
+        "file": "scripts/export-native-frame-cache.py",
+        "sha256": "af458a3f6f7ee2a5dd0f024592520ced39f8e583cb7a21b2f8d5c9ae47e2b2de",
+        "bytes": 1407
+      },
+      {
+        "file": "scripts/prepare-concept-audio.py",
+        "sha256": "1feff0d46b797b587ac407e98ee353855388620c50d78ab507ab15c5a544e856",
+        "bytes": 7477
+      },
+      {
+        "file": "scripts/register-native-demo.mjs",
+        "sha256": "cf313ff193563bc76c098e1a2256fc1d2ec06b1660315ed79d205fc6e44b1a2a",
+        "bytes": 2464
+      },
+      {
+        "file": "scripts/render-native-concept.py",
+        "sha256": "9e08f5f94a32dd314ea4e429b0f62fad7f92868af58237cc406ae8961b8bf162",
+        "bytes": 16132
+      },
+      {
+        "file": "scripts/render-native-speech.ps1",
+        "sha256": "30d80785f9a120d3964695fac10cb507bbee9172e33516d2c7473f78f9fc7a50",
+        "bytes": 1590
+      },
+      {
+        "file": "scripts/render-say-island-3d.py",
+        "sha256": "704bca0d1518c90387e0811c886bf812666d67f5a99776ec76bcc76bcc1c07b1",
+        "bytes": 20872
+      },
+      {
+        "file": "scripts/review-native-film-audio.mjs",
+        "sha256": "98cf010708e97348bfda6174d09a80b8e62b50239737b71b461eb922f2930e6d",
+        "bytes": 5346
+      },
+      {
+        "file": "scripts/review-native-film.mjs",
+        "sha256": "bc68bc9bc0f9dbd45b0852071a481719ef9e60721f766a0397f89c0ed1e87275",
+        "bytes": 4926
+      },
+      {
+        "file": "scripts/run-native-film-batch.py",
+        "sha256": "b4a2e44e6288dff1a16abafe17f9a0ba856a357bbda8fbd6675db4ea6ee21e94",
+        "bytes": 3770
+      },
+      {
+        "file": "scripts/verify-native-frame-cache.py",
+        "sha256": "49461e95b41a5c96ff9ed310891edb14196f493aec65472afc1fef0c8fba9bdd",
+        "bytes": 1359
+      },
+      {
+        "file": "scripts/watch-native-film-review.mjs",
+        "sha256": "975cc2fa9799ae58e3df0e1312e6cf9af871409fa04d2edf9309c9e7229a20c7",
+        "bytes": 3039
+      }
+    ]
+  },
+  "items": [
+    {
+      "slug": "say-island-picture-guessing-game-concept",
+      "durationSeconds": 30,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T04:31:44.210Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/say-island-picture-guessing-game-concept/",
+      "recordedRenderRevision": null,
+      "nativeFrames": 720,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/say-island-picture-guessing-game-concept.mp4",
+          "bytes": 7334038,
+          "sha256": "4b01fdd05b7bcf45dfd6363a622841b8b5d5c301e42985d32e34d0b8ec5bdf27",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/say-island-picture-guessing-game-concept.vtt",
+          "bytes": 613,
+          "sha256": "ef31e371cbaaf9a8beca00d144683efdf06da0537a4a96c8518711fac6d5406e",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/say-island-picture-guessing-game-concept-poster.webp",
+          "bytes": 29146,
+          "sha256": "59d32f97d6470548ec73a932c224a857ecb4037c9dd849b243f89459d2b1fd7e",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "pattern-pebble",
+      "durationSeconds": 26,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T09:11:00.064Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/pattern-pebble/",
+      "recordedRenderRevision": "c0eb0e29a39e",
+      "nativeFrames": 624,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/pattern-pebble.mp4",
+          "bytes": 3561509,
+          "sha256": "2f1951749a1d463db2fb9a396553c91149622ab2954b509a57efb0aaa1eaf24f",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/pattern-pebble.vtt",
+          "bytes": 270,
+          "sha256": "8056d936a222aad0712322ddbca74c78e07ace51b5f04b593a53ed411d51d4b7",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/pattern-pebble-poster.webp",
+          "bytes": 18244,
+          "sha256": "93869bc99529ff9a1bf317d245e4e64850095c2471194f504eb151f972701aa2",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "logic-harbor",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T12:41:31.345Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/logic-harbor/",
+      "recordedRenderRevision": "2712e0ca713d",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/logic-harbor.mp4",
+          "bytes": 4404602,
+          "sha256": "46a7ad180b4117058bc074827f205db6e0e1213f4a7fb64ad62dc87e9a39b8b0",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/logic-harbor.vtt",
+          "bytes": 519,
+          "sha256": "d288f041ca4224aa2c0f45a4e336f375decd4578b7bdf085952b89bef4c16a00",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/logic-harbor-poster.webp",
+          "bytes": 20320,
+          "sha256": "588c2d0c724bfee1d06f4d7093a74c8611b023be4b2dae2cb3ca27390c9f0fb3",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "echo-trail",
+      "durationSeconds": 26,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T12:53:08.969Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/echo-trail/",
+      "recordedRenderRevision": "835509826c50",
+      "nativeFrames": 624,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/echo-trail.mp4",
+          "bytes": 4189159,
+          "sha256": "b1b925beaa6c4654fa0af04d8c4aa9801855b450c5e0eb3eb2d357f8a657ccef",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/echo-trail.vtt",
+          "bytes": 459,
+          "sha256": "44854a0a9c82fb99c82ea659ac807eccd69bf88ee19c93c4c152936522e4600b",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/echo-trail-poster.webp",
+          "bytes": 22506,
+          "sha256": "703cef127e2dbe0deee906efd6d0cef821da2d617be5d983f7ec62d1658b61eb",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "quiz-compass-audio-quiz-game-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T13:00:48.814Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/quiz-compass-audio-quiz-game-concept/",
+      "recordedRenderRevision": "62077e215bf0",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/quiz-compass-audio-quiz-game-concept.mp4",
+          "bytes": 3848502,
+          "sha256": "282a2a84d0417bde09f2a7e9b5a99b68c1191339ccc264d85e8676131abe731a",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/quiz-compass-audio-quiz-game-concept.vtt",
+          "bytes": 571,
+          "sha256": "6dab7f2e22075553848453048b7cca1cc2618773b06344d52c9bd0dfb0f55620",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/quiz-compass-audio-quiz-game-concept-poster.webp",
+          "bytes": 16984,
+          "sha256": "fcc32be5dd8954f1288150a99a74592a60724a570d95318598bfd1ffba5145e0",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "timepebble-visual-interval-timer-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T14:08:34.867Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/timepebble-visual-interval-timer-concept/",
+      "recordedRenderRevision": "01a8d2c7ffce",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/timepebble-visual-interval-timer-concept.mp4",
+          "bytes": 3459300,
+          "sha256": "447e7c605fa151f2db57377732c6d773dee31d92b5528d4effb847975d6ac738",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/timepebble-visual-interval-timer-concept.vtt",
+          "bytes": 116,
+          "sha256": "0879bbe3e9effabdaee120b8543fdd8202d7d6afc9c7a54f7cd02d94382dcb41",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/timepebble-visual-interval-timer-concept-poster.webp",
+          "bytes": 24886,
+          "sha256": "684cf3fd5794f63fc403eab785800484f3f51d4f9b8df5feb5c776fc5f7dea1f",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "language-meadow-picture-audio-playboard-concept",
+      "durationSeconds": 26,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T14:18:01.367Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/language-meadow-picture-audio-playboard-concept/",
+      "recordedRenderRevision": "9e9a769b7f97",
+      "nativeFrames": 624,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/language-meadow-picture-audio-playboard-concept.mp4",
+          "bytes": 2932601,
+          "sha256": "d36efc88445900c86fdf4d682049382fc9dab0822c0a824a7d028177a9a3238f",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/language-meadow-picture-audio-playboard-concept.vtt",
+          "bytes": 108,
+          "sha256": "d58925c07b2c6d96857912d26215c84090fa63c25bcefcddc244670c507c235c",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/language-meadow-picture-audio-playboard-concept-poster.webp",
+          "bytes": 18544,
+          "sha256": "2ff5753f8328340b8f1e562494a498ad28209b7aaab8c65c72a64dbe28345c59",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "routinerail-visual-routine-timer-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T14:27:41.602Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/routinerail-visual-routine-timer-concept/",
+      "recordedRenderRevision": "2f994f565210",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/routinerail-visual-routine-timer-concept.mp4",
+          "bytes": 3590269,
+          "sha256": "aa4ac1e8b35e3dd64a0013eae076b76860ceea5c7734215911de190f4539ed9b",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/routinerail-visual-routine-timer-concept.vtt",
+          "bytes": 167,
+          "sha256": "969bdb01acd56b5524caf937f333f4b8b5d38972f65ffc36984348d17362e455",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/routinerail-visual-routine-timer-concept-poster.webp",
+          "bytes": 21478,
+          "sha256": "414ffe1269b9faa5295c10ebeecc2c647adcd1eb33c82f53490c4655332e570c",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "sound-steps-two-card-sound-pairing-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T14:42:48.953Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/sound-steps-two-card-sound-pairing-concept/",
+      "recordedRenderRevision": "bc232e8d2b90",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/sound-steps-two-card-sound-pairing-concept.mp4",
+          "bytes": 3892959,
+          "sha256": "a60a8f9ae67a9439491dd919cb59a8963e7411510f4e36f314b7f46caa15b95e",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/sound-steps-two-card-sound-pairing-concept.vtt",
+          "bytes": 233,
+          "sha256": "80edfca453d53dc8608de8845160f1e23b76799fe4f7419d34ddde8a6b7dfe3b",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/sound-steps-two-card-sound-pairing-concept-poster.webp",
+          "bytes": 17224,
+          "sha256": "9703137816ff52784c84d6bb8d1b769b27434aa55e1ac142ded23b13fa480d96",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "benchleaf-digital-observation-bench-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T14:54:20.360Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/benchleaf-digital-observation-bench-concept/",
+      "recordedRenderRevision": "6c5bcad10359",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/benchleaf-digital-observation-bench-concept.mp4",
+          "bytes": 4462617,
+          "sha256": "b026a698546c945d27ebf2d73faa3979ce4766410defebe691e6c22e20c98ea4",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/benchleaf-digital-observation-bench-concept.vtt",
+          "bytes": 275,
+          "sha256": "94a81012d2858fe92acfe0d49350b14eb620d32329462bfe7cf21591dd20f9f0",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/benchleaf-digital-observation-bench-concept-poster.webp",
+          "bytes": 18402,
+          "sha256": "258275af5ddd22caf9f1fc6056166dc442189bd992f96294ffbb51b5643a0ddc",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "pocketarc-screen-free-camera-concept",
+      "durationSeconds": 26,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T15:03:08.092Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/pocketarc-screen-free-camera-concept/",
+      "recordedRenderRevision": "9151de84d54f",
+      "nativeFrames": 624,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/pocketarc-screen-free-camera-concept.mp4",
+          "bytes": 5208007,
+          "sha256": "32d776e950ae3b00fc4f38c302da9e7ef87f68a0dd5ee7d2b87396ea264578a0",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/pocketarc-screen-free-camera-concept.vtt",
+          "bytes": 281,
+          "sha256": "d92b95a2c9963db296291490977c6bf8ce3e47a1b43f6c91ea09eb201e999ec7",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/pocketarc-screen-free-camera-concept-poster.webp",
+          "bytes": 20318,
+          "sha256": "e77a479459bbcda732814bb5f96262621029d73cafa7e9cf6dc121ea7e7d215d",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "trailframe-two-grip-camera-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T15:14:15.259Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/trailframe-two-grip-camera-concept/",
+      "recordedRenderRevision": "e6e3ef512c7d",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/trailframe-two-grip-camera-concept.mp4",
+          "bytes": 5848944,
+          "sha256": "ca555551787d07a90638a4cf35e463c69dccfa337c6e16371343164f070c6787",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/trailframe-two-grip-camera-concept.vtt",
+          "bytes": 298,
+          "sha256": "9da697132894e49efd3d8b5b8a9c4fea42115532ee05f4b1dc58bebf939ca3bd",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/trailframe-two-grip-camera-concept-poster.webp",
+          "bytes": 18952,
+          "sha256": "c26bae3eaace9a9743d7567d8cd0593518cb5a7f43f28f8705862b364b5153b9",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "pathshift-captive-sliding-puzzle-concept",
+      "durationSeconds": 26,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T13:22:31.573Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/pathshift-captive-sliding-puzzle-concept/",
+      "recordedRenderRevision": "6b8712b076d4",
+      "nativeFrames": 624,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/pathshift-captive-sliding-puzzle-concept.mp4",
+          "bytes": 4398605,
+          "sha256": "2102a50da89e29050a2bbf4bd23cbc449abc8861987fc3640478d5eb395c8f25",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/pathshift-captive-sliding-puzzle-concept.vtt",
+          "bytes": 271,
+          "sha256": "e5c8f0b36697d227a717c2be6c07aa66cec1bc67cf18c173d2ed0a4a25aa9529",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/pathshift-captive-sliding-puzzle-concept-poster.webp",
+          "bytes": 22010,
+          "sha256": "b2f2091d3ba70081be9bd6c65aec0999fe03a1cb0b440d234fb0beee8f2cd543",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "grid-grove",
+      "durationSeconds": 26,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T15:25:35.646Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/grid-grove/",
+      "recordedRenderRevision": "e85171b6abd0",
+      "nativeFrames": 624,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/grid-grove.mp4",
+          "bytes": 4381145,
+          "sha256": "87fd6addb64add38e59bec5857f92a68eee451d1a2cd3eb010cfe5bae8110fd1",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/grid-grove.vtt",
+          "bytes": 254,
+          "sha256": "ea14dbd950eb944104cc2a3532c440441cb8917c3f79c9d2bf0762e45d20201d",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/grid-grove-poster.webp",
+          "bytes": 17576,
+          "sha256": "8e3d9043c89a6c4e8c951b7d25833087427946b02e82a9ea6c9a3ce0b3e40f9b",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "listennest-open-cup-headphone-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T15:46:55.277Z",
+      "creditsHref": "/media/concept-demos/3d/credits.html#head-reference",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/listennest-open-cup-headphone-concept/",
+      "recordedRenderRevision": "9d8edb9966f7",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/listennest-open-cup-headphone-concept.mp4",
+          "bytes": 4597200,
+          "sha256": "87aea1aeaf0f525a2264322fc8d2a32019154e0f1daaa13d7f7d30cd609c377f",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/listennest-open-cup-headphone-concept.vtt",
+          "bytes": 272,
+          "sha256": "6c1aeacbef0f735f85e4593df0a2886d4703f304d438755b49f56716894773fa",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/listennest-open-cup-headphone-concept-poster.webp",
+          "bytes": 16138,
+          "sha256": "b910e65efbcea5db2a8209dd009cae5779eb6cb5cc8558bd7127b037775eafa0",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "picture-harbor-turning-picture-drum-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T16:14:37.697Z",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/picture-harbor-turning-picture-drum-concept/",
+      "recordedRenderRevision": "8861c08dcc17",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/picture-harbor-turning-picture-drum-concept.mp4",
+          "bytes": 3421430,
+          "sha256": "c2c97f6488e9fa09f56d6eea771f682a0eb334277ed7e00a5366f5c5ad2dcba8",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/picture-harbor-turning-picture-drum-concept.vtt",
+          "bytes": 116,
+          "sha256": "db265d530685b8c93552e3c13a20875a556c9cf9af1e75a72d3fe523ec99c7d5",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/picture-harbor-turning-picture-drum-concept-poster.webp",
+          "bytes": 17502,
+          "sha256": "fd2632ba144fe483e0854f7ca8119d7b623a46f0b147393e25841b1abca443ab",
+          "normalizedVtt": false
+        }
+      ]
+    },
+    {
+      "slug": "readloop-acoustic-voice-guide-concept",
+      "durationSeconds": 28,
+      "width": 1920,
+      "height": 1080,
+      "posterWidth": 1280,
+      "posterHeight": 720,
+      "createdAt": "2026-10-26T16:34:18.264Z",
+      "creditsHref": "/media/concept-demos/3d/credits.html#head-reference",
+      "page": "/products/plastic-electronic-toys/original-product-concepts/readloop-acoustic-voice-guide-concept/",
+      "recordedRenderRevision": "e737dd39c63e",
+      "nativeFrames": 672,
+      "files": [
+        {
+          "path": "/media/concept-demos/3d/readloop-acoustic-voice-guide-concept.mp4",
+          "bytes": 4207257,
+          "sha256": "a2b3266780e8c2f7243762ec6479122472d6041b1e640a07d54651fb0adc1a08",
+          "normalizedVtt": false
+        },
+        {
+          "path": "/media/concept-demos/3d/readloop-acoustic-voice-guide-concept.vtt",
+          "bytes": 226,
+          "sha256": "6040b4301bc9e04339e33ebf8840a9d3c03d7862ca234fc1837e20c32bb388d1",
+          "normalizedVtt": true
+        },
+        {
+          "path": "/media/concept-demos/3d/readloop-acoustic-voice-guide-concept-poster.webp",
+          "bytes": 17302,
+          "sha256": "ddc9e9148a48048ed203cef36939d307d7d0b13967928478fc2a7ed61efd8e03",
+          "normalizedVtt": false
+        }
+      ]
+    }
+  ],
+  "credits": {
+    "file": "public/media/concept-demos/3d/credits.html",
+    "status": 200,
+    "bytes": 1463,
+    "sha256": "c5c13c56161287d22f9a616183d4122c6610412448f8c7bdf47057d98fc5d597",
+    "normalizedVtt": false,
+    "normalizedText": true
+  }
+}

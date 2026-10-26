@@ -19,6 +19,8 @@ Production commands run from the repository root. The original CAD, exported nat
 
 Exact reproduction of an earlier delivered film also needs its SHA-bound source snapshot, original input pack, asset hashes, toolchain, settings and reports. Current scene sources can contain a later documented repair. Do not replace an accepted public movie merely because the current renderer is newer.
 
+The accepted PictureHarbor and TimePebble revisions have a known stage-registry limitation: their custom friction-turn hand was absent from the built-in pointer selection for the visibility report. Each finished clip therefore also underwent a complete independent scan of every evaluated skin/cuff mesh at the same baked revision, followed by inspection of every corresponding adjacent encoded frame (12 PictureHarbor and 16 TimePebble records, all zero intersecting triangles). Their partial built-in counts are not described as full actor coverage. The renderer owner's registry patch remains unapplied to the accepted production source; future runs must explicitly include every custom actor in preflight and independent final review.
+
 ## Production and review
 
 Use the environment's Python executable for the commands below. Replace `<slug>` with one explicit concept slug. These commands create private work outputs, except the encoder's MP4/VTT/poster and the registration step's ready JSON.
