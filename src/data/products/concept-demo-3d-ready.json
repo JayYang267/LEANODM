@@ -16,5 +16,14 @@
     "posterWidth": 1280,
     "posterHeight": 720,
     "createdAt": "2026-10-26T09:11:00.064Z"
+  },
+  {
+    "slug": "logic-harbor",
+    "durationSeconds": 28,
+    "width": 1920,
+    "height": 1080,
+    "posterWidth": 1280,
+    "posterHeight": 720,
+    "createdAt": "2026-10-26T12:41:31.345Z"
   }
 ]
