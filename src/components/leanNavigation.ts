@@ -1,3 +1,5 @@
+import { CASE_STUDIES_PATH } from '../config/seo';
+
 export type LeanNavigationItem = {
   label: string;
   href: string;
@@ -64,7 +66,7 @@ export const leanAboutNavigation: readonly LeanNavigationCardItem[] = [
 ];
 
 export const leanSecondaryNavigation: readonly LeanNavigationItem[] = [
-  { label: 'Case Studies', href: '/case-studies/', secondary: true },
+  { label: 'Case Studies', href: CASE_STUDIES_PATH, secondary: true },
   { label: 'Resources', href: '/resources/', secondary: true },
 ];
 

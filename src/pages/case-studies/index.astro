@@ -1,0 +1,27 @@
+---
+import { SITE } from '@config/site';
+import { CASE_STUDIES_PATH, DRIVING_SOUND_BOOK_CASE_PATH } from '@config/seo';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import drivingSoundBook from '@/data/cases/interactive-driving-sound-book.json';
+
+const description = 'Explore product development and manufacturing case studies from LEANODM.';
+const canonical = new URL(CASE_STUDIES_PATH, SITE.url).href;
+---
+
+<BaseLayout title={`Case Studies | ${SITE.title}`} description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+  </Fragment>
+
+  <section class="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-24" aria-labelledby="case-studies-title">
+    <h1 id="case-studies-title" class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Case Studies</h1>
+
+    <article class="mt-10 max-w-2xl border-t border-slate-200 pt-8">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-900">{drivingSoundBook.heading}</h2>
+      <p class="mt-3 text-base leading-relaxed text-slate-700">{drivingSoundBook.description}</p>
+      <Button href={DRIVING_SOUND_BOOK_CASE_PATH} class="mt-6">Read the case study</Button>
+    </article>
+  </section>
+</BaseLayout>

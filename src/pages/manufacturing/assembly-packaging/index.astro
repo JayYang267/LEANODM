@@ -1,5 +1,6 @@
 ---
 import { SITE } from '@config/site';
+import { DRIVING_SOUND_BOOK_CASE_PATH } from '@config/seo';
 import ActivityHighlights from '../../../components/ActivityHighlights.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
 import Button from '@components/ui/Button.astro';
@@ -100,7 +101,11 @@ const schema = {
             <h1 id="page-title">Product Assembly &amp; Packaging</h1>
             <p class="qc-lead">Electronic product assembly, controlled screw fastening and hand soldering—connected to in-process inspection and final packaging.</p>
             <p class="qc-intro">This page presents Xinyinhai’s documented assembly and packaging methods for plastic and electronic OEM/ODM projects. Work instructions, trained operators and reference samples guide component fitting, process checks and preparation of the finished product.</p>
-            <div class="qc-actions"><Button href="#project-requirements" class="qc-button">Prepare Your Project Brief <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="#assembly-process">Explore the process <span aria-hidden="true">↓</span></a></div>
+            <div class="qc-actions">
+              <Button href="#project-requirements" class="qc-button">Prepare Your Project Brief <span aria-hidden="true">↗</span></Button>
+              <a class="qc-text-link" href="#assembly-process">Explore the process <span aria-hidden="true">↓</span></a>
+              <a class="qc-text-link" href={DRIVING_SOUND_BOOK_CASE_PATH}>See the driving sound book case <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
           <div class="ap-hero-visual">
             <div class="ap-panel-label"><span>COMPONENTS → FINISHED PRODUCT</span><span>ASSEMBLY / QC / PACKING</span></div>
