@@ -1,0 +1,5 @@
+# Copy this file to .dev.vars for local Pages Functions.
+# Use a Resend sending-only key and a sender on a verified domain.
+RFQ_DELIVERY_API_KEY=
+RFQ_FROM_EMAIL=
+RFQ_TO_EMAIL=quotes@leanodm.com

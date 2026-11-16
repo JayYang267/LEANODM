@@ -1,0 +1,71 @@
+/* Imported exclusively by /rfq/. Shared homepage and product styles stay intact. */
+.rfq-page { background:#f8fafc; --visit-red:#e62129; --visit-blue:#183ba3; --visit-ink:#162339; --visit-muted:#526078; --visit-line:#dce3ed; }
+.rfq-page ::selection { background:#dce6ff; color:#162339; }
+.visit-intro { padding:24px 0 34px; max-width:900px; }
+.visit-breadcrumb { display:flex; flex-wrap:wrap; gap:10px; color:var(--visit-muted); font-size:14px; line-height:1.5; margin-bottom:24px; }
+.visit-breadcrumb a { color:var(--visit-blue); text-decoration:underline; text-underline-offset:3px; }
+.visit-intro h1 { font-size:clamp(34px,4.5vw,58px); font-weight:750; line-height:1.08; letter-spacing:-.03em; text-wrap:balance; margin:0 0 18px; }
+.visit-lead { max-width:65ch; font-size:clamp(17px,1.6vw,20px); line-height:1.65; color:#344157; }
+.visit-intro-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px 28px; margin-top:24px; }
+.visit-intro-actions .rfq-primary-button { font-size:16px; min-height:48px; border-radius:4px; padding:13px 20px; border-color:var(--visit-red); background:var(--visit-red); color:#fff; text-decoration:none; }
+.visit-intro-actions .rfq-primary-button:hover { background:#be1b22; }
+.visit-secondary-link { display:inline-flex; align-items:center; min-height:44px; color:var(--visit-blue); text-decoration:underline; text-underline-offset:4px; font-size:15px; }
+.visit-section,.project-inquiry-section { scroll-margin-top:110px; }
+.visit-section-intro { border-top:1px solid var(--visit-line); padding-top:26px; }
+.visit-section-intro h2,.project-inquiry-intro h2 { font-size:clamp(26px,3vw,34px); line-height:1.2; font-weight:750; letter-spacing:-.025em; margin:0 0 10px; }
+.visit-section-intro>p { max-width:75ch; color:var(--visit-muted); line-height:1.7; font-size:16px; }
+.visit-values { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; list-style:none; padding:0; margin:24px 0 28px; }
+.visit-values li { display:flex; align-items:flex-start; gap:11px; font-size:15px; line-height:1.6; color:#344157; }
+.visit-values svg { width:22px; height:22px; margin-top:2px; flex:none; color:var(--visit-blue); }
+.visit-form-layout { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:36px; align-items:start; }
+.visit-form-surface { background:white; padding:28px; border:1px solid var(--visit-line); min-width:0; border-radius:6px; }
+[data-visit-form] fieldset { border:0; padding:0; margin:0; min-width:0; }
+.visit-fields-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px 20px; }
+.rfq-page .rfq-field input,.rfq-page .rfq-field textarea,.rfq-page .rfq-brief-fallback textarea,.rfq-page .rfq-field select { font-size:16px; caret-color:var(--visit-blue); }
+.rfq-page .rfq-field input::placeholder,.rfq-page .rfq-field textarea::placeholder { color:#5a687c; }
+.rfq-page .rfq-field select { display:block; width:100%; min-height:48px; border:1px solid #cbd4e1; border-radius:7px; padding:11px 12px; background:white; color:#1c2d47; }
+.rfq-page .rfq-field label { font-size:14px; }
+.rfq-page .rfq-field-hint,.rfq-page .rfq-action-hint { font-size:13px; line-height:1.65; }
+.visit-timezone { margin:20px 0; font-size:14px; line-height:1.65; color:#344157; }
+.visit-timezone span { display:block; color:var(--visit-muted); font-size:13px; }
+.visit-optional { border-top:1px solid var(--visit-line); border-bottom:1px solid var(--visit-line); }
+.visit-optional summary { cursor:pointer; min-height:48px; padding:13px 0; font-size:15px; font-weight:650; color:var(--visit-blue); }
+.visit-optional-body { display:grid; gap:22px; padding:8px 0 22px; }
+.visit-confirmation-note { font-size:14px; line-height:1.7; color:#344157; margin:22px 0 18px; }
+.visit-offline-note { padding:14px; border:1px solid var(--visit-line); background:#f4f7fc; font-size:14px; line-height:1.7; margin-bottom:18px; }
+.visit-offline-note a { color:var(--visit-blue); text-decoration:underline; overflow-wrap:anywhere; }
+.visit-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px 18px; }
+.visit-actions .rfq-primary-button { border-color:var(--visit-red); background:var(--visit-red); color:#fff; border-radius:4px; min-height:48px; font-size:15px; }
+.visit-actions .rfq-primary-button:hover { background:#be1b22; }
+.visit-actions .rfq-primary-button:disabled { background:#8793a7; cursor:wait; }
+.visit-sidebar { display:grid; gap:20px; min-width:0; }
+.visit-map-card { overflow:hidden; border:1px solid var(--visit-line); border-radius:6px; background:#fff; }
+.visit-map-card h3 { padding:18px 20px; color:var(--visit-ink); font-size:18px; font-weight:700; line-height:1.4; }
+.visit-map-card iframe { display:block; width:100%; height:240px; border:0; background:#edf2fc; }
+.visit-map-details { padding:18px 20px; }
+.visit-map-details address { font-size:14px; font-style:normal; line-height:1.7; color:#344157; overflow-wrap:anywhere; }
+.visit-map-details address span { display:block; margin-top:8px; color:var(--visit-muted); }
+.visit-map-details>a { display:inline-flex; align-items:center; gap:8px; min-height:44px; margin-top:8px; color:var(--visit-blue); font-size:14px; font-weight:650; text-decoration:underline; text-underline-offset:4px; }
+.visit-map-details>a svg { width:18px; height:18px; flex:none; }
+.project-inquiry-section .rfq-sidebar { grid-template-columns:minmax(0,1fr); }
+.project-inquiry-section { margin-top:60px; padding-top:38px; border-top:2px solid #cbd4e1; }
+.project-inquiry-intro { margin-bottom:26px; }
+.project-inquiry-intro>p { font-size:18px; line-height:1.65; color:#344157; }
+.project-inquiry-intro .project-independence-note { font-size:14px; line-height:1.65; color:var(--visit-muted); margin-top:8px; }
+.rfq-page .rfq-card-heading h3 { font-size:20px; font-weight:750; line-height:1.4; letter-spacing:-.025em; }
+.rfq-page .rfq-form-card { border-radius:6px; box-shadow:none; }
+.rfq-page a:focus-visible,.rfq-page button:focus-visible,.rfq-page select:focus-visible,.visit-optional summary:focus-visible { outline:3px solid var(--visit-blue); outline-offset:4px; }
+.rfq-page [aria-disabled=true] { cursor:wait; }
+@media (max-width:900px) { .visit-form-layout { grid-template-columns:minmax(0,1fr); gap:28px; } }
+@media (max-width:600px) {
+  .visit-intro { padding-top:18px; padding-bottom:28px; }
+  .visit-breadcrumb { font-size:12px; margin-bottom:18px; gap:8px; }
+  .visit-intro h1 { font-size:36px; }
+  .visit-intro-actions { gap:8px; margin-top:20px; align-items:flex-start; flex-direction:column; }
+  .visit-values { grid-template-columns:1fr; gap:14px; margin:22px 0; }
+  .visit-form-surface { padding:20px 18px; }
+  .visit-fields-grid { grid-template-columns:1fr; gap:20px; }
+  .visit-actions { align-items:stretch; flex-direction:column; gap:10px; }
+  .visit-actions a,.visit-actions button { justify-content:center; }
+  .project-inquiry-section { margin-top:40px; padding-top:28px; }
+}

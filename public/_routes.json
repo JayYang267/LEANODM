@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "include": [
+    "/api/rfq",
+    "/media/cases/interactive-driving-sound-book/driving-activity-book.mp4"
+  ],
+  "exclude": []
+}

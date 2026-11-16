@@ -5,10 +5,10 @@ import {
   readDraft,
   readQueryDraft,
   resolveEndpoint,
-  sendInquiry,
   validateDraft,
   type InquiryDraft,
 } from '../utils/rfq';
+import { sendProjectInquiry as sendInquiry } from '../utils/project-inquiry';
 import { inquiryHandoffToken, mergeInquiryDraft, readInquiryHandoff } from '../utils/inquiry-handoff';
 
 function initializeInquiry(form: HTMLFormElement) {
@@ -30,6 +30,7 @@ function initializeInquiry(form: HTMLFormElement) {
   let endpoint: string | null = null;
   let draftVersion = 0;
   let acceptedSignature: string | null = null;
+  let submissionKey = crypto.randomUUID();
 
   function setSubmitLabel(text: string) {
     submitLabel.textContent = text;
@@ -209,7 +210,7 @@ function initializeInquiry(form: HTMLFormElement) {
     setSubmitLabel('Sending…');
     showStatus('pending', 'Sending your inquiry. Please wait for confirmation.');
     try {
-      await sendInquiry(endpoint, inquiry);
+      await sendInquiry(endpoint, inquiry, { idempotencyKey: submissionKey });
       acceptedSignature = signature(inquiry);
       if (submittedVersion === draftVersion) {
         showStatus('accepted', 'The inquiry service accepted your request. This confirms acceptance, not email delivery. Your details remain here for your records.');
@@ -224,7 +225,7 @@ function initializeInquiry(form: HTMLFormElement) {
       if (fields) fields.disabled = false;
       form.removeAttribute('aria-busy');
       buttonsDisabled(false);
-      setSubmitLabel('Send inquiry');
+      setSubmitLabel('Send Project Inquiry');
     }
   });
 
@@ -242,6 +243,7 @@ function initializeInquiry(form: HTMLFormElement) {
       if (control.name === 'projectType') synchronizePanels();
       if (control.name && observedSignature !== signature()) {
         observedSignature = signature();
+        submissionKey = crypto.randomUUID();
         draftVersion++;
         clearFeedback();
       }
@@ -261,6 +263,7 @@ function initializeInquiry(form: HTMLFormElement) {
     queueMicrotask(() => {
       draftVersion++;
       acceptedSignature = null;
+      submissionKey = crypto.randomUUID();
       synchronizePanels();
       observedSignature = signature();
       clearFeedback();
@@ -272,7 +275,7 @@ function initializeInquiry(form: HTMLFormElement) {
   synchronizePanels();
   updateEmailDraft();
   observedSignature = signature();
-  setSubmitLabel(endpoint ? 'Send inquiry' : 'Copy inquiry brief');
+  setSubmitLabel(endpoint ? 'Send Project Inquiry' : 'Copy inquiry brief');
   if (copyButton) copyButton.hidden = !endpoint;
   buttonsDisabled(false);
 }

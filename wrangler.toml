@@ -1,8 +1,3 @@
-name = "leanodm"
-main = "./src/case-media-worker.mjs"
+name = "leanodm-site"
+pages_build_output_dir = "./dist"
 compatibility_date = "2026-10-19"
-
-[assets]
-directory = "./dist"
-binding = "ASSETS"
-run_worker_first = ["/media/cases/interactive-driving-sound-book/driving-activity-book.mp4"]

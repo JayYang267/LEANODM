@@ -2,7 +2,7 @@
 import { Icon } from 'astro-iconset/components';
 import { rfqProjectOptions, rfqProjectPrompts } from '../data/rfq';
 import { NDA_REQUEST_TEXT } from '../utils/rfq';
-const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
+const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '/api/rfq';
 ---
 
 <form id="rfq-form" name="rfq-form" method="post" data-rfq-form data-endpoint={endpoint} aria-labelledby="rfq-form-title">
@@ -41,7 +41,7 @@ const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
   <div class="rfq-actions-area">
     {!endpoint && <p class="rfq-delivery-note"><Icon name="lucide:mail" aria-hidden="true" /><span>Online sending is currently unavailable. Copy your brief, then email it to <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>.</span></p>}
     <div class="rfq-status" data-rfq-status role="status" aria-live="polite" tabindex="-1" hidden></div>
-    <div class="rfq-action-buttons"><button class="rfq-primary-button" type="submit" data-rfq-submit disabled><span data-rfq-submit-label>{endpoint ? 'Send inquiry' : 'Copy inquiry brief'}</span> <Icon name={endpoint ? 'lucide:arrow-up-right' : 'lucide:copy'} aria-hidden="true" /></button><button class="rfq-text-button" type="button" data-copy-brief hidden={!endpoint}>Copy brief</button><a class="rfq-email-button" data-email-brief href="mailto:quotes@leanodm.com">Open email draft <Icon name="lucide:arrow-up-right" aria-hidden="true" /></a></div>
+    <div class="rfq-action-buttons"><button class="rfq-primary-button" type="submit" data-rfq-submit disabled><span data-rfq-submit-label>{endpoint ? 'Send Project Inquiry' : 'Copy inquiry brief'}</span> <Icon name={endpoint ? 'lucide:arrow-up-right' : 'lucide:copy'} aria-hidden="true" /></button><button class="rfq-text-button" type="button" data-copy-brief hidden={!endpoint}>Copy brief</button><a class="rfq-email-button" data-email-brief href="mailto:quotes@leanodm.com">Open email draft <Icon name="lucide:arrow-up-right" aria-hidden="true" /></a></div>
     <p class="rfq-action-hint">Opening an email draft or copying a brief does not send an inquiry.</p>
     <section class="rfq-brief-fallback" data-brief-fallback hidden aria-labelledby="rfq-brief-title"><label id="rfq-brief-title" for="rfq-brief-text">Your inquiry brief</label><p>Select and copy this text, then paste it into your email.</p><textarea id="rfq-brief-text" data-brief-text rows="8" readonly></textarea></section>
     <noscript><p class="rfq-no-script">Enable JavaScript to prepare your brief here, or email your project description directly to <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>.</p></noscript>
@@ -49,10 +49,10 @@ const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
 </form>
 <script>import '../scripts/rfq';</script>
 <style>
-  .rfq-confidentiality { margin-top:20px; padding:15px; border:1px solid #dce3ed; border-left:3px solid #183ba3; border-radius:7px; background:#f5f8ff; }
-  .rfq-confidentiality label { display:flex; align-items:flex-start; gap:10px; min-height:44px; cursor:pointer; font-size:13px; font-weight:650; line-height:1.65; color:#26364d; }
+  .rfq-confidentiality { margin-top:20px; padding:15px; border:1px solid #dce3ed; border-radius:6px; background:#edf2fc; }
+  .rfq-confidentiality label { display:flex; align-items:flex-start; gap:10px; min-height:44px; cursor:pointer; font-size:14px; font-weight:650; line-height:1.65; color:#26364d; }
   .rfq-confidentiality input { flex:none; width:20px; height:20px; margin-top:1px; accent-color:#183ba3; cursor:pointer; }
   .rfq-confidentiality input:focus-visible { outline:3px solid #7393ed; outline-offset:4px; }
-  .rfq-confidentiality p { margin:4px 0 7px; font-size:11px; line-height:1.75; color:#526078; }
-  .rfq-confidentiality a { display:inline-flex; align-items:center; gap:5px; min-height:44px; color:#183ba3; text-decoration:underline; text-underline-offset:3px; font-size:12px; font-weight:650; line-height:1.6; }
+  .rfq-confidentiality p { margin:4px 0 7px; font-size:13px; line-height:1.75; color:#526078; }
+  .rfq-confidentiality a { display:inline-flex; align-items:center; gap:5px; min-height:44px; color:#183ba3; text-decoration:underline; text-underline-offset:3px; font-size:14px; font-weight:650; line-height:1.6; }
 </style>

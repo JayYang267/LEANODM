@@ -2,37 +2,64 @@
 import { SITE } from '@config/site';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import RFQForm from '../components/RFQForm.astro';
+import FactoryVisitForm from '../components/FactoryVisitForm.astro';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-iconset/components';
 import moldPhoto from '../assets/tooling-injection-molding/mold-guide-maintenance.jpg';
 import { rfqCapabilities, rfqFaqs, rfqSteps } from '../data/rfq';
 import '../styles/rfq.css';
+import '../styles/factory-visit.css';
 
-const title = 'Product Development & Manufacturing Quote | LEANODM';
-const description = 'Prepare a quote inquiry for plastic and electronic product development and manufacturing. Share your concept, authorized sample or approved design for project review.';
+const title = 'Plan Your Factory Visit & Project Inquiry | LEANODM';
+const description = 'Request a factory visit to meet our team and discuss product development and manufacturing. Or send an independent project inquiry. Visit arrangements are subject to confirmation.';
 const canonical = new URL('/rfq/', SITE.url).href;
-const navigation = [{ label: 'Your project', href: '#rfq-form' }, { label: 'Manufacturing', href: '#manufacturing-support' }, { label: 'FAQ', href: '#rfq-faq' }];
+// Factory map address explicitly supplied by the user for this page on 2026-11-10.
+const factoryAddress = '广东省东莞市虎门镇路东社区新园南二路15号';
+const factoryMapQuery = encodeURIComponent(factoryAddress);
+const factoryMapUrl = `https://www.google.com/maps/search/?api=1&query=${factoryMapQuery}`;
+const factoryMapEmbed = `https://www.google.com/maps?q=${factoryMapQuery}&hl=en&output=embed`;
+const navigation = [{ label: 'Factory visit', href: '#factory-visit' }, { label: 'Project inquiry', href: '#project-inquiry' }, { label: 'FAQ', href: '#rfq-faq' }];
 const schema = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': new URL('/#website', canonical).href }, about: { '@id': new URL('/#xinyinhai', canonical).href } },
   { '@type': 'BreadcrumbList', itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: new URL('/', canonical).href },
-    { '@type': 'ListItem', position: 2, name: 'Request a Quote', item: canonical },
+    { '@type': 'ListItem', position: 2, name: 'Factory Visit & Project Inquiry', item: canonical },
   ] },
 ] };
 ---
 
-<BaseLayout title={title} description={description} technicalPage technicalPageTitle="Request a quote" technicalNavigation={navigation} contactHref="#rfq-form" technicalContactLabel="Start your inquiry" technicalFooterDescription="Share your idea, existing product or approved design to discuss the next useful step.">
-  <Fragment slot="head"><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} /></Fragment>
+<BaseLayout title={title} description={description} technicalPage technicalPageTitle="Factory visit & project inquiry" technicalNavigation={navigation} contactHref="#factory-visit" technicalContactLabel="Request a factory visit" technicalFooterDescription="Meet our team or share a project brief to discuss the next useful step.">
+  <Fragment slot="head"><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+  </Fragment>
   <div class="rfq-page"><div class="rfq-container">
-    <header class="rfq-intro">
-      <p class="rfq-eyebrow"><span aria-hidden="true"></span> YOUR IDEA. OUR NEXT CONVERSATION.</p>
-      <h1>Request a quote<span class="rfq-red-dot" aria-hidden="true">.</span></h1>
-      <p class="rfq-lead">Tell us what you want to make. A non-sensitive overview is enough to start.</p>
-      <p class="rfq-scope">Toys, creative gifts, stationery and other projects involving plastic and electronic elements.</p>
+    <header class="visit-intro">
+      <nav class="visit-breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span>Factory visit &amp; project inquiry</span></nav>
+      <h1>Plan Your Factory Visit</h1>
+      <p class="visit-lead">Meet our team, explore our manufacturing capabilities, and discuss your next product face to face.</p>
+      <div class="visit-intro-actions"><a class="rfq-primary-button" href="#factory-visit">Request a Factory Visit <Icon name="lucide:arrow-down" aria-hidden="true" /></a><a class="visit-secondary-link" href="#project-inquiry">Send a Project Inquiry</a></div>
     </header>
+    <section id="factory-visit" class="visit-section" aria-labelledby="factory-visit-title">
+      <div class="visit-section-intro"><h2 id="factory-visit-title">Start with a visit request</h2><p>Tell us when you would like to visit. We will confirm the date, participants and visit arrangements with you by email.</p></div>
+      <ul class="visit-values"><li><Icon name="lucide:lightbulb" aria-hidden="true" /><span>Discuss product ideas and development needs</span></li><li><Icon name="lucide:settings-2" aria-hidden="true" /><span>Understand manufacturing and quality controls</span></li><li><Icon name="lucide:messages-square" aria-hidden="true" /><span>Clarify responsibilities and next steps face to face</span></li></ul>
+      <div class="visit-form-layout">
+        <div class="visit-form-surface"><FactoryVisitForm /></div>
+        <aside class="visit-sidebar" aria-label="Factory location and contact">
+          <section class="visit-map-card" aria-labelledby="factory-location-title">
+            <h3 id="factory-location-title">Factory location</h3>
+            <iframe src={factoryMapEmbed} title="Google Maps — factory at No. 15, Xinyuan South 2nd Road, Humen" width="340" height="240" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="visit-map-details">
+              <address>No. 15, Xinyuan South 2nd Road, Ludong Community, Humen, Dongguan, Guangdong, China<span lang="zh-CN">虎门镇路东社区新园南二路15号</span></address>
+              <a href={factoryMapUrl} target="_blank" rel="noopener noreferrer">Open in Google Maps <Icon name="lucide:arrow-up-right" aria-hidden="true" /></a>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+    <section id="project-inquiry" class="project-inquiry-section" aria-labelledby="project-inquiry-title">
+    <div class="project-inquiry-intro"><h2 id="project-inquiry-title">Send a Project Inquiry</h2><p>Share your requirements for an initial discussion or quotation.</p><p class="project-independence-note">You can inquire without arranging a visit. Only your email and a project description are required.</p></div>
     <div class="rfq-main-grid">
       <section class="rfq-form-card" aria-labelledby="rfq-form-title">
-        <div class="rfq-card-heading"><span class="rfq-heading-icon" aria-hidden="true"><Icon name="lucide:file-pen-line" /></span><div><h2 id="rfq-form-title">Prepare your product brief</h2><p>Only your email and a short description are required.</p></div></div>
+        <div class="rfq-card-heading"><span class="rfq-heading-icon" aria-hidden="true"><Icon name="lucide:file-pen-line" /></span><div><h3 id="rfq-form-title">Prepare your product brief</h3><p>A non-sensitive overview is enough to start.</p></div></div>
         <RFQForm />
       </section>
       <aside class="rfq-sidebar" aria-label="Contact and manufacturing support">
@@ -48,6 +75,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [
         </section>
       </aside>
     </div>
+    </section>
     <section class="rfq-next" aria-labelledby="rfq-next-title">
       <div class="rfq-next-heading"><p class="rfq-eyebrow">AFTER WE RECEIVE YOUR BRIEF</p><h2 id="rfq-next-title">How your product brief is reviewed</h2><a href="/customization/how-we-work/">How we work <span aria-hidden="true">↗</span></a></div>
       <ol>{rfqSteps.map((step, index) => <li><span class="rfq-step-number">0{index + 1}</span><h3>{step.title}</h3><p>{step.text}</p></li>)}</ol>
