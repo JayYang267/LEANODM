@@ -144,7 +144,7 @@ export function formatBrief(draft: InquiryDraft): string {
 }
 
 export function emailBriefUrl(draft: InquiryDraft): string {
-  return `mailto:quotes@leanodm.com?subject=${encodeURIComponent('LEANODM project inquiry')}&body=${encodeURIComponent(formatBrief(draft))}`;
+  return `mailto:projects@leanodm.com?subject=${encodeURIComponent('LEANODM project inquiry')}&body=${encodeURIComponent(formatBrief(draft))}`;
 }
 
 export async function sendInquiry(

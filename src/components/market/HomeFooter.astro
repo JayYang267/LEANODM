@@ -11,7 +11,7 @@ const groups = [
 ];
 ---
 <footer class="home-footer"><div class="home-footer-container">
-  <div class="home-footer-grid"><div class="home-footer-brand"><a href="/" aria-label="LEANODM home"><img src="/brand/xinyinhai-symbol-display-96.webp" srcset="/brand/xinyinhai-symbol-display-48.webp 48w, /brand/xinyinhai-symbol-display-96.webp 96w, /brand/xinyinhai-symbol-display-144.webp 144w" sizes="36px" alt="" width="36" height="36" /><BrandWordmark /></a><p>LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities.</p><a class="home-footer-email" href="mailto:quotes@leanodm.com">quotes@leanodm.com</a></div>{groups.map(group => <nav aria-label={group.title + ' footer navigation'}><h2>{group.title}</h2><ul>{group.links.map(([label,href]) => <li><a href={href}>{label}</a></li>)}</ul></nav>)}</div>
+  <div class="home-footer-grid"><div class="home-footer-brand"><a href="/" aria-label="LEANODM home"><img src="/brand/xinyinhai-symbol-display-96.webp" srcset="/brand/xinyinhai-symbol-display-48.webp 48w, /brand/xinyinhai-symbol-display-96.webp 96w, /brand/xinyinhai-symbol-display-144.webp 144w" sizes="36px" alt="" width="36" height="36" /><BrandWordmark /></a><p>LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities.</p><a class="home-footer-email" href="mailto:projects@leanodm.com">projects@leanodm.com</a></div>{groups.map(group => <nav aria-label={group.title + ' footer navigation'}><h2>{group.title}</h2><ul>{group.links.map(([label,href]) => <li><a href={href}>{label}</a></li>)}</ul></nav>)}</div>
   <div class="home-footer-bottom"><span>{new Date().getFullYear()} · LEANODM.com</span><span>Xinyinhai · Humen, Dongguan, China</span></div>
 </div></footer>
 <style>

@@ -21,11 +21,11 @@ const endpoint = import.meta.env.PUBLIC_FACTORY_VISIT_ENDPOINT?.trim() || import
     </div></details>
   </fieldset>
   <p class="visit-confirmation-note">Your visit is subject to confirmation. Our team will email you to confirm the date and arrangements.</p>
-  {!endpoint && <p class="visit-offline-note">Online sending is currently unavailable. Copy your visit request or open an email draft, then send it to <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>.</p>}
+  {!endpoint && <p class="visit-offline-note">Online sending is currently unavailable. Copy your visit request or open an email draft, then send it to <a href="mailto:projects@leanodm.com">projects@leanodm.com</a>.</p>}
   <div data-visit-status class="rfq-status" role="status" aria-live="polite" tabindex="-1" hidden></div>
-  <div class="visit-actions"><button type="submit" class="rfq-primary-button" data-visit-submit disabled>{endpoint ? 'Request a Factory Visit' : 'Copy visit request'}</button><button type="button" class="rfq-text-button" data-visit-copy hidden={!endpoint}>Copy visit request</button><a class="rfq-email-button" data-visit-email href="mailto:quotes@leanodm.com">Open email draft</a></div>
+  <div class="visit-actions"><button type="submit" class="rfq-primary-button" data-visit-submit disabled>{endpoint ? 'Request a Factory Visit' : 'Copy visit request'}</button><button type="button" class="rfq-text-button" data-visit-copy hidden={!endpoint}>Copy visit request</button><a class="rfq-email-button" data-visit-email href="mailto:projects@leanodm.com">Open email draft</a></div>
   <p class="rfq-action-hint">Copying a request or opening a draft does not send it. Please complete sending in your email app.</p>
   <section class="rfq-brief-fallback" data-visit-fallback hidden><label for="visit-copy-text">Your visit request</label><p>Select and copy this text, then send it by email.</p><textarea id="visit-copy-text" data-visit-text rows="9" readonly></textarea></section>
-  <noscript><p class="rfq-no-script">Enable JavaScript to prepare this request, or email your name, preferred visit date and time in China Standard Time (UTC+8) to <a href="mailto:quotes@leanodm.com">quotes@leanodm.com</a>. The team will confirm the arrangements.</p></noscript>
+  <noscript><p class="rfq-no-script">Enable JavaScript to prepare this request, or email your name, preferred visit date and time in China Standard Time (UTC+8) to <a href="mailto:projects@leanodm.com">projects@leanodm.com</a>. The team will confirm the arrangements.</p></noscript>
 </form>
 <script>import '../scripts/factory-visit';</script>

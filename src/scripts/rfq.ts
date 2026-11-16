@@ -177,9 +177,9 @@ function initializeInquiry(form: HTMLFormElement) {
       if (fallback) fallback.hidden = result.copied;
       if (briefText) briefText.value = result.text;
       if (result.copied) {
-        showStatus('copied', 'Inquiry brief copied. It has not been sent. Paste it into an email to quotes@leanodm.com.');
+        showStatus('copied', 'Inquiry brief copied. It has not been sent. Paste it into an email to projects@leanodm.com.');
       } else {
-        showStatus('error', 'Your browser could not copy the brief. Select and copy the text below, then email it to quotes@leanodm.com. It has not been sent.', !briefText);
+        showStatus('error', 'Your browser could not copy the brief. Select and copy the text below, then email it to projects@leanodm.com. It has not been sent.', !briefText);
         if (briefText) {
           briefText.focus();
           briefText.select();
@@ -219,7 +219,7 @@ function initializeInquiry(form: HTMLFormElement) {
         delete status!.dataset.state;
       }
     } catch {
-      showStatus('error', 'We could not confirm acceptance of your inquiry. Your details are still here. Copy the brief or email quotes@leanodm.com instead.');
+      showStatus('error', 'We could not confirm acceptance of your inquiry. Your details are still here. Copy the brief or email projects@leanodm.com instead.');
     } finally {
       busy = false;
       if (fields) fields.disabled = false;

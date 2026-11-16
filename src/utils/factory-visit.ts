@@ -51,7 +51,7 @@ export function formatVisit(draft: VisitDraft): string {
 }
 
 export function emailVisitUrl(draft: VisitDraft): string {
-  return `mailto:quotes@leanodm.com?subject=${encodeURIComponent('Factory Visit Request — LEANODM')}&body=${encodeURIComponent(formatVisit(draft))}`;
+  return `mailto:projects@leanodm.com?subject=${encodeURIComponent('Factory Visit Request — LEANODM')}&body=${encodeURIComponent(formatVisit(draft))}`;
 }
 
 export async function sendVisit(endpoint: string | null, draft: VisitDraft, options: { fetchImpl?: typeof fetch; timeoutMs?: number; idempotencyKey?: string } = {}): Promise<{ accepted: true }> {

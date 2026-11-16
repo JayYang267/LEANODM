@@ -2,4 +2,4 @@
 # Use a Resend sending-only key and a sender on a verified domain.
 RFQ_DELIVERY_API_KEY=
 RFQ_FROM_EMAIL=
-RFQ_TO_EMAIL=quotes@leanodm.com
+RFQ_TO_EMAIL=projects@leanodm.com

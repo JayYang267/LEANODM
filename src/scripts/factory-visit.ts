@@ -76,9 +76,9 @@ function initializeVisit(form: HTMLFormElement) {
       if (original !== signature()) return;
       if (text) text.value = result.text;
       if (fallback) fallback.hidden = result.copied;
-      if (result.copied) message('copied', 'Visit request copied. It has not been sent. Paste it into an email to quotes@leanodm.com and send it.');
+      if (result.copied) message('copied', 'Visit request copied. It has not been sent. Paste it into an email to projects@leanodm.com and send it.');
       else {
-        message('error', 'Your browser could not copy the request. Select the text below and email it to quotes@leanodm.com. It has not been sent.', false);
+        message('error', 'Your browser could not copy the request. Select the text below and email it to projects@leanodm.com. It has not been sent.', false);
         text?.focus(); text?.select();
       }
     } finally { busy = false; ready(); }
