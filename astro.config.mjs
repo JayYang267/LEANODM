@@ -6,6 +6,9 @@ import icon from 'astro-iconset';
 import tailwindcss from '@tailwindcss/vite';
 import { CANONICAL_SITE_ORIGIN } from './src/config/seo.ts';
 
+const buildingForPages = process.env.CF_PAGES === '1';
+if (buildingForPages) process.env.PUBLIC_RFQ_ENDPOINT ??= '/api/rfq';
+
 /** @type {import('astro').AstroIntegration} */
 const pagesVideoRedirects = {
   name: 'leanodm-pages-video-redirects',
@@ -50,7 +53,7 @@ export default defineConfig({
     '/about/ip-protection/samples-tooling/': { destination: '/customization/ip-protection/samples-tooling/', status: 301 },
     '/about/ip-protection/nda-project-start/': { destination: '/customization/ip-protection/nda-project-start/', status: 301 },
   },
-  integrations: [react(), icon(), ...(process.env.CF_PAGES === '1' ? [pagesVideoRedirects] : [])],
+  integrations: [react(), icon(), ...(buildingForPages ? [pagesVideoRedirects] : [])],
   vite: {
     plugins: [tailwindcss()],
     server: {
