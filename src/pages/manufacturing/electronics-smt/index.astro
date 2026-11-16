@@ -1,11 +1,16 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import ImageLightbox from '@components/ImageLightbox.astro';
 import { Image, getImage } from 'astro:assets';
 import oven from '../../../assets/electronics-smt/reflow-oven-body.jpg';
 import aoi from '../../../assets/electronics-smt/aoi-inspection-bed.jpg';
 import rack from '../../../assets/electronics-smt/board-tray.jpg';
+import aoiStagingCurtain from '../../../assets/electronics-smt/aoi-staging-curtain-2020.webp';
+import bondingStagingBefore from '../../../assets/electronics-smt/bonding-pcb-staging-2020-before.webp';
+import bondingStagingAfter from '../../../assets/electronics-smt/bonding-pcb-staging-2020-after.webp';
+import componentReelRack from '../../../assets/electronics-smt/smt-component-reel-rack-2022.webp';
 import workflow from '../../../data/electronics-smt-workflow.json';
 import defects from '../../../data/smt-defects.json';
 import { smtNavigation, trainingMatrix, smtFaqs } from '../../../data/electronics-smt';
@@ -15,6 +20,7 @@ import '../../../styles/electronics-smt.css';
 const title = 'Electronics Integration & SMT Assembly for Electronic Products | LEANODM.com';
 const description = 'Xinyinhai’s in-house electronics development and SMT assembly for electronic toys and plastic electronic products, with documented printing, quality gates, maintenance and operator training.';
 const route = '/manufacturing/electronics-smt/';
+const componentReelRackFull = await getImage({ src: componentReelRack, format: 'webp' });
 const origin = SITE.url;
 const canonical = new URL(route, origin).href;
 const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Manufacturing', url: '/manufacturing/' }, { name: 'Electronics & SMT', url: route }];
@@ -30,6 +36,16 @@ const photos = await Promise.all([
   { image: aoi, title: 'AOI inspection bed', caption: 'Inspection-bed detail from the archived workshop board. AOI is shown in the single-sided and double-sided B routes.' },
   { image: rack, title: 'Board storage rack', caption: 'Storage detail from the archived workshop board. Its handling note specifies one PCB per rack layer; the applicable handling rule is reviewed for the job.' },
 ].map(async photo => ({ ...photo, full: await getImage({ src: photo.image, width: photo.image.width, format: 'webp', quality: 88 }) })));
+const aoiStagingFull = await getImage({ src: aoiStagingCurtain, format: 'webp', quality: 88 });
+const bondingStagingPhotos = await Promise.all([
+  { image: bondingStagingBefore, title: 'Before the change', alt: 'Several loaded circuit-board carriers across the workbench beside a machine', caption: 'Board carriers occupied most of the workbench.' },
+  { image: bondingStagingAfter, title: 'After the change', alt: 'Fewer board carriers grouped to one side of the same workbench, leaving open space', caption: 'Fewer carriers remained, grouped beside the machine.' },
+].map(async photo => ({ ...photo, full: await getImage({ src: photo.image, width: photo.image.width, format: 'webp', quality: 88 }) })));
+const inspectionExamples = [
+  { file: 'smt-pad-offset-diagram.webp', title: 'Component offset', alt: 'Top view of a chip shifted across its pads, with offset h and component width W marked', caption: 'The drawing shows how lateral offset is compared with component width. Use the approved limits for pad overlap and clearance.' },
+  { file: 'smt-solder-bridge-diagram.webp', title: 'Solder bridge', alt: 'Top view of solder spanning the gap between pads on two neighboring components', caption: 'Solder joins two pads that should remain electrically separate.' },
+  { file: 'smt-tombstoning-diagram.webp', title: 'Tombstoning', alt: 'Side view of a chip standing upright on one pad while its other end is unconnected', caption: 'The component stands on one termination, leaving the other pad unconnected.' },
+];
 const gateObjects = ['Process documents', 'PCB appearance', 'PCB installation', 'Screen-print result', 'Component placement', 'Post-oven board appearance', 'Depaneling result', 'Packaged boards', 'Warehouse entry'];
 const schema = { '@context': 'https://schema.org', '@graph': [
   { '@type': 'WebPage', '@id': `${canonical}#webpage`, url: canonical, name: title, description, inLanguage: 'en', isPartOf: { '@id': `${origin}/#website` }, about: { '@id': `${origin}/#xinyinhai` }, breadcrumb: { '@id': `${canonical}#breadcrumbs` }, mainEntity: { '@id': `${canonical}#service` } },
@@ -74,6 +90,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [
     </section>
 
     <div class="qc-container">
+      <ReviewGuide question="How will your board connect to the finished product?" links={[{ label: 'SMT workflow', href: '#workflow' }, { label: 'Workshop evidence', href: '#factory-evidence' }, { label: 'Product integration', href: '#integration' }]} inquiryHref="/rfq/?source=electronics-smt#project-inquiry" />
       <div class="smt-glossary" aria-label="Electronics terminology"><p><strong>SMT</strong> — Surface Mount Technology places components on a board.</p><p><strong>PCB / PCBA</strong> — A printed circuit board / a board with components assembled.</p><p><strong>AOI</strong> — Automated optical inspection checks visible assembly features.</p></div>
 
       <section id="workflow" class="qc-section" aria-labelledby="workflow-title">
@@ -87,6 +104,15 @@ const schema = { '@context': 'https://schema.org', '@graph': [
           <li><span>06</span><h3>Rack &amp; transfer</h3><p>Rack the boards for the next route or assembly handoff.</p><small>Double-sided A continues to B</small></li>
         </ol>
         <p class="qc-note">This overview summarizes the archived workshop routes. Red-adhesive printing and curing apply where shown. The detailed route, inspection coverage and current work instruction are reviewed for each board.</p>
+        <p class="qc-source-note" id="post-reflow-cooling-2021"><strong>Board cooling after reflow.</strong> Xinyinhai’s May 2021 workshop proposal records adding a conveyor section after reflow so boards could cool before the next station with less handling during transfer.</p>
+        <p class="qc-source-note" id="aoi-repair-handoff"><strong>AOI repair handoff.</strong> A training file saved in 2019 shows operators matching the flagged coordinates to the board, marking each location for repair and checking the total against the machine’s count. The board returns to AOI for reinspection after repair.</p>
+      <article id="micro-switch-lead-forming" class="smt-gate-strip" aria-labelledby="micro-switch-lead-forming-title">
+        <h3 id="micro-switch-lead-forming-title">Microswitch lead forming before placement</h3>
+        <div>
+          <p>Uneven lead heights can leave a microswitch tilted on the PCB. In a 2022 improvement, Xinyinhai used a fixture to form the leads to a consistent height before SMT placement so the switch would sit flat.</p>
+          <a class="qc-text-link" href="/quality/product-testing/#micro-switch-continuity">See the microswitch continuity check <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
         <details id="workflow-detail" class="smt-detail">
           <summary><span>Single-sided and double-sided A/B routes</span><small>All steps &amp; exception returns</small></summary>
           <div class="smt-detail-body">
@@ -105,6 +131,24 @@ const schema = { '@context': 'https://schema.org', '@graph': [
             <p class="qc-source-note">Source: archived SMT production quality-control chart. No additional recheck loop is drawn here. ERP warehouse entry is the stated final node.</p>
           </div>
         </details>
+        <section id="smt-visual-inspection" class="smt-evidence smt-inspection-examples" aria-labelledby="smt-inspection-title">
+          <div class="smt-evidence-heading">
+            <h3 id="smt-inspection-title">Visual checks for placement and solder joints</h3>
+            <p>Placement checks look at offset, clearance and orientation. After soldering, check the terminations for unintended connections or unconnected ends. Apply the approved board and assembly criteria.</p>
+          </div>
+          <div class="smt-photo-grid">
+            {inspectionExamples.map(example => (
+              <figure>
+                <a href={`/images/electronics-smt/${example.file}`} data-lightbox="smt-inspection" data-width="560" data-height="320" data-title={example.title} data-caption={example.caption} data-source="Archived SMT inspection worksheet" aria-label={`Enlarge ${example.title.toLowerCase()} diagram`}>
+                  <div class="smt-photo-frame"><img src={`/images/electronics-smt/${example.file}`} width="560" height="320" alt={example.alt} loading="lazy" decoding="async" /></div>
+                  <span>Enlarge diagram <span aria-hidden="true">↗</span></span>
+                </a>
+                <figcaption><strong>{example.title}</strong>{example.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+          <p class="qc-source-note">Original diagrams from an archived inspection worksheet. The file was last saved in 2018. The issue date is unconfirmed.</p>
+        </section>
         <a class="qc-text-link" href="/quality/quality-control-process/">Explore factory Quality Control responsibilities <span aria-hidden="true">↗</span></a>
       </section>
 
@@ -128,6 +172,59 @@ const schema = { '@context': 'https://schema.org', '@graph': [
         <details id="maintenance-detail" class="smt-detail"><summary><span>All 26 maintenance items and planned cycles</span><small>Complete English reference</small></summary><div class="smt-detail-body"><div class="smt-table-scroll" tabindex="0" aria-label="Complete maintenance plan"><table><caption>Preventive maintenance plan — equipment, item and cycle</caption><thead><tr><th scope="col">Equipment</th><th scope="col">Planned item</th><th scope="col">Cycle</th><th scope="col">Planned months</th></tr></thead><tbody>{workflow.maintenance.map((item, index) => <tr data-maintenance-item={index + 1} data-equipment={item.equipment} data-cycle={item.cycle}><th scope="row">{item.equipment}</th><td>{item.item}</td><td>{item.cycle}</td><td>{item.cycle === 'Monthly' ? 'Every month' : item.cycle === 'Half-yearly' ? 'June and December' : 'December'}</td></tr>)}</tbody></table></div><p class="qc-source-note">Source: archived annual SMT and bonding maintenance plan. Part-only entries remain part names; they do not imply a specific replacement or calibration action. “Nozzle / prism” normalizes the source spelling. The precise bonding-machine subtype is not specified.</p></div></details>
         <div class="smt-management"><article><h3>5S &amp; standard work</h3><p>Training connects sorting, orderly placement, cleaning, standardization and discipline to the work area. Storage examples and maintenance planning support that approach; they do not by themselves document a completed 5S audit.</p></article><article><h3>4M change awareness</h3><p>The plan also lists changes in people, methods, materials and machines. Recognizing a change helps identify what must be checked before the next run.</p></article><article><h3>Five-leak management</h3><p>A separate note covers water, electricity, oil, air and materials. These five leak categories are distinct from 5S workplace organization.</p></article></div>
         <section id="factory-evidence" class="smt-evidence" aria-labelledby="evidence-title"><div class="smt-evidence-heading"><div><p class="qc-eyebrow">FACTORY EVIDENCE / ARCHIVED WORKSHOP BOARD</p><h3 id="evidence-title">Equipment and storage details</h3></div><p>Selected, de-identified photo crops from the supplied workshop board. These show documented details; current equipment configuration is confirmed for the project.</p></div><div class="smt-photo-grid">{photos.map(photo => <figure><a href={photo.full.src} data-lightbox="smt-workshop" data-width={photo.image.width} data-height={photo.image.height} data-title={photo.title} data-caption={photo.caption} data-source="Archived workshop-board photograph; de-identified crop" aria-label={`Enlarge ${photo.title.toLowerCase()}`}><div class="smt-photo-frame"><Image src={photo.image} width={photo.image.width} format="webp" quality={88} alt={photo.title + ' from the archived workshop board'} loading="lazy" /></div><span>Enlarge detail <span aria-hidden="true">↗</span></span></a><figcaption><strong>{photo.title}</strong>{photo.caption}</figcaption></figure>)}</div></section>
+        <section id="aoi-staging-2020" class="smt-evidence smt-bonding-evidence smt-aoi-staging" aria-labelledby="aoi-staging-title">
+          <div>
+            <h3 id="aoi-staging-title">Protected staging before optical inspection</h3>
+            <p>Xinyinhai’s April 2020 improvement log records adding protective covers to the SMT staging racks. The marked shelves identify boards waiting for automated optical inspection (AOI).</p>
+          </div>
+          <div class="smt-photo-grid">
+            <figure>
+              <a href={aoiStagingFull.src} data-lightbox="aoi-staging-2020" data-width={aoiStagingCurtain.width} data-height={aoiStagingCurtain.height} data-title="AOI staging rack" data-caption="Boards awaiting optical inspection behind the rack curtain, April 2020." aria-label="Enlarge the April 2020 AOI staging rack photo">
+                <div class="smt-photo-frame">
+                  <Image src={aoiStagingCurtain} width={640} format="webp" alt="Shelves marked for boards awaiting optical inspection behind a clear rack curtain" loading="lazy" />
+                </div>
+                <span>Enlarge photo <span aria-hidden="true">↗</span></span>
+              </a>
+              <figcaption><strong>April 2020</strong> Boards awaiting optical inspection behind the rack curtain.</figcaption>
+            </figure>
+          </div>
+        </section>
+        <section id="bonding-workshop-pcb-staging-2020" class="smt-evidence smt-bonding-evidence" aria-labelledby="bonding-staging-title">
+          <div class="smt-evidence-heading">
+            <h3 id="bonding-staging-title">PCB staging in the bonding workshop</h3>
+            <p>Xinyinhai’s December 2020 workshop self-check flagged a buildup of boards beside a machine. The two photos show the same workbench before and after the change, with board details masked.</p>
+          </div>
+          <div class="smt-photo-grid">
+            {bondingStagingPhotos.map(photo => (
+              <figure>
+                <a href={photo.full.src} data-lightbox="bonding-workshop-2020" data-width={photo.image.width} data-height={photo.image.height} data-title={photo.title} data-caption={photo.caption} data-source="Xinyinhai bonding workshop self-check, December 2020" aria-label={`Enlarge bonding workshop photo: ${photo.title.toLowerCase()}`}>
+                  <div class="smt-photo-frame">
+                    <Image src={photo.image} width={640} format="webp" alt={photo.alt} loading="lazy" />
+                  </div>
+                  <span>Enlarge photo <span aria-hidden="true">↗</span></span>
+                </a>
+                <figcaption><strong>{photo.title}</strong>{photo.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+        <section id="smt-stencil-and-reel-storage" class="smt-evidence smt-bonding-evidence smt-reel-storage" aria-labelledby="smt-storage-title">
+          <div class="smt-evidence-heading">
+            <h3 id="smt-storage-title">Storage for SMT stencils and component reels</h3>
+            <p>In January 2021, Xinyinhai’s workshop recorded assigning stencils fixed slots to make them easier to find and protect them from damage. An August 2022 proposal shows hooks added to the material rack so operators could hang and retrieve component reels.</p>
+          </div>
+          <div class="smt-photo-grid">
+            <figure>
+              <a href={componentReelRackFull.src} data-lightbox="smt-component-reel-rack" data-width={componentReelRack.width} data-height={componentReelRack.height} data-title="SMT component reel rack" data-caption="Component reels on hooks above the storage bins, shown in the August 2022 proposal." aria-label="Enlarge the SMT component reel rack photo">
+                <div class="smt-photo-frame">
+                  <Image src={componentReelRack} width={componentReelRack.width} format="webp" alt="SMT component reels hanging from hooks on a rack above blue bins" loading="lazy" decoding="async" />
+                </div>
+                <span>Enlarge photo <span aria-hidden="true">↗</span></span>
+              </a>
+              <figcaption><strong>August 2022 workshop proposal</strong> Component reels hang on hooks above the storage bins.</figcaption>
+            </figure>
+          </div>
+        </section>
       </section>
 
       <section id="training" class="qc-section" aria-labelledby="training-title">
@@ -157,10 +254,65 @@ const schema = { '@context': 'https://schema.org', '@graph': [
       <section id="faq" class="qc-section" aria-labelledby="faq-title"><div class="qc-heading"><div><p class="qc-eyebrow">BUYER QUESTIONS</p><h2 id="faq-title">Before you send an electronics RFQ</h2></div><p>Clarify the board, the finished-product requirements and the responsibilities to assess during the project review.</p></div><div class="smt-faqs">{smtFaqs.map(faq => <details class="smt-detail"><summary>{faq.question}</summary><div class="smt-detail-body"><p>{faq.answer}</p></div></details>)}</div></section>
 
       <section id="project-requirements" class="qc-section smt-project" aria-labelledby="project-title">
-        <div><p class="qc-eyebrow">START WITH THE INFORMATION YOU HAVE</p><h2 id="project-title">Prepare your electronics project brief</h2><p>Begin with a non-sensitive overview of the function, test requirements, quantity, target market and project stage. Detailed BOM, PCB/Gerber, firmware and key material follow through the agreed confidential exchange.</p><div class="qc-actions"><a class="qc-button" href="/resources/electronics-smt-project-brief.txt" download>Download the RFQ brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=manufacturing-electronics-smt#rfq-form">Discuss your electronics project <span aria-hidden="true">↗</span></a>{contact && <a class="qc-text-link" href={contact}>Send your project requirements <span aria-hidden="true">↗</span></a>}</div><p class="smt-small">Review the <a href="/customization/ip-protection/nda-project-start/">confidential project start process</a> or <a href="/rfq/?nda=1#rfq-form">request an NDA discussion before sharing detailed files</a>. Downloading the brief does not submit an inquiry. MOQ, lead time, current equipment availability and delivery scope require project review.</p></div>
+        <div><p class="qc-eyebrow">START WITH THE INFORMATION YOU HAVE</p><h2 id="project-title">Prepare your electronics project brief</h2><p>Begin with a non-sensitive overview of the function, test requirements, quantity, target market and project stage. Detailed BOM, PCB/Gerber, firmware and key material follow through the agreed confidential exchange.</p><div class="qc-actions"><a class="qc-button" href="/resources/electronics-smt-project-brief.txt" download>Download the RFQ brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=manufacturing-electronics-smt#project-inquiry">Discuss your electronics project <span aria-hidden="true">↗</span></a>{contact && <a class="qc-text-link" href={contact}>Send your project requirements <span aria-hidden="true">↗</span></a>}</div><p class="smt-small">Review the <a href="/customization/ip-protection/nda-project-start/">confidential project start process</a> or <a href="/rfq/?nda=1#project-inquiry">request an NDA discussion before sharing detailed files</a>. Downloading the brief does not submit an inquiry. MOQ, lead time, current equipment availability and delivery scope require project review.</p></div>
         <dl class="smt-project-stages"><div><dt>Concept stage</dt><dd>Send a non-sensitive functional brief, target market and expected quantity.</dd></div><div><dt>Existing product or board</dt><dd>Describe the board and adaptation or integration you need; share restricted references after the exchange is agreed.</dd></div><div><dt>Ready-to-build design</dt><dd>Identify the available files and revisions. Transfer detailed BOM, PCB/Gerber, placement files and test criteria through the agreed channel.</dd></div></dl>
       </section>
     </div>
     <ImageLightbox />
   </div>
 </BaseLayout>
+
+<style>
+  .smt-bonding-evidence {
+    margin-top: 24px;
+  }
+
+  .smt-bonding-evidence .smt-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .smt-bonding-evidence .smt-photo-frame {
+    height: auto;
+  }
+
+  .smt-bonding-evidence .smt-photo-frame :global(img) {
+    width: 100%;
+  }
+
+  .smt-aoi-staging {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+  }
+
+  .smt-aoi-staging .smt-photo-grid {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+  }
+
+  .smt-reel-storage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+    gap: 24px;
+    align-items: center;
+  }
+
+  .smt-reel-storage .smt-evidence-heading {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 0;
+  }
+
+  .smt-reel-storage .smt-photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 640px) {
+    .smt-bonding-evidence .smt-photo-grid,
+    .smt-aoi-staging,
+    .smt-reel-storage {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

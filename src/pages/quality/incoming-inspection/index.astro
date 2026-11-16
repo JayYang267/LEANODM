@@ -1,6 +1,9 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import BiqcFigures from '../../../components/BiqcFigures.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
+import ImageLightbox from '../../../components/ImageLightbox.astro';
 import standardData from '../../../data/incoming-standard.json';
 import '../../../styles/incoming-inspection.css';
 
@@ -38,6 +41,94 @@ const navigation = [
   { label: 'Inspection setup', href: '#inspection-conditions' },
   { label: 'Material standards', href: '#material-standards' },
   { label: 'Supplier controls', href: '#supplier-controls' },
+  { label: 'Material case studies', href: '#biqc-incoming-cases' },
+];
+const packagingImagePath = '/images/quality/incoming-inspection';
+const packagingCases = [
+  {
+    id: 'speaker-incoming-packaging',
+    title: 'Speaker packaging',
+    description: 'Static made loose foam particles cling to the speakers, where they could enter the product and affect sound quality. Removing speakers from the foam box risked squeezing and deforming their diaphragms. With corrugated board and a foam liner, the case report notes easier removal, less diaphragm deformation and no loose debris in the new packaging.',
+    photos: [
+      { stage: 'Before', asset: 'speaker-foam-box.webp', width: 246, height: 177, caption: 'Foam box', alt: 'Rows of speakers held in a molded foam box.' },
+      { stage: 'After', asset: 'speaker-corrugated-insert.webp', width: 215, height: 155, caption: 'Corrugated board with foam liner', alt: 'Speakers seated in rows in the revised corrugated board and foam insert.' },
+    ],
+  },
+  {
+    id: 'metal-part-incoming-packaging',
+    title: 'Packaging for small metal parts',
+    description: 'Loose metal parts could bend under compression or snag on each other in a polyethylene bag. A compartmented thermoformed tray kept the parts in smaller groups to help limit both risks.',
+    photos: [
+      { stage: 'Before', asset: 'metal-parts-pe-bag.webp', width: 131, height: 113, caption: 'Polyethylene bag', alt: 'Loose metal parts packed together in a clear polyethylene bag.' },
+      { stage: 'After', asset: 'metal-parts-compartment-tray.webp', width: 197, height: 140, caption: 'Compartmented thermoformed tray', alt: 'Groups of small metal parts separated by the tray’s molded compartments.' },
+    ],
+  },
+];
+const incomingCases = [
+  {
+    id: 'biqc-card-contamination',
+    title: 'Insect on a printed card',
+    slide: 39,
+    finding: 'An insect was found on the surface of a printed card. The point of entry was undetermined in the training case.',
+    response: 'Include the exposed surfaces of printed pieces when checking for contamination.',
+    figures: [
+      { asset: 'image76.jpeg', alt: 'Printed card with the contamination area marked.' },
+      { asset: 'image77.jpeg', alt: 'Magnified view of the insect on the card.' },
+    ],
+  },
+  {
+    id: 'biqc-carton-seam',
+    title: 'Bloodstain inside a carton seam',
+    slide: 40,
+    finding: 'A warehouse found blood inside a retail carton while replacing packaging. The training case traces the stain to incoming packaging and locates it at the internal glued seam.',
+    response: 'Include the inside of the carton and its glued joints when reviewing the relevant incoming packaging.',
+    figures: [
+      { asset: 'image78.jpeg', alt: 'Retail carton from the interior-stain case.' },
+      { asset: 'image79.jpeg', alt: 'Interior glued seam where the stain was found.' },
+    ],
+  },
+  {
+    id: 'biqc-carton-film',
+    title: 'Insect trapped under carton film',
+    slide: 41,
+    finding: 'An insect was found between a color box and its polypropylene film. The case traces the contamination to the carton supplier’s lamination step.',
+    response: 'Inspect laminated surfaces and review the supplier’s film-application process when contamination is trapped beneath the film.',
+    figures: [
+      { asset: 'image80.jpeg', alt: 'Overview of the retail carton from the lamination case.' },
+      { asset: 'image81.jpeg', alt: 'Insect visible on the coated carton surface.' },
+      { asset: 'image82.png', alt: 'Enlarged detail of the insect trapped under the film.' },
+    ],
+  },
+  {
+    id: 'biqc-die-cut-waste',
+    title: 'Die-cut waste left in a packing insert',
+    slide: 42,
+    finding: 'A dull die left pieces of paperboard incompletely cut. Some affected inserts were used to meet the shipping schedule, leaving die-cut waste in the pack.',
+    response: 'Check that die-cut openings are clear and review die condition and rejected-material handling with the supplier.',
+    figures: [
+      { asset: 'image83.png', alt: 'Product backing sheet from the BIQC die-cut waste case.' },
+      { asset: 'image84.png', alt: 'Retained paperboard scrap shown beside a ruler.' },
+    ],
+  },
+  {
+    id: 'biqc-punch-scrap',
+    title: 'Metal punch scrap inside a bell',
+    slide: 43,
+    finding: 'Oil on the inside of a stamped bell held a loose metal offcut against the wall.',
+    response: 'Include hidden surfaces when checking stamped hardware for oil and debris. Review debris removal at the stamping process.',
+    figures: [{ asset: 'image85.png', alt: 'Bell and metal offcut shown in the stamping contamination case.' }],
+  },
+  {
+    id: 'biqc-mixed-screws',
+    title: 'Sharp-point screws mixed into a flat-tip supply',
+    slide: 44,
+    finding: 'A warehouse found whitening on a molded fish body. The investigation found sharp-point screws in a bag of specified flat-tip screws. Some entered assembly.',
+    response: 'Compare screw-tip geometry with the approved part and check for mixed pieces within the pack.',
+    figures: [
+      { asset: 'image86.jpeg', alt: 'Molded fish body showing the whitening associated with the wrong screw.' },
+      { asset: 'image87.jpeg', alt: 'Pointed screw above and approved flat-tip screw below.', caption: 'Sharp point above. Approved flat tip below.' },
+    ],
+  },
 ];
 const faqs = [...standard.faqs,
   { question: 'How are new suppliers and their samples reviewed?', answer: 'The purchasing procedure calls for supplier information, Engineering review of submitted samples and technical information, and an approved supplier evaluation. A site assessment is used where needed. Purchase requirements draw on the relevant BOM, drawings, inspection standard and approved sample requirements.' },
@@ -52,9 +143,9 @@ const related = [
   { href: '/quality/', label: 'Quality Management System', detail: 'See how supplier controls connect with documented responsibilities, records and improvement.' },
   { href: '/quality/traceability/', label: 'Traceability & Materials', detail: 'Connect material identification, inspection status and the agreed production-record trail.' },
   { href: '/quality/appearance-inspection/', label: 'Product appearance inspection', detail: 'Read the separate standard for surface classes, cosmetic defects and appearance criteria.' },
-  { href: '/quality/in-process-inspection/', label: 'In-process inspection', detail: 'Review the requirements applied during production.' },
+  { href: '/quality/quality-control-process/#in-process', label: 'In-process inspection', detail: 'Review the requirements applied during production.' },
   { href: '/quality/product-testing/', label: 'Product testing', detail: 'Explore functional and product-specific test requirements.' },
-].filter((item) => hasPage(item.href));
+].filter((item) => hasPage(item.href.split('#')[0]));
 const breadcrumbs = [
   { name: 'Home', url: '/' },
   { name: 'Quality standards', url: hasPage('/quality/') ? '/quality/' : '#quality-standards' },
@@ -153,6 +244,7 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
     </section>
 
     <div class="iqc-container">
+      <ReviewGuide question="Which checks apply before your materials enter production?" links={[{ label: 'Sampling and severity', href: '#sampling-severity' }, { label: 'Material standards', href: '#material-standards' }, { label: 'Customer requirements', href: '#customer-requirements' }]} inquiryHref="/rfq/?source=quality-incoming-inspection#project-inquiry" />
       <section id="quality-standards" class="iqc-scope iqc-section" aria-labelledby="scope-title">
         <div><p class="iqc-eyebrow">01 / THE BASIS FOR A DECISION</p><h2 id="scope-title">Check the material.<br />Keep the context.</h2></div>
         <div>
@@ -218,7 +310,7 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
 
       {standard.evidence.length > 0 && <section id="source-evidence" class="iqc-section" aria-labelledby="evidence-title">
         <div class="iqc-section-heading"><div><p class="iqc-eyebrow">05 / FROM THE SOURCE DOCUMENT</p><h2 id="evidence-title">See the original<br />inspection references.</h2></div><p>These excerpts come from the supplied factory document. The source markings support traceability; they do not resolve its ambiguous or inconsistent entries. In table excerpts, the severity columns run left to right: <strong>CR / MAJ / MIN</strong>.</p></div>
-        <div class="iqc-evidence-grid">{standard.evidence.map((evidence, index) => <figure><a class="iqc-evidence-image" href={evidence.src} aria-label={`Open source excerpt: ${evidence.title}`}><div class="iqc-evidence-label"><span>DOCUMENT EXCERPT / {String(index + 1).padStart(2, '0')}</span><span aria-hidden="true">↗</span></div><img src={evidence.src} alt={evidence.alt} width={evidence.width} height={evidence.height} loading="lazy" decoding="async" /></a><figcaption><span>{evidence.reference}</span><h3>{evidence.title}</h3><p>{evidence.interpretation}</p></figcaption></figure>)}</div>
+        <div class="iqc-evidence-grid">{standard.evidence.map((evidence, index) => <figure><a class="iqc-evidence-image" href={evidence.src} data-lightbox="incoming-references" data-width={evidence.width} data-height={evidence.height} data-title={evidence.title} data-caption={evidence.interpretation} data-source={evidence.reference} aria-label={`Open source excerpt: ${evidence.title}`}><div class="iqc-evidence-label"><span>DOCUMENT EXCERPT / {String(index + 1).padStart(2, '0')}</span><span aria-hidden="true">↗</span></div><img src={evidence.src} alt={evidence.alt} width={evidence.width} height={evidence.height} loading="lazy" decoding="async" /></a><figcaption><span>{evidence.reference}</span><h3>{evidence.title}</h3><p>{evidence.interpretation}</p></figcaption></figure>)}</div>
       </section>}
 
       <section id="customer-requirements" class="iqc-section iqc-customer" aria-labelledby="customer-title">
@@ -234,6 +326,33 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
           <article><span class="iqc-method-number" aria-hidden="true">03</span><h3>Monitor continuing supply</h3><p>Incoming inspection results feed supplier quality review alongside delivery performance. Significant or recurring problems can trigger corrective action, reassessment, adjusted inspection or removal from the approved list under the applicable procedure.</p></article>
         </div>
         <div class="iqc-reading-note"><span class="iqc-note-marker" aria-hidden="true">i</span><div><h3>Approval and incoming acceptance answer different questions</h3><p>Supplier approval establishes an authorized source. Each receipt still follows its applicable verification route and recorded status. A customer-nominated supplier remains within incoming quality monitoring; nomination does not itself establish material acceptance.</p></div></div>
+        <section id="incoming-packaging-improvements" class="iqc-packaging-improvements" aria-labelledby="incoming-packaging-title">
+          <h3 id="incoming-packaging-title">Protecting incoming components</h3>
+          <p>In two 2022 improvement cases, Xinyinhai changed how components arrived to address contamination and handling damage before assembly.</p>
+          <div class="iqc-biqc-cases">
+            {packagingCases.map((item) => (
+              <article id={item.id} class="iqc-packaging-case" aria-labelledby={`${item.id}-title`}>
+                <div>
+                  <h4 id={`${item.id}-title`}>{item.title}</h4>
+                  <p>{item.description}</p>
+                </div>
+                <div class="iqc-packaging-photos">
+                  {item.photos.map((photo) => {
+                    const src = `${packagingImagePath}/${photo.asset}`;
+                    return (
+                      <figure>
+                        <a class="iqc-evidence-image" href={src} data-lightbox={item.id} data-title={`${photo.stage} · ${item.title}`} data-caption={photo.caption} data-width={photo.width} data-height={photo.height} aria-label={`View ${item.title.toLowerCase()}, ${photo.stage.toLowerCase()}`}>
+                          <img src={src} width={photo.width} height={photo.height} alt={photo.alt} loading="lazy" decoding="async" />
+                        </a>
+                        <figcaption><strong>{photo.stage}</strong> {photo.caption}</figcaption>
+                      </figure>
+                    );
+                  })}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </section>
 
       <section id="key-material-validation" class="iqc-section" aria-labelledby="key-material-title">
@@ -246,6 +365,33 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
         <p class="iqc-source">These sections summarize documented purchasing and key-material controls. For your product, agree the applicable list, verification responsibility and required reports; the procedures alone do not demonstrate completed testing or material certification.</p>
       </section>
 
+      <section id="biqc-incoming-cases" class="iqc-section" aria-labelledby="biqc-incoming-title">
+        <div class="iqc-section-heading">
+          <div><p class="iqc-eyebrow">BIQC TRAINING CASES</p><h2 id="biqc-incoming-title">Material Defects Found<br />Downstream</h2></div>
+          <p>Xinyinhai’s 2019 BIQC training records packaging and hardware defects found after supply or assembly. Use these cases to identify inspection points to review against the approved material specification.</p>
+        </div>
+        <p class="iqc-biqc-materials">Review the criteria for <a href="#color-boxes">color boxes</a>, <a href="#printed-materials">printed materials</a>, <a href="#general-hardware">hardware</a> and <a href="#screws-nuts">screws and nuts</a>.</p>
+        <div class="iqc-biqc-cases">
+          {incomingCases.map((item) => <article id={item.id} class="iqc-biqc-case">
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.finding}</p>
+              <p><strong>Inspection focus.</strong> {item.response}</p>
+              <p class="iqc-source">BIQC training · slide {item.slide}</p>
+            </div>
+            <BiqcFigures figures={item.figures} group={item.id} />
+          </article>)}
+        </div>
+        <div class="iqc-reading-note">
+          <span class="iqc-note-marker" aria-hidden="true">i</span>
+          <div>
+            <h3>Control the material mix and verify the molded part</h3>
+            <p>The TPU strap breakage case linked the defect to excess regrind. The case calls for controlling the specified regrind proportion during molding and confirming strength at the evaluation and production stages.</p>
+            <a href="/quality/product-testing/#biqc-strap-strength">Review the strap strength case ↗</a>
+          </div>
+        </div>
+      </section>
+
       {related.length > 0 && <section id="related-quality-controls" class="iqc-section" aria-labelledby="related-title"><p class="iqc-eyebrow">RELATED QUALITY CONTROLS</p><h2 id="related-title">Explore Xinyinhai’s Quality Controls</h2><div class="iqc-related">{related.map((item) => <a href={item.href}><div><h3>{item.label}</h3><p>{item.detail}</p></div><span aria-hidden="true">↗</span></a>)}</div></section>}
 
       <section id="faq" class="iqc-section" aria-labelledby="faq-title">
@@ -256,9 +402,48 @@ const checklistHref = '/resources/incoming-inspection-project-brief.txt';
 
     <section id="project-requirements" class="iqc-project" aria-labelledby="project-title">
       <div class="iqc-container iqc-project-grid">
-        <div><p class="iqc-eyebrow">YOUR PRODUCT / YOUR INSPECTION BRIEF</p><h2 id="project-title">Discuss incoming material<br />requirements for your project.</h2><p>Prepare the details needed for a useful technical discussion. A written brief connects the material, the reference sample and the checks that matter to your product.</p><div class="iqc-project-actions"><a class="iqc-button" href={checklistHref} download="LEANODM-IQC-project-checklist.txt">Prepare Your Incoming Inspection Brief <span aria-hidden="true">↓</span></a><a class="iqc-button" href="/rfq/?source=quality-incoming-inspection#rfq-form">Discuss your material requirements <span aria-hidden="true">↗</span></a></div><p class="iqc-project-note">Download a plain-text checklist to complete. This preparation guide adds no acceptance rules to the factory standard.</p></div>
+        <div><p class="iqc-eyebrow">YOUR PRODUCT / YOUR INSPECTION BRIEF</p><h2 id="project-title">Discuss incoming material<br />requirements for your project.</h2><p>Prepare the details needed for a useful technical discussion. A written brief connects the material, the reference sample and the checks that matter to your product.</p><div class="iqc-project-actions"><a class="iqc-button" href={checklistHref} download="LEANODM-IQC-project-checklist.txt">Prepare Your Incoming Inspection Brief <span aria-hidden="true">↓</span></a><a class="iqc-button" href="/rfq/?source=quality-incoming-inspection#project-inquiry">Discuss your material requirements <span aria-hidden="true">↗</span></a></div><p class="iqc-project-note">Download a plain-text checklist to complete. This preparation guide adds no acceptance rules to the factory standard.</p></div>
         <ol class="iqc-checklist"><li><span>01</span><div><strong>Identify the material</strong><p>Product, component, supplier and lot information.</p></div></li><li><span>02</span><div><strong>Bring the reference</strong><p>Drawing revision, customer specification and approved sample.</p></div></li><li><span>03</span><div><strong>Define the important checks</strong><p>Dimensions, appearance, assembly, function and required tests.</p></div></li><li><span>04</span><div><strong>Resolve the decision rules</strong><p>Sampling plan, classifications and source points needing clarification.</p></div></li></ol>
       </div>
     </section>
   </div>
+  <ImageLightbox />
 </BaseLayout>
+
+<style>
+  .iqc-biqc-cases {
+    display: grid;
+    gap: 1.5rem;
+    margin: 1.5rem 0 2rem;
+  }
+  .iqc-biqc-case, .iqc-packaging-case {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: clamp(1rem, 3vw, 2.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--iqc-line);
+  }
+  .iqc-biqc-case h3 { margin: 0 0 .75rem; }
+  .iqc-packaging-improvements { margin-top: 2rem; }
+  .iqc-packaging-improvements h3 { margin: 0 0 .75rem; }
+  .iqc-packaging-case h4 { color: #101e33; font-weight: 700; margin: 0 0 .5rem; }
+  .iqc-packaging-case p { margin-bottom: 0; }
+  .iqc-packaging-photos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(.625rem, 2vw, 1rem);
+    max-width: 28rem;
+  }
+  .iqc-packaging-photos figure { min-width: 0; margin: 0; }
+  .iqc-packaging-photos img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: scale-down; padding: 0; }
+  .iqc-packaging-photos figcaption { margin-top: .5rem; font-size: .875rem; line-height: 1.45; }
+  .iqc-packaging-photos figcaption strong { display: block; }
+  .iqc-biqc-materials a, .iqc-reading-note a {
+    color: var(--iqc-blue);
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+  @media (max-width: 48rem) {
+    .iqc-biqc-case, .iqc-packaging-case { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>

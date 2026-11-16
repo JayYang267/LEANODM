@@ -1,0 +1,141 @@
+---
+const photoDirectory = '/media/manufacturing-improvements';
+const improvements = [
+  {
+    title: 'Magnetic fixture for speaker soldering',
+    change: 'Operators previously placed speakers one at a time. The magnetic fixture holds 10 speakers at once.',
+    result: 'Xinyinhai’s June 2026 case record reports a 4.7% increase in soldering workshop efficiency.',
+    photos: [
+      { file: 'speaker-soldering-before.webp', label: 'Before', alt: 'Previous setup for positioning speakers individually before soldering' },
+      { file: 'speaker-soldering-after.webp', label: 'After', alt: 'Magnetic soldering fixture holding two rows of speakers' },
+    ],
+  },
+  {
+    title: 'Protective trays for circuit board assemblies',
+    change: 'The team made vacuum-formed trays with pockets shaped to the parts.',
+    result: 'The trays protect circuit board assemblies and fragile parts during transfer.',
+    photos: [
+      { file: 'pcba-tray-after.webp', label: 'After', alt: 'Circuit board assemblies seated in shaped pockets in a protective transfer tray' },
+    ],
+  },
+  {
+    title: 'Static control for UV printing',
+    change: 'Dust clinging to plastic parts left visible specks. The team added an anti-static bar to the UV printer.',
+    result: 'The report records fewer dust specks on the printed parts.',
+    photos: [
+      { file: 'uv-antistatic-after.webp', label: 'After', alt: 'UV printer with an anti-static bar installed above the work area' },
+    ],
+  },
+];
+---
+
+<section id="continuous-improvement" class="qc-section" aria-labelledby="continuous-improvement-title">
+  <h2 id="continuous-improvement-title">Continuous Improvement in Practice</h2>
+  <p>Three shop-floor changes documented in Xinyinhai’s 2018–2026 process improvement report.</p>
+
+  <div class="improvement-grid">
+    {improvements.map(({ title, change, result, photos }) => (
+      <article class:list={['improvement-card', { 'improvement-card--comparison': photos.length > 1 }]}>
+        <div class="improvement-copy">
+          <h3>{title}</h3>
+          <p>{change}</p>
+          <p class="improvement-result">{result}</p>
+        </div>
+        <div class="improvement-photos">
+          {photos.map(({ file, label, alt }) => (
+            <figure>
+              <figcaption>{label}</figcaption>
+              <img src={`${photoDirectory}/${file}`} alt={alt} loading="lazy" decoding="async" />
+            </figure>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+
+  <a class="qc-text-link" href="/about/activities/?category=improvement#archive">
+    View More Improvement Stories <span aria-hidden="true">↗</span>
+  </a>
+</section>
+
+<style>
+  .improvement-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-block: 24px 12px;
+  }
+
+  .improvement-card {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 18px;
+    padding: clamp(16px, 2.3vw, 26px);
+    border: 1px solid var(--qc-line);
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .improvement-card--comparison {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: auto;
+    gap: clamp(18px, 3vw, 40px);
+  }
+
+  .improvement-copy h3 {
+    margin: 0;
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  }
+
+  .improvement-copy p {
+    margin: 8px 0 0;
+  }
+
+  .improvement-copy .improvement-result {
+    color: var(--qc-ink);
+    font-weight: 600;
+  }
+
+  .improvement-photos {
+    display: grid;
+    gap: 10px;
+  }
+
+  .improvement-card--comparison .improvement-photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  figure {
+    margin: 0;
+    min-width: 0;
+  }
+
+  figcaption {
+    margin-bottom: 6px;
+    color: var(--qc-muted);
+    font-size: 0.84rem;
+    font-weight: 600;
+  }
+
+  figure img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: contain;
+    border-radius: 8px;
+    background: #f1f4f8;
+  }
+
+  @media (max-width: 760px) {
+    .improvement-card--comparison {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .improvement-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>

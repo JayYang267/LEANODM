@@ -31,6 +31,11 @@ main:has(> .tm-page) { scroll-margin-top:167px; }
 .tm-evidence-photo figcaption p { font-size:.84rem; color:var(--qc-muted); }
 .tm-evidence-photo .qc-small-label { margin-bottom:12px; }
 .tm-evidence-photo .qc-text-link { padding-bottom:0; margin-top:auto; }
+.tm-locating-example { align-items:center; margin-top:28px; }
+.tm-locating-example .tm-evidence-photo { display:flex; justify-self:center; width:100%; max-width:480px; }
+.tm-locating-example .tm-evidence-photo--narrow { max-width:300px; }
+.tm-locating-example .tm-evidence-photo img { height:auto; }
+.tm-locating-example .tm-evidence-photo figcaption { padding:12px 16px; color:var(--qc-muted); font-size:.82rem; }
 .tm-evidence-records { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
 .tm-evidence-records article { border-top:2px solid #365b91; padding-top:22px; }
 .tm-evidence-records h3 { font-size:1rem; }

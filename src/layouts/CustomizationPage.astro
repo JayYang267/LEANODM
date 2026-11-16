@@ -1,6 +1,8 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from './BaseLayout.astro';
+import ReviewGuide from '../components/nonhome/ReviewGuide.astro';
+import { leanInquiryNavigation } from '../components/leanNavigation';
 import Button from '../components/ui/Button.astro';
 import Icon from '../components/CustomizationIcon.astro';
 import HeroVisual from '../components/CustomizationHeroVisual.astro';
@@ -20,7 +22,16 @@ const contact = import.meta.env.PUBLIC_CONTACT_URL;
 // Keep the established optional contact configuration; never invent a recipient.
 const contactHref = contact && /^(https?:\/\/|mailto:)/i.test(contact) ? contact : undefined;
 const projectType = ['existing-products', 'product-adaptation', 'new-product-development', 'oem-manufacturing'].includes(page.slug) ? page.slug : 'not-sure';
-const inquiryHref = `/rfq/?source=customization-${encodeURIComponent(page.slug)}&projectType=${projectType}#rfq-form`;
+const inquiryHref = `/rfq/?source=customization-${encodeURIComponent(page.slug)}&projectType=${projectType}#project-inquiry`;
+const visitOrInquireHref = inquiryHref.split('#')[0];
+const reviewQuestions: Record<string, string> = {
+  'existing-products': 'Can a suitable existing product meet your branding and packaging brief?',
+  'product-adaptation': 'What changes, retained functions and validation need approval?',
+  'new-product-development': 'Which inputs and stage approvals will turn your idea into a defined product?',
+  'oem-manufacturing': 'Is your design package ready for manufacturing review and pilot release?',
+  'how-we-work': 'Who provides the inputs, reviews each revision and authorizes the next stage?',
+  'project-fit': 'Do the product, authorized assets and working requirements fit the proposed project?',
+};
 const schema = {
   '@context': 'https://schema.org',
   '@graph': [
@@ -62,6 +73,7 @@ const schema = {
       </div>
     </section>
     <div class="qc-container">
+      <ReviewGuide question={reviewQuestions[page.slug] ?? 'What should be agreed before the next project stage?'} links={page.sections.filter(item => item.href !== '#faq' && item.href !== '#project-requirements').slice(0, 3)} inquiryHref={inquiryHref} />
       <slot />
       <section id="deliverables" class="qc-section qc-split" aria-labelledby="deliverables-title">
         <div><Icon name="folder-check" class="b2b-section-icon" /><p class="qc-eyebrow">PROJECT OUTPUTS</p><h2 id="deliverables-title">What you receive</h2><p>Agree the applicable deliverables, their revision and approval owner in the project scope. The output must support the next decision.</p><p class="b2b-approval-note">Confirm the scope and acceptance criteria before authorizing the next stage.</p><p>Customer-designated ownership and the agreed handover belong in the same project scope. Review <a href="/customization/ip-protection/design-ownership/">Design Ownership &amp; Development Rights</a> alongside the deliverables.</p></div>
@@ -79,12 +91,18 @@ const schema = {
     <section id="project-requirements" class="qc-project" aria-labelledby="project-title">
       <div class="qc-container qc-split">
         <div><Icon name="send" class="b2b-section-icon" /><p class="qc-eyebrow">YOUR NEXT STEP</p><h2 id="project-title">{page.cta}</h2><p>{page.briefIntro}</p>
-          <div class="qc-actions"><a class="qc-button b2b-download" href={`/resources/${page.slug}-project-brief.txt`} download>Download the project brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href={inquiryHref}>Start your inquiry <span aria-hidden="true">↗</span></a>{contactHref && <a class="qc-text-link" href={contactHref}>Send your project brief <span aria-hidden="true">↗</span></a>}</div>
+          <div class="qc-actions"><a class="qc-button b2b-download" href={`/resources/${page.slug}-project-brief.txt`} download>Download the project brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href={visitOrInquireHref}>{leanInquiryNavigation.label} <span aria-hidden="true">↗</span></a>{contactHref && <a class="qc-text-link" href={contactHref}>Send your project brief <span aria-hidden="true">↗</span></a>}</div>
           <p class="qc-project-note">Begin with a non-sensitive project overview. Review <a href="/customization/ip-protection/">IP &amp; Confidentiality</a> and <a href="/customization/ip-protection/nda-project-start/">the confidential project start process</a> before sharing restricted drawings, code, keys or customer information. Downloading a brief does not submit a project.</p>
-          <p><a class="qc-text-link" href="/rfq/?nda=1#rfq-form">Discuss an NDA before sharing detailed files <span aria-hidden="true">↗</span></a></p>
+          <p><a class="qc-text-link" href="/rfq/?nda=1#project-inquiry">Discuss an NDA before sharing detailed files <span aria-hidden="true">↗</span></a></p>
         </div>
         <div class="qc-project-list"><h3>What we need from you</h3><ul>{page.needs.map(item => <li>{item}</li>)}</ul></div>
       </div>
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  @media (max-width: 859px) {
+    .b2b-page .qc-hero-grid { grid-template-areas: 'heading' 'detail' 'visual'; }
+  }
+</style>

@@ -2,7 +2,7 @@
 import { Icon } from 'astro-iconset/components';
 import { rfqProjectOptions, rfqProjectPrompts } from '../data/rfq';
 import { NDA_REQUEST_TEXT } from '../utils/rfq';
-const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '/api/rfq';
+const endpoint = import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
 ---
 
 <form id="rfq-form" name="rfq-form" method="post" data-rfq-form data-endpoint={endpoint} aria-labelledby="rfq-form-title">

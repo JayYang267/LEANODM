@@ -1,6 +1,7 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewGuide from '../../components/nonhome/ReviewGuide.astro';
 import QualityReviewBrief from '../../components/QualityReviewBrief.astro';
 import ActivityHighlights from '../../components/ActivityHighlights.astro';
 import { systemControls, qualityDocuments, improvementSteps, qualityFaqs } from '../../data/quality-system';
@@ -28,6 +29,7 @@ const schema = {'@context':'https://schema.org','@graph':[
     </div></section>
 
     <div class="qs-container">
+      <ReviewGuide question="What evidence connects your agreed requirements to a quality decision?" links={[{ label: 'Connected controls', href: '#system-overview' }, { label: 'Approved information', href: '#document-control' }, { label: 'Supplier evidence', href: '#supplier-review' }]} inquiryHref="/rfq/?source=quality-system#project-inquiry" />
       <section id="system-overview" class="qs-section" aria-labelledby="system-title"><div class="qs-heading"><div><p class="qs-eyebrow">01 / CONNECTED CONTROLS</p><h2 id="system-title">A quality system across the project.</h2></div><p>Inspection sits within a wider process. Requirements, materials, working information and follow-up must connect so each team has a clear basis for its decisions.</p></div><div class="qs-controls">{systemControls.map((item,i)=><article><span class="qs-number">0{i+1}</span><h3>{item.name}</h3><p>{item.text}</p><a class="qs-link" href={item.href}>{item.link}<span aria-hidden="true">↗</span></a></article>)}</div></section>
 
       <section id="document-control" class="qs-section" aria-labelledby="documents-title"><div class="qs-heading"><div><p class="qs-eyebrow">02 / APPROVED INFORMATION</p><h2 id="documents-title">Document Revision &amp; Quality Record Control</h2></div><p>The file-control procedure defines approval, distribution, change and withdrawal of documents. Record control defines how the resulting evidence is collected, retained and accessed.</p></div>
@@ -37,7 +39,16 @@ const schema = {'@context':'https://schema.org','@graph':[
 
       <section id="risk-and-responsibility" class="qs-section qs-split" aria-labelledby="risk-title"><div><p class="qs-eyebrow">03 / PREVENTION & RESPONSIBILITY</p><h2 id="risk-title">Quality Risk Review &amp; Responsibilities</h2><p>The procedures call for risk identification across design, supply, production, measurement and customer feedback. Relevant departments define actions and follow their effectiveness.</p><p>For a buyer, the practical starting point is the product’s intended use, destination market, critical characteristics and known concerns.</p><a class="qs-link" href="/customization/new-product-development/">Engineering and design review <span aria-hidden="true">↗</span></a></div><dl class="qs-evidence"><div><dt>Engineering and production planning</dt><dd>Review technical requirements, design inputs, material availability and production feasibility. Coordinate requirement and order changes.</dd></div><div><dt>Purchasing, production and warehouse</dt><dd>Control supplier information, work instructions, materials, storage and identification through the relevant stages.</dd></div><div><dt>Quality and management review</dt><dd>Maintain inspection and measurement controls, review nonconformities and use process monitoring and internal audits to identify improvement needs.</dd></div></dl></section>
 
-      <section id="improvement" class="qs-section" aria-labelledby="improvement-title"><div class="qs-heading"><div><p class="qs-eyebrow">04 / CORRECTIVE ACTION</p><h2 id="improvement-title">Corrective Action &amp; Effectiveness Review</h2></div><p>Customer complaints, significant quality problems, audit findings and abnormal data can trigger corrective action. The documented process connects the response with effectiveness checks and the working standard.</p></div><ol class="qs-sequence">{improvementSteps.map((step,i)=><li><span class="qs-number">0{i+1}</span><h3>{step.name}</h3><p>{step.text}</p></li>)}</ol><div class="qs-inline-links"><a class="qs-link" href="/quality/quality-control-process/#release">Nonconformity and release <span aria-hidden="true">↗</span></a></div></section>
+    <section id="improvement" class="qs-section" aria-labelledby="improvement-title">
+      <div class="qs-heading"><div><p class="qs-eyebrow">04 / CORRECTIVE ACTION</p><h2 id="improvement-title">Corrective Action &amp; Effectiveness Review</h2></div><p>Customer complaints, significant quality problems, audit findings and abnormal data can trigger corrective action. The documented process connects the response with effectiveness checks and the working standard.</p></div>
+      <ol class="qs-sequence">{improvementSteps.map((step,i)=><li><span class="qs-number">0{i+1}</span><h3>{step.name}</h3><p>{step.text}</p></li>)}</ol>
+      <div class="qs-inline-links"><a class="qs-link" href="/quality/quality-control-process/#release">Nonconformity and release <span aria-hidden="true">↗</span></a></div>
+      <div class="qs-band" id="shop-floor-improvement">
+        <h3>Shop-floor problem solving in 2022</h3>
+        <p>Xinyinhai’s review of its 2022 improvements describes how teams investigated defects on the line and put corrective measures in place. Production and Quality used morning meetings to review the previous day’s issues. Teams across departments analyzed field returns, identified issues to address and followed up on trial builds.</p>
+        <p>Before production, supervisors and operators reviewed issues from the field and from development, identified critical checks and went through the work instructions. Departments also reviewed requirements for new products and transferred molds early in the project to identify and address potential problems.</p>
+      </div>
+    </section>
 
       <ActivityHighlights placement="quality" title="Improvement in everyday practice" intro="Explore recorded examples of workplace organization, material flow and shared learning." />
 

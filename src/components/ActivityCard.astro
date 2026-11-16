@@ -6,7 +6,7 @@ const category = activityCategories.find(item => item.id === activity.category)!
 ---
 <article class="activity-card" data-activity-card={archive ? activity.slug : undefined}>
   <a class="activity-card-image" href={`/about/activities/${activity.slug}/`} tabindex="-1" aria-hidden="true">
-    <img src={activity.cover.thumbnail} alt={activity.title} width={activity.cover.width} height={activity.cover.height} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+    <img src={activity.cover.thumbnail} alt={activity.photoDescriptions?.[activity.cover.id] ?? activity.title} width={activity.cover.width} height={activity.cover.height} loading={eager ? 'eager' : 'lazy'} decoding="async" />
     {activity.videoCount > 0 && <span class="activity-video-badge"><span aria-hidden="true">▶</span> {activity.videoCount} {activity.videoCount === 1 ? 'video' : 'videos'}</span>}
   </a>
   <div class="activity-card-body">

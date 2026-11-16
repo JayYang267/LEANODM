@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import { SITE } from '../../../config/site';
 import ActivityCard from '../../../components/ActivityCard.astro';
 import { activities, activityCategories, activityNavigation } from '../../../data/activities';
@@ -19,6 +20,7 @@ const clientRecords = activities.map(({ slug, title, category, date, dateLabel, 
       <figure class="activity-hero-image"><img src={hero.coverImageUrl} width={hero.cover.width} height={hero.cover.height} alt={hero.title} fetchpriority="high" /><figcaption><span>FROM THE ARCHIVE</span><a href={`/about/activities/${hero.slug}/`}>{hero.title} <span aria-hidden="true">↗</span></a></figcaption></figure></div>
       <div class="activity-hero-bottom"><span>Real moments. Shared perspectives.</span><span>{activities.length} stories <b aria-hidden="true">/</b> Four areas of company life</span></div>
     </div></section>
+    <div class="activity-container"><ReviewGuide question="What do the recorded visits, learning and community activities show?" links={[{ label: 'Browse the archive', href: '#archive' }, { label: 'Read the records in context', href: '#our-approach' }]} inquiryHref="/rfq/?source=activities#factory-visit" inquiryLabel="Request a factory visit" /></div>
     <section class="activity-category-section" aria-label="Explore the four categories"><div class="activity-container activity-category-grid">{activityCategories.map((category, index) => <a class="activity-category" href={`?category=${category.id}#archive`} data-category-link={category.id}><div class="activity-category-top"><span>0{index + 1}</span><span aria-hidden="true">{category.icon}</span></div><h2>{category.title}</h2><p>{category.description}</p><span class="activity-category-foot">{activities.filter(item => item.category === category.id).length} stories <b aria-hidden="true">↗</b></span></a>)}</div></section>
     <section class="activity-archive" id="archive" aria-labelledby="archive-title" data-activity-archive><div class="activity-container">
       <div class="activity-section-heading"><div><p class="activity-eyebrow">THE ACTIVITY ARCHIVE</p><h2 id="archive-title">Factory visits, learning and activity records</h2></div><p>Browse across the years or follow a particular area of factory life. Each story brings its original collection together.</p></div>

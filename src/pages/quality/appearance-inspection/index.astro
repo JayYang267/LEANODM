@@ -1,8 +1,12 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
+import ImageLightbox from '../../../components/ImageLightbox.astro';
+import BiqcFigures from '../../../components/BiqcFigures.astro';
 import Button from '@components/ui/Button.astro';
 import standard from '../../../data/appearance-standard.json';
+import { appearanceExamples, appearanceCases } from '../../../data/biqc-training';
 import '../../../styles/appearance-inspection.css';
 
 const title = 'Product Appearance Inspection Standard | LEANODM.com';
@@ -10,7 +14,7 @@ const description = 'Review Xinyinhai’s appearance inspection standard: 15 def
 const route = '/quality/appearance-inspection/';
 // Website identity is separate from the issuer of the factory's technical standard.
 const siteOrigin = SITE.url;
-const contactHref = import.meta.env.PUBLIC_CONTACT_URL || '/rfq/?source=quality-appearance-inspection#rfq-form';
+const contactHref = import.meta.env.PUBLIC_CONTACT_URL || '/rfq/?source=quality-appearance-inspection#project-inquiry';
 const canonical = new URL(route, siteOrigin).href;
 const heroImage = standard.defects[4].images[0];
 const pages = Object.keys(import.meta.glob('/src/pages/**/*.astro'));
@@ -127,6 +131,7 @@ const faqs = [
     </section>
 
     <div class="inspection-container">
+      <ReviewGuide question="What should you agree before approving product appearance?" links={[{ label: 'Viewing conditions', href: '#inspection-conditions' }, { label: 'Defect criteria', href: '#defect-library' }, { label: 'Training photographs', href: '#biqc-appearance-examples' }, { label: 'Customer reference sample', href: '#customer-requirements' }]} inquiryHref="/rfq/?source=quality-appearance-inspection#project-inquiry" />
       <section id="scope" class="inspection-section inspection-scope" aria-labelledby="scope-title">
         <div><p class="inspection-eyebrow">01 / SCOPE</p><h2 id="scope-title">A shared basis for appearance decisions</h2></div>
         <div>
@@ -191,7 +196,7 @@ const faqs = [
                 <div class="inspection-defect-heading"><span class="inspection-defect-number" aria-hidden="true">{String(defect.number).padStart(2, '0')}</span><div><p class="inspection-source-section">SOURCE §6.{defect.number}</p><h3 id={`${defect.id}-title`}>{defect.name}</h3></div></div>
                 <p class="inspection-definition"><strong>What it is.</strong> {defect.description}</p>
                 <div class:list={['inspection-evidence', { 'single-image': defect.images.length === 1 }]}>
-                  {defect.images.map((photo) => <figure><a href={photo.src} aria-label={`Open original-size example: ${photo.caption}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}
+                  {defect.images.map((photo) => <figure><a href={photo.src} data-lightbox="appearance-examples" data-width={photo.width} data-height={photo.height} data-title={defect.name} data-caption={photo.caption} data-source={standard.source.title} aria-label={`Open original-size example: ${photo.caption}`}><img src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} loading="lazy" decoding="async" /></a><figcaption>{photo.caption}</figcaption></figure>)}
                 </div>
                 {defect.criteria.length > 0 && <div class="inspection-table-wrap"><table class="inspection-table criteria-table">
                   <caption>Acceptance criteria — {defect.name}</caption>
@@ -205,6 +210,19 @@ const faqs = [
             ))}
           </div>
         </div>
+      </section>
+
+      <section id="biqc-appearance-examples" class="inspection-section biqc-appearance" aria-labelledby="biqc-appearance-title">
+        <p class="inspection-eyebrow">BIQC TRAINING PHOTOGRAPHS</p>
+        <h2 id="biqc-appearance-title">How Appearance Defects Look in Practice</h2>
+        <p class="inspection-section-intro">Use these examples from Xinyinhai’s May 2019 BIQC training alongside the defect criteria above. CR, MA and MI are the training deck’s classifications for the specific examples. The applicable specification and approved sample guide the inspection decision.</p>
+        {appearanceExamples.map(({ id, title, slides, figures }) => (
+          <details id={id}>
+            <summary>{title}</summary>
+            <div><p class="inspection-small">BIQC training · {slides}</p><BiqcFigures figures={figures} group={id} /></div>
+          </details>
+        ))}
+        <p class="inspection-small">For screw installation, assembly, book pages and packaging examples, see <a class="inspection-text-link" href="/quality/inspector-training/#biqc-defect-examples">Inspector Training</a>.</p>
       </section>
 
       <section id="customer-requirements" class="inspection-section" aria-labelledby="customer-title">
@@ -223,6 +241,24 @@ const faqs = [
         </table></div>
         <div class="inspection-editorial"><h3>For your product discussion</h3><p>Identify the surfaces a user sees, point out appearance-sensitive areas and bring relevant reference photographs or samples. Discuss printing, painting, labels and assembly together: the source’s exceptions depend on the specific defect and the next operation.</p><p class="inspection-small">This is guidance for preparing a product discussion, not an additional factory acceptance rule.</p></div>
         <div id="sample-and-revision-control" class="inspection-editorial"><h3>Keep the sample and specification aligned</h3><p>Appearance comparisons depend on the reference being used. The document-control procedure calls for review and approval of revised requirements, distribution of the approved version and withdrawal or clear identification of obsolete information. Customer artwork, drawings and color references follow their assigned approval and distribution route.</p><p>For your project, identify the approved sample and the applicable drawing, finish or artwork revision before inspection. When a reference changes, agree which product and production lot it applies to and whether another sample review is needed. Read the <a class="inspection-text-link" href="/quality/">Quality Management System overview</a> and <a class="inspection-text-link" href="/quality/traceability/">Traceability &amp; Materials</a> alongside these appearance criteria.</p><p class="inspection-small">This links reference control to the inspection discussion; it does not change the defect limits or create a blanket sample-based exception.</p></div>
+      </section>
+
+      <section id="biqc-molding-cases" class="inspection-section biqc-appearance" aria-labelledby="biqc-molding-title">
+        <p class="inspection-eyebrow">BIQC MOLDING CASES</p>
+        <h2 id="biqc-molding-title">What Molded Parts Can Reveal About the Process</h2>
+        <p class="inspection-section-intro">These historical cases connect what an inspector sees with the tooling, molding or assembly condition that produced it. The training records a follow-up check or process change for each case.</p>
+        {appearanceCases.map(({ id, title, slide, finding, followup, figures }) => (
+          <article id={id} class="inspection-editorial">
+            <h3>{title}</h3>
+            <p>{finding}</p>
+            <p><strong>Follow-up in the training.</strong> {followup}</p>
+            <details>
+              <summary>View case photographs</summary>
+              <div><p class="inspection-small">BIQC training · slide {slide}</p><BiqcFigures figures={figures} group={id} /></div>
+            </details>
+          </article>
+        ))}
+        <p class="inspection-small">See <a class="inspection-text-link" href="/quality/traceability/#biqc-traceability-cases">Traceability</a> for related version and approved-sample controls.</p>
       </section>
 
       <section id="related-quality-controls" class="inspection-section" aria-labelledby="related-title">
@@ -261,4 +297,16 @@ const faqs = [
       </div>
     </section>
   </div>
+  <ImageLightbox />
 </BaseLayout>
+
+<style>
+  .biqc-appearance details {
+    margin-block: .75rem;
+    border: 1px solid #dbe2e4;
+    border-radius: .45rem;
+  }
+  .biqc-appearance details > div { padding: 0 1rem .5rem; }
+  .biqc-appearance summary { cursor: pointer; font-weight: 650; padding: .8rem 1rem; }
+  .biqc-appearance summary:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+</style>

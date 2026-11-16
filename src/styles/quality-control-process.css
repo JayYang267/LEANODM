@@ -91,6 +91,20 @@
 .qc-patrol li::before { content:''; width:9px; height:9px; background:#183ba3; border:2px solid white; outline:1px solid #bdcce0; border-radius:50%; position:absolute; left:-32px; top:5px; }
 .qc-patrol li:last-child { padding-bottom:0; }
 .qc-patrol p { margin:0; color:var(--qc-muted); font-size:.88rem; }
+#in-process { row-gap:36px; }
+.qc-patrol-checks { grid-column:1/-1; }
+.qc-patrol-checks>p { margin:0; color:var(--qc-muted); font-size:.94rem; }
+.qc-patrol-checks dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:0 28px; margin:18px 0 0; }
+.qc-patrol-checks dl>div { padding:16px 0; border-top:1px solid var(--qc-line); }
+.qc-patrol-checks dt { margin-bottom:6px; font-weight:600; }
+.qc-patrol-checks dd { margin:0; color:var(--qc-muted); font-size:.88rem; }
+.qc-patrol-checks dd>p { margin:0; }
+.qc-patrol-checks dd>p+p { margin-top:8px; }
+.qc-patrol-checks a { color:var(--qc-blue); text-decoration:underline; text-underline-offset:3px; }
+.qc-patrol-photo { display:grid; grid-template-columns:min(52%,15rem) minmax(0,1fr); gap:16px; align-items:center; margin:14px 0 0; padding:12px; border:1px solid var(--qc-line); background:#f3f6fa; }
+.qc-patrol-photo img { display:block; width:100%; max-width:296px; height:auto; }
+.qc-patrol-photo figcaption { font-size:.88rem; }
+.qc-patrol-checks .qc-patrol-photo-source { margin-top:12px; font-size:.8rem; }
 .qc-processes { margin:0; border-top:1px solid var(--qc-line); }
 .qc-processes>div { display:grid; grid-template-columns:.65fr 1.35fr; gap:35px; padding:24px 0; border-bottom:1px solid var(--qc-line); }
 .qc-processes dt { display:flex; gap:20px; align-items:baseline; font-size:1rem; font-weight:600; }
@@ -161,6 +175,7 @@
   .qc-project-list { padding:22px 0 0; border-left:0; border-top:1px solid #c5d3e6; }
 }
 @media (max-width:599px) {
+  .qc-patrol-checks dl,.qc-patrol-photo { grid-template-columns:1fr; }
   .qc-container { padding-inline:16px; }
   .qc-breadcrumb ol { margin-bottom:30px; font-size:.68rem; gap:3px 7px; }
   .qc-breadcrumb li+li::before { margin-right:7px; }

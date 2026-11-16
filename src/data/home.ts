@@ -36,14 +36,23 @@ export const certificationItems = [
 ] as const;
 
 export const productScope = [
-  { name: 'Toys', icon: 'blocks', href: '/products/plastic-electronic-toys/' },
-  { name: 'Consumer electronics', icon: 'cpu', href: '/products/plastic-electronic-products/' },
+  { name: 'Toys', icon: 'blocks' },
+  { name: 'Consumer electronics', icon: 'cpu' },
 ];
 export const customerTypes = [
-  { title: 'Entrepreneurs', text: 'For individual founders starting with a product idea. We help define requirements, develop the design and build prototypes to prepare your product for mass production.', icon: 'lightbulb' },
-  { title: 'Startups', text: 'For startup teams taking a concept or prototype into production. We support design refinement, testing and production planning to help prepare plastic and electronic products for mass production.', icon: 'layers' },
   { title: 'IP Owners', text: 'With extensive experience and a diverse portfolio of projects, we help IP owners, licensors and authorized licensees develop products around characters, stories and other creative assets. Through collaborative design, development and lean manufacturing, we transform those assets into highly reliable, market-ready plastic and electronic products.', details: 'We help you deliver quality branded products to your audience, strengthen your brand and create new revenue opportunities from your IP.', icon: 'gem' },
-  { title: 'Product Brands', text: 'For established brands seeking better product quality and more consistent production. We support design refinement, process improvements and quality control to help strengthen brand value and competitiveness.', icon: 'clipboard-check' },
+  {
+    title: 'Product Brands',
+    text: 'For established product brands ready to strengthen quality, consistency and customer trust. We connect your brand goals with the right development or manufacturing route, from engineering changes to repeatable mass production.',
+    businessModels: [
+      { label: 'Existing Product Customization', href: '/customization/existing-products/' },
+      { label: 'Product Adaptation', href: '/customization/product-adaptation/' },
+      { label: 'New Product Development', href: '/customization/new-product-development/' },
+      { label: 'OEM Manufacturing', href: '/customization/oem-manufacturing/' },
+    ],
+    details: 'Choose the business model that matches your product stage, then work with one accountable partner from specification review through production and delivery.',
+    icon: 'clipboard-check',
+  },
   {
     title: 'Design & Engineering Firms',
     text: 'Your hardware ODM partner from mold tooling to mass production.',
@@ -56,6 +65,7 @@ export const customerTypes = [
     details: 'You lead design and engineering. We handle tooling, pilot builds, PCBA integration, assembly and testing as an extension of your team.',
     icon: 'layers',
   },
+  { title: 'Startups', text: 'For startup teams turning an idea or prototype into a market-ready product. We help clarify requirements, refine the design, validate the product and prepare plastic and electronic products for reliable mass production.', href: '/customization/new-product-development/', icon: 'layers' },
   { title: 'Business, Government & Events', text: 'For companies and government agencies seeking corporate gifts or mascot merchandise for sporting events and other activities.', details: 'Relevant buyers include companies purchasing standard products in bulk, official event organizers and import agents.', icon: 'flag' },
 ];
 const requestStepOptions = [

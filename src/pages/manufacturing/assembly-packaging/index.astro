@@ -1,8 +1,9 @@
 ---
 import { SITE } from '@config/site';
-import { DRIVING_SOUND_BOOK_CASE_PATH } from '@config/seo';
+import { caseStudyPath } from '../../../data/case-studies';
 import ActivityHighlights from '../../../components/ActivityHighlights.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import Button from '@components/ui/Button.astro';
 import AssemblyDiagram from '@components/AssemblyDiagram.astro';
 import AssemblyFlow from '@components/AssemblyFlow.astro';
@@ -14,18 +15,41 @@ import springPositioning from '../../../assets/assembly-packaging/spring-positio
 import slidingLubrication from '../../../assets/assembly-packaging/sliding-component-lubrication.jpg';
 import singleStation from '../../../assets/assembly-packaging/automatic-single-station.webp';
 import dualStation from '../../../assets/assembly-packaging/automatic-dual-station.webp';
-import electricDriver from '../../../assets/assembly-packaging/manual-electric-driver.webp';
-import torqueTester from '../../../assets/assembly-packaging/torque-tester.webp';
+import electricDriver from '../../../assets/assembly-packaging/manual-screw-fastening-2020.webp';
+import bookPageAlignment from '../../../assets/assembly-packaging/book-page-alignment-2020.webp';
+import torqueCheckTraining from '../../../assets/assembly-packaging/driver-torque-check-2017.webp';
 import nozzleBit from '../../../assets/assembly-packaging/nozzle-driver-bit.webp';
 import screwFeeder from '../../../assets/assembly-packaging/screw-feeder.webp';
+import speakerTraySupport from '../../../assets/assembly-packaging/speaker-tray-support-2020.webp';
+import adhesiveDispenserTip from '../../../assets/assembly-packaging/adhesive-dispenser-tip.webp';
+import heatPressHeatingHead from '../../../assets/assembly-packaging/heat-press-heating-head.webp';
 import solderIrons from '../../../assets/assembly-packaging/solder-feeding-irons.webp';
-import temperatureTester from '../../../assets/assembly-packaging/solder-temperature-tester.webp';
+import solderFumeExtractor from '../../../assets/assembly-packaging/solder-fume-extractor.webp';
+import ironTipTemperatureCheck from '../../../assets/assembly-packaging/iron-tip-temperature-check.webp';
 import goodJoint from '../../../assets/assembly-packaging/solder-good-reference.webp';
 import poorWire from '../../../assets/assembly-packaging/solder-ng-wire.webp';
 import tipBefore from '../../../assets/assembly-packaging/solder-tip-before.webp';
 import tipAfter from '../../../assets/assembly-packaging/solder-tip-after.webp';
+import speakerLeadSolderFixture from '../../../assets/assembly-packaging/speaker-lead-solder-fixture.webp';
 import solderDebris from '../../../assets/assembly-packaging/solder-debris.webp';
 import paperScraps from '../../../assets/assembly-packaging/paper-scraps.webp';
+import plasticOffcuts from '../../../assets/assembly-packaging/plastic-offcuts.webp';
+import foreignObjectCheckCard from '../../../assets/assembly-packaging/foreign-object-check-card.webp';
+import palletSeparatorCleaning from '../../../assets/assembly-packaging/pallet-separator-cleaning.webp';
+import tetheredBladeTool from '../../../assets/assembly-packaging/tethered-blade-tool.jpg';
+import bladeToolBoard from '../../../assets/assembly-packaging/blade-storage-and-check-sheet.webp';
+import componentTrays from '../../../assets/assembly-packaging/designated-component-trays.webp';
+import coveredTote from '../../../assets/assembly-packaging/covered-transfer-tote.webp';
+import linedTote from '../../../assets/assembly-packaging/lined-transfer-tote.webp';
+import pcbaWorkstations from '../../../assets/production-improvement-2023/pcba-assembly-workstations.webp';
+import wheeledBinRack from '../../../assets/production-improvement-2023/wheeled-bin-rack.webp';
+import packWeightCheck from '../../../assets/production-improvement-2023/pack-weight-check.webp';
+import palletDeckSeparator from '../../../assets/assembly-packaging/pallet-deck-separator.webp';
+import packingRailInsert from '../../../assets/assembly-packaging/packing-conveyor-rail-insert.webp';
+import screwCatchTray from '../../../assets/assembly-packaging/screw-bin-catch-tray.webp';
+import packingEntranceLight from '../../../assets/assembly-packaging/packing-entrance-insect-light-2020.webp';
+import leadEntryFixture from '../../../assets/assembly-packaging/lead-entry-fixture-2022.webp';
+import solderFixtureCover from '../../../assets/assembly-packaging/solder-fixture-cover-2022.webp';
 import { assemblyRoute, assemblyNavigation, assemblyProcess, assemblyInstructions, assemblyControls, assemblyInspection, assemblyOutcomes, assemblyFaqs } from '../../../data/assembly-packaging';
 import '../../../styles/quality-control-process.css';
 import '../../../styles/assembly-packaging.css';
@@ -104,7 +128,7 @@ const schema = {
             <div class="qc-actions">
               <Button href="#project-requirements" class="qc-button">Prepare Your Project Brief <span aria-hidden="true">↗</span></Button>
               <a class="qc-text-link" href="#assembly-process">Explore the process <span aria-hidden="true">↓</span></a>
-              <a class="qc-text-link" href={DRIVING_SOUND_BOOK_CASE_PATH}>See the driving sound book case <span aria-hidden="true">↗</span></a>
+              <a class="qc-text-link" href={caseStudyPath('interactive-driving-sound-book')}>See the driving sound book case <span aria-hidden="true">↗</span></a>
             </div>
           </div>
           <div class="ap-hero-visual">
@@ -118,6 +142,7 @@ const schema = {
     </section>
 
     <div class="qc-container">
+      <ReviewGuide question="How do parts, boards and packaging become an approved finished product?" links={[{ label: 'Assembly route', href: '#assembly-process' }, { label: 'Key controls', href: '#assembly-controls' }, { label: 'Foreign-object prevention', href: '#foreign-object-prevention' }, { label: 'Packaging checks', href: '#packaging-controls' }]} inquiryHref="/rfq/?source=assembly-packaging#project-inquiry" />
       <section id="assembly-process" class="qc-section" aria-labelledby="process-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">01 / ONE CONNECTED PROCESS</p><h2 id="process-title">From Production Order to Finished Product</h2></div><p>Assembly and packaging follow a planned route: prepare the line, confirm the first piece, train the operator, verify the work and inspect the packed result.</p></div>
         <div class="ap-connected-flow">
@@ -126,6 +151,18 @@ const schema = {
           <div class="ap-return"><span aria-hidden="true">↶</span><div><strong>NG → identify, segregate, correct and re-check</strong><p>The assembly board returns repaired units to the assembly sequence. Rejected packing returns for review and correction before acceptance.</p></div></div>
         </div>
         <p class="qc-source-note">Summarized from the assembly and packaging production boards. The product’s operations, inspection criteria and required customer inspection are confirmed for each project.</p>
+        <p id="assembly-line-balancing-2020" class="qc-source-note"><strong>Line balancing in production planning.</strong> Xinyinhai’s December 2020 guide shows how order volume and available production time set the target takt time, or required time per unit. It describes timing each station to find the bottleneck, then measuring again after redistributing work or improving a fixture.</p>
+        <article id="workstation-layout-2023" class="ap-packing-spec ap-archive-case" aria-labelledby="workstation-layout-title">
+          <div>
+            <p class="qc-small-label">2021–2023 XINYINHAI IMPROVEMENT CASE</p>
+            <h3 id="workstation-layout-title">Workstations arranged around the product route</h3>
+            <p>Xinyinhai’s 2023 review documents how selected assembly and packing operations moved from long belt lines to shorter lines and modular workstations. Teams combined stations to suit the operation sequence, kept frequently used parts within reach and used wheeled racks to stage bins.</p>
+          </div>
+          <div class="ap-machine-pair">
+            <AssemblyEvidence src={pcbaWorkstations} alt="Adjacent PCBA assembly workstations with individual fixtures along a marked aisle" contain caption="Individual fixtures at adjacent PCBA assembly stations." />
+            <AssemblyEvidence src={wheeledBinRack} alt="Blue bins arranged on several levels of a wheeled rack" contain caption="Blue bins staged on a wheeled rack." />
+          </div>
+        </article>
         <p>The <a class="qc-text-link" href="/capabilities/production-equipment/#assembly-packaging">assembly equipment and workshop overview <span aria-hidden="true">↗</span></a> covers automated soldering, screwdriving, ultrasonic joining, labeling and gasket fitting examples.</p>
         <a class="qc-text-link" href="#packaging-controls">Follow the packaging route <span aria-hidden="true">↓</span></a>
       </section>
@@ -142,6 +179,44 @@ const schema = {
           <div class="ap-control-visual"><div class="ap-panel-label"><span>ASSEMBLY INTERFACES</span><span>01—07</span></div><AssemblyDiagram variant="controls" idPrefix="assembly-controls-figure" /><p class="ap-diagram-note">Numbers connect the illustrative interfaces to the documented control points.</p></div>
           <ol class="ap-control-list">{assemblyControls.map((control, i) => <li><span>{String(i + 1).padStart(2, '0')}</span><div><h3>{control.name}</h3><p>{control.text}</p></div></li>)}</ol>
         </div>
+        <article id="speaker-tray-support" class="ap-packing-spec ap-archive-case" aria-labelledby="speaker-tray-support-title">
+          <div>
+            <p class="qc-small-label">2020 XINYINHAI WORKSHOP SELF-INSPECTION</p>
+            <h3 id="speaker-tray-support-title">Supporting a speaker tray at the workbench</h3>
+            <p>An assembly workshop check flagged a tray of speakers sitting directly on the bench. The follow-up photograph shows the tray resting on a support fixture.</p>
+          </div>
+          <AssemblyEvidence src={speakerTraySupport} alt="Lower edge of a foam speaker tray resting on an orange support fixture" contain caption="The speaker tray on its workbench fixture." />
+        </article>
+        <p class="qc-source-note" id="speaker-handling-2018"><strong>Speaker handling.</strong> A 2018 handling guide shows how to grip the housing by its rim, keep pressure off the diaphragm and avoid pulling the leads. It illustrates a locating fixture for lead soldering and shows the speaker seated flat in the acoustic cavity.</p>
+        <div class="ap-risk-controls" id="assembly-process-improvements">
+          <div class="ap-improvement-case">
+            <h3>Set the adhesive dose</h3>
+            <p>Xinyinhai introduced handheld dispensers and refined benchtop equipment with adjustable dose settings to keep the amount of adhesive consistent. Selected products used automatic dispensing. One documented application was applying adhesive to a buzzer disc.</p>
+            <AssemblyEvidence src={adhesiveDispenserTip} alt="Close-up of an adhesive droplet at the tip of a handheld applicator" compact contain caption="Handheld application tip with an adhesive droplet." />
+          </div>
+          <div class="ap-improvement-case">
+            <h3>Locate parts during heat pressing</h3>
+            <p>To reduce variation during heat pressing, Xinyinhai used a CNC-machined fixture base to locate the parts and a copper heating head to transfer heat consistently.</p>
+            <AssemblyEvidence src={heatPressHeatingHead} alt="Copper block beneath the mounting plate of a heat-press fixture" compact contain caption="Copper heating head from the heat-press fixture." />
+          </div>
+        </div>
+        <p class="qc-source-note">Xinyinhai’s 2022 assembly improvement examples.</p>
+        <article id="book-page-alignment-2020" class="ap-packing-spec ap-archive-case ap-process-evidence" aria-labelledby="book-page-alignment-title">
+          <div>
+            <p class="qc-small-label">NOVEMBER 2020 XINYINHAI WORKSHOP RECORD</p>
+            <h3 id="book-page-alignment-title">Positioning pages before bonding</h3>
+            <p>At a book assembly station, an operator uses the edges of a locating fixture to align the page before the next operation.</p>
+          </div>
+          <AssemblyEvidence src={bookPageAlignment} alt="An operator’s hands align a yellow page against the edges of an orange fixture" contain caption="Page alignment in a book assembly fixture." />
+        </article>
+        <article id="lead-entry-fixture-2022" class="ap-packing-spec ap-archive-case ap-process-evidence" aria-labelledby="lead-entry-fixture-title">
+          <div>
+            <p class="qc-small-label">APRIL 2022 WORKSHOP EXAMPLE</p>
+            <h3 id="lead-entry-fixture-title">Give the lead a clear route into the fixture</h3>
+            <p>Xinyinhai extended the center opening of a housing-tightening fixture to its edge. The slot lets the operator slide the power lead in from the side while positioning the housing.</p>
+          </div>
+          <AssemblyEvidence src={leadEntryFixture} alt="Power lead entering the side slot of a metal tightening fixture" contain caption="The fixture’s open slot lets the power lead enter from the edge." />
+        </article>
       </section>
 
       <section id="screw-fastening" class="qc-section" aria-labelledby="fastening-title">
@@ -151,33 +226,83 @@ const schema = {
             <AssemblyEvidence src={singleStation} alt="Archived single-workstation screw machine showing its fixture, feeder and control panel" label="Single workstation" caption="One product position, with the screw feeder and fixture beside the driver." />
             <AssemblyEvidence src={dualStation} alt="Archived automatic screw machine with two fixture positions and front controls" label="Dual workstation" caption="Two work positions shown in the automatic-fastening training material." />
           </div>
-          <div class="ap-method-copy"><p class="qc-small-label">MANUAL + AUTOMATIC METHODS</p><h3>Match the method to the joint.</h3><p>The training covers handheld electric drivers, single-head machines with one or two workstations, and a dual-head / dual-workstation configuration.</p><p>Fixture location, screw access, driver-bit fit and suction-nozzle condition matter alongside the torque setting.</p><div class="ap-torque-reference"><AssemblyEvidence src={torqueTester} alt="Digital torque tester illustrated in the screw-fastening training guide" compact contain caption="Torque tester: training equipment reference." /><div><h3>Verify the setting</h3><p>Torque-checking equipment and inspection records support the tool check. Set values and checking frequency follow the product-specific instruction.</p></div></div></div>
+          <div class="ap-method-copy"><p class="qc-small-label">MANUAL + AUTOMATIC METHODS</p><h3>Match the method to the joint.</h3><p>The training covers handheld electric drivers, single-head machines with one or two workstations, and a dual-head / dual-workstation configuration.</p><p>Fixture location, screw access, driver-bit fit and suction-nozzle condition matter alongside the torque setting.</p><div id="driver-torque-check-2017" class="ap-torque-reference"><AssemblyEvidence src={torqueCheckTraining} alt="An operator seats a handheld electric screwdriver in a digital torque tester while a colleague points to the display" compact contain caption="December 2017 assembly training: checking an electric screwdriver on a digital torque tester." /><div><h3>Verify the setting</h3><p>Torque-checking equipment and inspection records support the tool check. Set values and checking frequency follow the product-specific instruction.</p></div></div></div>
         </div>
         <p class="qc-source-note">Machine photographs are archived factory process evidence. They illustrate documented configurations; project equipment allocation is confirmed during review.</p>
         <div class="ap-loop"><h3>Fastening control loop</h3><ol>{['Correct screw', 'Locate in fixture', 'Verify torque', 'Check tool & nozzle', 'Fasten & inspect', 'Respond to alarm', 'Segregate NG', 'Correct & re-check'].map((step, i) => <li><span>{String(i + 1).padStart(2, '0')}</span>{step}</li>)}</ol></div>
         <div class="ap-risk-controls"><div><h3>What the checks address</h3><p>Missing, loose or raised screws; wrong or mixed screw types; damaged heads; incorrect torque; contaminated feeders; poor fixture alignment; and operator handling errors.</p></div><div><h3>When a result is abnormal</h3><p>Mark the affected position, separate the unit for the line leader’s review and investigate the screw, tool, fixture and molded fixing feature. Confirm the affected fasteners again after correction.</p></div></div>
-        <details class="ap-detail"><summary>Tool setup, alarms, feeding and line clearance</summary><div class="ap-detail-body ap-fastening-details">
+        <p class="qc-source-note" id="fastening-fit-review-2023"><strong>Housing fit and fixture support.</strong> A 2023 fastening analysis lists fit conditions to check when investigating a defect. Check whether the housing halves close fully, whether the fixture seats the housing and keeps it from lifting during driving, and whether the molded screw bosses are deformed or vary in height.</p>
+        <details id="fastening-tool-setup" class="ap-detail"><summary>Tool setup, alarms, feeding and line clearance</summary><div class="ap-detail-body ap-fastening-details">
           <dl class="ap-technical-list"><div><dt>Tool and fixture checks</dt><dd>Use the specified screw, compatible driver bit and suction nozzle. Check wear, straightness and product seating; a damaged bit or unstable fixture can affect fastening.</dd></div><div><dt>Machine controls and alarms</dt><dd>Train operators on reset, start, stop and emergency-stop controls for the specific machine. The guide includes missed-pickup and torque alarms, marked NG units and separate collection for review.</dd></div><div><dt>Screw loading and clearance</dt><dd>Match the screw type and feeder before loading. Follow the prescribed power-off procedure for loading or removing screws. Check the hopper, turntable and rails for hidden screws when clearing the feeder.</dd></div><div><dt>Cleaning and verification</dt><dd>Remove loose screws and debris from the feeder, fixture and machine surfaces. Review tool condition, screw seating and affected fastening positions; do not treat an alarm reset alone as product acceptance.</dd></div></dl>
-          <div class="ap-detail-photos"><AssemblyEvidence src={electricDriver} alt="Handheld electric screwdriver shown in the fastening training guide" compact contain label="Manual electric driver" caption="Training equipment reference." /><AssemblyEvidence src={nozzleBit} alt="Hands showing the screw-machine suction nozzle and driver bit assembly" compact contain label={'Nozzle & bit'} caption="Archived tool-check photograph." /><AssemblyEvidence src={screwFeeder} alt="Loose screws in the hopper of the automatic screw feeder" compact contain label="Feeder hopper" caption="Archived screw-feeding photograph." /></div>
+          <div class="ap-detail-photos"><AssemblyEvidence src={electricDriver} alt="An operator steadies a housing while fastening it with an electric screwdriver" compact contain label="Manual electric driver" caption="Fastening a housing at Xinyinhai in November 2020." /><AssemblyEvidence src={nozzleBit} alt="Hands showing the screw-machine suction nozzle and driver bit assembly" compact contain label={'Nozzle & bit'} caption="Archived tool-check photograph." /><AssemblyEvidence src={screwFeeder} alt="Loose screws in the hopper of the automatic screw feeder" compact contain label="Feeder hopper" caption="Archived screw-feeding photograph." /></div>
         </div></details>
       </section>
 
       <section id="hand-soldering" class="qc-section" aria-labelledby="soldering-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">05 / ELECTRONIC CONNECTIONS</p><h2 id="soldering-title">Hand-Soldering Controls at Xinyinhai</h2></div><p>Hand-soldering assembly is controlled through cleanliness, temperature and time. Preparation, trained handling and visual joint checks connect the operation to the product’s acceptance requirements.</p></div>
         <div class="ap-solder-preparation">
-          <dl class="ap-factors"><div><dt><span>01</span>Cleanliness</dt><dd>Prepare clean component leads and pads. Check the tip for residue, oxidation or damage so the contact surfaces can wet correctly.</dd></div><div><dt><span>02</span>Temperature</dt><dd>Select suitable iron power and tip contact area. Allow the setting to stabilize, then verify tip temperature with the tester.</dd></div><div><dt><span>03</span>Time</dt><dd>Control heating, solder feeding and withdrawal. Keep the connection undisturbed while the solder solidifies.</dd></div></dl>
-          <div class="ap-solder-equipment"><AssemblyEvidence src={solderIrons} alt="Manual solder-feeding irons and tips pictured in the assembly training material" contain label="Controlled hand feeding" caption="Solder-feeding irons illustrated in the training guide." /><AssemblyEvidence src={temperatureTester} alt="Soldering-iron temperature tester with its measurement sensor" compact contain label="Verify tip temperature" caption="Training equipment reference; no measured result is implied." /></div>
+          <dl class="ap-factors">
+            <div>
+              <dt><span>01</span>Cleanliness</dt>
+              <dd class="ap-improvement-case" id="soldering-flux-control">
+                <p>Prepare clean component leads and pads. Check the tip for residue, oxidation or damage so the contact surfaces can wet correctly.</p>
+                <div class="ap-extraction-example">
+                  <p>In a 2022 workbench improvement, Xinyinhai placed a fume extractor intake close to the soldering iron to limit rosin flux residue on the PCB and reduce the risk of poor electrical contact at the gold fingers.</p>
+                  <AssemblyEvidence src={solderFumeExtractor} alt="Workbench fume extractor with a flexible intake hose" compact contain caption="Extractor used in the hand-soldering workbench improvement." />
+                </div>
+              </dd>
+            </div>
+            <div><dt><span>02</span>Temperature</dt><dd>Select suitable iron power and tip contact area. Allow the setting to stabilize, then verify tip temperature with the tester. A May 2018 training form provides fields for the iron ID and the set and measured tip temperatures.</dd></div>
+            <div><dt><span>03</span>Time</dt><dd>Control heating, solder feeding and withdrawal. Keep the connection undisturbed while the solder solidifies.</dd></div>
+          </dl>
+          <div class="ap-solder-equipment" id="soldering-tip-temperature-check"><AssemblyEvidence src={solderIrons} alt="Manual solder-feeding irons and tips pictured in the assembly training material" contain label="Controlled hand feeding" caption="Solder-feeding irons illustrated in the training guide." /><AssemblyEvidence src={ironTipTemperatureCheck} alt="A hand places the soldering iron tip on the sensor of a temperature tester" contain label="Verify tip temperature" caption="The iron tip touches the tester’s sensor in a 2020 training photo." /></div>
         </div>
+        <p class="qc-source-note" id="soldering-operator-qualification"><strong>Operator qualification.</strong> Xinyinhai’s May 2018 materials describe written and practical assessments for different soldering tasks and call for matching the operator’s skills to the requirements in the work instruction. A 2020 assessment report records written and hands-on tests, with further training and a practical retest for operators who needed to improve.</p>
         <SolderingSequence />
         <div class="ap-joint-review">
-          <div><p class="qc-small-label">GOOD / NG TRAINING REFERENCES</p><h3>Recognize the joint, then check the requirement.</h3><p>Compare solder amount, joint profile, wetting and wire engagement with the work instruction. The examples show acceptable appearance and a poor wire connection; they are different training examples, not a before-and-after pair.</p><ul class="ap-defect-list"><li>Excessive or insufficient solder</li><li>Bridging and solder spikes</li><li>Cold / poorly formed joints</li><li>Loose or poorly soldered wire</li><li>Oxidation and poor wetting</li></ul></div>
+          <div><p class="qc-small-label">GOOD / NG TRAINING REFERENCES</p><h3>Recognize the joint, then check the requirement.</h3><p>Compare solder amount, joint profile, wetting and wire engagement with the work instruction. The examples show acceptable appearance and a poor wire connection; they are different training examples, not a before-and-after pair.</p><ul class="ap-defect-list"><li>Excessive or insufficient solder</li><li>Bridging and solder spikes</li><li>Cold / poorly formed joints</li><li>Loose or poorly soldered wire</li><li>Oxidation and poor wetting</li></ul><p id="wire-termination-checks">Xinyinhai’s April 2014 training examples also show checks for lead length, heat damage to insulation and loose strands at wire terminations.</p></div>
           <div class="ap-joint-pair"><AssemblyEvidence src={goodJoint} alt="Acceptable solder-joint training close-up with the original yellow inspection circle" compact contain label="GOOD / reference appearance" caption="Joint identified as acceptable in the training guide. Apply the project’s acceptance criteria." /><AssemblyEvidence src={poorWire} alt="Poor wire-soldering training example showing a red wire separated from its soldered contact" compact contain label="NG / poor wire connection" caption="Wire connection identified as poor in the guide. This is not a current production incident." /></div>
         </div>
+        <div id="solder-joint-visual-checks" class="ap-risk-controls">
+          <div>
+            <h3>Through-hole joint checks</h3>
+            <p>Check that solder wets the lead and pad. Review visible fill and lead protrusion against the approved criteria, and look for lifted pads or solder bridging conductors that should remain separate.</p>
+          </div>
+          <div>
+            <h3>Lead-free joint appearance</h3>
+            <p>A matte lead-free finish alone does not indicate a defect. Judge wetting and joint shape against the approved criteria and reference sample.</p>
+          </div>
+        </div>
+        <p class="qc-source-note">These inspection topics draw on a 2010 solder-inspection reference and a 2008 lead-free soldering course.</p>
+        <p class="qc-source-note" id="screen-assisted-solder-inspection-2021"><strong>Magnified visual inspection.</strong> Xinyinhai’s March 2021 soldering workshop proposal shows an operator using a camera and monitor to inspect soldered boards under magnification.</p>
         <details class="ap-detail"><summary>Tip selection, heating technique and maintenance</summary><div class="ap-detail-body">
           <div class="ap-risk-controls"><div><h3>Transfer heat at the interface</h3><p>Choose the tip shape and contact area for the connection. Heat both the component and copper pad; control solder feeding at the heated joint and withdraw the iron smoothly.</p></div><div><h3>Keep the tool and fixture clean</h3><p>Inspect tip condition, remove residue with the specified cleaner, protect the tip during pauses and switch off for extended idle periods. Clean fixtures so debris does not transfer to the product.</p></div></div>
           <div class="ap-tip-pair"><AssemblyEvidence src={tipBefore} alt="Soldering tip before cleaning in an archived training photograph" contain label="Before cleaning" caption="Residue on the tip is highlighted by the original training arrow." /><AssemblyEvidence src={tipAfter} alt="Soldering tip after cleaning in the matching archived training photograph" contain label="After cleaning" caption="The guide pairs tip cleaning with temperature and joint-surface checks." /></div>
           <p class="qc-source-note">Temperatures, heating times and any electrical or mechanical tests are defined for the product. Training photographs do not establish a test result or a universal solder-joint acceptance standard.</p>
         </div></details>
+        <div id="assembly-fixture-examples" class="ap-risk-controls">
+          <div>
+            <h3>Hold parts steady during soldering</h3>
+            <p>Board and speaker holding fixtures kept the parts from moving during soldering, reducing the risk of poor joints.</p>
+            <div class="ap-control-photos">
+              <AssemblyEvidence src={speakerLeadSolderFixture} alt="An operator solders a lead while an orange fixture holds a speaker steady" contain caption="A training deck saved in 2021 shows a fixture holding the speaker during lead soldering." />
+            </div>
+          </div>
+          <div>
+            <h3>Limit noise during listening checks</h3>
+            <p>A sound-test fixture helped limit interference from production noise during listening checks.</p>
+            <a class="qc-text-link" href="/quality/quality-control-process/#biqc-inspection-environment">See the BIQC inspection-room example <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <p class="qc-source-note">The fixture descriptions come from Xinyinhai’s June 2019 supplier presentation.</p>
+        <article id="solder-fixture-cover-2022" class="ap-packing-spec ap-archive-case ap-process-evidence" aria-labelledby="solder-fixture-cover-title">
+          <div>
+            <p class="qc-small-label">2022 WORKSHOP EXAMPLE</p>
+            <h3 id="solder-fixture-cover-title">Shield the board during soldering</h3>
+            <p>Xinyinhai added cover plates to a soldering fixture to shield the surrounding board area from spatter. The openings leave access for the soldering head.</p>
+          </div>
+          <AssemblyEvidence src={solderFixtureCover} alt="Soldering head above openings in green fixture cover plates" contain caption="The fixture covers the surrounding board area and leaves openings for soldering." />
+        </article>
       </section>
 
       <section id="final-inspection" class="qc-section" aria-labelledby="inspection-title">
@@ -192,16 +317,111 @@ const schema = {
       </section>
 
       <section id="foreign-object-prevention" class="qc-section" aria-labelledby="foreign-title">
-        <div class="qc-heading"><div><p class="qc-eyebrow">07 / SMALL PARTS, CLEAN WORK &amp; CLEARANCE</p><h2 id="foreign-title">Foreign-Object Prevention in Assembly &amp; Packaging</h2></div><p>The objective is to reduce unintended material entering the product or package. Hazard awareness, workstation cleaning and feeder clearance support the self-check, line inspection and final verification route.</p></div>
-        <div class="ap-foreign-layout"><div class="ap-hazard-groups"><div><h3>Process residues</h3><p>Loose screws, metal chips, solder debris, plastic runners or fragments, paper scraps and transparent tape.</p></div><div><h3>Small parts &amp; tools</h3><p>Batteries, rubber bands, other loose parts, driver bits, blades, needles and tools that could remain inside a package.</p></div><div><h3>Handling &amp; environment</h3><p>Hair, fibers or cleaning-cloth fragments, insects, glue strands and surface contamination.</p></div></div><div class="ap-hazard-photos"><AssemblyEvidence src={solderDebris} alt="Solder residues used as a foreign-object hazard example in the packaging training material" compact contain label="Solder residues" caption="Original training example of loose process debris." /><AssemblyEvidence src={paperScraps} alt="Paper scraps inside a carton in a packaging contamination training example" compact contain label="Packaging scraps" caption="Original training example; not a current shipment incident." /></div></div>
-        <div class="ap-risk-controls"><div><h3>Clear the source of debris</h3><p>The screw-machine guide requires removal of remaining screws from the feeder and rails, followed by cleaning of the machine surface. Soldering training adds tip and fixture cleaning.</p></div><div><h3>Define the final check</h3><p>The project packing checklist should specify visual checks inside the product and package, tool and sharp-object control, and removal of loose materials before closure. Inspection follows the agreed criteria.</p></div></div>
-        <p class="qc-source-note">The awareness board’s “zero-risk” wording is an internal prevention objective. It is not a guarantee of zero foreign objects or zero defects.</p>
+        <div class="qc-heading">
+          <div><p class="qc-eyebrow">07 / SMALL PARTS, CLEAN WORK &amp; CLEARANCE</p><h2 id="foreign-title">Foreign-Object Prevention in Assembly &amp; Packaging</h2></div>
+          <p>Xinyinhai’s packaging awareness board shows what to look for on products, inside packaging and around the workstation.</p>
+        </div>
+        <p><a class="qc-text-link" href="/manufacturing/#shop-floor-5s">See Xinyinhai’s 5S training on workstation organization and cleaning <span aria-hidden="true">↗</span></a></p>
+        <div class="ap-foreign-layout">
+          <div class="ap-hazard-groups">
+            <div><h3>On and inside the product</h3><p>Loose screws, metal fragments, solder debris, plastic offcuts, glue strands and hair.</p></div>
+            <div><h3>Inside bags and cartons</h3><p>Paper and tape scraps, stray wiping cloths and insects. <a class="qc-text-link" href="#packing-pest-prevention-2020">See the packing-area pest controls <span aria-hidden="true">↓</span></a></p></div>
+            <div><h3>Around the workstation</h3><p>Loose tools and parts such as driver bits, soldering tips, blades, needles, tweezers and magnets.</p></div>
+          </div>
+          <div class="ap-hazard-photos">
+            <AssemblyEvidence src={solderDebris} alt="Loose fragments of solder on a cloth" compact contain label="Solder debris" caption="Loose residue from soldering." />
+            <AssemblyEvidence src={plasticOffcuts} alt="Small colored plastic sprue offcuts on a light surface" compact contain label="Plastic offcuts" caption="Small pieces left after molding." />
+            <AssemblyEvidence src={paperScraps} alt="Paper scraps visible inside an open carton" compact contain label="Carton scraps" caption="Loose paper inside a carton." />
+          </div>
+        </div>
+        <div class="ap-risk-controls ap-prevention-controls">
+          <div>
+            <h3>Visual checks</h3>
+            <p>A yellow card reminded operators to look for foreign objects at designated operations.</p>
+            <p id="inspection-background-2018">A July 2018 corrective-action record shows white paper added at a visual inspection station and under an assembly fixture to make stray material easier to spot.</p>
+            <div class="ap-control-photos">
+              <AssemblyEvidence src={foreignObjectCheckCard} alt="Yellow check card with a checklist and four example photos" contain caption="Yellow inspection card with example photos" />
+            </div>
+          </div>
+          <div>
+            <h3>Secure and account for blades</h3>
+            <p>A tether kept the cutter at the workstation. Marked compartments and a check sheet helped operators account for the tools.</p>
+            <div class="ap-control-photos">
+              <AssemblyEvidence src={tetheredBladeTool} alt="Green cord connecting a red-handled cutter to a metal post" contain caption="Cutter tethered to a fixed post" />
+              <AssemblyEvidence src={bladeToolBoard} alt="Red cutters in four labeled compartments below a check sheet" contain caption="Labeled cutter compartments and check sheet" />
+            </div>
+          </div>
+          <div>
+            <h3 id="tote-liner-check">Stage and cover parts</h3>
+            <div>
+              <p>Operators used designated trays for parts at the workstation and folded clear film over full totes to protect work in progress.</p>
+              <p>Archived 5S training (file last saved in 2024) also calls for checking that totes are lined and keeping the liners from getting pinched and torn.</p>
+            </div>
+            <div class="ap-control-photos">
+              <AssemblyEvidence src={componentTrays} alt="Operators handling blue plastic components in two separate trays" contain caption="Plastic components in separate assembly trays" />
+              <AssemblyEvidence src={coveredTote} alt="Clear plastic film folded across the opening of a blue tote" contain caption="Clear film folded over a transfer tote" />
+              <div class="ap-tote-liner-photo">
+                <AssemblyEvidence src={linedTote} alt="Clear liner fitted over the rim of an empty blue tote on a staging cart" contain caption="Protective liner fitted inside a transfer tote." />
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="qc-source-note">The loose debris examples come from Xinyinhai’s packaging awareness board. The control photos show practices documented in Xinyinhai’s archived 5S improvement materials.</p>
+        <article id="pallet-separator-cleaning" class="ap-packing-spec ap-archive-case" aria-labelledby="pallet-separator-cleaning-title">
+          <div>
+            <h3 id="pallet-separator-cleaning-title">Keep pallet separators clean</h3>
+            <p>A 2019 Xinyinhai work instruction directs operators to keep shoes off the plastic separator and wipe it with a cloth if it is dirty.</p>
+          </div>
+          <AssemblyEvidence src={palletSeparatorCleaning} alt="An operator wipes a blue plastic pallet separator with a cloth" compact contain caption="An operator wipes the plastic separator in the 2019 work instruction." />
+        </article>
+        <div class="ap-risk-controls">
+          <div><h3>Clear debris at the workstation</h3><p>The screw-machine guide calls for removing remaining screws from the feeder and rails and cleaning the machine surface. Soldering training covers cleaning tips and fixtures.</p></div>
+          <div><h3>Before closing the carton</h3><p>Use the project packing checklist to define which product surfaces and cavities to inspect, which bags, inserts and carton interiors to check, and how to account for loose parts and tools.</p></div>
+        </div>
+        <article id="packing-line-screw-controls" class="ap-packing-spec ap-archive-case" aria-labelledby="packing-line-screw-controls-title">
+          <div>
+            <p class="qc-small-label">XINYINHAI CORRECTIVE-ACTION REPORT · FILE UPDATED IN 2020</p>
+            <h3 id="packing-line-screw-controls-title">Keeping loose screws out of packaging</h3>
+            <p>After finding a loose screw in a packaging conveyor’s open side-rail groove, Xinyinhai documented fitting inserts into the grooves and securing the stop bar with screw-fastened supports. The report also shows brushes for clearing debris from gaps, a collection bin for loose items and a catch tray beneath the screw bin.</p>
+          </div>
+          <div class="ap-machine-pair">
+            <AssemblyEvidence src={packingRailInsert} alt="Blue insert fitted into a groove beside the green conveyor belt" contain caption="A blue insert closes the open conveyor rail groove." />
+            <AssemblyEvidence src={screwCatchTray} alt="Small blue screw bin nested inside a larger tray" contain caption="A larger tray catches screws that spill from the bin." />
+          </div>
+        </article>
+        <div class="ap-related-line"><a class="qc-text-link" href="#packaging-controls">See the project packing checklist <span aria-hidden="true">↓</span></a></div>
       </section>
 
       <section id="packaging-controls" class="qc-section" aria-labelledby="packing-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">08 / THE FINAL PRODUCTION CONTROL</p><h2 id="packing-title">Packaging &amp; Final Verification</h2></div><p>Packaging connects material preparation, clean handling, product protection and inspection. The documented route ends with accepted-status identification and a controlled handover to finished-goods storage.</p></div>
         <div class="ap-connected-flow"><AssemblyFlow label="PACKAGING ROUTE / PREPARATION TO ACCEPTED GOODS" steps={packingSteps} variant="compact" /><div class="ap-return"><span aria-hidden="true">↶</span><div><strong>Rejected packing returns for correction</strong><p>Quality and required customer-inspection decisions feed back to the packing operation. Complete the relevant verification before accepted-goods handover.</p></div></div></div>
         <div class="ap-packing-spec"><div><p class="qc-small-label">DEFINE IN THE PROJECT PACKING INSTRUCTION</p><h3>Make the packed configuration explicit.</h3><p>The archived SOP establishes bagging, orderly placement and carton packing. Extend that basis with the product-specific requirements below.</p></div><ul><li>Correct product, components and accessories</li><li>Clean packaging materials and product surfaces</li><li>Required bag, insert and protective arrangement</li><li>Label / artwork revision and packed quantity</li><li>Carton arrangement and condition</li><li>Foreign-object check and final acceptance criteria</li></ul></div>
+        <article id="packing-pest-prevention-2020" class="ap-packing-spec ap-archive-case" aria-labelledby="packing-pest-prevention-title">
+          <div>
+            <p class="qc-small-label">JULY 2020 XINYINHAI PACKING RECORD</p>
+            <h3 id="packing-pest-prevention-title">Keeping insects out of packaging</h3>
+            <p>Xinyinhai’s record describes keeping warehouse doors and windows closed, logging insect light checks and resealing accepted printed packaging after incoming quality sampling.</p>
+            <p>At the packing line, operators used task lamps to check for foreign material and print defects before and after packing. The record calls for turning empty cartons over before filling, stretch-wrapping finished cartons on pallets and resealing unused packaging at the end of the shift.</p>
+          </div>
+          <AssemblyEvidence src={packingEntranceLight} alt="Green strip curtain across a doorway with an insect light above it" contain caption="Strip curtain and insect light at the packing entrance, 2020." />
+        </article>
+        <article id="pallet-protection-2020" class="ap-packing-spec ap-archive-case" aria-labelledby="pallet-protection-title">
+          <div>
+            <p class="qc-small-label">2020 ARCHIVED PACKING TRAINING</p>
+            <h3 id="pallet-protection-title">Protect cartons during staging</h3>
+            <p>The training calls for removing damaged cartons before packing and keeping finished cartons off the floor. In its pallet example, a separator covers the deck and cartons are centered within the pallet footprint. The same training calls for checking carton condition again during container loading and following the customer’s requirements for replacement or repair.</p>
+          </div>
+          <AssemblyEvidence src={palletDeckSeparator} alt="A blue plastic separator covering the top surface of a wooden pallet" contain caption="A plastic separator covers the pallet deck before cartons are staged." />
+        </article>
+        <article id="pack-weight-check-2023" class="ap-packing-spec ap-archive-case ap-weight-check" aria-labelledby="pack-weight-check-title">
+          <div>
+            <p class="qc-small-label">2023 XINYINHAI PACKING EXAMPLE</p>
+            <h3 id="pack-weight-check-title">Flagging abnormal pack weight</h3>
+            <p>In one documented packing operation, a weight-check device flagged packs outside the expected weight range. Where this check is used, the approved pack configuration and weight limits are defined for the project.</p>
+            <p id="packed-carton-weight-check">Archived 5S training (file last saved in 2024) calls for checking packed carton weight against the work-instruction standard to help flag missing or extra pieces.</p>
+          </div>
+          <AssemblyEvidence src={packWeightCheck} alt="Pack resting on the platform of a digital scale with its artwork obscured" compact contain caption="Pack on the weight-check scale. Product artwork is obscured." />
+        </article>
         <p class="qc-source-note">The board includes a BIQC inspection gate; its scope follows the applicable product route. Customer inspection is included when required. These stages do not imply a universal 100% inspection or shipment guarantee.</p>
         <div class="ap-related-line"><a class="qc-text-link" href="/quality/inspector-training/#biqc-workflow">Explore the BIQC workflow reference <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="#project-requirements">Prepare your assembly &amp; packing requirements <span aria-hidden="true">↓</span></a></div>
       </section>
@@ -243,9 +463,65 @@ const schema = {
 
     <section id="project-requirements" class="qc-project" aria-labelledby="project-title">
       <div class="qc-container qc-split">
-        <div><p class="qc-eyebrow">YOUR NEXT OEM / ODM PROJECT</p><h2 id="project-title">Prepare Your Assembly &amp; Packaging Requirements</h2><p>Bring the component fit, assembly sequence, fastening, soldering, inspection criteria and packaging requirements into one project brief.</p><div class="qc-actions"><a class="qc-button ap-download" href="/resources/assembly-packaging-project-brief.txt" download="LEANODM-assembly-packaging-project-brief.txt">Download the Project Brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=manufacturing-assembly-packaging#rfq-form">Discuss your assembly project <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Use this checklist to prepare your project review or quote request. Downloading it does not submit an enquiry.</p></div>
+        <div><p class="qc-eyebrow">YOUR NEXT OEM / ODM PROJECT</p><h2 id="project-title">Prepare Your Assembly &amp; Packaging Requirements</h2><p>Bring the component fit, assembly sequence, fastening, soldering, inspection criteria and packaging requirements into one project brief.</p><div class="qc-actions"><a class="qc-button ap-download" href="/resources/assembly-packaging-project-brief.txt" download="LEANODM-assembly-packaging-project-brief.txt">Download the Project Brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=manufacturing-assembly-packaging#project-inquiry">Discuss your assembly project <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Use this checklist to prepare your project review or quote request. Downloading it does not submit an enquiry.</p></div>
         <div class="qc-project-list"><h3>Prepare for an assembly review</h3><ul><li>Drawings, component list and material specifications</li><li>Reference sample and required assembly sequence</li><li>Screw type, torque, fixture and fastening requirements</li><li>Soldered connections and acceptance requirements</li><li>Appearance, functional checks and inspection criteria</li><li>Accessories, protection, quantity, labels and carton arrangement</li><li>Target quantity and intended market</li></ul></div>
       </div>
     </section>
   </div>
 </BaseLayout>
+
+<style>
+  #tote-liner-check + div p + p {
+    margin-top: 8px;
+  }
+
+  .ap-tote-liner-photo {
+    grid-column: 1 / -1;
+    width: min(100%, 318px);
+  }
+
+  .ap-tote-liner-photo :global(.ap-evidence-image) {
+    aspect-ratio: 2.15;
+  }
+
+  #speaker-tray-support :global(.ap-evidence-image) {
+    aspect-ratio: 2.15;
+  }
+
+  .ap-improvement-case :is(h3, p) {
+    margin: 0 0 10px;
+  }
+
+  .ap-improvement-case :global(.ap-evidence) {
+    max-width: 232px;
+    margin-top: 14px;
+  }
+
+  .ap-improvement-case :global(.ap-evidence-image) {
+    height: 155px;
+  }
+
+  @media (min-width: 600px) {
+    #assembly-process-improvements > .ap-improvement-case {
+      display: flex;
+      flex-direction: column;
+    }
+
+    #assembly-process-improvements :global(.ap-evidence) {
+      margin-top: auto;
+      padding-top: 4px;
+    }
+  }
+
+  @media (min-width: 860px) {
+    .ap-extraction-example {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 176px);
+      gap: 16px;
+    }
+
+    .ap-extraction-example :global(.ap-evidence) {
+      margin-top: 0;
+    }
+  }
+</style>

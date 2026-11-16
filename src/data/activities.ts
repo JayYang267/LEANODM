@@ -4,7 +4,7 @@ import { getActivityYear, type CategoryId } from './activity-filters';
 
 export interface ActivityMedia { id: string; kind: 'image' | 'video'; src: string; thumbnail: string; width: number; height: number; poster?: string; duration?: number; guide?: string }
 export type ActivityPlacement = 'home' | 'quality' | 'ethical' | 'tooling' | 'assembly';
-export interface Activity { slug: string; title: string; category: CategoryId; date: string | null; dateLabel: string; summary: string; background: string; activity: string; relevance: string; mediaIds: string[]; coverMediaId?: string; featured: boolean; placements: ActivityPlacement[]; media: ActivityMedia[]; cover: ActivityMedia; coverImageUrl: string; year: string; imageCount: number; videoCount: number }
+export interface Activity { slug: string; title: string; category: CategoryId; date: string | null; dateLabel: string; summary: string; background: string; activity: string; relevance: string; mediaIds: string[]; coverMediaId?: string; photoDescriptions?: Record<string, string>; featured: boolean; placements: ActivityPlacement[]; media: ActivityMedia[]; cover: ActivityMedia; coverImageUrl: string; year: string; imageCount: number; videoCount: number }
 export const activityCategories = [
   { id: 'visits', title: 'Visits & Industry Exchange', shortTitle: 'Visits & exchange', description: 'Factory visits, shared perspectives and conversations across industry.', icon: '↗' },
   { id: 'community', title: 'Community & Education', shortTitle: 'Community & education', description: 'Connections with schools, students and the wider community.', icon: '◎' },

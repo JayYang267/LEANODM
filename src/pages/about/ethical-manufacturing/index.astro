@@ -1,6 +1,7 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import Button from '../../../components/ui/Button.astro';
 import Icon from '../../../components/CustomizationIcon.astro';
 import EvidencePreview from '../../../components/EthicalEvidencePreview.astro';
@@ -66,6 +67,7 @@ const schema = {
       </div>
     </section>
 
+    <div class="qc-container"><ReviewGuide question="Which policies and implementation records should your supplier review request?" links={[{ label: 'Labor rights', href: '#labor-rights' }, { label: 'Safety controls', href: '#workplace-safety' }, { label: 'Evidence and review', href: '#evidence' }]} inquiryHref="/rfq/?source=ethical-manufacturing#project-inquiry" inquiryLabel="Discuss supplier qualification" /></div>
     <aside class="em-scope" aria-label="Scope of the evidence"><div class="qc-container"><Icon name="files" /><p><strong>What this page establishes.</strong> These summaries describe Xinyinhai’s available internal policy and procedure documents, including historical versions. They are not completed audit results. Current site applicability, revisions and implementation records need confirmation during supplier qualification.</p></div></aside>
 
     <section id="labor-rights" class="qc-section"><div class="qc-container">
@@ -89,7 +91,15 @@ const schema = {
     <section id="environment" class="qc-section"><div class="qc-container">
       <div class="qc-heading"><div><p class="qc-eyebrow">04 / MATERIALS & WORKPLACE CONDITIONS</p><h2>Environmental Management</h2></div><p>The available evidence concerns practical chemical, waste and premises controls. It supports a discussion of documented handling requirements and the records needed to assess their use.</p></div>
       <div class="em-environment-paths">
-        <article><div class="em-path-heading"><Icon name="flask-conical" /><h3>Chemical handling</h3></div><ol><li><strong>Identify</strong><span>Labels, inventory and safety information</span></li><li><strong>Store & inspect</strong><span>Designated storage and condition checks</span></li><li><strong>Escalate</strong><span>Report abnormalities for action</span></li></ol></article>
+        <article id="shop-floor-spill-tray">
+          <div class="em-path-heading"><Icon name="flask-conical" /><h3>Chemical handling</h3></div>
+          <ol>
+            <li><strong>Identify</strong><span>Labels, inventory and safety information</span></li>
+            <li><strong>Store & inspect</strong><span>Designated storage and condition checks</span></li>
+            <li><strong>Escalate</strong><span>Report abnormalities for action</span></li>
+          </ol>
+          <p class="em-review-prompt">Xinyinhai’s archived 5S training deck, last saved in 2024, shows a tray under a chemical container to keep spills away from parts at the workstation.</p>
+        </article>
         <article><div class="em-path-heading"><Icon name="recycle" /><h3>Waste handling</h3></div><ol><li><strong>Separate</strong><span>General and hazardous waste streams</span></li><li><strong>Collect</strong><span>Labeled collection points; no chemical liquids to drains</span></li><li><strong>Arrange disposal</strong><span>Qualified handlers; hazardous-waste permit requirements</span></li></ol></article>
       </div>
       <p class="em-review-prompt"><strong>Evidence to request:</strong> current handling procedures, applicable disposal permissions, transfer records and inspection follow-up. These records are separate from the procedure summaries on this page.</p>
@@ -131,7 +141,7 @@ const schema = {
     <section class="qc-section em-related"><div class="qc-container"><p class="qc-eyebrow">CONTINUE YOUR SUPPLIER ASSESSMENT</p><h2>Related manufacturing and project review</h2><div class="em-related-links"><a href="/customization/project-fit/"><span>Project Fit</span><small>Scope, requirements and a practical starting point</small><b aria-hidden="true">↗</b></a><a href="/quality/quality-control-process/"><span>Quality Control Process</span><small>How product-quality controls are organized</small><b aria-hidden="true">↗</b></a><a href="/manufacturing/tooling-injection-molding/"><span>Tooling & Injection Molding</span><small>Manufacturing scope and process evidence</small><b aria-hidden="true">↗</b></a></div></div></section>
 
     <section id="project-requirements" class="qc-project"><div class="qc-container qc-split">
-      <div><p class="qc-eyebrow">DEFINE THE QUALIFICATION SCOPE</p><h2>Discuss Supplier Qualification</h2><p>Tell your project contact through LEANODM.com which Xinyinhai factory site, review period and supporting information your team needs. Relevant procedures or records may be considered for controlled sharing after a scope and confidentiality review, with an NDA where appropriate.</p><div class="qc-actions"><a class="qc-text-link" href="/rfq/?source=ethical-manufacturing#rfq-form">Discuss a supplier qualification review <span aria-hidden="true">↗</span></a>{contactUrl && <Button href={contactUrl} class="qc-button">Request Supporting Information <span aria-hidden="true">→</span></Button>}<a class:list={[contactUrl ? 'qc-text-link' : 'qc-button em-download-button']} href="/resources/supplier-qualification-brief.txt" download>Download Qualification Brief <span aria-hidden="true">↓</span></a></div><p class="qc-project-note">The download does not submit a request. Use the inquiry form to describe the review scope, or share the completed brief with your existing project contact. Availability and permission to share are confirmed case by case.</p></div>
+      <div><p class="qc-eyebrow">DEFINE THE QUALIFICATION SCOPE</p><h2>Discuss Supplier Qualification</h2><p>Tell your project contact through LEANODM.com which Xinyinhai factory site, review period and supporting information your team needs. Relevant procedures or records may be considered for controlled sharing after a scope and confidentiality review, with an NDA where appropriate.</p><div class="qc-actions"><a class="qc-text-link" href="/rfq/?source=ethical-manufacturing#project-inquiry">Discuss a supplier qualification review <span aria-hidden="true">↗</span></a>{contactUrl && <Button href={contactUrl} class="qc-button">Request Supporting Information <span aria-hidden="true">→</span></Button>}<a class:list={[contactUrl ? 'qc-text-link' : 'qc-button em-download-button']} href="/resources/supplier-qualification-brief.txt" download>Download Qualification Brief <span aria-hidden="true">↓</span></a></div><p class="qc-project-note">The download does not submit a request. Use the inquiry form to describe the review scope, or share the completed brief with your existing project contact. Availability and permission to share are confirmed case by case.</p></div>
       <div class="qc-project-list"><h3>A useful review request includes</h3><ul><li>Factory site, product scope and intended review period</li><li>Required policies, procedures and evidence categories</li><li>Any customer-specific review requirements</li><li>Confidentiality arrangements and the review timeline</li></ul><p>Request only the information needed for qualification. Personal records, customer information and sensitive operational details require restricted handling.</p></div>
     </div></section>
   </div>

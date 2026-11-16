@@ -1,0 +1,13 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+---
+
+<BaseLayout title={`Page Not Found | ${SITE.title}`}>
+  <meta slot="head" name="robots" content="noindex" />
+  <section class="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-24" aria-labelledby="page-title">
+    <h1 id="page-title" class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Page not found</h1>
+    <Button href="/" class="mt-8">Back to Home</Button>
+  </section>
+</BaseLayout>

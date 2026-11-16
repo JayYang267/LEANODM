@@ -2,11 +2,15 @@
 import { SITE } from '@config/site';
 import ActivityHighlights from '../../../components/ActivityHighlights.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import Button from '@components/ui/Button.astro';
 import { Image, getImage } from 'astro:assets';
 import handlingRack from '../../../assets/tooling-injection-molding/material-handling-rack.png';
 import moldMaintenance from '../../../assets/tooling-injection-molding/mold-guide-maintenance.jpg';
 import takeoutFixture from '../../../assets/tooling-injection-molding/takeout-fixture.png';
+import moldLocatingRing from '../../../assets/tooling-injection-molding/mold-locating-ring-2020.webp';
+import moldingCollectionTrolley from '../../../assets/tooling-injection-molding/molding-collection-trolley-workshop.webp';
+import moldingFirstPieceMarkers from '../../../assets/tooling-injection-molding/molding-first-piece-markers-workshop.webp';
 import { moldingRoute, moldingNavigation, moldingFacts, moldingWorkflow, moldingEquipment, moldingControls, moldingQuality, moldingRoles, moldingFaqs } from '../../../data/tooling-injection-molding';
 import '../../../styles/quality-control-process.css';
 import '../../../styles/tooling-injection-molding.css';
@@ -64,6 +68,7 @@ const schema = {
     </section>
 
     <div class="qc-container">
+      <ReviewGuide question="What must be defined before tooling and molded-part production?" links={[{ label: 'In-house scope', href: '#capability-facts' }, { label: 'Tooling route', href: '#workflow' }, { label: 'Process controls', href: '#process-control' }]} inquiryHref="/rfq/?source=tooling-injection-molding#project-inquiry" />
       <section id="capability-facts" class="qc-section" aria-labelledby="facts-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">01 / CAPABILITY FACTS</p><h2 id="facts-title">What molding capability is documented?</h2></div><p>Xinyinhai’s in-house toolroom supports the molding operation. Factory records identify milling and grinding equipment, a 24-machine molding baseline and defined production controls.</p></div>
         <dl class="tm-facts">{moldingFacts.map(fact => <div><dt>{fact.label}</dt><dd><strong>{fact.value}</strong><p>{fact.detail}</p></dd></div>)}</dl>
@@ -98,6 +103,17 @@ const schema = {
           <article><span class="qc-small-label">IMPROVE</span><h3>Review gates and handling</h3><p>The improvement record includes gate changes that reduced manual runner finishing in a specific application, plus successive take-out fixture improvements.</p></article>
         </div>
         <p class="qc-source-note">Record basis: equipment inventory; joint mold-design and trial-review workflow; production repair and maintenance flow; mold-installation training. The development record connects trial evaluation and molding feedback to mold modification and a further trial.</p>
+        <article id="mold-locating-ring-2020" class="qc-split tm-locating-example" aria-labelledby="mold-locating-ring-title">
+          <div>
+            <p class="qc-small-label">MAY 2020 XINYINHAI IMPROVEMENT REVIEW</p>
+            <h3 id="mold-locating-ring-title">Aligning the mold with the machine nozzle</h3>
+            <p>Xinyinhai added a locating ring to center the mold relative to the machine nozzle during installation. The review reports 5–10 minutes for nozzle alignment before the change and 1–2 minutes afterward in this setup.</p>
+          </div>
+          <figure class="tm-evidence-photo">
+            <Image src={moldLocatingRing} alt="Circular locating ring fitted around the mold’s central inlet" widths={[360, 480, 720, 960]} sizes="(max-width: 528px) calc(100vw - 48px), 480px" width={480} format="webp" loading="lazy" decoding="async" />
+            <figcaption>Mold with the added locating ring.</figcaption>
+          </figure>
+        </article>
       </section>
 
       <section id="equipment" class="qc-section" aria-labelledby="equipment-title">
@@ -145,12 +161,36 @@ const schema = {
         <div class="tm-improvement"><article><span class="qc-small-label">MOLD STAGING / RETRIEVAL</span><p class="tm-metric">15 <span>→</span> 3 <small>minutes per mold</small></p><h3>Prepare the mold closer to the work</h3><p>The record describes production-board information, organized retrieval tools and sliding racks. The time is for staging / retrieval, not complete mold changeover or first-article approval.</p><p class="qc-source-note">Workshop improvement record, slides 14–15.</p></article><article><span class="qc-small-label">TAKE-OUT FIXTURE INSTALLATION</span><p class="tm-metric">30 <span>→</span> 10 <small>minutes</small></p><h3>Simplify the fixture setup</h3><p>The documented sequence moves from assembled aluminum sections through a dedicated plate to a steel plate with magnetic fittings, reducing installation work in that example.</p><p class="qc-source-note">Workshop improvement record, slides 16–17.</p></article></div>
         <p class="qc-note">These are historical before-and-after examples from the factory’s improvement report. They are not universal changeover times, independently audited performance figures or delivery promises.</p>
         <p class="qc-source-note">The same report documents machine layout, runner recovery, workstation organization, production boards and training (slides 11–12, 18 and 20–26).</p>
+        <article id="molding-collection-trolley" class="qc-split tm-locating-example" aria-labelledby="molding-collection-trolley-title">
+          <div>
+            <p class="qc-small-label">2021–2022 XINYINHAI WORKSHOP REVIEW</p>
+            <h3 id="molding-collection-trolley-title">Staging parts beside the molding machine</h3>
+            <p>The review shows a trolley added beside a molding machine so operators could stage and pack parts from multi-cavity molds at the workstation.</p>
+          </div>
+          <figure class="tm-evidence-photo">
+            <Image src={moldingCollectionTrolley} alt="Two lined blue bins on a wheeled frame beside an injection molding machine" widths={[360, 480, 720, 869]} sizes="(max-width: 528px) calc(100vw - 48px), 480px" width={480} format="webp" loading="lazy" decoding="async" />
+            <figcaption>Bin trolley at the molding workstation.</figcaption>
+          </figure>
+        </article>
+        <h3 id="molding-reporting-history" class="tm-improvement-heading">Injection molding reporting in 2019</h3>
+        <p>Xinyinhai’s 2019 supplier conference presentation describes on-site coaching by an injection molding specialist from Japan. The May improvement topic focused on making molding production records more complete and accurate.</p>
       </section>
 
       <section id="molding-quality" class="qc-section" aria-labelledby="quality-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">08 / QUALITY INSIDE MOLDING</p><h2 id="quality-title">How is quality built into injection molding?</h2></div><p>First articles, self-checks and patrol inspection connect output to the required sample and instructions. Abnormal parts are isolated while the team investigates and verifies the response.</p></div>
         <ol class="qc-stages">{moldingQuality.map((step, i) => <li><span class="qc-step-number">{String(i + 1).padStart(2, '0')}</span><h3>{step.name}</h3><p>{step.text}</p></li>)}</ol>
         <p class="qc-source-note">Factory evidence: standardized molding quality instructions, quality-focused training and the factory’s production flow. Inspection priorities follow the component and its applicable requirements.</p>
+        <article id="molding-first-piece-markers" class="qc-split tm-locating-example" aria-labelledby="molding-first-piece-markers-title">
+          <div>
+            <p class="qc-small-label">2021–2022 XINYINHAI WORKSHOP REVIEW</p>
+            <h3 id="molding-first-piece-markers-title">Identifying first-piece reference samples</h3>
+            <p>The molding workshop labeled its magnetic sample holders and tethered them so they could hang at the station without falling.</p>
+          </div>
+          <figure class="tm-evidence-photo tm-evidence-photo--narrow">
+            <Image src={moldingFirstPieceMarkers} alt="Two red magnetic holders with red and green cords and Chinese sample labels" widths={[280, 365]} sizes="(max-width: 348px) calc(100vw - 48px), 300px" width={300} format="webp" loading="lazy" decoding="async" />
+            <figcaption>The labels read “reject sample” and “acceptable sample.”</figcaption>
+          </figure>
+        </article>
         <div class="tm-related-links"><a class="qc-text-link" href="/quality/quality-control-process/">Explore the full Quality Control Process <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="/quality/appearance-inspection/">Review appearance inspection criteria <span aria-hidden="true">↗</span></a></div>
       </section>
 
@@ -172,6 +212,6 @@ const schema = {
       </section>
     </div>
 
-    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">12 / YOUR NEXT PROJECT</p><h2 id="project-title">What should you prepare for a molding quotation?</h2><p>Share the component requirements, available mold information and production expectations so tooling and injection molding can be reviewed together.</p><div class="qc-actions"><a href="/resources/tooling-injection-molding-project-brief.txt" download class="qc-button tm-download">Download the Project Brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=tooling-injection-molding#rfq-form">Discuss tooling and molding requirements <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Use the inquiry form to prepare your requirements, or share the completed brief through your existing LEANODM contact. The download prepares your inquiry; it does not send it.</p></div><div class="qc-project-list"><h3>Information for the engineering review</h3><ul><li>Part drawing, CAD data or reference sample</li><li>New tooling or existing mold transfer requirements</li><li>Specified material, color and appearance criteria</li><li>Critical dimensions and assembly interfaces</li><li>Order quantity, forecast and delivery expectations</li><li>Destination market and product-specific inspection requirements</li></ul><a class="qc-text-link" href="/quality/product-testing/">Review product-testing planning references <span aria-hidden="true">↗</span></a></div></div></section>
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">12 / YOUR NEXT PROJECT</p><h2 id="project-title">What should you prepare for a molding quotation?</h2><p>Share the component requirements, available mold information and production expectations so tooling and injection molding can be reviewed together.</p><div class="qc-actions"><a href="/resources/tooling-injection-molding-project-brief.txt" download class="qc-button tm-download">Download the Project Brief <span aria-hidden="true">↓</span></a><a class="qc-text-link" href="/rfq/?source=tooling-injection-molding#project-inquiry">Discuss tooling and molding requirements <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Use the inquiry form to prepare your requirements, or share the completed brief through your existing LEANODM contact. The download prepares your inquiry; it does not send it.</p></div><div class="qc-project-list"><h3>Information for the engineering review</h3><ul><li>Part drawing, CAD data or reference sample</li><li>New tooling or existing mold transfer requirements</li><li>Specified material, color and appearance criteria</li><li>Critical dimensions and assembly interfaces</li><li>Order quantity, forecast and delivery expectations</li><li>Destination market and product-specific inspection requirements</li></ul><a class="qc-text-link" href="/quality/product-testing/">Review product-testing planning references <span aria-hidden="true">↗</span></a></div></div></section>
   </div>
 </BaseLayout>

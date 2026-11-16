@@ -1,22 +1,38 @@
 ---
+import { Image } from 'astro:assets';
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import Button from '@components/ui/Button.astro';
 import { stages, responsibilities, safetyChecks, processes, finalChecks, defects, documents, faqs as inspectionFaqs } from '../../../data/quality-control-process';
+import tetheredBladeTool from '../../../assets/assembly-packaging/tethered-blade-tool.jpg';
+import componentTrays from '../../../assets/assembly-packaging/designated-component-trays.webp';
+import hairCoverTraining from '../../../assets/quality-control-process/hair-cover-training.webp';
+import hairCoverSizes from '../../../assets/quality-control-process/hair-cover-sizes.webp';
+import assemblyRejectTrays from '../../../assets/quality-control-process/assembly-reject-trays-2020.webp';
 import '../../../styles/quality-control-process.css';
 
 const title = 'Quality Control Process for OEM & ODM Manufacturing | LEANODM.com';
-const description = 'Explore incoming, first article, process and final inspection, with nonconformity containment, approved disposition, reinspection and corrective action.';
+const description = 'Explore incoming, first article, process and final inspection, including a BIQC shipment workflow and how inspectors record, contain and resolve defects.';
 const route = '/quality/quality-control-process/';
 const origin = SITE.url;
 const canonical = new URL(route, origin).href;
 const navigation = [
   { label: 'Production flow', href: '#quality-flow' },
   { label: 'Approval & checks', href: '#first-article' },
+  { label: 'Finished-goods BIQC', href: '#biqc-finished-goods' },
   { label: 'Acceptance criteria', href: '#acceptance-criteria' },
   { label: 'Nonconformity & CAPA', href: '#release' },
 ];
 const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality', url: '/quality/' }, { name: 'Quality Control Process', url: route }];
+const biqcShipmentSteps = [
+  'Factory outgoing quality inspection (OQC)',
+  'BIQC check of every unit',
+  'Pack each product individually',
+  'Pack units into cartons',
+  'BIQC owner samples the packed lot',
+  'Ship after a passing sample result',
+];
 const faqs = [...inspectionFaqs,
   { question: 'Can a rejected lot be released under a customer concession?', answer: 'The nonconformity procedure requires a documented review and authorized disposition. A concession for rejected finished goods requires customer agreement recorded in the review. Material reviews must not introduce a safety hazard, and customer agreement is required when the order calls for it or customer interests are affected. Production urgency alone is not an approval.' },
   { question: 'What closes a corrective action?', answer: 'The responsible department identifies the cause and proposes corrective and preventive measures for Quality review. Quality follows implementation and effectiveness; closure requires confirmation. Effective permanent changes are incorporated into the controlled documents so the revised method remains in use.' },
@@ -65,10 +81,11 @@ const schema = {
     </section>
 
     <div class="qc-container">
+      <ReviewGuide question="Who checks your product, and what authorizes production and release?" links={[{ label: 'Inspection stages', href: '#quality-flow' }, { label: 'Acceptance criteria', href: '#acceptance-criteria' }, { label: 'Release decisions', href: '#release' }]} inquiryHref="/rfq/?source=quality-control-process#project-inquiry" />
       <section id="quality-flow" class="qc-section" aria-labelledby="flow-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">01 / THE PRODUCTION FLOW</p><h2 id="flow-title">Quality Control at Every Stage of Production</h2></div><p>OEM and ODM quality control connects material acceptance, production approval and finished-product decisions. Process-specific checks take place within production.</p></div>
         <ol class="qc-stages">{stages.map((stage, i) => <li><span class="qc-step-number">{String(i + 1).padStart(2, '0')}</span><div><h3><a href={`#${stage.target}`}>{stage.name} <span aria-hidden="true">↗</span></a></h3><p>{stage.check}</p><p class="qc-purpose"><strong>Control purpose</strong> {stage.purpose}</p></div></li>)}</ol>
-        <p class="qc-note">The workbook documents inspection acceptance and production approval. It does not define a separate logistics dispatch authorization procedure; “release” here refers to the quality acceptance basis.</p>
+        <p class="qc-note">The process workbook documents inspection acceptance and production approval. The <a href="#biqc-finished-goods">BIQC training workflow</a> shows an additional sequence from factory outgoing inspection through packing, sampling and shipment for the program it covers.</p>
       </section>
 
       <section id="responsibilities" class="qc-section qc-split" aria-labelledby="responsibility-title">
@@ -106,11 +123,59 @@ const schema = {
       <section id="in-process" class="qc-section qc-split" aria-labelledby="patrol-title">
         <div><p class="qc-eyebrow">06 / DURING PRODUCTION</p><h2 id="patrol-title">In-Process Quality Control</h2><p>In-process quality control (IPQC) brings patrol checks into manufacturing. Inspectors use the production notice, technical documents, work instructions and approved samples to assess current work.</p><div class="qc-frequency"><strong>2-hour intervals</strong><span>Specified by the supplied patrol standard for the workshops it covers; checks depend on the product, process and output in that period.</span></div></div>
         <ol class="qc-patrol"><li><h3>Prepare and confirm</h3><p>Review production requirements and reference documents, then confirm and record the first article before normal batch production.</p></li><li><h3>Patrol and sample</h3><p>Check operator work against SOP / SIP requirements and sample current output. After the QC control-point inspection passes, patrol sampling must also pass before workshop output enters storage.</p></li><li><h3>Report and follow through</h3><p>Record production abnormalities and inspection results, escalate issues and coordinate corrective action with Engineering. Reworked rejected lots require reinspection.</p></li></ol>
+        <section class="qc-patrol-checks" aria-labelledby="patrol-checks-title">
+          <h3 id="patrol-checks-title">What We Check During Production</h3>
+          <p>Use the applicable work instructions to confirm which checks are required for the product and workstation.</p>
+          <dl>
+            <div>
+              <dt>Tools and foreign objects</dt>
+              <dd>
+                <p>Check that blades and driver bits are secured as specified. Look for loose screws, solder debris and other foreign objects on work surfaces, in trays and on products. See <a href="/manufacturing/assembly-packaging/#foreign-object-prevention">foreign-object prevention in assembly and packaging</a>.</p>
+                <figure class="qc-patrol-photo">
+                  <Image src={tetheredBladeTool} alt="Red cutter with a green cord tied to a metal post" format="webp" loading="lazy" />
+                  <figcaption>A cord tethers the cutter to a fixed workstation post.</figcaption>
+                </figure>
+              </dd>
+            </div>
+            <div>
+              <dt>Materials and work in progress</dt>
+              <dd>
+                <p>Check container labels, keep materials and in-process units separate as specified, and verify that stacking and handling prevent falls and mix-ups.</p>
+                <p id="wip-containment-2018">An August 2018 line-backlog instruction calls for labeled bins for temporary storage during interruptions and for holding units with missing screws before the next operation.</p>
+                <figure class="qc-patrol-photo">
+                  <Image src={componentTrays} alt="Operators’ hands handling blue components in separate trays" format="webp" loading="lazy" />
+                  <figcaption>Operators handle components in separate trays at the assembly station.</figcaption>
+                </figure>
+              </dd>
+            </div>
+            <div id="hair-cover-fit">
+              <dt>Workstation hygiene</dt>
+              <dd>
+                <p>Check that hair covers and finger cots are worn correctly where required. Check workstation cleanliness and follow the area's food and drink rules.</p>
+                <p>A Xinyinhai corrective-action report last updated in 2020 calls for choosing a cover that fits, tying long hair low and tucking it inside. It also describes posted workwear instructions, training by line leads and operators checking one another’s fit.</p>
+                <figure class="qc-patrol-photo" id="workwear-training-2019">
+                  <Image src={hairCoverTraining} alt="Rear view of a blue hair cover containing the hair at the back of the head" format="webp" loading="lazy" />
+                  <figcaption>A 2019 workwear training photo shows hair tucked inside the cover at the back of the head.</figcaption>
+                </figure>
+                <figure class="qc-patrol-photo">
+                  <Image src={hairCoverSizes} alt="Four blue hair covers laid out with their size tags visible" format="webp" loading="lazy" decoding="async" />
+                  <figcaption>Hair covers in different sizes from the corrective-action report.</figcaption>
+                </figure>
+              </dd>
+            </div>
+            <div>
+              <dt>Instrument calibration</dt>
+              <dd>Verify that current and voltage meters are within their calibration period before use.</dd>
+            </div>
+          </dl>
+          <p class="qc-patrol-photo-source">Tool and tray photos from Xinyinhai’s archived 5S improvement materials.</p>
+        </section>
       </section>
 
       <section id="process-checks" class="qc-section" aria-labelledby="process-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">07 / ASSIGNED AT THE PROCESS</p><h2 id="process-title">Inspection Responsibilities Across Manufacturing Processes</h2></div><p>Electronics quality inspection and plastic product quality control have assigned workshop responsibilities. Each inspector judges conformity and works to stop nonconforming products entering the next process.</p></div>
         <dl class="qc-processes">{processes.map((process, i) => <div><dt><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>{process.name}</dt><dd>{process.checks}</dd></div>)}</dl>
+        <p>See the <a class="qc-text-link" href="/manufacturing/electronics-smt/#smt-visual-inspection">SMT placement and solder-joint examples</a> and the <a class="qc-text-link" href="/manufacturing/assembly-packaging/#solder-joint-visual-checks">hand-soldered joint checks</a> for what inspectors look for at each process.</p>
       </section>
 
       <a class="qc-text-link" href="/manufacturing/tooling-injection-molding/#molding-quality">See quality controls inside Tooling &amp; Injection Molding <span aria-hidden="true">↗</span></a>
@@ -120,6 +185,19 @@ const schema = {
         <div class="qc-final-checks">{finalChecks.map(check => <article><h3>{check.name}</h3><p>{check.text}</p></article>)}</div>
         <div class="qc-final-record"><strong>A recorded lot decision</strong><p>The final inspection report records test results, defect descriptions, defect counts and the decision. The inspector and relevant production supervisor sign the report before it is filed.</p></div>
         <a class="qc-text-link" href="/quality/appearance-inspection/">See the separate Product Appearance Inspection Standards <span aria-hidden="true">↗</span></a>
+        <div id="biqc-finished-goods" class="qc-biqc-workflow">
+          <h3>BIQC finished-goods workflow</h3>
+          <p>Xinyinhai’s BIQC training shows how the assembled lot moves through an outgoing inspection, an additional unit-by-unit check and a sample review after packing.</p>
+          <p id="biqc-inspection-environment"><strong>2019 inspection-room example.</strong> Xinyinhai’s June 2019 supplier presentation records a move from the production line to a dedicated BIQC room to reduce background noise during sound checks. Different products were staged separately to reduce the chance of missed checks.</p>
+          <ol class="qc-release-flow" aria-label="BIQC finished-goods sequence">
+            {biqcShipmentSteps.map((step, index) => <li><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><strong>{step}</strong></li>)}
+          </ol>
+          <div class="qc-release-details">
+            <div><h4>Electronics conditioning</h4><p>Before the BIQC full inspection, leave the electronic products covered by the workflow for 24 hours with batteries installed. Confirm the conditioning requirement for the product when planning the inspection.</p></div>
+            <div><h4>When the lot fails sampling</h4><p>Review the cause and agree countermeasures. For lots rejected after sampling, the customer’s procedure and the cause, such as a design issue, manufacturing issue or missed check, determine the rework route.</p></div>
+          </div>
+          <p class="qc-source-note">This is a program-specific training example. See the <a href="/quality/inspector-training/#biqc-finished-goods">BIQC inspector training reference</a> and the <a href="/quality/product-testing/">product test plan</a> for related checks.</p>
+        </div>
       </section>
 
       <section id="acceptance-criteria" class="qc-section" aria-labelledby="acceptance-title">
@@ -142,10 +220,23 @@ const schema = {
         <div class="qc-heading"><div><p class="qc-eyebrow">11 / NONCONFORMITY & RELEASE</p><h2 id="release-title">Nonconforming Lot Disposition &amp; Reinspection</h2></div><p>A failed result needs an identified owner, a contained lot and an approved disposition. The documented procedure covers incoming materials, production, finished goods, customer inspection failures and returns.</p></div>
         <ol class="qc-release-flow" aria-label="Nonconformity control and reinspection sequence"><li><span>01</span><strong>Record the failure</strong></li><li><span>02</span><strong>Identify & segregate</strong></li><li><span>03</span><strong>Review disposition</strong></li><li><span>04</span><strong>Obtain approvals</strong></li><li><span>05</span><strong>Correct & reinspect</strong></li><li><span>06</span><strong>Record the decision</strong></li></ol>
         <div class="qc-release-details">
-          <div><h3>Contain the nonconformity</h3><p>Mark rejected materials or products and keep them in the designated rejected area or container. Record the defect and affected quantity. Incoming rejections go to Purchasing and production planning for return or formal review; customer-supplied material is referred to the customer for disposition.</p></div>
+          <div id="assembly-reject-trays">
+            <h3>Contain the nonconformity</h3>
+            <p>Mark rejected materials or products and keep them in the designated rejected area or container. Record the defect and affected quantity. Incoming rejections go to Purchasing and production planning for return or formal review; customer-supplied material is referred to the customer for disposition.</p>
+            <figure class="qc-patrol-photo">
+              <Image src={assemblyRejectTrays} alt="Red reject trays with Chinese labels for appearance and functional defects" width={480} format="webp" loading="lazy" />
+              <figcaption>A 2020 assembly workshop self-check led to clearer reject tray labels for appearance and functional defects.</figcaption>
+            </figure>
+          </div>
           <div><h3>Approve the disposition</h3><p>The review may authorize return, sorting, rework, conditional use, downgrade or scrap as applicable. Engineering contributes the technical assessment; authorized management approves the decision. Material review must not introduce a safety hazard. Customer agreement is required when specified by the order or when customer interests are affected; concessions for rejected finished goods require recorded customer agreement.</p></div>
           <div><h3>Reinspect after correction</h3><p>Failed first articles are corrected and resubmitted for approval. Repaired work in process must pass its assigned inspection before the next operation. Sorted and repaired finished goods return to Quality for inspection. After a customer inspection failure, internal inspection must pass before arranging customer reinspection.</p></div>
           <div><h3>Keep the decision with the lot</h3><p>Inspection and review records retain the issue, approved action and result; status identification is updated to match. Downgraded goods remain identified and separate. Final QA follows rejected-lot treatment. Under the finished-product safety test procedure, tested specimens are scrapped and cannot be shipped with bulk goods.</p></div>
+        </div>
+        <div id="biqc-defect-handling" class="qc-biqc-workflow">
+          <h3>How BIQC inspectors record and escalate defects</h3>
+          <p>The inspector identifies and separates the failed unit, records the specific defect and reports it to the BIQC group lead. The lead confirms the finding and escalates it to the BIQC owner for further confirmation.</p>
+          <p>The training uses red containers labeled by defect category, such as sound or power. Each rejected unit also carries its own tag with the specific defect or defect code and goes into the matching container.</p>
+          <a class="qc-text-link" href="/quality/inspector-training/#biqc-defect-handling">See the defect reporting and identification examples <span aria-hidden="true">↗</span></a>
         </div>
         <p class="qc-source-note">These are documented controls, rather than a report of completed dispositions. See <a href="/quality/traceability/">Traceability &amp; Materials</a> for the relationship between status identification, production records and the agreed traceability scope.</p>
       </section>
@@ -166,6 +257,20 @@ const schema = {
       </section>
     </div>
 
-    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">YOUR NEXT OEM / ODM PRODUCT</p><h2 id="project-title">Planning a New OEM / ODM Product?</h2><p>Bring your product requirements, drawings, samples, quality expectations and target market into the discussion before tooling and mass production.</p><div class="qc-actions"><Button href="/resources/quality-control-project-brief.txt" class="qc-button">Open the manufacturing review checklist <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="/rfq/?source=quality-control-process#rfq-form">Discuss your quality requirements <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Open the project checklist, or <a href="/resources/quality-control-project-brief.txt" download="LEANODM-quality-control-project-brief.txt">download a copy</a> to complete and share with your existing project contact. Downloading a checklist does not submit an inquiry.</p></div><div class="qc-project-list"><h3>Make the quality requirements clear</h3><ul><li>Product, specification and reference sample</li><li>Destination market and intended users</li><li>Applicable inspection and safety requirements</li><li>Customer acceptance criteria and report needs</li><li>Items to resolve before production approval</li></ul></div></div></section>
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">YOUR NEXT OEM / ODM PRODUCT</p><h2 id="project-title">Planning a New OEM / ODM Product?</h2><p>Bring your product requirements, drawings, samples, quality expectations and target market into the discussion before tooling and mass production.</p><div class="qc-actions"><Button href="/resources/quality-control-project-brief.txt" class="qc-button">Open the manufacturing review checklist <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="/rfq/?source=quality-control-process#project-inquiry">Discuss your quality requirements <span aria-hidden="true">↗</span></a></div><p class="qc-project-note">Open the project checklist, or <a href="/resources/quality-control-project-brief.txt" download="LEANODM-quality-control-project-brief.txt">download a copy</a> to complete and share with your existing project contact. Downloading a checklist does not submit an inquiry.</p></div><div class="qc-project-list"><h3>Make the quality requirements clear</h3><ul><li>Product, specification and reference sample</li><li>Destination market and intended users</li><li>Applicable inspection and safety requirements</li><li>Customer acceptance criteria and report needs</li><li>Items to resolve before production approval</li></ul></div></div></section>
   </div>
 </BaseLayout>
+
+<style>
+  .qc-biqc-workflow {
+    border-top: 1px solid var(--qc-line);
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+
+  .qc-biqc-workflow h4 {
+    color: var(--qc-blue);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+</style>

@@ -1,27 +1,129 @@
 ---
 import { SITE } from '@config/site';
-import { CASE_STUDIES_PATH, DRIVING_SOUND_BOOK_CASE_PATH } from '@config/seo';
 import BaseLayout from '@layouts/BaseLayout.astro';
-import Button from '@components/ui/Button.astro';
-import drivingSoundBook from '@/data/cases/interactive-driving-sound-book.json';
+import CaseCard from '@components/case-studies/CaseCard.astro';
+import CaseContact from '@components/case-studies/CaseContact.astro';
+import { caseStudiesPath, getCaseStudies } from '../../data/case-studies';
+import '../../styles/case-studies.css';
 
-const description = 'Explore product development and manufacturing case studies from LEANODM.';
-const canonical = new URL(CASE_STUDIES_PATH, SITE.url).href;
+const includeLocal = import.meta.env.DEV && import.meta.env.LEANODM_LOCAL_CASE_PREVIEW === true;
+const studies = await getCaseStudies({ includeLocal });
+const categories = [...new Set(studies.map(({ data }) => data.category))].sort((a, b) => a.localeCompare(b, 'en'));
+const description = 'Browse plastic and electronic product manufacturing case studies, including the work our team handled and the checks used during production.';
+const canonical = new URL(caseStudiesPath, SITE.url).href;
 ---
 
 <BaseLayout title={`Case Studies | ${SITE.title}`} description={description}>
   <Fragment slot="head">
     <link rel="canonical" href={canonical} />
     <meta property="og:url" content={canonical} />
+    {includeLocal && <meta name="robots" content="noindex, nofollow, noarchive" />}
   </Fragment>
 
-  <section class="mx-auto w-full max-w-7xl px-5 py-16 sm:px-8 sm:py-24" aria-labelledby="case-studies-title">
-    <h1 id="case-studies-title" class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Case Studies</h1>
+  <header class="case-index-hero">
+    <nav class="case-breadcrumb" aria-label="Breadcrumb">
+      <ul><li><a href="/">Home</a></li><li aria-current="page">Case Studies</li></ul>
+    </nav>
+    <h1>Case Studies</h1>
+  </header>
 
-    <article class="mt-10 max-w-2xl border-t border-slate-200 pt-8">
-      <h2 class="text-2xl font-bold tracking-tight text-slate-900">{drivingSoundBook.heading}</h2>
-      <p class="mt-3 text-base leading-relaxed text-slate-700">{drivingSoundBook.description}</p>
-      <Button href={DRIVING_SOUND_BOOK_CASE_PATH} class="mt-6">Read the case study</Button>
-    </article>
-  </section>
+  <div class="case-shell case-index-body">
+    <section aria-labelledby="case-catalog-title">
+      <h2 class="sr-only" id="case-catalog-title">Manufacturing case studies</h2>
+      {studies.length ? (
+        <case-catalog>
+          <div class="case-filters" role="group" aria-label="Filter case studies by product category" hidden>
+            <button type="button" data-filter="" aria-pressed="true" aria-controls="case-grid">All Cases</button>
+            {categories.map(category => (
+              <button type="button" data-filter={category} aria-pressed="false" aria-controls="case-grid">{category}</button>
+            ))}
+          </div>
+          <p class="sr-only" aria-live="polite" data-filter-status></p>
+          <ul class="case-grid" id="case-grid">
+            {studies.map((study, index) => (
+              <li data-case-category={study.data.category}><CaseCard study={study} eager={index === 0} /></li>
+            ))}
+          </ul>
+        </case-catalog>
+      ) : <p class="case-empty">Case studies will be added as they become available.</p>}
+    </section>
+
+    <div class="case-index-contact"><CaseContact title="Tell us about your project" /></div>
+  </div>
 </BaseLayout>
+
+<script>
+  class CaseCatalog extends HTMLElement {
+    connectedCallback() {
+      const controls = this.querySelector<HTMLElement>('.case-filters');
+      const status = this.querySelector<HTMLElement>('[data-filter-status]');
+      const buttons = Array.from(this.querySelectorAll<HTMLButtonElement>('[data-filter]'));
+      const entries = Array.from(this.querySelectorAll<HTMLElement>('[data-case-category]'));
+      if (!controls || !status) return;
+
+      this.addEventListener('click', event => {
+        const target = event.target;
+        if (!(target instanceof HTMLButtonElement) || !buttons.includes(target)) return;
+        const category = target.dataset.filter;
+        let count = 0;
+        for (const entry of entries) {
+          entry.hidden = Boolean(category && entry.dataset.caseCategory !== category);
+          if (!entry.hidden) count++;
+        }
+        for (const button of buttons) button.setAttribute('aria-pressed', String(button === target));
+        status.textContent = `${count} ${count === 1 ? 'case' : 'cases'} shown`;
+      });
+      controls.hidden = false;
+    }
+  }
+  customElements.define('case-catalog', CaseCatalog);
+</script>
+
+<style>
+  .case-index-hero {
+    --case-breadcrumb-justify: center;
+    display: grid;
+    place-content: center;
+    gap: .625rem;
+    min-height: 174px;
+    background: #f1f5fa;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+  .case-index-hero h1 {
+    margin: 0;
+    color: #142339;
+    font-size: clamp(2.125rem, 4.3vw, 3.25rem);
+    font-weight: 700;
+    letter-spacing: -.035em;
+    line-height: 1.12;
+  }
+  .case-index-body { padding-block: clamp(3rem, 7.65vw, 6.875rem) clamp(3rem, 7vw, 6rem); }
+  case-catalog { display: block; }
+  .case-filters:not([hidden]) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+    margin-bottom: 40px;
+  }
+  .case-filters button {
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: .5rem 1rem;
+    min-height: 52px;
+    color: #34465b;
+    font-size: .9375rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .case-filters button:hover { background: var(--color-secondary-50); color: var(--color-secondary-700); }
+  .case-filters button[aria-pressed="true"] { color: #fff; background: var(--color-secondary-600); }
+  .case-index-contact { margin-top: clamp(3rem, 6vw, 5.5rem); }
+  .case-empty { margin: 0; color: #516176; text-align: center; }
+  @media (max-width: 639px) {
+    .case-index-body { padding-top: 3.5rem; }
+    .case-filters:not([hidden]) { margin-bottom: 2rem; }
+    .case-filters button { min-height: 44px; }
+  }
+</style>

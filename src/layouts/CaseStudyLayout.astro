@@ -1,0 +1,219 @@
+---
+import { SITE } from '@config/site';
+import BaseLayout from './BaseLayout.astro';
+import Button from '@components/ui/Button.astro';
+import CaseCard from '@components/case-studies/CaseCard.astro';
+import CaseContact from '@components/case-studies/CaseContact.astro';
+import CaseGallery from '@components/case-studies/CaseGallery.astro';
+import { leanInquiryNavigation } from '@components/leanNavigation';
+import { caseImageStyle, caseStudiesPath, caseStudyPath, type CaseStudy } from '../data/case-studies';
+import '../styles/case-studies.css';
+
+interface Props {
+  study: CaseStudy;
+  related: CaseStudy[];
+  localPreview?: boolean;
+}
+const { study: { data }, related, localPreview = false } = Astro.props;
+const heading = data.heading ?? `${data.title}: ${data.category} Case Study`;
+const title = `${heading} | ${SITE.title}`;
+const description = data.description ?? (data.summary.toLowerCase().includes(data.category.toLowerCase())
+  ? data.summary : `${data.category} case study. ${data.summary}`);
+const chapterTime = (seconds: number) => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
+const canonical = new URL(caseStudyPath(data.slug), SITE.url).href;
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    ['Home', '/'], ['Case Studies', caseStudiesPath], [data.title, caseStudyPath(data.slug)],
+  ].map(([name, path], index) => ({
+    '@type': 'ListItem', position: index + 1, name, item: new URL(path, SITE.url).href,
+  })),
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <Fragment slot="head">
+    <link rel="canonical" href={canonical} />
+    <meta property="og:url" content={canonical} />
+    {localPreview
+      ? <meta name="robots" content="noindex, nofollow, noarchive" />
+      : <>
+        <meta property="og:image" content={new URL(data.cover.src, SITE.url).href} />
+        <meta property="og:image:alt" content={data.cover.alt} />
+      </>}
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumb).replace(/</g, '\\u003c')} />
+  </Fragment>
+
+  <article class="case-shell case-detail">
+    <nav class="case-breadcrumb" aria-label="Breadcrumb">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href={caseStudiesPath}>Case Studies</a></li>
+        <li aria-current="page">{data.title}</li>
+      </ul>
+    </nav>
+
+    <header class="case-product">
+      <CaseGallery cover={data.cover} gallery={data.gallery} />
+      <div class="case-product-copy">
+        <p class="case-category">{data.category}</p>
+        <h1>{heading}</h1>
+        <p class="case-summary">{data.summary}</p>
+        {Boolean(data.facts?.length) && <dl class="case-facts">
+          {data.facts?.map(fact => <div><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}
+        </dl>}
+        <div class="case-actions">
+          <Button href={`${leanInquiryNavigation.href}#project-inquiry`}>Discuss a Similar Project</Button>
+          <a href={`${leanInquiryNavigation.href}#factory-visit`}>Request a Factory Visit</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="case-section" aria-labelledby="case-overview">
+      <h2 id="case-overview">Project Overview &amp; Our Role</h2>
+      <div class="case-prose">
+        {data.overview.paragraphs.map(paragraph => <p>{paragraph}</p>)}
+        {Boolean(data.overview.features?.length) && <ul aria-label="Product features">
+          {data.overview.features?.map(feature => <li>{feature}</li>)}
+        </ul>}
+        <ul>{data.overview.responsibilities.map(item => <li>{item}</li>)}</ul>
+        {Boolean(data.overview.references?.length) && <ul class="case-evidence-links" aria-label="Product references">
+          {data.overview.references?.map(reference => <li>
+            <a href={reference.href} rel="noreferrer">{reference.label}</a>
+            <p>{reference.note}</p>
+          </li>)}
+        </ul>}
+      </div>
+    </section>
+
+    {Boolean(data.process?.length) && <section class="case-section" aria-labelledby="case-process">
+      <h2 id="case-process">Manufacturing Process &amp; Key Challenges</h2>
+      <div class="case-evidence">
+        {data.process?.map(step => <section class="case-evidence-item">
+          <h3>{step.title}</h3>
+          <p>{step.description}</p>
+          {step.image && <figure class="case-evidence-media">
+            <img src={step.image.src} alt={step.image.alt} style={caseImageStyle(step.image)} loading="lazy" decoding="async" />
+            {step.image.caption && <figcaption>{step.image.caption}</figcaption>}
+          </figure>}
+          {step.video && <>
+            <figure class="case-evidence-media">
+              <video controls playsinline preload="metadata" poster={step.video.poster} aria-label={step.title}>
+                <source src={step.video.src} type="video/mp4" />
+                <track kind="captions" srclang="en" label="English" src={step.video.captions} />
+                Your browser does not support embedded video.
+              </video>
+              <figcaption>{step.video.caption} <a href={step.video.src}>Open the MP4 directly</a></figcaption>
+            </figure>
+            {Boolean(step.video.chapters?.length) && <ol class="case-evidence-links" aria-label="Film chapters and summary">
+              {step.video.chapters?.map(chapter => <li>
+                <a href={`${step.video?.src}#t=${chapter.time}`} data-case-chapter={chapter.time}>
+                  {chapterTime(chapter.time)} {chapter.label}
+                </a>
+                <p>{chapter.text}</p>
+              </li>)}
+            </ol>}
+          </>}
+          {Boolean(step.links?.length) && <ul class="case-evidence-links">
+            {step.links?.map(link => <li><a href={link.href}>{link.label}</a></li>)}
+          </ul>}
+        </section>)}
+      </div>
+    </section>}
+
+    {Boolean(data.quality?.length) && <section class="case-section" aria-labelledby="case-quality">
+      <h2 id="case-quality">Quality Checks &amp; Improvements</h2>
+      <div class="case-evidence">
+        {data.quality?.map(note => <section class="case-evidence-item">
+          <h3>{note.title}</h3>
+          <dl class="case-quality-notes">
+            <div><dt>What needed checking</dt><dd>{note.issue}</dd></div>
+            <div><dt>How we checked or addressed it</dt><dd>{note.action}</dd></div>
+            {note.evidence && <div><dt>Evidence</dt><dd>{note.evidence}</dd></div>}
+            {note.result && <div><dt>Verified result</dt><dd>{note.result}</dd></div>}
+            {note.sourcingNote && <div><dt>What buyers can use it for</dt><dd>{note.sourcingNote}</dd></div>}
+          </dl>
+          {note.image && <figure class="case-evidence-media">
+            <img src={note.image.src} alt={note.image.alt} style={caseImageStyle(note.image)} loading="lazy" decoding="async" />
+            {note.image.caption && <figcaption>{note.image.caption}</figcaption>}
+          </figure>}
+          {Boolean(note.links?.length) && <ul class="case-evidence-links">
+            {note.links?.map(link => <li><a href={link.href}>{link.label}</a></li>)}
+          </ul>}
+        </section>)}
+      </div>
+    </section>}
+
+    {related.length > 0 && <section class="case-section" aria-labelledby="case-related">
+      <h2 id="case-related">Related Case Studies</h2>
+      <ul class="case-grid">{related.map(item => <li><CaseCard study={item} /></li>)}</ul>
+    </section>}
+    {Boolean(data.faq?.length) && <section class="case-section" aria-labelledby="case-faq">
+      <h2 id="case-faq">Frequently asked questions</h2>
+      <div class="case-prose">
+        {data.faq?.map(item => <details class="case-evidence-item">
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>)}
+      </div>
+    </section>}
+    <div class="case-detail-contact"><CaseContact /></div>
+  </article>
+</BaseLayout>
+
+<script>
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('a[data-case-chapter]')) {
+    const player = link.closest('.case-evidence-item')?.querySelector('video');
+    if (!player) continue;
+    link.addEventListener('click', event => {
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || player.error) return;
+      event.preventDefault();
+      player.currentTime = Number(link.dataset.caseChapter);
+      player.focus({ preventScroll: true });
+      player.scrollIntoView({ block: 'nearest' });
+      player.play().catch(() => { if (player.error) window.location.assign(link.href); });
+    });
+  }
+</script>
+
+<style>
+  .case-detail { padding-block: 1.625rem clamp(3rem, 7vw, 6rem); color: #18283d; }
+  .case-product {
+    display: grid;
+    grid-template-columns: minmax(0, 1.16fr) minmax(0, 1fr);
+    gap: clamp(1.75rem, 4vw, 4rem);
+    align-items: start;
+    margin-top: 1.5rem;
+  }
+  .case-product-copy { padding-block: clamp(.5rem, 2vw, 2rem); }
+  .case-category { margin: 0 0 .625rem; font-size: .9rem; color: var(--color-secondary-700); font-weight: 700; }
+  h1 { margin: 0; font-size: clamp(2rem, 4vw, 3.35rem); line-height: 1.1; letter-spacing: -.035em; font-weight: 700; overflow-wrap: anywhere; }
+  .case-summary { color: #45576b; margin: 1.125rem 0 0; font-size: clamp(1.0625rem, 1.6vw, 1.1875rem); line-height: 1.6; }
+  .case-facts { margin: 1.5rem 0 0; border-top: 1px solid #dce4ec; }
+  .case-facts div { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: .625rem; padding: .6rem 0; border-bottom: 1px solid #dce4ec; font-size: .9375rem; }
+  dt { font-weight: 700; }
+  dd { margin: 0; color: #45576b; }
+  .case-actions { display: flex; gap: .75rem 1.25rem; align-items: center; flex-wrap: wrap; margin-top: 1.625rem; }
+  .case-actions > a:not(:first-child), .case-evidence-links a { color: var(--color-secondary-700); text-decoration: underline; text-underline-offset: .18em; font-weight: 600; }
+  .case-section {
+    border-top: 1px solid #dce4ec;
+    margin-top: clamp(2.5rem, 6vw, 5rem);
+    padding-top: clamp(1.5rem, 4vw, 2.75rem);
+  }
+  h2 { margin: 0 0 1.25rem; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 700; line-height: 1.2; letter-spacing: -.025em; }
+  h3 { margin: 0; font-weight: 700; font-size: clamp(1.125rem, 2vw, 1.375rem); line-height: 1.3; }
+  .case-prose, .case-evidence { max-width: 54rem; }
+  .case-prose p, .case-evidence-item p { color: #45576b; margin: .75rem 0; line-height: 1.65; }
+  .case-prose ul, .case-evidence-links { list-style: disc; padding-left: 1.25rem; margin: .75rem 0 0; }
+  .case-prose li + li, .case-evidence-links li + li { margin-top: .3rem; }
+  .case-evidence-item + .case-evidence-item { margin-top: 1.625rem; padding-top: 1.625rem; border-top: 1px solid #e3e9ef; }
+  .case-evidence-media { margin: 1rem 0 0; max-width: 47rem; }
+  .case-evidence-media :is(img, video) { display: block; width: 100%; height: auto; max-height: min(72vh, 36rem); object-fit: contain; border-radius: 6px; background: #eef2f7; }
+  .case-evidence-media figcaption { color: #516176; font-size: .875rem; margin-top: .625rem; }
+  .case-quality-notes > div { margin-top: .75rem; line-height: 1.65; }
+  .case-detail-contact { margin-top: clamp(2.5rem, 6vw, 5rem); }
+  @media (max-width: 767px) {
+    .case-product { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  }
+</style>

@@ -1,18 +1,23 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import TrainingFigure from '../../../components/TrainingFigure.astro';
+import BiqcFigures from '../../../components/BiqcFigures.astro';
+import { Image } from 'astro:assets';
 import ImageLightbox from '../../../components/ImageLightbox.astro';
 import training from '../../../data/inspector-training.json';
+import { finishedGoodsChecks, trainingExamples } from '../../../data/biqc-training';
+import trainingHandoff from '../../../assets/biqc-training/image88.jpeg';
 import '../../../styles/inspector-training.css';
 
 const title = 'Inspector Training & Visual Defect Recognition | LEANODM.com';
-const description = 'Explore visual defect examples alongside documented competence planning, practical assessment, training-effectiveness review and honest inspection records.';
+const description = 'Review BIQC finished-goods checks, defect recognition, escalation and labeling, with illustrated examples and documented inspector competence controls.';
 const route = '/quality/inspector-training/';
 const canonical = new URL(route, SITE.url).href;
 const navigation = [
   { label: 'Defect atlas', href: '#defect-atlas' },
-  { label: 'BIQC workflow', href: '#biqc-workflow' },
+  { label: 'BIQC workflow', href: '#biqc-finished-goods' },
   { label: 'Competence & records', href: '#competence-controls' },
 ];
 const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality', url: '/quality/' }, { name: 'Inspector Training', url: route }];
@@ -49,7 +54,7 @@ const schema = {
     { '@type': 'FAQPage', '@id': `${canonical}#training-faq`, mainEntity: faqs.map(faq => ({ '@type': 'Question', name: faq.question, acceptedAnswer: { '@type': 'Answer', text: faq.answer } })) },
   ],
 };
-const contactHref = '/rfq/?source=quality-inspector-training#rfq-form';
+const contactHref = '/rfq/?source=quality-inspector-training#project-inquiry';
 ---
 
 <BaseLayout title={title} description={description} technicalPage technicalNavigation={navigation} technicalPageTitle="Inspector Training" contactHref={contactHref} technicalContactLabel="Discuss Your Project">
@@ -67,23 +72,88 @@ const contactHref = '/rfq/?source=quality-inspector-training#rfq-form';
             <p class="training-eyebrow">QUALITY / INSPECTOR TRAINING</p>
             <h1 id="training-title">Inspector Training &amp; Visual Defect Recognition</h1>
             <p class="training-lead">Learn what a defect looks like, where to look, and how the original comparison helps identify it.</p>
-            <p class="training-intro">Explore the supplied BIQC training photographs with English explanations, preserved defect markings and a supporting workflow reference. See how the documented competence and record controls support their use.</p>
+            <p class="training-intro">Review the BIQC finished-goods check sequence, see how inspectors identify and escalate defects, and use the illustrated examples to recognize what to look for.</p>
             <a class="training-button" href="#defect-atlas">Explore the defect atlas <span aria-hidden="true">↓</span></a>
           </div>
           <aside class="training-overview" aria-label="How to use this reference">
             <p class="training-eyebrow">READ THE IMAGE IN CONTEXT</p>
             <ol><li><span>01</span><div><strong>Locate the defect</strong><p>Follow the original circles, arrows and marked areas.</p></div></li><li><span>02</span><div><strong>Keep the comparison</strong><p>Read OK / NG and overall / detail views together.</p></div></li><li><span>03</span><div><strong>Check the source</strong><p>Each example identifies its slide and position.</p></div></li></ol>
-            <p class="training-version">Training source: revised 28 May 2019 · R:04<br />A source version, not a current audit date.</p>
+            <p class="training-version">Historical training references · May 2019</p>
           </aside>
         </div>
-        <div class="training-summary"><p><strong>{training.groups.length}</strong> browsing themes</p><p><strong>{count}</strong> examples &amp; comparison sets</p><p><strong>2</strong> visual source files</p></div>
+        <div class="training-summary"><p><strong>{training.groups.length}</strong> atlas themes</p><p><strong>{count}</strong> atlas examples &amp; comparison sets</p><p><strong>{finishedGoodsChecks.length}</strong> finished-goods check steps</p></div>
       </div>
     </section>
 
     <div class="training-container">
+      <ReviewGuide question="How should inspectors recognize and record the defects that matter?" links={[{ label: 'Finished-goods checks', href: '#biqc-finished-goods' }, { label: 'Defect handling', href: '#biqc-defect-handling' }, { label: 'Visual defect atlas', href: '#defect-atlas' }]} inquiryHref="/rfq/?source=quality-inspector-training#project-inquiry" />
       <section class="training-purpose training-section" aria-labelledby="purpose-title">
         <div><p class="training-eyebrow">PURPOSE &amp; SCOPE</p><h2 id="purpose-title">Build a shared visual vocabulary</h2></div>
         <div><p>The training deck aims to help staff recognize defects that may occur in different product types, understand what to check and detect defective products. It asks users to select the material appropriate to the product being inspected.</p><p>For sourcing teams, the representative images provide a quick introduction. For supplier quality engineers (SQEs), each group opens into the full set of included examples and source references.</p><p class="training-note">These are training reference images. They are not all identified as this factory’s shipment defects. Brands, characters and labels within photographs do not imply a customer relationship or endorsement. This page does not establish a training course, certification scheme or a universal acceptance standard.</p></div>
+      </section>
+
+      <section id="biqc-finished-goods" class="training-section" aria-labelledby="biqc-finished-title">
+        <div class="training-section-heading">
+          <div><p class="training-eyebrow">FINISHED-GOODS TRAINING</p><h2 id="biqc-finished-title">What Inspectors Check at BIQC</h2></div>
+          <p>Xinyinhai’s 30 May 2019 BIQC training follows five checks after factory OQC. The items that apply depend on the product. Check for contamination throughout the sequence.</p>
+        </div>
+        <div class="training-workflow-layout">
+          <ol class="training-workflow">
+            {finishedGoodsChecks.map((check, i) => <li><span aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><div><strong>{check.name}</strong><small>{check.detail}</small></div></li>)}
+          </ol>
+          <div class="training-workflow-note">
+            <h3>Quality basics behind the checks</h3>
+            <p>QC means quality control. IQC covers incoming inspection, OQC covers finished-goods inspection, and sampling checks a selected portion of a lot. The training uses red for rejected status and green for accepted status, and labels example defects CR (critical), MA (major) or MI (minor).</p>
+            <p>Check that measuring instruments carry valid verification certificates. When results vary, consider people, machines, materials, methods, the environment and measurement. The course also covers the 5S practices of sorting, setting in order, cleaning, standardizing and sustaining.</p>
+            <p>Relate the quality policy and objectives to the approved product requirements and defect limit samples used at the station. <a href="/quality/quality-control-process/#biqc-finished-goods">See where BIQC fits in the finished-goods release process.</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="biqc-defect-handling" class="training-section" aria-labelledby="biqc-handling-title">
+        <div class="training-section-heading">
+          <div><p class="training-eyebrow">DEFECT HANDLING</p><h2 id="biqc-handling-title">Identify, Segregate and Escalate Defects</h2></div>
+          <p>The full-inspection operator identifies, isolates and records defects, then reports them to the BIQC team lead. The lead confirms the issue and reports it to the BIQC owner for confirmation and feedback.</p>
+        </div>
+        <div class="training-workflow-note">
+          <h3>Keep the defect description with the unit</h3>
+          <p>Place rejected units in red bins marked by defect category, such as sound or power. Tag each unit with the specific defect or its code and place it in the matching bin. Consult the approved limit sample for borderline decisions, refer unclear work instructions to the team lead, and return dropped units to the line for reinspection.</p>
+          <p>The applicable review determines rework, repair, downgrade or scrap. Follow the <a href="/quality/quality-control-process/#release">nonconforming-lot procedure</a> for disposition and reinspection.</p>
+        </div>
+        <BiqcFigures group="biqc-handling" figures={[
+          { asset: 'image2.png', alt: 'Chinese work instructions for handling uncertain defects and items dropped on the floor', caption: 'Inspector reminders · BIQC training slide 6' },
+          { asset: 'image4.png', alt: 'Empty red plastic bin designated for rejected items', caption: 'Designated red rejection bin · slide 8' },
+          { asset: 'image5.png', alt: 'Diagram of three units placed in a red rejection bin', caption: 'Place individually tagged units in the matching bin · slide 8' },
+        ]} />
+        <details class="training-source-scope">
+          <summary>Historical OQC escalation thresholds</summary>
+          <div>
+            <p>In this customer-specific training example, reaching a threshold during OQC full inspection triggers a separate defect countermeasure report by the next day to the product development, technical and BIQC contacts.</p>
+            <ul class="training-integrity-list">
+              <li><strong>Safety:</strong> At least one safety defect within two hours, with occurrences over four consecutive hours.</li>
+              <li><strong>Same functional defect:</strong> Five in two hours and at least eight in total over four consecutive hours.</li>
+              <li><strong>Aggregate functional defects:</strong> Over 1.5% within two hours, with the source specifying 1.5% over four consecutive hours.</li>
+              <li><strong>Appearance in electronic or mechanical products:</strong> A recurring appearance issue over 3% within two hours and over 3% for four consecutive hours.</li>
+              <li><strong>Appearance in plush or wooden products:</strong> A recurring appearance issue at 5% within four hours, with occurrences over eight consecutive hours.</li>
+            </ul>
+            <p>Use the escalation thresholds agreed for the applicable customer and product.</p>
+            <BiqcFigures group="biqc-escalation" figures={[{ asset: 'image3.png', alt: 'Historical Chinese OQC notification thresholds for safety, functional and appearance defects', caption: 'OQC notification reference · BIQC training slide 7' }]} />
+          </div>
+        </details>
+      </section>
+
+      <section id="biqc-defect-examples" class="training-section" aria-labelledby="biqc-examples-title">
+        <div class="training-section-heading">
+          <div><p class="training-eyebrow">FINISHED-GOODS EXAMPLES</p><h2 id="biqc-examples-title">Defects Inspectors Look For</h2></div>
+          <p>The CR, MA and MI labels are the original classifications for these examples. Apply the approved requirements for your product when making an inspection decision.</p>
+        </div>
+        {trainingExamples.map(({ id, title, slides, description, figures }) => (
+          <details class="training-source-scope" id={id}>
+            <summary>{title}</summary>
+            <div><p>{description} <small>BIQC training · {slides}</small></p><BiqcFigures figures={figures} group={id} /></div>
+          </details>
+        ))}
+        <p class="training-note">For molded finishes, printing and labels, see the <a href="/quality/appearance-inspection/#biqc-appearance-examples">appearance training examples</a>. The <a href="/quality/product-testing/#biqc-evaluation">product-testing page</a> follows the functional checks into design and verification.</p>
       </section>
 
       <section id="defect-atlas" class="training-section" aria-labelledby="atlas-title">
@@ -108,7 +178,7 @@ const contactHref = '/rfq/?source=quality-inspector-training#rfq-form';
       </section>
 
       <section id="source-references" class="training-section" aria-labelledby="sources-title">
-        <div class="training-section-heading"><div><p class="training-eyebrow">03 / ORIGINAL MATERIAL REFERENCES</p><h2 id="sources-title">Selected source views</h2></div><p>The training PPT supplies the defect examples. The BIQC workbook adds the workflow, room-identification reference and a consolidated training board.</p></div>
+        <div class="training-section-heading"><div><p class="training-eyebrow">03 / ORIGINAL MATERIAL REFERENCES</p><h2 id="sources-title">Selected source views</h2></div><p>The earlier visual training deck supplies the defect atlas. The BIQC workbook adds the workflow, room identification and a consolidated training board.</p></div>
         <div class="training-references">{training.references.map(example => <TrainingFigure example={example} group="source-references" headingLevel="h3" />)}</div>
         <details class="training-source-scope"><summary>Source version, coverage and reading limits</summary><div><p><strong>Training PPT:</strong> 24 actual slides. The cover states revised 28 May 2019, R:04. Slides 1–3 and 6 introduce the purpose and contents; the other 20 slides contain examples. References on this page use actual slide positions.</p><p><strong>Contents mismatch:</strong> the contents pages refer to pages through 32 and list dedicated wood-product and sewn-product sections that are absent from the supplied deck. Those missing chapters have not been reconstructed.</p><p><strong>One image withheld:</strong> the middle image on slide 4 is labeled “insect wings,” but the photograph and marked area do not establish that label clearly. It is omitted from the defect atlas pending source clarification.</p><p><strong>BIQC workbook:</strong> all three sheets were reviewed. Sheet5 supplies the seven-step flow. Sheet1 supplies the room-sign photo and slogan-area layout. Sheet2 supplies one embedded training-board image, repeating the PPT’s 20 example pages; it is shown once as an overview.</p><p>The original working files remain private. Small source images and labels have not been enhanced to invent missing detail. The acronym BIQC is retained as supplied.</p></div></details>
       </section>
@@ -133,7 +203,11 @@ const contactHref = '/rfq/?source=quality-inspector-training#rfq-form';
 
       <section id="training-faq" class="training-section" aria-labelledby="faq-title"><p class="training-eyebrow">06 / READING THE TRAINING MATERIAL</p><h2 id="faq-title">Inspector training questions</h2><div class="training-faq">{faqs.map(faq => <details><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></section>
 
-      <section id="related-quality" class="training-section" aria-labelledby="related-title"><p class="training-eyebrow">RELATED QUALITY REFERENCES</p><h2 id="related-title">Continue your quality review</h2><div class="training-related">{related.map(item => <a href={item.href}><h3>{item.label} <span aria-hidden="true">↗</span></h3><p>{item.detail}</p></a>)}</div></section>
+      <section id="related-quality" class="training-section" aria-labelledby="related-title">
+        <Image src={trainingHandoff} width={48} format="webp" alt="" loading="lazy" />
+        <p class="training-eyebrow">RELATED QUALITY REFERENCES</p><h2 id="related-title">Continue your quality review</h2>
+        <div class="training-related">{related.map(item => <a href={item.href}><h3>{item.label} <span aria-hidden="true">↗</span></h3><p>{item.detail}</p></a>)}</div>
+      </section>
     </div>
 
     <section id="project-requirements" class="training-cta" aria-labelledby="project-title"><div class="training-container training-purpose"><div><p class="training-eyebrow">YOUR PRODUCT / YOUR INSPECTION NEEDS</p><h2 id="project-title">Bring the relevant examples into your product discussion</h2></div><div><p>Share the product, drawings or reference sample, and the defect examples that need attention. Keep product-specific acceptance criteria separate from this visual training reference.</p><a class="training-button" href={contactHref}>Discuss Your Inspection Requirements <span aria-hidden="true">↗</span></a><p class="training-note">Use the inquiry form to prepare your brief, or <a href="/quality/quality-control-process/#project-requirements">review the quality-control checklist</a>.</p></div></div></section>

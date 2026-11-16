@@ -1,6 +1,7 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewGuide from '../../components/nonhome/ReviewGuide.astro';
 import Button from '../../components/ui/Button.astro';
 import Icon from '../../components/CustomizationIcon.astro';
 import AboutPhoto from '../../components/AboutPhoto.astro';
@@ -29,6 +30,13 @@ const history = [
   { year: '2002', title: 'The Xinyinhai name', text: 'The company was renamed 深圳市鑫银海电子有限公司 and moved to Fuyong, Bao’an, Shenzhen.' },
   { year: '2017', title: 'Manufacturing in Humen', text: 'The Dongguan branch was established, developing the manufacturing base in Humen, Dongguan.' },
   { year: '2024', title: 'Further adoption of lean management', text: 'The company’s history records a further introduction of lean production management.' },
+  {
+    year: '2026',
+    month: 'October',
+    dateTime: '2026-10',
+    title: 'LEANODM.com launches',
+    text: 'Through the site, we began accepting project orders from new customers worldwide seeking lean manufacturing for children’s educational toys.',
+  },
 ];
 const health = [
   { icon: 'chart-no-axes-combined', who: 'The business', value: 'Earns a profit', why: 'A sound basis to keep operating and improving.' },
@@ -76,7 +84,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [
           <p class="about-hero-statement">Everyday people,<br />doing work<br />that matters<span aria-hidden="true">.</span></p>
            <p class="about-hero-intro">LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities. Explore OEM/ODM work for plastic and electronic products, with manufacturing in Humen, Dongguan, China.</p>
            <p class="about-hero-history">Xinyinhai’s manufacturing heritage began with its predecessor in Shenzhen in 1988. The people and everyday work behind Xinyinhai help customers turn a product idea or design into a reliably made product.</p>
-          <div class="about-actions"><Button href="/rfq/" class="about-button">Discuss Your Project <span aria-hidden="true">↗</span></Button><a class="about-text-link" href="#who-we-are">Meet the business <span aria-hidden="true">↓</span></a></div>
+          <div class="about-actions"><Button href="/rfq/?source=about#project-inquiry" class="about-button">Discuss Your Project <span aria-hidden="true">↗</span></Button><a class="about-text-link" href="#who-we-are">Meet the business <span aria-hidden="true">↓</span></a></div>
         </div>
         <div class="about-hero-visual">
           <AboutPhoto src={exterior} eager alt="Xinyinhai’s factory building and own company sign in Humen, Dongguan" title="Xinyinhai’s Dongguan factory" caption="The Xinyinhai factory in Humen, Dongguan, from the company’s photographic record." source="Xinyinhai company presentation · factory exterior" />
@@ -86,13 +94,14 @@ const schema = { '@context': 'https://schema.org', '@graph': [
        <div class="about-identity-line"><span>LEANODM.com</span><span>Xinyinhai</span><span>Product Development &amp; Manufacturing</span></div>
     </div></section>
 
+    <div class="about-container"><ReviewGuide question="Which people, history and manufacturing records support your supplier review?" links={[{ label: 'People and work', href: '#who-we-are' }, { label: 'Manufacturing history', href: '#where-we-come-from' }, { label: 'Explore the evidence', href: '#learn-more' }]} inquiryHref="/rfq/?source=about#factory-visit" inquiryLabel="Plan a factory visit" /></div>
     <section id="who-we-are" class="about-section about-people" aria-labelledby="who-title"><div class="about-container">
       <div class="about-story-grid">
          <div class="about-story-copy"><p class="about-eyebrow">01 / PEOPLE BEHIND THE WORK</p><h2 id="who-title">People behind the work</h2><p class="about-lead">The people behind each part,<br class="about-desktop-break" /> each check, each conversation.</p>
            <p>Xinyinhai’s work brings together people in manufacturing, engineering, quality and project coordination. The work can look ordinary: prepare a workstation, check a part, clarify a drawing, or raise a concern. Done with care, those tasks help a customer’s product come together reliably.</p>
            <p>Xinyinhai’s manufacturing work connects tooling and molding, electronics and SMT, product decoration, assembly and packaging. The right route depends on the product, its requirements and the development or OEM support it needs.</p>
             <a class="about-text-link" href="/manufacturing/">Explore the manufacturing work <span aria-hidden="true">↗</span></a>
-            <p><a class="about-text-link" href="/capabilities/production-equipment/">See the production equipment and workshops <span aria-hidden="true">↗</span></a></p>
+            <p><a class="about-text-link" href="/capabilities/production-equipment/">Team &amp; Equipment <span aria-hidden="true">↗</span></a></p>
         </div>
         <div class="about-people-visual"><AboutActivityPhoto slug="production-management-meeting-2023" alt="Xinyinhai employees reviewing projected production information around a meeting table" caption="A production management meeting in Xinyinhai’s company activity archive." />
            <div class="about-people-note"><Icon name="messages-square" /><p><strong>Experience matters. So do new ideas.</strong> Xinyinhai’s company records value employees’ proposals for improving production, the business and the working environment. Their knowledge of everyday work is an important asset.</p></div>
@@ -110,7 +119,20 @@ const schema = { '@context': 'https://schema.org', '@graph': [
 
     <section id="where-we-come-from" class="about-section about-roots" aria-labelledby="roots-title"><div class="about-container">
        <div class="about-section-heading"><div><p class="about-eyebrow">02 / MANUFACTURING ROOTS</p><h2 id="roots-title">Xinyinhai’s manufacturing history</h2></div><p class="about-lead">Xinyinhai’s manufacturing roots dating to 1988.<br />Experience worth carrying forward.</p></div>
-      <ol class="about-timeline" aria-label="Xinyinhai manufacturing history">{history.map(item => <li><span class="about-year">{item.year}</span><span class="about-timeline-point" aria-hidden="true"></span><h3>{item.title}</h3><p>{item.text}</p></li>)}</ol>
+      <ol class="about-timeline" aria-label="Xinyinhai manufacturing history and website launch">
+        {history.map(item => (
+          <li>
+            {item.month ? (
+              <time class="about-year" datetime={item.dateTime}>{item.year}{' '}<span class="about-month">{item.month}</span></time>
+            ) : (
+              <span class="about-year">{item.year}</span>
+            )}
+            <span class="about-timeline-point" aria-hidden="true"></span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </li>
+        ))}
+      </ol>
       <div class="about-roots-bottom">
          <AboutActivityPhoto slug="retirement-and-service-appreciation" alt="A group photograph shown in Xinyinhai’s retirement and service appreciation video, with colleagues outside the factory" caption="A still from the company’s retirement and service appreciation video." />
          <div class="about-inheritance"><h3>People helped build this history.</h3><p>Many long-serving Xinyinhai colleagues who helped build the business have now retired. The experience and attitude they leave behind remain part of its heritage: take the work seriously, respect the people doing it, and keep looking for a better way.</p><p>Everyday work and learning together offer a way to carry that experience forward.</p><p class="about-history-note">“Since 1988” describes Xinyinhai’s predecessor and manufacturing roots. The Xinyinhai company name followed in 2002.</p><a class="about-text-link" href="/about/activities/">Explore Xinyinhai’s company life <span aria-hidden="true">↗</span></a></div>
@@ -144,7 +166,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [
       <ul class="about-related">{related.map(item => <li><a href={item.href}><Icon name={item.icon} /><div><h3>{item.title}</h3><p>{item.text}</p></div><span class="about-related-arrow" aria-hidden="true">↗</span></a></li>)}</ul>
     </div></section>
 
-    <section id="project-requirements" class="about-cta" aria-labelledby="project-title"><div class="about-container"><div><p class="about-eyebrow">YOUR NEXT PRODUCT</p><h2 id="project-title">Discuss your<br />OEM/ODM project</h2><p>Share an idea, an existing product to adapt, or a design ready for OEM review. We can identify the next useful step together.</p></div><div class="about-cta-actions"><Button href="/rfq/" class="about-button">Discuss Your Project <span aria-hidden="true">↗</span></Button><a class="about-text-link" href="/customization/project-fit/">Explore project fit &amp; working principles <span aria-hidden="true">↗</span></a></div></div></section>
+    <section id="project-requirements" class="about-cta" aria-labelledby="project-title"><div class="about-container"><div><p class="about-eyebrow">YOUR NEXT PRODUCT</p><h2 id="project-title">Discuss your<br />OEM/ODM project</h2><p>Share an idea, an existing product to adapt, or a design ready for OEM review. We can identify the next useful step together.</p></div><div class="about-cta-actions"><Button href="/rfq/?source=about#project-inquiry" class="about-button">Discuss Your Project <span aria-hidden="true">↗</span></Button><a class="about-text-link" href="/customization/project-fit/">Explore project fit &amp; working principles <span aria-hidden="true">↗</span></a></div></div></section>
   </div>
   <ImageLightbox />
 </BaseLayout>

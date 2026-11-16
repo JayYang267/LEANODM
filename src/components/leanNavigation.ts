@@ -1,5 +1,3 @@
-import { CASE_STUDIES_PATH } from '../config/seo';
-
 export type LeanNavigationItem = {
   label: string;
   href: string;
@@ -20,16 +18,15 @@ export type LeanNavigationMenuData = {
 };
 
 export const leanInquiryNavigation = {
-  label: 'Start your inquiry',
-  href: '/rfq/#rfq-form',
+  label: 'Visit or Inquire',
+  href: '/rfq/',
 } as const;
 
-export const inquiryHrefForPage = (pathname: string) =>
-  pathname.replace(/\/$/, '') === '/rfq' ? '#rfq-form' : leanInquiryNavigation.href;
+export const inquiryHrefForPage = (_pathname: string) => leanInquiryNavigation.href;
 
 export const leanPrimaryNavigation: readonly LeanNavigationItem[] = [
   { label: 'ODM & OEM', href: '/customization/' },
-  { label: 'Products', href: '/products/' },
+  { label: 'Case Studies', href: '/case-studies/' },
   { label: 'Capabilities', href: '/manufacturing/', overview: true },
   { label: 'Quality', href: '/quality/', overview: true },
   { label: 'About', href: '/about/', overview: true },
@@ -51,7 +48,7 @@ export const leanCustomizationNavigation: readonly LeanCustomizationNavigationIt
 ];
 
 export const leanManufacturingNavigation: readonly LeanNavigationCardItem[] = [
-  { label: 'Production Equipment', href: '/capabilities/production-equipment/', icon: 'factory', description: 'Equipment, production areas and multi-model assembly and packaging.' },
+  { label: 'Team & Equipment', href: '/capabilities/production-equipment/', icon: 'factory', description: 'People and equipment supporting product development and manufacturing.' },
   { label: 'Electronics & SMT', href: '/manufacturing/electronics-smt/', icon: 'circuit-board', description: 'PCB assembly, soldering and electronic production processes.' },
   { label: 'Secure Programming', href: '/manufacturing/secure-programming/', icon: 'lock-keyhole', description: 'Controlled firmware installation, key handling and authorized programming quantities.' },
   { label: 'Tooling & Injection Molding', href: '/manufacturing/tooling-injection-molding/', icon: 'blocks', description: 'Tool development, mold trials and injection-molded parts.' },
@@ -66,7 +63,6 @@ export const leanAboutNavigation: readonly LeanNavigationCardItem[] = [
 ];
 
 export const leanSecondaryNavigation: readonly LeanNavigationItem[] = [
-  { label: 'Case Studies', href: CASE_STUDIES_PATH, secondary: true },
   { label: 'Resources', href: '/resources/', secondary: true },
 ];
 

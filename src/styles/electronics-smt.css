@@ -84,6 +84,7 @@
 .smt-management article { border-top:2px solid #9ab0cc; padding-top:22px; }
 .smt-management p { color:var(--qc-muted); font-size:.85rem; margin-bottom:0; }
 .smt-evidence { padding:27px; background:#f3f6fa; border:1px solid var(--qc-line); border-radius:5px; }
+.smt-inspection-examples { margin-block:28px; }
 .smt-evidence-heading { display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-bottom:25px; }
 .smt-evidence-heading .qc-eyebrow { font-size:.6rem; margin-bottom:13px; }
 .smt-evidence-heading h3 { font-size:1.3rem; margin:0; }

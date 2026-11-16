@@ -1,6 +1,9 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import BiqcFigures from '../../../components/BiqcFigures.astro';
+import ImageLightbox from '../../../components/ImageLightbox.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import plan from '../../../data/product-testing.json';
 import '../../../styles/product-testing.css';
 
@@ -10,11 +13,64 @@ const route = '/quality/product-testing/';
 const origin = SITE.url;
 const canonical = new URL(route, origin).href;
 const tests = plan.groups.flatMap(group => group.tests);
+const switchFixturePhoto = '/images/quality/product-testing/micro-switch-steel-strip.webp';
+const currentMeterPhoto = '/images/quality/product-testing/current-meter-fixture-2018.webp';
 const navigation = [
   { label: 'Plan overview', href: '#plan-overview' },
   { label: 'Test examples', href: '#test-examples' },
   { label: 'Full test library', href: '#test-library' },
   { label: 'Test controls', href: '#measurement-control' },
+];
+const evaluationCases = [
+  {
+    id: 'biqc-strap-strength',
+    title: 'TPU strap strength',
+    slide: 28,
+    finding: 'Watch straps broke during use. The investigation identified TPU regrind above the specified proportion during molding.',
+    response: 'Control the regrind ratio and verify strap strength with tensile and torque checks at evaluation and during mass production.',
+    href: '#torque',
+    linkLabel: 'Review the torque and tension test entry',
+    figures: [
+      { asset: 'image50.jpeg', alt: 'Walkie-talkie wristwatch and strap assembly.' },
+      { asset: 'image49.jpeg', alt: 'Close-up of the crack in the blue TPU watch strap.', caption: 'Break in the TPU strap' },
+    ],
+  },
+  {
+    id: 'biqc-play-instructions',
+    title: 'Play instructions and actual operation',
+    slide: 31,
+    finding: 'The instructions showed that the two sections of a toy cake could be detached. The product could not perform that action. The training case records a 100% defect rate for the mismatch.',
+    response: 'At prototype review and subsequent evaluations, follow the customer’s instructions and play diagrams on the physical sample. Verify each stated operation.',
+    figures: [
+      { asset: 'image58.jpeg', alt: 'Physical housing of the toy cake.', caption: 'Physical sample' },
+      { asset: 'image59.jpeg', alt: 'Illustrated play instructions showing the cake sections separating.', caption: 'Separation shown in the instructions' },
+    ],
+  },
+  {
+    id: 'biqc-button-retention',
+    title: 'Silicone button retention',
+    slide: 34,
+    finding: 'A green button detached from a toy. The investigation identified inadequate locating features. The case records a recall of 5,500 units.',
+    response: 'The training case calls for a locating post on a standalone silicone button and a pull test to verify retention.',
+    href: '#tension',
+    linkLabel: 'Review the general tensile test entry',
+    figures: [{ asset: 'image65.png', alt: 'Green silicone paw button highlighted on the toy cat.' }],
+  },
+  {
+    id: 'biqc-battery-fit',
+    title: 'Battery insertion and contact geometry',
+    slide: 37,
+    finding: 'The battery could not be installed because insertion pushed and deformed the upward-opening V-shaped positive contact.',
+    response: 'Check battery fit and contact behavior during evaluation. The case recommends avoiding an upward-facing contact opening where possible.',
+    href: '#alternative-batteries',
+    linkLabel: 'Review the alternative battery test entry',
+    figures: [
+      { asset: 'image70.png', alt: 'Battery compartment with the defective positive contact.', caption: 'Defective contact' },
+      { asset: 'image71.jpeg', alt: 'The improved positive contact is circled in the battery compartment.', caption: 'Improved contact' },
+      { asset: 'image72.png', alt: 'Schematic of the original positive contact geometry.', caption: 'Original contact' },
+      { asset: 'image73.png', alt: 'Schematic of the revised positive contact geometry.', caption: 'Revised contact' },
+    ],
+  },
 ];
 const breadcrumbs = [{ name: 'Home', url: '/' }, { name: 'Quality', url: '/quality/' }, { name: 'Product testing', url: route }];
 const faqs = [...plan.faqs,
@@ -62,6 +118,7 @@ const schema = {
     </section>
 
     <div class="pt-container">
+      <ReviewGuide question="Which test conditions and records does your product need?" links={[{ label: 'Plan scope', href: '#plan-overview' }, { label: 'Full test library', href: '#test-library' }, { label: 'Laboratories and retesting', href: '#laboratories-and-retesting' }]} inquiryHref="/rfq/?source=quality-product-testing#project-inquiry" />
       <section id="plan-overview" class="pt-section" aria-labelledby="overview-title">
         <div class="pt-heading"><div><p class="pt-eyebrow">01 / READ THE REQUIREMENT IN CONTEXT</p><h2 id="overview-title">How to Read a<br />Product Test Plan</h2></div><p>The source includes picture books, sound buttons and age-specific toy checks. Product relevance must be established before selecting a method. The plan does not establish universal factory capability or compliance.</p></div>
         <ol class="pt-reading-flow"><li><span>01</span><strong>Test project</strong><p>Identify the part, product or packaging.</p></li><li><span>02</span><strong>Method</strong><p>Read the load, exposure or operation.</p></li><li><span>03</span><strong>Conditions</strong><p>Keep units, exceptions and sequence.</p></li><li><span>04</span><strong>Stage</strong><p>Use only the source’s marked codes.</p></li><li><span>05</span><strong>Evaluation</strong><p>Separate pass criteria from recorded values.</p></li></ol>
@@ -81,6 +138,57 @@ const schema = {
         <div class="pt-example-grid">
           <article><p class="pt-eyebrow">REPEATED OPERATION / T1 · T2 · TN · PP</p><h3>A count with a stated basis</h3><p class="pt-formula">Uses per month × months of use × 3</p><p>The source uses this safety-factor relationship for switch and button durability. For switches it lists <strong>2,700</strong> spring-contact operations and <strong>3,600</strong> slide-switch operations; the button count is <strong>5,400</strong>.</p><p>Evaluation: normal function afterward. The usage inputs are not supplied.</p><a href="#switch-durability">Switch method ↗</a><a href="#button-durability">Button method ↗</a></article>
           <article><p class="pt-eyebrow">OUTER-CARTON LOAD / PP</p><h3>A load tied to carton height</h3><p class="pt-formula">N = 3.5 m ÷ carton height<br />Top load = (N − 1) × carton weight</p><p>Apply across the entire top at <strong>40 °C / 90% humidity for 100 hours</strong>, then recover for <strong>1 hour</strong>. Carton and color-box length/depth changes must remain <strong>within 5%</strong>.</p><p>Function, appearance, strength and electrical checks also apply. The source gives no rounding rule for N.</p><a href="#carton-load">Read all conditions and criteria ↗</a></article>
+        </div>
+        <a class="pt-text-link" href="#biqc-evaluation">See checks prompted by past quality incidents ↗</a>
+      </section>
+
+      <section id="biqc-evaluation" class="pt-section" aria-labelledby="biqc-evaluation-title">
+        <div class="pt-heading">
+        <div><p class="pt-eyebrow">BIQC TRAINING &amp; TEST FIXTURES</p><h2 id="biqc-evaluation-title">Function &amp; Design<br />Verification</h2></div>
+          <p>Xinyinhai’s 2019 BIQC training connects routine function checks with past failures that informed product evaluation. Apply each lesson to the relevant design, use case and approved requirements.</p>
+        </div>
+        <div class="pt-source-note">
+          <h3>Function checks during finished-product inspection</h3>
+          <p>After checking for loose internal objects and screw defects, inspectors check power, test mode and normal operation. As applicable, they confirm LED illumination, slide-switch positions, button response and sound before moving on to appearance and package contents.</p>
+          <a class="pt-text-link" href="/quality/quality-control-process/#biqc-finished-goods">See where BIQC fits in the finished-goods workflow ↗</a>
+          <p class="pt-source-ref">BIQC training · slides 3 and 23</p>
+        </div>
+        <div class="pt-biqc-cases">
+        <article id="micro-switch-continuity" class="pt-biqc-case pt-fixture-case" aria-labelledby="micro-switch-continuity-title">
+          <div>
+            <h3 id="micro-switch-continuity-title">Microswitch continuity at three positions</h3>
+            <p>In a 2022 fixture improvement, Xinyinhai used a sliding steel strip to move the microswitch through its travel. The fixture checked for an open circuit before actuation and for electrical continuity at the point of actuation and at full travel.</p>
+            <a class="pt-text-link" href="/manufacturing/electronics-smt/#micro-switch-lead-forming">See how the leads were formed <span aria-hidden="true">↗</span></a>
+          </div>
+          <figure>
+            <a href={switchFixturePhoto} data-lightbox="micro-switch-fixture" data-width="170" data-height="93" data-title="Microswitch test fixture" data-caption="Steel strip being pulled during the microswitch travel check.">
+              <img src={switchFixturePhoto} width="170" height="93" alt="Hand on the test fixture’s pull handle below a row of green indicator lights." loading="lazy" decoding="async" />
+            </a>
+            <figcaption>Steel strip being pulled during the microswitch travel check.</figcaption>
+          </figure>
+        </article>
+        <article id="operating-current-fixture-2018" class="pt-biqc-case pt-fixture-case" aria-labelledby="operating-current-title">
+          <div>
+            <h3 id="operating-current-title">Reading small operating currents</h3>
+            <p>In August 2018, Xinyinhai reviewed a test fixture whose operating-current meter was hard to read at small deflections. The team chose a narrower meter range to make those readings easier to distinguish.</p>
+          </div>
+          <figure>
+            <a href={currentMeterPhoto} data-lightbox="current-meter-fixture" data-width="1080" data-height="651" data-title="Operating-current test fixture" data-caption="August 2018 fixture with separate meters for operating current and leakage current." aria-label="Enlarge the August 2018 current-meter fixture photo">
+              <img src={currentMeterPhoto} width="1080" height="651" alt="Probe fixture beside separate analog meters for operating current and leakage current" loading="lazy" decoding="async" />
+            </a>
+            <figcaption>August 2018 fixture with separate meters for operating current and leakage current.</figcaption>
+          </figure>
+        </article>
+          {evaluationCases.map((item) => <article id={item.id} class="pt-biqc-case">
+            <div>
+              <h3>{item.title}</h3>
+              <p>{item.finding}</p>
+              <p><strong>Evaluation response.</strong> {item.response}</p>
+              {item.href && <a class="pt-text-link" href={item.href}>{item.linkLabel} ↗</a>}
+              <p class="pt-source-ref">BIQC training · slide {item.slide}</p>
+            </div>
+            <BiqcFigures figures={item.figures} group={item.id} />
+          </article>)}
         </div>
       </section>
 
@@ -127,9 +235,34 @@ const schema = {
       <section id="faq" class="pt-section" aria-labelledby="faq-title"><p class="pt-eyebrow">07 / BUYER QUESTIONS</p><h2 id="faq-title">Product testing FAQ</h2><div class="pt-faq">{faqs.map(faq => <details><summary>{faq.question}<span aria-hidden="true">+</span></summary><p>{faq.answer}</p></details>)}</div></section>
     </div>
 
-    <section id="project-requirements" class="pt-project" aria-labelledby="project-title"><div class="pt-container pt-project-grid"><div><p class="pt-eyebrow">YOUR PRODUCT / YOUR TEST BRIEF</p><h2 id="project-title">Make the test requirement<br />specific to your product.</h2><p>Prepare the product context, applicable methods and records needed for an engineering review.</p><div class="pt-actions"><a class="pt-button" href="/resources/product-testing-project-brief.txt" download="LEANODM-product-testing-brief.txt">Download the test planning brief <span aria-hidden="true">↓</span></a><a class="pt-button" href="/rfq/?source=quality-product-testing#rfq-form">Discuss your test requirements <span aria-hidden="true">↗</span></a></div><p class="pt-small">A preparation checklist. It adds no acceptance requirements to the source plan.</p></div><ol><li><strong>Define the product</strong><span>Model, revision, intended users, parts and packaging.</span></li><li><strong>Select the conditions</strong><span>Test entries, stage codes, variants and exact units.</span></li><li><strong>Resolve open criteria</strong><span>Missing settings, source ambiguities and approved references.</span></li><li><strong>Specify the records</strong><span>Sample identification, measured values and evaluation evidence.</span></li></ol></div></section>
+    <section id="project-requirements" class="pt-project" aria-labelledby="project-title"><div class="pt-container pt-project-grid"><div><p class="pt-eyebrow">YOUR PRODUCT / YOUR TEST BRIEF</p><h2 id="project-title">Make the test requirement<br />specific to your product.</h2><p>Prepare the product context, applicable methods and records needed for an engineering review.</p><div class="pt-actions"><a class="pt-button" href="/resources/product-testing-project-brief.txt" download="LEANODM-product-testing-brief.txt">Download the test planning brief <span aria-hidden="true">↓</span></a><a class="pt-button" href="/rfq/?source=quality-product-testing#project-inquiry">Discuss your test requirements <span aria-hidden="true">↗</span></a></div><p class="pt-small">A preparation checklist. It adds no acceptance requirements to the source plan.</p></div><ol><li><strong>Define the product</strong><span>Model, revision, intended users, parts and packaging.</span></li><li><strong>Select the conditions</strong><span>Test entries, stage codes, variants and exact units.</span></li><li><strong>Resolve open criteria</strong><span>Missing settings, source ambiguities and approved references.</span></li><li><strong>Specify the records</strong><span>Sample identification, measured values and evaluation evidence.</span></li></ol></div></section>
   </div>
+  <ImageLightbox />
 </BaseLayout>
+
+<style>
+  .pt-biqc-cases {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .pt-biqc-case {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    gap: clamp(1rem, 3vw, 2.5rem);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--pt-line);
+  }
+  .pt-biqc-case h3 { margin: 0 0 .75rem; }
+.pt-fixture-case { grid-template-columns: minmax(0, 40rem) minmax(0, 14rem); }
+.pt-fixture-case figure { margin: 0; }
+.pt-fixture-case figure a { display: inline-block; }
+.pt-fixture-case img { display: block; max-width: 100%; height: auto; }
+.pt-fixture-case figcaption { margin-top: .45rem; color: var(--pt-muted); font-size: .82rem; }
+  @media (max-width: 48rem) {
+    .pt-biqc-case { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
 
 <script is:inline>
   // Optional deep-link enhancement; native disclosures work without JavaScript.

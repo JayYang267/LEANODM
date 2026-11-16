@@ -1,5 +1,5 @@
 ---
-const endpoint = import.meta.env.PUBLIC_FACTORY_VISIT_ENDPOINT?.trim() || import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '/api/rfq';
+const endpoint = import.meta.env.PUBLIC_FACTORY_VISIT_ENDPOINT?.trim() || import.meta.env.PUBLIC_RFQ_ENDPOINT?.trim() || '';
 ---
 
 <form id="factory-visit-form" name="factory-visit" method="post" data-visit-form data-endpoint={endpoint} aria-labelledby="factory-visit-title">

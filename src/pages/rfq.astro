@@ -30,6 +30,13 @@ const schema = { '@context': 'https://schema.org', '@graph': [
 
 <BaseLayout title={title} description={description} technicalPage technicalPageTitle="Factory visit & project inquiry" technicalNavigation={navigation} contactHref="#factory-visit" technicalContactLabel="Request a factory visit" technicalFooterDescription="Meet our team or share a project brief to discuss the next useful step.">
   <Fragment slot="head"><link rel="canonical" href={canonical} /><meta property="og:url" content={canonical} /><script type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, '\\u003c')} />
+    <script is:inline>
+      (() => {
+        if (!location.hash) return;
+        document.documentElement.dataset.rfqInitialSection = location.hash.slice(1);
+        history.replaceState(history.state, '', location.pathname + location.search);
+      })();
+    </script>
   </Fragment>
   <div class="rfq-page"><div class="rfq-container">
     <header class="visit-intro">
@@ -65,7 +72,7 @@ const schema = { '@context': 'https://schema.org', '@graph': [
       <aside class="rfq-sidebar" aria-label="Contact and manufacturing support">
         <section class="rfq-contact-card" id="rfq-contact" aria-labelledby="rfq-contact-title">
           <p class="rfq-eyebrow">LET'S TALK</p><h2 id="rfq-contact-title">Discuss your project</h2><p>Share your brief or clarify the next step.</p>
-          <a class="rfq-contact-email" href="mailto:quotes@leanodm.com"><Icon name="lucide:mail" /><span><small>Email your project</small><strong>quotes@leanodm.com</strong></span><span aria-hidden="true">↗</span></a>
+          <a class="rfq-contact-email" href="mailto:quotes@leanodm.com"><Icon name="lucide:mail" /><span><small>Email your project</small><strong>quotes@leanodm.com</strong></span></a>
           <div class="rfq-wechat"><Icon name="lucide:message-circle" /><div><small>WeChat</small><strong>yang410829766</strong><p>Please mention your project when adding us.</p></div></div>
         </section>
         <section class="rfq-support-card" id="manufacturing-support" aria-labelledby="rfq-support-title">
@@ -86,4 +93,5 @@ const schema = { '@context': 'https://schema.org', '@graph': [
       <div class="rfq-faq-list">{rfqFaqs.map(faq => <details><summary>{faq.question}<Icon name="lucide:plus" aria-hidden="true" /></summary><p>{faq.answer}</p></details>)}</div>
     </section>
   </div></div>
+  <script>import '../scripts/rfq-navigation';</script>
 </BaseLayout>

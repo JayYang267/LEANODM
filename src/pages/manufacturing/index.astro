@@ -1,6 +1,8 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ManufacturingImprovements from '../../components/nonhome/ManufacturingImprovements.astro';
+import ReviewGuide from '../../components/nonhome/ReviewGuide.astro';
 import '../../styles/quality-control-process.css';
 import '../../styles/electronics-smt.css';
 const title = 'Manufacturing Processes | Tooling, SMT & Assembly | LEANODM.com';
@@ -30,15 +32,69 @@ const schema = { '@context': 'https://schema.org', '@graph': [
       <p class="qc-intro">LEANODM.com presents Xinyinhai’s product development and manufacturing capabilities for plastic and electronic products. Explore the documented processes relevant to your product. The route, responsibilities and quality requirements are agreed for the project.</p>
     </div></section>
     <div class="qc-container">
+      <ReviewGuide question="Which manufacturing processes belong in your product route?" links={[{ label: 'Process scope', href: '#manufacturing-processes' }, { label: 'Evidence context', href: '#manufacturing-evidence' }, { label: 'Project inputs', href: '#project-requirements' }]} inquiryHref="/rfq/?source=manufacturing-overview#project-inquiry" />
       <section id="manufacturing-processes" class="qc-section">
         <h2>Explore the manufacturing processes</h2>
         <div class="smt-hub-grid">{processes.map((process,index) => <article><span class="qc-small-label">{String(index+1).padStart(2,'0')}</span><h3><a href={process.href}>{process.name} ↗</a></h3><p>{process.description}</p><p>{process.evidence}</p></article>)}</div>
         <a class="qc-text-link" href="/quality/quality-control-process/">Review the Quality Control Process ↗</a>
       </section>
+      <ManufacturingImprovements />
+      <section id="shop-floor-5s" class="qc-section" aria-labelledby="shop-floor-5s-title">
+        <h2 id="shop-floor-5s-title">5S on the Production Floor</h2>
+        <div class="qc-split">
+          <div>
+            <p>Xinyinhai’s new-employee training for its Dongguan facility documents how production teams are taught to organize materials and workstations.</p>
+            <ul class="shop-floor-practices">
+              <li><strong>Designated storage areas.</strong> Floor markings and signs show where to place carts and material bins.</li>
+              <li><strong>Separate trays for accepted and nonconforming parts.</strong> Color-coded trays and status labels help prevent mix-ups.</li>
+              <li><strong>Material checks before production.</strong> The training directs operators to compare the materials at their workstation with the work instruction and flag any discrepancy.</li>
+              <li><strong>Foreign-object prevention.</strong> Operators keep unrelated materials off the bench and log the issue and return of numbered blades.</li>
+            </ul>
+          </div>
+          <figure class="shop-floor-photo">
+            <img
+              src="/media/manufacturing-improvements/shop-floor-5s.webp"
+              alt="Blue material bins on wheeled racks inside a marked floor boundary at Xinyinhai’s Dongguan facility"
+              width="1280"
+              height="960"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="qc-source-note">Marked storage for material racks in Xinyinhai’s 5S training file, last saved in 2024. Bin labels are masked.</figcaption>
+          </figure>
+        </div>
+        <div id="shop-floor-improvement-history" class="shop-floor-history">
+          <h3>2019 shop-floor improvement review</h3>
+          <p>Xinyinhai’s June 2019 supplier-conference presentation reviewed management experience, staff retention after a facility move, and early automation adoption. Its 5S assessment examined floor dirt and debris alongside operator practices and equipment condition. The presentation reported improved employee stability through April 2019.</p>
+          <p>One employee proposal gave cutting tools fixed holders at the machines and used elastic tethers to make the tools easier to take and return. The presentation also showed defect display boards, marked tool locations, organized reference files, video training, and mold maintenance.</p>
+        </div>
+        <div id="workshop-self-checks-2020" class="shop-floor-history">
+          <h3>2020 workshop self-checks</h3>
+          <p>Xinyinhai’s assembly and plastics workshops documented changes to how they stored supplies and staged material bins.</p>
+          <div class="qc-split shop-floor-photo-pair">
+            <figure class="shop-floor-photo">
+              <img src="/media/manufacturing-improvements/assembly-tape-rack-2020.webp" alt="Blue side panels around a rack holding rolls of packing tape" width="720" height="540" loading="lazy" decoding="async" />
+              <figcaption class="qc-source-note">The assembly workshop added side panels to shield packing tape from dust.</figcaption>
+            </figure>
+            <figure class="shop-floor-photo">
+              <img src="/media/manufacturing-improvements/plastics-staging-pallets-2020.webp" alt="Blue staging bins on molded plastic pallets inside a yellow floor boundary" width="720" height="540" loading="lazy" decoding="async" />
+              <figcaption class="qc-source-note">The plastics workshop switched from wooden platforms to molded plastic pallets beneath staging bins.</figcaption>
+            </figure>
+          </div>
+          <div class="shop-floor-history-links">
+            <a class="qc-text-link" href="/quality/quality-control-process/#assembly-reject-trays">See how the assembly workshop labeled reject trays <span aria-hidden="true">↗</span></a>
+            <a class="qc-text-link" href="/manufacturing/electronics-smt/#bonding-workshop-pcb-staging-2020">See how the bonding workshop reorganized PCB staging <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div id="workshop-inspection-rounds-2022" class="shop-floor-history">
+          <h3>2022 workshop inspection rounds</h3>
+          <p>Xinyinhai’s 2022 5S records called for inspections at varying times every two weeks, with results reviewed every two months. Inspectors checked for tool sign-out tags at the molding tool board and looked for machine maintenance sheets and clear fixture IDs in screen printing.</p>
+        </div>
+      </section>
       <section id="manufacturing-evidence" class="qc-section">
         <h2>Read the process evidence in context</h2>
         <p>The process pages connect archived work instructions, training references, equipment records and factory photographs to the decisions involved in a new project. Source captions distinguish original records from explanatory diagrams.</p>
-        <p>See the <a class="smt-inline-link" href="/capabilities/production-equipment/">production equipment and workshop overview</a> for the equipment supporting molding, decoration, electronics, assembly and packaging.</p>
+        <p>See <a class="smt-inline-link" href="/capabilities/production-equipment/">Team &amp; Equipment</a> for the equipment supporting molding, decoration, electronics, assembly and packaging.</p>
         <p>An equipment inventory is a documented baseline. A maintenance plan records scheduled work. A training example explains a topic. Current availability, completed maintenance, product acceptance and applicable certification require their own review; these references do not establish those results.</p>
         <p>Agree the product revision, materials, reference samples, inspections and tests for the proposed route. Review <a class="smt-inline-link" href="/quality/traceability/">material identification and record links</a> when planning how production and inspection evidence should connect.</p>
       </section>
@@ -46,13 +102,57 @@ const schema = { '@context': 'https://schema.org', '@graph': [
         <h2>Choose a starting point for your project</h2>
         <p>For a concept or new design, review <a class="smt-inline-link" href="/customization/new-product-development/">New Product Development</a>. For an electronics project, prepare the available board and function information in the <a class="smt-inline-link" href="/manufacturing/electronics-smt/#project-requirements">Electronics &amp; SMT project brief</a>.</p>
         <p>Share the intended use, design status, essential functions, target market and quantity or timing expectations if known. Begin with a non-sensitive overview. Review <a class="smt-inline-link" href="/customization/ip-protection/">IP &amp; Confidentiality</a> and agree the exchange before sharing restricted drawings, firmware or keys.</p>
-        <div class="qc-actions"><a class="qc-button" href="/rfq/?source=manufacturing-overview#rfq-form">Start your manufacturing inquiry <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="/customization/project-fit/">Review project fit <span aria-hidden="true">↗</span></a></div>
+        <div class="qc-actions"><a class="qc-button" href="/rfq/?source=manufacturing-overview#project-inquiry">Start your manufacturing inquiry <span aria-hidden="true">↗</span></a><a class="qc-text-link" href="/customization/project-fit/">Review project fit <span aria-hidden="true">↗</span></a></div>
       </section>
     </div>
   </div>
 </BaseLayout>
 
 <style>
+  .shop-floor-practices {
+    display: grid;
+    gap: 14px;
+    margin: 20px 0 0;
+    padding-inline-start: 1.2em;
+    list-style: disc;
+  }
+
+  .shop-floor-photo {
+    margin: 0;
+    max-width: 560px;
+  }
+
+  .shop-floor-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .shop-floor-history {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid var(--qc-line);
+  }
+
+  .shop-floor-history p {
+    max-width: 82ch;
+  }
+
+  .shop-floor-history-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+
+  @media (min-width: 860px) {
+    .shop-floor-photo-pair {
+      max-width: 1152px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 32px;
+    }
+  }
+
   @media (max-width: 360px) {
     .smt-hub-hero h1 { font-size: 2.5rem; }
   }

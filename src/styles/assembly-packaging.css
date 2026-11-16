@@ -142,7 +142,7 @@ html:has(.ap-page) .lean-global-header .lean-global-secondary>.lean-global-plann
 .ap-method-copy h3,.ap-risk-controls h3,.ap-joint-review h3,.ap-packing-spec h3 { font-size:1.18rem; line-height:1.45; }
 .ap-method-copy p:not(.qc-small-label),.ap-risk-controls p,.ap-joint-review p,.ap-packing-spec p:not(.qc-small-label) { color:var(--qc-muted); font-size:.85rem; line-height:1.75; }
 .ap-torque-reference { display:grid; grid-template-columns:170px 1fr; gap:22px; padding-top:20px; margin-top:20px; border-top:1px solid var(--qc-line); align-items:center; }
-.ap-torque-reference .ap-evidence-image { height:115px; }
+.ap-torque-reference .ap-evidence-image { height:154px; }
 .ap-torque-reference h3 { font-size:1rem; margin-bottom:7px; }
 .ap-torque-reference p { margin:0; }
 .ap-loop { border-top:2px solid var(--ap-blue); border-bottom:1px solid var(--qc-line); padding:23px 0; margin-top:30px; }
@@ -190,17 +190,45 @@ html:has(.ap-page) .lean-global-header .lean-global-secondary>.lean-global-plann
 .ap-inspection-stages .qc-small-label { font-size:.6rem; }
 .ap-inspection-stages h3 { font-size:1.05rem; }
 .ap-inspection-stages p { font-size:.83rem; color:var(--qc-muted); margin:0; line-height:1.7; }
-.ap-foreign-layout { display:grid; grid-template-columns:1fr 1fr; gap:45px; }
+.ap-foreign-layout { display:grid; grid-template-columns:minmax(0, 2fr) minmax(0, 3fr); gap:45px; }
 .ap-hazard-groups { border-top:1px solid var(--qc-line); }
 .ap-hazard-groups>div { padding:19px 0; border-bottom:1px solid var(--qc-line); }
 .ap-hazard-groups h3 { font-size:1rem; margin-bottom:7px; }
 .ap-hazard-groups p { font-size:.83rem; line-height:1.7; margin:0; color:var(--qc-muted); }
-.ap-hazard-photos { display:grid; grid-template-columns:1fr 1fr; gap:22px; padding-top:5px; }
-.ap-hazard-photos .ap-evidence-image { height:220px; }
+.ap-hazard-photos { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; padding-top:5px; }
+.ap-hazard-photos .ap-evidence-image { height:clamp(110px, 14vw, 185px); }
+.ap-prevention-controls { grid-template-columns:minmax(0, 1fr); gap:24px; }
+.ap-control-photos { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px; margin-top:16px; }
+.ap-control-photos > :only-child { grid-column:1 / -1; max-width:318px; }
+.ap-control-photos .ap-evidence-image { height:clamp(135px, 16vw, 190px); padding:8px; }
+@media (min-width:960px) {
+  .ap-prevention-controls { grid-template-columns:minmax(0, 1fr) repeat(2, minmax(0, 2fr)); gap:10px 22px; }
+  .ap-prevention-controls > div { display:grid; grid-row:span 3; grid-template-rows:subgrid; row-gap:8px; }
+  .ap-prevention-controls h3 { margin-bottom:0; }
+  .ap-control-photos { margin-top:8px; }
+}
+@media (max-width:959px) {
+  .ap-control-photos > :only-child .ap-evidence-image { height:200px; }
+}
+@media (max-width:359px) {
+  .ap-control-photos { grid-template-columns:1fr; }
+  .ap-control-photos .ap-evidence-image { height:172px; }
+}
 .ap-packing-spec { display:grid; grid-template-columns:1fr 1fr; gap:45px; padding:28px; border:1px solid var(--qc-line); margin-top:25px; }
 .ap-packing-spec p:last-child { margin:0; }
 .ap-packing-spec ul { margin:0; padding-left:18px; color:var(--qc-muted); font-size:.83rem; line-height:1.8; }
 .ap-packing-spec li+li { margin-top:9px; }
+.ap-archive-case { margin-bottom:24px; }
+#pallet-protection-2020, #packing-pest-prevention-2020, .ap-process-evidence { align-items:center; }
+#pallet-protection-2020 .ap-evidence, #packing-pest-prevention-2020 .ap-evidence, .ap-process-evidence .ap-evidence { width:100%; max-width:390px; justify-self:center; }
+#book-page-alignment-2020 .ap-evidence-image { display:block; aspect-ratio:auto; padding:0; }
+#book-page-alignment-2020 .ap-evidence-image img { height:auto; }
+.ap-archive-case .ap-machine-pair .ap-evidence-image { height:190px; aspect-ratio:auto; }
+.ap-weight-check { grid-template-columns:minmax(0, 1fr) minmax(0, 240px); max-width:920px; }
+.ap-weight-check .ap-evidence { max-width:240px; }
+@media (max-width:599px) {
+  .ap-archive-case .ap-machine-pair { grid-template-columns:1fr; }
+}
 .ap-working-link { margin-left:28px; }
 @media (max-width:1119px) {
   .ap-fastening-layout { grid-template-columns:1fr; gap:28px; }
@@ -244,8 +272,8 @@ html:has(.ap-page) .lean-global-header .lean-global-secondary>.lean-global-plann
   .ap-evidence figcaption strong { font-size:.82rem; }
   .ap-evidence figcaption span { font-size:.72rem; }
   .ap-method-copy { display:block; }
-  .ap-torque-reference { grid-template-columns:110px 1fr; gap:17px; border-top:1px solid var(--qc-line); padding-top:20px; margin-top:20px; }
-  .ap-torque-reference .ap-evidence-image { height:90px; padding:7px; }
+  .ap-torque-reference { grid-template-columns:minmax(120px, 42%) 1fr; gap:17px; border-top:1px solid var(--qc-line); padding-top:20px; margin-top:20px; }
+  .ap-torque-reference .ap-evidence-image { height:142px; padding:7px; }
   .ap-torque-reference p { font-size:.8rem !important; }
   .ap-loop ol { grid-template-columns:1fr 1fr; gap:20px; }
   .ap-loop li { font-size:.78rem; gap:8px; }
@@ -253,8 +281,8 @@ html:has(.ap-page) .lean-global-header .lean-global-secondary>.lean-global-plann
   .ap-risk-controls,.ap-inspection-stages,.ap-packing-spec { grid-template-columns:1fr; gap:24px; }
   .ap-detail-photos { grid-template-columns:1fr 1fr; }
   .ap-detail-photos .ap-evidence-image { height:145px; }
-  .ap-solder-equipment { gap:15px; grid-template-columns:1.2fr .8fr; padding:0; }
-  .ap-solder-equipment .ap-evidence-image { height:160px; padding:8px; }
+  .ap-solder-equipment { gap:15px; grid-template-columns:1fr; padding:0; }
+  .ap-solder-equipment .ap-evidence-image { height:210px; padding:8px; }
   .ap-solder-sequence ol { padding:22px 16px; gap:32px; }
   .ap-solder-sequence li { grid-template-columns:18px 78px 1fr; gap:6px 10px; }
   .ap-solder-sequence li h3 { grid-column:3; font-size:.89rem; align-self:center; }
@@ -262,8 +290,10 @@ html:has(.ap-page) .lean-global-header .lean-global-secondary>.lean-global-plann
   .ap-solder-sequence svg { grid-row:1; }
   .ap-solder-sequence .ap-step-number { grid-row:1; }
   .ap-solder-sequence li:not(:last-child)::after { bottom:-28px; left:58px; }
-  .ap-joint-pair,.ap-hazard-photos { gap:16px; }
-  .ap-joint-pair .ap-evidence-image,.ap-hazard-photos .ap-evidence-image { height:155px; padding:8px; }
+  .ap-joint-pair { gap:16px; }
+  .ap-joint-pair .ap-evidence-image { height:155px; padding:8px; }
+  .ap-hazard-photos { gap:10px; }
+  .ap-hazard-photos .ap-evidence-image { height:auto; aspect-ratio:1; padding:4px; }
   .ap-tip-pair { grid-template-columns:1fr; gap:22px; }
   .ap-packing-spec { padding:22px; }
   .ap-working-link { margin-left:0; display:block; }

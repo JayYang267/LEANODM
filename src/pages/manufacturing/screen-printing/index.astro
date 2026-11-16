@@ -1,6 +1,7 @@
 ---
 import { SITE } from '@config/site';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import ReviewGuide from '../../../components/nonhome/ReviewGuide.astro';
 import Button from '@components/ui/Button.astro';
 import { Icon } from 'astro-iconset/components';
 import { Image, getImage } from 'astro:assets';
@@ -8,6 +9,8 @@ import Diagram from '../../../components/ScreenPrintingDiagram.astro';
 import fixturePhoto from '../../../assets/screen-printing/fixture-positioning.png';
 import basePhoto from '../../../assets/screen-printing/base-layer-printing.png';
 import surfacePhoto from '../../../assets/screen-printing/surface-layer-detail.png';
+import productionBoardPhoto from '../../../assets/screen-printing/production-status-board-2020.webp';
+import conductiveRegistrationPhoto from '../../../assets/screen-printing/conductive-registration-2020.webp';
 import { printingRoute, printingNavigation, printingControls, printingSteps, printingChecks, printingRisks, printingRequirements, printingApplications, printingMethods, printingFaqs } from '../../../data/screen-printing';
 import '../../../styles/quality-control-process.css';
 import '../../../styles/screen-printing.css';
@@ -70,6 +73,7 @@ const schema = {
     </section>
 
     <div class="qc-container">
+      <ReviewGuide question="What controls the position, layers and accepted appearance of your artwork?" links={[{ label: 'Printing sequence', href: '#process' }, { label: 'Quality checks', href: '#quality-checks' }, { label: 'Artwork and part inputs', href: '#printing-brief' }]} inquiryHref="/rfq/?source=manufacturing-screen-printing#project-inquiry" />
       <section class="qc-section" aria-labelledby="controls-title">
         <div class="qc-heading"><div><p class="qc-eyebrow">01 / THE CONTROL POINTS</p><h2 id="controls-title">What screen-printing controls are documented at Xinyinhai?</h2></div><p>Position, color, clarity and part condition need explicit references. These are the practical control points reflected in the archived printing and inspection instructions.</p></div>
         <div class="sp-control-grid">{printingControls.map((item, i) => <article><div class="sp-control-top"><Icon name={`lucide:${item.icon}`} aria-hidden="true" /><span>{String(i + 1).padStart(2, '0')}</span></div><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
@@ -89,6 +93,7 @@ const schema = {
           <figure class="sp-drawing"><div class="sp-drawing-label">POSITIONING PRINCIPLE <span>SCHEMATIC / NOT TO SCALE</span></div><Diagram kind="fixture" /><figcaption>Control orientation and support the part relative to the intended print area.</figcaption></figure>
         </div>
         <dl class="sp-fixture-benefits"><div><dt>Repeatable orientation</dt><dd>Use the same defined loading direction.</dd></div><div><dt>Print-location control</dt><dd>Relate artwork placement to the located part.</dd></div><div><dt>Operator consistency</dt><dd>Give the loading step a clear physical reference.</dd></div><div><dt>Repeated production</dt><dd>Review fixture fit and the reference before a new run.</dd></div></dl>
+        <p class="qc-source-note" id="four-part-print-fixture-2022"><strong>Four parts in one print cycle.</strong> A 2022 workshop example shows Xinyinhai changing a fixture from one button per print cycle to four. The fixture locates all four parts before the screen is lowered.</p>
       </section>
 
       <section id="layer-registration" class="qc-section" aria-labelledby="layers-title">
@@ -98,6 +103,10 @@ const schema = {
           <figure class="sp-surface-photo"><Image src={surfacePhoto} alt="Detail from the archived surface-layer printing instruction showing the operator drawing a squeegee across the inked screen" width={410} height={545} widths={[280, 410]} sizes="(max-width: 599px) 180px, 270px" format="webp" loading="lazy" class="sp-evidence-image" /><figcaption><strong>Surface-layer operation</strong>Real squeegee detail from the second work instruction.</figcaption></figure>
         </div>
         <p class="qc-source-note">This is one documented layer sequence. It does not establish a universal process for every multi-color design. Colors in the schematic illustrate alignment; they are not a customer artwork or a print-performance claim.</p>
+        <figure id="conductive-print-registration-2020" class="sp-photo">
+          <Image src={conductiveRegistrationPhoto} widths={[480, 768, 1085]} sizes="(max-width: 859px) calc(100vw - 32px), 1085px" format="webp" alt="Black carbon ink centered on the silver contact fingers in the accepted samples at left, and offset from the silver contacts in the rejected sample at right" loading="lazy" class="sp-evidence-image" />
+          <figcaption><strong>Conductive print registration · 2020 archive.</strong> The accepted samples show black carbon ink centered on the printed silver contacts. The rejected sample shows the black ink offset from the contacts.</figcaption>
+        </figure>
       </section>
 
       <section id="quality-checks" class="qc-section" aria-labelledby="quality-title">
@@ -126,6 +135,16 @@ const schema = {
       <section id="manufacturing-evidence" class="qc-section sp-evidence-record" aria-labelledby="evidence-title">
         <div><p class="qc-eyebrow">08 / MANUFACTURING EVIDENCE</p><h2 id="evidence-title">Working instructions behind the control points</h2><p>Xinyinhai’s archived manufacturing work instructions show documented positioning, layered printing and visual inspection controls. They provide historical process evidence; the setup and validation for your product are confirmed during review.</p></div>
         <ol class="sp-evidence-ledger"><li><span>01</span><div><h3>Process flow</h3><p>Base layer → surface layer → QC.</p></div></li><li><span>02</span><div><h3>Base-layer work instruction</h3><p>Specified part orientation, locating fixture and screen operation.</p></div></li><li><span>03</span><div><h3>Surface-layer work instruction</h3><p>Position the base-printed part for the next printing step.</p></div></li><li><span>04</span><div><h3>Inspection criteria</h3><p>Six visual checks with a reference-sample comparison.</p></div></li></ol>
+        <article id="screen-print-production-board" class="sp-fixture-grid sp-workshop-example" aria-labelledby="screen-print-production-board-title">
+          <div>
+            <h3 id="screen-print-production-board-title">Production status on the workshop floor</h3>
+            <p>A 2020 workshop self-inspection recorded that Xinyinhai installed a screen-printing production board. It provided fields for each order’s daily plan, completed quantity and remaining quantity.</p>
+          </div>
+          <figure class="sp-photo">
+            <Image src={productionBoardPhoto} alt="Blank screen-printing production board with columns for the daily plan, completed quantity and remaining quantity" widths={[360, 480, 720, 970]} sizes="(max-width: 519px) calc(100vw - 40px), 480px" format="webp" loading="lazy" class="sp-evidence-image" />
+            <figcaption>Blank board from Xinyinhai’s 2020 screen-printing workshop self-inspection.</figcaption>
+          </figure>
+        </article>
       </section>
 
       <section id="applications" class="qc-section" aria-labelledby="applications-title">
@@ -152,6 +171,18 @@ const schema = {
       </section>
     </div>
 
-    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">YOUR NEXT PRODUCT</p><h2 id="project-title">Need Screen Printing for a Plastic Product?</h2><p>Share your part drawing, artwork, material, color requirement and target quantity. Bring decoration into the manufacturing review while the product is still being defined.</p><div class="qc-actions"><Button href={contactHref || '/rfq/?source=manufacturing-screen-printing#rfq-form'} class="qc-button">Discuss Your Printing Requirement <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="/manufacturing/">Explore Manufacturing Processes <span aria-hidden="true">↗</span></a></div></div><div id="printing-inquiry" class="qc-project-list"><h3>Prepare your printing brief</h3><ul><li>Part drawing and print location</li><li>Artwork, layers and color reference</li><li>Material, finish and sample</li><li>Acceptance criteria and target quantity</li></ul><a class="sp-download" href={briefHref} download>Download the Printing Project Brief <span aria-hidden="true">↓</span></a><p class="qc-project-note">Use the inquiry form to prepare your brief, or share it with your existing project contact. This download prepares your inquiry; it does not submit it.</p></div></div></section>
+    <section id="project-requirements" class="qc-project" aria-labelledby="project-title"><div class="qc-container qc-split"><div><p class="qc-eyebrow">YOUR NEXT PRODUCT</p><h2 id="project-title">Need Screen Printing for a Plastic Product?</h2><p>Share your part drawing, artwork, material, color requirement and target quantity. Bring decoration into the manufacturing review while the product is still being defined.</p><div class="qc-actions"><Button href={contactHref || '/rfq/?source=manufacturing-screen-printing#project-inquiry'} class="qc-button">Discuss Your Printing Requirement <span aria-hidden="true">↗</span></Button><a class="qc-text-link" href="/manufacturing/">Explore Manufacturing Processes <span aria-hidden="true">↗</span></a></div></div><div id="printing-inquiry" class="qc-project-list"><h3>Prepare your printing brief</h3><ul><li>Part drawing and print location</li><li>Artwork, layers and color reference</li><li>Material, finish and sample</li><li>Acceptance criteria and target quantity</li></ul><a class="sp-download" href={briefHref} download>Download the Printing Project Brief <span aria-hidden="true">↓</span></a><p class="qc-project-note">Use the inquiry form to prepare your brief, or share it with your existing project contact. This download prepares your inquiry; it does not submit it.</p></div></div></section>
   </div>
 </BaseLayout>
+
+<style>
+  .sp-workshop-example {
+    grid-column: 1 / -1;
+  }
+
+  .sp-workshop-example figure {
+    width: 100%;
+    max-width: 480px;
+    margin: 0;
+  }
+</style>

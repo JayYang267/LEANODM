@@ -44,6 +44,39 @@
     ]
   },
   {
+    "slug": "factory-fire-safety-drill-2025-12",
+    "title": "Factory fire safety drill",
+    "category": "team",
+    "date": "2025-12-05",
+    "dateLabel": "December 5, 2025",
+    "summary": "Xinyinhai employees gathered in the factory courtyard for a fire safety briefing and hands-on fire extinguisher practice.",
+    "background": "Xinyinhai held a fire safety drill at its factory in December 2025. These eight photographs document the staff briefing and the practice exercises.",
+    "activity": "Employees assembled in the courtyard for a briefing. Participants then practiced using portable fire extinguishers. The collection includes daylight and evening views of the drill.",
+    "relevance": "The drill gave employees an opportunity to handle fire extinguishers and practice a workplace emergency response.",
+    "mediaIds": [
+      "photo-175775d04202",
+      "photo-435a142ab821",
+      "photo-682f108339d9",
+      "photo-aedc5ced5bc7",
+      "photo-c68d1b058044",
+      "photo-0dae289f69f4",
+      "photo-f384971d1dab",
+      "photo-98a6f09bcd06"
+    ],
+    "photoDescriptions": {
+      "photo-175775d04202": "A fire extinguisher briefing in front of the Xinyinhai factory.",
+      "photo-435a142ab821": "A wide view of employees gathered for the fire safety briefing in the factory courtyard.",
+      "photo-682f108339d9": "Employees listen as a speaker addresses the group in the courtyard.",
+      "photo-aedc5ced5bc7": "Employees stand in rows during the outdoor briefing.",
+      "photo-c68d1b058044": "Employees carry portable fire extinguishers during a practice exercise.",
+      "photo-0dae289f69f4": "A cloud of extinguishing agent spreads across the courtyard during practice.",
+      "photo-f384971d1dab": "Employees observe an evening demonstration with fire extinguishers on hand.",
+      "photo-98a6f09bcd06": "Participants prepare their extinguishers beside the evening training fire."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
     "slug": "industrial-engineering-competition-2025",
     "title": "Industrial engineering and lean management competition",
     "category": "visits",
@@ -59,6 +92,48 @@
       "photo-5d32d8627e9c",
       "photo-b81e187b9c7e"
     ],
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "japanese-customer-product-development-meeting-2025-07",
+    "title": "Japanese customer visit and new product development meeting",
+    "category": "visits",
+    "date": "2025-07",
+    "dateLabel": "July 2025",
+    "summary": "Japanese customers visited Xinyinhai to discuss new product development with the factory team.",
+    "background": "The visit took place on a weekend in July 2025, bringing Japanese customers and Xinyinhai’s team together for a product development meeting.",
+    "activity": "The photographs record a meeting-room discussion with a projected presentation and a group photograph outside the factory.",
+    "relevance": "Face-to-face discussions give customers and the factory team a shared setting to exchange product ideas and explore development needs.",
+    "mediaIds": [
+      "photo-a9ec9bb32fe8",
+      "photo-6d787bffafed"
+    ],
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "electric-forklift-safety-training-2025",
+    "title": "Electric forklift safety training",
+    "category": "improvement",
+    "date": "2025-06-12",
+    "dateLabel": "June 12, 2025",
+    "summary": "Xinyinhai’s production team reviewed forklift incident case studies and watched a demonstration of a walk-behind electric stacker.",
+    "background": "The safety briefing began in the factory meeting room with a review of forklift incidents.",
+    "activity": "In a covered factory area, the team gathered around a walk-behind electric stacker as an instructor demonstrated its controls.",
+    "relevance": "The session connected the safety cases discussed in the meeting room with the equipment used on the factory floor.",
+    "mediaIds": [
+      "photo-49a93f8f5685",
+      "photo-2f08e7fb6da1",
+      "photo-af5156b3b27f",
+      "video-114bafecdd55"
+    ],
+    "coverMediaId": "photo-49a93f8f5685",
+    "photoDescriptions": {
+      "photo-49a93f8f5685": "An instructor demonstrates the electric stacker controls to the production team.",
+      "photo-2f08e7fb6da1": "The production team reviews a forklift incident case during the classroom briefing.",
+      "photo-af5156b3b27f": "Team members observe the stacker from the side, with its lifting mast and forks in view."
+    },
     "featured": false,
     "placements": []
   },
@@ -234,7 +309,7 @@
     "slug": "lean-production-association-gathering-2024",
     "title": "Lean production association gathering",
     "category": "visits",
-    "date": null,
+    "date": "2024-01",
     "dateLabel": "January 2024",
     "summary": "A group photograph records a lean production association gathering.",
     "background": "This archive record documents an industry exchange. It preserves the setting and people shown at the time of the visit.",
@@ -567,7 +642,7 @@
     "slug": "electrical-room-organization",
     "title": "Electrical room organization",
     "category": "improvement",
-    "date": null,
+    "date": "2023-07-20",
     "dateLabel": "July 2023 and undated views",
     "summary": "Photographs and two walkthroughs document storage in a compact electrical room.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
@@ -1031,8 +1106,6 @@
     "activity": "The photographs show participants seated around a table with projected material.",
     "relevance": "Meeting-room exchanges provide a setting to compare manufacturing experience; the record does not include a transcript.",
     "mediaIds": [
-      "photo-e492e3748a70",
-      "photo-0d8214a8d00b",
       "photo-951cb3bef009",
       "photo-fc51ff14e4cc"
     ],
@@ -1114,13 +1187,13 @@
   },
   {
     "slug": "manufacturing-peer-visit-2020-08",
-    "title": "Manufacturing peer visit in August 2020",
+    "title": "Manufacturing peer visit",
     "category": "visits",
-    "date": "2020-08-18",
-    "dateLabel": "18 August 2020",
+    "date": "2019-08-17",
+    "dateLabel": "17 August 2019",
     "summary": "A visiting group toured production and joined a shared meal.",
     "background": "This archive record documents an industry exchange. It preserves the setting and people shown at the time of the visit.",
-    "activity": "The record shows a factory group photograph, workstation observations and conversations over a meal.",
+    "activity": "The photographs show the visiting group observing production workstations, taking part in a group discussion and sharing a meal.",
     "relevance": "The photographs preserve the working and social context of an industry visit.",
     "mediaIds": [
       "photo-884b68d89f8c",
@@ -1131,10 +1204,14 @@
       "photo-25f48b5b85e8",
       "photo-55a2a636aef5",
       "photo-5d77806613e5",
-      "photo-cd831434a553"
+      "photo-cd831434a553",
+      "photo-36322331ae03"
     ],
     "featured": false,
-    "placements": []
+    "placements": [],
+    "photoDescriptions": {
+      "photo-36322331ae03": "Participants seated for a group discussion during the manufacturing peer visit."
+    }
   },
   {
     "slug": "peer-factory-exchange-2020-07",
@@ -1232,14 +1309,14 @@
   },
   {
     "slug": "peer-factory-exchange-2019-06",
-    "title": "Peer factory exchange in June 2019",
+    "title": "DuLe’s factory visit to Xinyinhai",
     "category": "visits",
-    "date": "2019-06-26",
-    "dateLabel": "26 June 2019",
-    "summary": "A meeting and factory walkthrough brought manufacturing peers together.",
-    "background": "This archive record documents an industry exchange. It preserves the setting and people shown at the time of the visit.",
-    "activity": "The collection shows a meeting-room discussion and visits to workshop and production areas.",
-    "relevance": "The photographs preserve the working context used for an exchange of manufacturing experience.",
+    "date": "2019-06",
+    "dateLabel": "June 2019",
+    "summary": "DuLe visited Xinyinhai to learn how the factory trained new employees, managed key production steps and handled customer quality feedback.",
+    "background": "The visit included a discussion and a walk through production areas. The DuLe team compared Xinyinhai’s shop-floor practices with its own.",
+    "activity": "The visitors reviewed photo-based 5S onboarding materials covering workwear, material labeling and safety. On the production floor, they looked at soldering instructions, how tasks were divided across workstations, and how tools and materials were organized. The exchange also covered visual defect displays and how departments investigated customer complaints and developed corrective actions.",
+    "relevance": "In its post-visit summary, DuLe identified practices to adapt at its own factory, including clearer workplace labels, more visual training materials and dividing soldering work into defined steps.",
     "mediaIds": [
       "photo-3519326c312a",
       "photo-cef095f3b3aa",
@@ -1256,19 +1333,23 @@
   },
   {
     "slug": "internal-learning-discussion-2019",
-    "title": "Internal learning discussion in 2019",
+    "title": "Internal production and quality discussion",
     "category": "team",
     "date": "2019-06-20",
     "dateLabel": "20 June 2019",
-    "summary": "A small group joined an internal learning discussion.",
-    "background": "This archive record documents an employee activity and the shared working life of the factory.",
-    "activity": "The photograph shows colleagues seated around a table with projected material.",
-    "relevance": "The record preserves one employee learning occasion.",
+    "summary": "Colleagues met to discuss material information, production processes and automation during the 2019 improvement program.",
+    "background": "The June discussion was part of Xinyinhai’s recurring factory improvement meetings.",
+    "activity": "The photographs show participants reviewing material together and talking around the meeting table.",
+    "relevance": "The discussion brought production and quality topics into the same working session.",
     "mediaIds": [
-      "photo-eb90c425ab34"
+      "photo-eb90c425ab34",
+      "photo-71b8d954871d"
     ],
     "featured": false,
-    "placements": []
+    "placements": [],
+    "photoDescriptions": {
+      "photo-71b8d954871d": "Colleagues seated around the table during the production and quality discussion."
+    }
   },
   {
     "slug": "internal-5s-review-2019",
@@ -1332,8 +1413,8 @@
     "slug": "young-visitors-factory-tour",
     "title": "Young visitors factory tour",
     "category": "community",
-    "date": null,
-    "dateLabel": "Date unknown",
+    "date": "2026-07-19",
+    "dateLabel": "19 July 2026",
     "summary": "Children and accompanying adults joined a guided factory visit.",
     "background": "This archive record documents factory-based learning, bringing manufacturing topics into an educational setting.",
     "activity": "The video shows a group outside the factory followed by staff explaining assembly work beside production stations.",
@@ -1349,7 +1430,7 @@
     "title": "Workshop rearrangement record",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A walkthrough records workshop equipment and work areas during a rearrangement.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The video moves through a screen-printing area and shows covered equipment, marked positions and stored items.",
@@ -1365,7 +1446,7 @@
     "title": "Warehouse workspace record",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A short walkthrough records warehouse aisles and storage racks.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The video shows shelves, containers and the walking routes between stored materials.",
@@ -1381,7 +1462,7 @@
     "title": "UV printing workshop record",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A short walkthrough records a UV printing workshop.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The video shows printers, worktables and material racks in the workshop. This description explains the visible setting and does not translate the on-screen lyrics.",
@@ -1397,7 +1478,7 @@
     "title": "Tooling and fixture workshop record",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A workshop walkthrough records tool storage and supporting equipment.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The video shows equipment, storage cabinets and a cleaning area. The source label relates the workspace to tooling and fixture work.",
@@ -1415,7 +1496,7 @@
     "title": "Retirement and service appreciation",
     "category": "team",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A retirement video brings together earlier photographs and a colleague’s farewell.",
     "background": "This archive record documents an employee activity and the shared working life of the factory.",
     "activity": "The video combines company photographs from different periods with colleagues speaking in the factory. The retirement date is not given in the source label.",
@@ -1433,7 +1514,7 @@
     "title": "Laboratory workspace record",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A walkthrough records laboratory equipment and its working space.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The video shows test equipment, a work desk and the arrangement of the laboratory.",
@@ -1451,7 +1532,7 @@
     "title": "Factory overview film",
     "category": "visits",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "An undated overview film records several factory departments.",
     "background": "This archive record documents an industry exchange. It preserves the setting and people shown at the time of the visit.",
     "activity": "The video includes workshop equipment, printing areas and the laboratory as part of a wider factory presentation.",
@@ -1467,7 +1548,7 @@
     "title": "Factory cleaning before the new year",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "Two source versions record factory areas prepared around a new-year cleaning occasion.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The videos show clean aisles, covered equipment and arranged workshop areas. Both the music version and the other source version are preserved.",
@@ -1486,7 +1567,7 @@
     "title": "Dry-ice cleaning demonstration",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A short clip documents cleaning work on a metal component.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The video shows a nozzle being applied to a metal part. The source label identifies the process as dry-ice cleaning.",
@@ -1502,7 +1583,7 @@
     "title": "Assembly department workspace record",
     "category": "improvement",
     "date": null,
-    "dateLabel": "Date unknown",
+    "dateLabel": "Date unavailable",
     "summary": "A walkthrough documents the assembly department around a new-year occasion.",
     "background": "This archive record documents a practical workplace topic. It shows the arrangements recorded at the time, without assigning measured improvement results.",
     "activity": "The video shows assembly stations, material racks, covered items and marked aisles. The source label gives no event year.",
@@ -1514,5 +1595,854 @@
     "placements": [
       "assembly"
     ]
+  },
+  {
+    "slug": "dormitory-fire-evacuation-drill-2024-12-31",
+    "title": "Nighttime Dormitory Evacuation Drill",
+    "category": "team",
+    "date": "2024-12-31",
+    "dateLabel": "December 31, 2024",
+    "summary": "Xinyinhai held a nighttime fire evacuation drill at its employee dormitory. Participants left the building and gathered outside.",
+    "background": "This exercise took place at the employee dormitory after dark.",
+    "activity": "Participants moved down the stairs and assembled outdoors.",
+    "relevance": "The drill gave participants a chance to practice leaving the dormitory at night.",
+    "mediaIds": [
+      "photo-a655fd2c21c6"
+    ],
+    "coverMediaId": "photo-a655fd2c21c6",
+    "photoDescriptions": {
+      "photo-a655fd2c21c6": "Participants assemble outside after a nighttime dormitory evacuation."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "factory-fire-safety-drill-2024-06-28",
+    "title": "Factory Fire Safety Drill Across Two Shifts",
+    "category": "team",
+    "date": "2024-06-28",
+    "dateLabel": "June 28, 2024",
+    "summary": "Xinyinhai’s day and night shifts practiced evacuating the factory. In the courtyard, employees used portable extinguishers and demonstrated a fire hose.",
+    "background": "Xinyinhai’s drill records cover both the day and night shifts.",
+    "activity": "Employees left the building and gathered outside. The courtyard exercises included portable extinguishers and a fire hose.",
+    "relevance": "The two sessions gave employees on both shifts a chance to practice a workplace emergency response.",
+    "mediaIds": [
+      "photo-587d390dc765",
+      "photo-8cea24021cb9",
+      "photo-1d79228d2597",
+      "photo-01ade44a8111",
+      "photo-ddfa5cf2e83c",
+      "photo-6c80be914bfa"
+    ],
+    "coverMediaId": "photo-587d390dc765",
+    "photoDescriptions": {
+      "photo-587d390dc765": "Employees discharge portable fire extinguishers during courtyard practice.",
+      "photo-8cea24021cb9": "Employees leave the factory building during the daytime evacuation drill.",
+      "photo-1d79228d2597": "Employees line up in the courtyard beside portable extinguishers.",
+      "photo-01ade44a8111": "A small group prepares extinguishers at a marked line.",
+      "photo-ddfa5cf2e83c": "Two participants handle a fire hose in the factory courtyard.",
+      "photo-6c80be914bfa": "A participant demonstrates the fire hose after dark."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "fire-extinguisher-and-hose-training-2023-12-29",
+    "title": "Fire Extinguisher and Hose Training",
+    "category": "team",
+    "date": "2023-12-29",
+    "dateLabel": "December 29, 2023",
+    "summary": "Xinyinhai employees practiced with fire extinguishers and a fire hose in the factory courtyard. The photo record includes a separate briefing for the night shift.",
+    "background": "The exercise focused on equipment used in a factory fire response.",
+    "activity": "Portable extinguishers were set out for the group. The photographs also show a hose demonstration and a briefing after dark.",
+    "relevance": "The sessions gave employees a chance to handle fire safety equipment and watch it in use.",
+    "mediaIds": [
+      "photo-e58bb41bd013",
+      "photo-4fbbec26d7c6",
+      "photo-b8e68ed69bd8"
+    ],
+    "coverMediaId": "photo-e58bb41bd013",
+    "photoDescriptions": {
+      "photo-e58bb41bd013": "Employees gather around portable extinguishers set out in the courtyard.",
+      "photo-4fbbec26d7c6": "A participant demonstrates a fire hose in the courtyard.",
+      "photo-b8e68ed69bd8": "A speaker holds a portable extinguisher while addressing the night shift."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "factory-fire-safety-drill-2023-06-30",
+    "title": "Day and Night Fire Evacuation Drill",
+    "category": "team",
+    "date": "2023-06-30",
+    "dateLabel": "June 30, 2023",
+    "summary": "Xinyinhai’s day and night shifts practiced evacuation and outdoor assembly. Employees also took part in portable extinguisher exercises.",
+    "background": "The factory record covers evacuation and fire safety practice for both shifts.",
+    "activity": "Employees exited the building and formed groups outdoors. The photographs show extinguishers in use during the day and being prepared after dark.",
+    "relevance": "The drill brought evacuation, outdoor assembly and equipment practice into one exercise.",
+    "mediaIds": [
+      "photo-83c886f47498",
+      "photo-562796e646e2",
+      "photo-54d48f9470c7",
+      "photo-798877cbb961"
+    ],
+    "coverMediaId": "photo-83c886f47498",
+    "photoDescriptions": {
+      "photo-83c886f47498": "Employees use portable extinguishers during the daytime drill.",
+      "photo-562796e646e2": "Employees come through a factory doorway during evacuation practice.",
+      "photo-54d48f9470c7": "Employees assemble in the courtyard in front of the factory building.",
+      "photo-798877cbb961": "Night-shift participants prepare portable extinguishers for practice."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "dormitory-fire-evacuation-drill-2022-12-30",
+    "title": "Dormitory Fire Evacuation Practice",
+    "category": "team",
+    "date": "2022-12-30",
+    "dateLabel": "December 30, 2022",
+    "summary": "Participants practiced leaving Xinyinhai’s employee dormitory during a nighttime fire drill and gathered outdoors.",
+    "background": "This exercise focused on evacuating the employee dormitory after dark.",
+    "activity": "Participants descended the stairs before gathering outside.",
+    "relevance": "The exercise gave participants an opportunity to rehearse leaving the dormitory in an emergency.",
+    "mediaIds": [
+      "photo-a6590973f15f"
+    ],
+    "coverMediaId": "photo-a6590973f15f",
+    "photoDescriptions": {
+      "photo-a6590973f15f": "Participants descend a stairwell during the dormitory evacuation drill."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "factory-fire-safety-drill-2021-12-31",
+    "title": "Factory Evacuation and Extinguisher Drill",
+    "category": "team",
+    "date": "2021-12-31",
+    "dateLabel": "December 31, 2021",
+    "summary": "Xinyinhai employees practiced leaving the factory and gathering in the courtyard. A group then took part in portable extinguisher practice.",
+    "background": "The factory exercise covered both evacuation and practical fire response.",
+    "activity": "The photographs show employees leaving through a factory doorway, assembling outdoors and handling portable extinguishers.",
+    "relevance": "The drill gave employees a chance to rehearse evacuation together and handle fire safety equipment.",
+    "mediaIds": [
+      "photo-8651816ca35e",
+      "photo-0673915c7744",
+      "photo-9f769bc8a0ba"
+    ],
+    "coverMediaId": "photo-8651816ca35e",
+    "photoDescriptions": {
+      "photo-8651816ca35e": "A group of employees takes part in portable extinguisher practice.",
+      "photo-0673915c7744": "Employees leave the factory building during the evacuation exercise.",
+      "photo-9f769bc8a0ba": "Employees gather in the courtyard after leaving the building."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "chemical-spill-response-drill-2021-12-29",
+    "title": "Chemical Spill Response Practice",
+    "category": "team",
+    "date": "2021-12-29",
+    "dateLabel": "December 29, 2021",
+    "summary": "Xinyinhai employees rehearsed how to respond to a simulated chemical spill. The photographs show the staged incident and participants practicing cleanup.",
+    "background": "The afternoon exercise focused on a simulated chemical spill at the factory.",
+    "activity": "The record shows the staged scene and participants working together to clean it up.",
+    "relevance": "The exercise gave staff a chance to rehearse a coordinated response to a spill.",
+    "mediaIds": [
+      "photo-dc5e53284fc7",
+      "photo-3414bb4ad43d"
+    ],
+    "coverMediaId": "photo-dc5e53284fc7",
+    "photoDescriptions": {
+      "photo-dc5e53284fc7": "Two participants work together on cleanup during the simulated spill.",
+      "photo-3414bb4ad43d": "A container and pallet truck form part of the staged spill scenario."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "factory-fire-safety-drill-2020-12-31",
+    "title": "Afternoon Factory Fire Drill",
+    "category": "team",
+    "date": "2020-12-31",
+    "dateLabel": "December 31, 2020",
+    "summary": "Xinyinhai employees practiced evacuation and gathered in the courtyard during an afternoon fire drill. The session included hands-on extinguisher practice.",
+    "background": "This factory fire drill took place in the afternoon.",
+    "activity": "The photographs show employees exiting the building, gathering in the courtyard and using portable extinguishers.",
+    "relevance": "The session combined a group evacuation with practice using fire safety equipment.",
+    "mediaIds": [
+      "photo-fa455dbcac44",
+      "photo-846c72a9ffb9",
+      "photo-ca01bbd9c4ae"
+    ],
+    "coverMediaId": "photo-fa455dbcac44",
+    "photoDescriptions": {
+      "photo-fa455dbcac44": "Employees take their positions with portable extinguishers as colleagues watch.",
+      "photo-846c72a9ffb9": "Employees leave the factory building during the afternoon drill.",
+      "photo-ca01bbd9c4ae": "A group uses extinguishers at the courtyard training area."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "chemical-spill-response-drill-2020-12-31",
+    "title": "Morning Chemical Spill Response Drill",
+    "category": "team",
+    "date": "2020-12-31",
+    "dateLabel": "December 31, 2020",
+    "summary": "Xinyinhai employees staged a chemical spill scenario in the morning and practiced cleanup at the factory.",
+    "background": "The morning exercise used a simulated spill to rehearse a factory response.",
+    "activity": "The photographs show participants gathering around the simulated incident and taking part in the cleanup exercise.",
+    "relevance": "The exercise gave staff a chance to work through a spill response together.",
+    "mediaIds": [
+      "photo-7a71fd2b77ab",
+      "photo-5701b119989d"
+    ],
+    "coverMediaId": "photo-7a71fd2b77ab",
+    "photoDescriptions": {
+      "photo-7a71fd2b77ab": "Employees gather around the staged spill during the morning exercise.",
+      "photo-5701b119989d": "A participant practices cleaning up the simulated spill."
+    },
+    "featured": false,
+    "placements": []
+  },
+  {
+    "slug": "workshop-self-inspection-2020-11-16",
+    "title": "Workshop self-inspection briefing",
+    "category": "improvement",
+    "date": "2020-11-16",
+    "dateLabel": "16 November 2020",
+    "summary": "Xinyinhai’s production team outlined what workshops should check during their own inspections, from workstation setup to checks during production.",
+    "background": "Production staff gathered to review the checks that each workshop would carry out.",
+    "activity": "The team discussed checking written instructions against actual work, organizing parts at stations and confirming checks during production.",
+    "relevance": "The dated whiteboard records the topics the team covered during the briefing.",
+    "mediaIds": [
+      "photo-0d8214a8d00b",
+      "photo-0ba2b2cc4b60",
+      "photo-e492e3748a70"
+    ],
+    "photoDescriptions": {
+      "photo-0d8214a8d00b": "Production staff gathered around a table for the workshop self-inspection briefing.",
+      "photo-0ba2b2cc4b60": "Whiteboard outlining workshop self-inspection topics and marked 16 November.",
+      "photo-e492e3748a70": "Production staff during the briefing, seated beside the whiteboard."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-0d8214a8d00b"
+  },
+  {
+    "slug": "workplace-5s-walkthrough-2020-11-12",
+    "title": "5S workplace walkthrough",
+    "category": "improvement",
+    "date": "2020-11-12",
+    "dateLabel": "12 November 2020",
+    "summary": "A Xinyinhai inspection team walked through production and support areas to review workstations and storage as part of its 5S workplace organization program.",
+    "background": "An internal report records the inspection across departments on 12 November.",
+    "activity": "The photographs show the group looking closely at a workstation and talking alongside a production line.",
+    "relevance": "The team documented observations from the walkthrough for follow-up.",
+    "mediaIds": [
+      "photo-276e53924c1d",
+      "photo-82325ee70e9e"
+    ],
+    "photoDescriptions": {
+      "photo-276e53924c1d": "The 5S inspection group gathers beside a workbench and storage racks.",
+      "photo-82325ee70e9e": "The inspection group stops along a marked aisle beside a production line."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-276e53924c1d"
+  },
+  {
+    "slug": "workshop-improvement-review-2019-09-19",
+    "title": "Workshop improvement review",
+    "category": "improvement",
+    "date": "2019-09-19",
+    "dateLabel": "19 September 2019",
+    "summary": "The team reviewed improvement work in molding and discussed production fixtures and staff training.",
+    "background": "The meeting formed part of Xinyinhai’s 2019 manufacturing improvement program.",
+    "activity": "Participants gathered around the meeting table to discuss work across the workshops.",
+    "relevance": "The meeting record connects shop-floor topics with training follow-up.",
+    "mediaIds": [
+      "photo-d8608bd57556"
+    ],
+    "photoDescriptions": {
+      "photo-d8608bd57556": "Participants gathered around a conference table for the workshop improvement review."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-d8608bd57556"
+  },
+  {
+    "slug": "factory-learning-follow-up-2019-09-05",
+    "title": "Factory learning follow-up",
+    "category": "improvement",
+    "date": "2019-09-05",
+    "dateLabel": "5 September 2019",
+    "summary": "The team discussed what it could apply from recent factory visits to its own work.",
+    "background": "The 2019 improvement log records the meeting as a follow-up to factory learning visits.",
+    "activity": "Participants shared observations from the visits during a group discussion.",
+    "relevance": "The discussion brought ideas from factory visits back to Xinyinhai’s workshops.",
+    "mediaIds": [
+      "photo-77d777c3a2ec"
+    ],
+    "photoDescriptions": {
+      "photo-77d777c3a2ec": "The group seated around a table during the factory learning follow-up."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-77d777c3a2ec"
+  },
+  {
+    "slug": "midyear-improvement-follow-up-2019-08-22",
+    "title": "Midyear improvement follow-up",
+    "category": "improvement",
+    "date": "2019-08-22",
+    "dateLabel": "22 August 2019",
+    "summary": "Engineering, quality and production discussed how to follow up on issues raised in the midyear improvement report.",
+    "background": "The team returned to topics raised at its midyear review.",
+    "activity": "The meeting covered how the three functions coordinate when production issues need attention.",
+    "relevance": "The record captures a cross-department discussion of who needs to be involved in follow-up.",
+    "mediaIds": [
+      "photo-4b948e845f44"
+    ],
+    "photoDescriptions": {
+      "photo-4b948e845f44": "Colleagues gathered for the midyear improvement follow-up."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-4b948e845f44"
+  },
+  {
+    "slug": "surface-mount-production-learning-visit-2019-08-16",
+    "title": "Surface-mount production learning visit",
+    "category": "visits",
+    "date": "2019-08-16",
+    "dateLabel": "16 August 2019",
+    "summary": "Xinyinhai’s team met with another manufacturer to learn about its surface-mount production practices.",
+    "background": "The visit was documented in the 2019 factory learning records.",
+    "activity": "The photograph shows the participants seated for a discussion at the host site.",
+    "relevance": "The visit was part of the team’s effort to learn how other factories organized their production work.",
+    "mediaIds": [
+      "photo-3f5ec634becf"
+    ],
+    "photoDescriptions": {
+      "photo-3f5ec634becf": "Participants seated for a discussion at the host facility."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-3f5ec634becf"
+  },
+  {
+    "slug": "midyear-factory-improvement-review-2019-08-15",
+    "title": "Midyear factory improvement review",
+    "category": "improvement",
+    "date": "2019-08-15",
+    "dateLabel": "15 August 2019",
+    "summary": "The team reviewed the improvement program at midyear, including engineering review and changes to incoming inspection.",
+    "background": "The meeting brought several parts of the manufacturing improvement program into one discussion.",
+    "activity": "Participants went over process changes and the work to follow up within the factory.",
+    "relevance": "The review documents the subjects the team was tracking during the program.",
+    "mediaIds": [
+      "photo-0254670e7f34"
+    ],
+    "photoDescriptions": {
+      "photo-0254670e7f34": "Participants seated together at the midyear factory improvement review."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-0254670e7f34"
+  },
+  {
+    "slug": "workshop-learning-exchange-2019-08-12",
+    "title": "Workshop learning exchange",
+    "category": "visits",
+    "date": "2019-08-12",
+    "dateLabel": "12 August 2019",
+    "summary": "Visitors met with Xinyinhai’s team and observed assembly work during a manufacturing learning exchange.",
+    "background": "The 2019 activity log links the meeting and workshop visit to the same exchange.",
+    "activity": "The group met for a discussion before viewing assembly work on the production floor.",
+    "relevance": "The visit gave participants a chance to see work at individual stations.",
+    "mediaIds": [
+      "photo-5ac8cf95a140",
+      "photo-d6d07e0ce9ff"
+    ],
+    "photoDescriptions": {
+      "photo-5ac8cf95a140": "The visiting group observes a worker at an assembly station.",
+      "photo-d6d07e0ce9ff": "Visitors and team members meet during the workshop learning exchange."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-5ac8cf95a140"
+  },
+  {
+    "slug": "factory-walkthrough-2019-08-09",
+    "title": "Factory walkthrough with manufacturing visitors",
+    "category": "visits",
+    "date": "2019-08-09",
+    "dateLabel": "9 August 2019",
+    "summary": "Visitors walked through Xinyinhai’s production areas and stopped at inspection stations to see the work in progress.",
+    "background": "The factory walkthrough is recorded in the 2019 improvement program log.",
+    "activity": "The photographs show the visitors on the production floor and beside an inspection bench.",
+    "relevance": "The visit gave participants a close look at how inspection work was arranged.",
+    "mediaIds": [
+      "photo-037fba7cf9bf",
+      "photo-ba174c3b06f0"
+    ],
+    "photoDescriptions": {
+      "photo-037fba7cf9bf": "The visiting group walks through a production area.",
+      "photo-ba174c3b06f0": "Visitors gather at an inspection station during the factory walkthrough."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-037fba7cf9bf"
+  },
+  {
+    "slug": "engineering-review-and-quality-training-2019-08-08",
+    "title": "Engineering review and quality training",
+    "category": "improvement",
+    "date": "2019-08-08",
+    "dateLabel": "8 August 2019",
+    "summary": "The team reviewed product evaluation and incoming inspection, then discussed materials for staff training.",
+    "background": "The improvement log records a working meeting on engineering and quality topics.",
+    "activity": "Participants used presentation material to discuss the subjects together.",
+    "relevance": "The session linked production and quality procedures with what staff needed to learn.",
+    "mediaIds": [
+      "photo-01ec05532620"
+    ],
+    "photoDescriptions": {
+      "photo-01ec05532620": "The team discusses engineering and quality training around the meeting table."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-01ec05532620"
+  },
+  {
+    "slug": "production-and-quality-improvement-review-2019-08-01",
+    "title": "Production and quality improvement review",
+    "category": "improvement",
+    "date": "2019-08-01",
+    "dateLabel": "1 August 2019",
+    "summary": "The team discussed engineering proposals, inspection work and possible uses of automation in production.",
+    "background": "The meeting was part of the recurring factory improvement program.",
+    "activity": "Participants reviewed several workstreams together and identified items for follow-up.",
+    "relevance": "The record shows which production and quality topics the program was considering.",
+    "mediaIds": [
+      "photo-d8522635e480"
+    ],
+    "photoDescriptions": {
+      "photo-d8522635e480": "Participants discuss production and quality work during the improvement review."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-d8522635e480"
+  },
+  {
+    "slug": "injection-molding-improvement-review-2019-07-26",
+    "title": "Injection molding improvement review",
+    "category": "improvement",
+    "date": "2019-07-26",
+    "dateLabel": "26 July 2019",
+    "summary": "The team met to discuss changes in injection molding and plans for production automation.",
+    "background": "Injection molding was one of the areas tracked in the 2019 improvement program.",
+    "activity": "The group reviewed the proposed changes in a working meeting.",
+    "relevance": "The notes document the molding and automation topics that were being considered.",
+    "mediaIds": [
+      "photo-5d4085298c79"
+    ],
+    "photoDescriptions": {
+      "photo-5d4085298c79": "The team meets to discuss injection molding and automation plans."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-5d4085298c79"
+  },
+  {
+    "slug": "circuit-board-manufacturing-learning-visit-2019-07-18",
+    "title": "Circuit board manufacturing learning visit",
+    "category": "visits",
+    "date": "2019-07-18",
+    "dateLabel": "18 July 2019",
+    "summary": "The team visited a supplier to learn about materials and production steps used in circuit board manufacturing.",
+    "background": "The 2019 improvement log records a supplier visit on 18 July.",
+    "activity": "The group met with the host team to discuss production before observing work at the facility.",
+    "relevance": "The visit gave the team context for the materials used in circuit boards.",
+    "mediaIds": [
+      "photo-f2e44db48933"
+    ],
+    "photoDescriptions": {
+      "photo-f2e44db48933": "Visitors and the host team meet at the supplier’s facility."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-f2e44db48933"
+  },
+  {
+    "slug": "manufacturing-learning-exchange-2019-07-12",
+    "title": "Manufacturing learning exchange",
+    "category": "visits",
+    "date": "2019-07-12",
+    "dateLabel": "12 July 2019",
+    "summary": "Manufacturing peers met with Xinyinhai’s team and toured the injection molding workshop.",
+    "background": "The exchange included both a meeting and a look at the production area.",
+    "activity": "The photographs document the group discussion and the workshop visit.",
+    "relevance": "Participants could discuss manufacturing practices and see the setting where molding work took place.",
+    "mediaIds": [
+      "photo-6c0222dbca92",
+      "photo-730594ddda50"
+    ],
+    "photoDescriptions": {
+      "photo-6c0222dbca92": "Factory team members and visitors talk beside injection molding machines.",
+      "photo-730594ddda50": "The visiting group looks around the injection molding workshop."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-6c0222dbca92"
+  },
+  {
+    "slug": "production-improvement-and-training-planning-2019-07-11",
+    "title": "Production improvement and training planning",
+    "category": "improvement",
+    "date": "2019-07-11",
+    "dateLabel": "11 July 2019",
+    "summary": "The team discussed staff training and follow-up on production process changes.",
+    "background": "The July meeting was part of the 2019 improvement program.",
+    "activity": "Participants reviewed training needs alongside open questions about production processes.",
+    "relevance": "The meeting shows how the team planned training as part of shop-floor follow-up.",
+    "mediaIds": [
+      "photo-7c7555416561"
+    ],
+    "photoDescriptions": {
+      "photo-7c7555416561": "The factory team meets to plan training and production follow-up."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-7c7555416561"
+  },
+  {
+    "slug": "supplier-workshop-5s-exchange-2019-07-05",
+    "title": "Supplier workshop 5S exchange",
+    "category": "visits",
+    "date": "2019-07-05",
+    "dateLabel": "5 July 2019",
+    "summary": "Xinyinhai’s team visited a supplier and discussed how materials were arranged and stored in the workshop.",
+    "background": "The 2019 improvement log records the supplier visit and the 5S discussion.",
+    "activity": "The photograph shows participants talking beside stored materials on the workshop floor.",
+    "relevance": "The exchange focused on how workplace organization applies in a supplier’s facility.",
+    "mediaIds": [
+      "photo-4274ece6d941"
+    ],
+    "photoDescriptions": {
+      "photo-4274ece6d941": "Participants discuss material storage beside stacked stock at the supplier’s workshop."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-4274ece6d941"
+  },
+  {
+    "slug": "engineering-and-training-review-2019-06-27",
+    "title": "Engineering and training review",
+    "category": "improvement",
+    "date": "2019-06-27",
+    "dateLabel": "27 June 2019",
+    "summary": "The team reviewed engineering evaluation, training plans and questions raised about production processes.",
+    "background": "The meeting was part of the factory’s recurring improvement reviews.",
+    "activity": "Participants discussed process questions and the training work associated with them.",
+    "relevance": "The archive records engineering and training as connected parts of the program.",
+    "mediaIds": [
+      "photo-d51ddcd50bab"
+    ],
+    "photoDescriptions": {
+      "photo-d51ddcd50bab": "Participants seated together during the engineering and training review."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-d51ddcd50bab"
+  },
+  {
+    "slug": "manufacturing-practices-exchange-2019-06-14",
+    "title": "Manufacturing practices exchange",
+    "category": "visits",
+    "date": "2019-06-14",
+    "dateLabel": "14 June 2019",
+    "summary": "Visitors and Xinyinhai’s team discussed molding, equipment and day-to-day operating practices.",
+    "background": "The visit was recorded in the 2019 improvement program log.",
+    "activity": "The photograph shows visitors and team members seated together during the discussion.",
+    "relevance": "The exchange gave participants a setting to compare manufacturing practices.",
+    "mediaIds": [
+      "photo-7a34ed07121c"
+    ],
+    "photoDescriptions": {
+      "photo-7a34ed07121c": "Visitors and factory team members talk around a meeting table."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-7a34ed07121c"
+  },
+  {
+    "slug": "engineering-evaluation-and-training-review-2019-06-11",
+    "title": "Engineering evaluation and training review",
+    "category": "improvement",
+    "date": "2019-06-11",
+    "dateLabel": "11 June 2019",
+    "summary": "The team discussed engineering reviews, materials and staff training in a manufacturing improvement meeting.",
+    "background": "The meeting took place early in the 2019 improvement program.",
+    "activity": "The record lists materials and training alongside engineering review as discussion topics.",
+    "relevance": "The meeting shows the range of work the team reviewed together during the program.",
+    "mediaIds": [
+      "photo-c5372a1d0ea1"
+    ],
+    "photoDescriptions": {
+      "photo-c5372a1d0ea1": "Team members seated around a table for the engineering evaluation and training review."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-c5372a1d0ea1"
+  },
+  {
+    "slug": "product-evaluation-working-session-2019-06-06",
+    "title": "Product evaluation working session",
+    "category": "improvement",
+    "date": "2019-06-06",
+    "dateLabel": "6 June 2019",
+    "summary": "The team gathered around samples to discuss how to document product evaluations.",
+    "background": "The discussion was recorded as an early working session in the 2019 improvement program.",
+    "activity": "Participants used samples to support a discussion about evaluation records.",
+    "relevance": "The session focused on how the team documented an evaluation during development.",
+    "mediaIds": [
+      "photo-eb6ff1daaf84"
+    ],
+    "photoDescriptions": {
+      "photo-eb6ff1daaf84": "Team members gather around a meeting table during the evaluation discussion."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-eb6ff1daaf84"
+  },
+  {
+    "slug": "manufacturing-improvement-program-kickoff-2019-05-30",
+    "title": "Manufacturing improvement program kickoff",
+    "category": "improvement",
+    "date": "2019-05-30",
+    "dateLabel": "30 May 2019",
+    "summary": "Xinyinhai opened its 2019 manufacturing improvement program and discussed how to review progress regularly.",
+    "background": "The program log records this meeting as the kickoff.",
+    "activity": "Participants met to discuss the program and arrangements for regular follow-up.",
+    "relevance": "The kickoff set the meeting rhythm for the reviews documented later in the log.",
+    "mediaIds": [
+      "photo-08798d492510"
+    ],
+    "photoDescriptions": {
+      "photo-08798d492510": "Participants gather for the manufacturing improvement program kickoff."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-08798d492510"
+  },
+  {
+    "slug": "lean-workshop-on-waste-and-low-cost-automation",
+    "title": "Lean workshop on waste and low-cost automation",
+    "category": "improvement",
+    "date": "2022-07-22",
+    "dateLabel": "22 July 2022",
+    "summary": "Xinyinhai’s team reviewed common types of production waste and discussed how simple automation could reduce unnecessary handling and repetitive work.",
+    "background": "The group met in a Xinyinhai meeting room to study lean production methods.",
+    "activity": "The presentation included examples of workstation movement, part presentation and low-cost automation. A short film shows the presenter addressing the group.",
+    "relevance": "The session used shop-floor examples to illustrate how to spot and simplify steps in a production task.",
+    "mediaIds": [
+      "photo-cd935ec1894f",
+      "photo-0e2f4875e23a",
+      "video-f0820bd4e7c2"
+    ],
+    "photoDescriptions": {
+      "photo-cd935ec1894f": "A presenter addresses the lean workshop beside a display and whiteboard.",
+      "photo-0e2f4875e23a": "Workshop participants seated around the meeting table during the discussion."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-cd935ec1894f"
+  },
+  {
+    "slug": "packaging-material-storage-proposal-2022-06",
+    "title": "Packaging material storage proposal",
+    "category": "improvement",
+    "date": "2022-06",
+    "dateLabel": "June 2022",
+    "summary": "Xinyinhai’s June 2022 proposal documented a designated storage area for color-coded packaging material bins.",
+    "background": "The packaging team recorded the proposal as part of a workshop improvement review.",
+    "activity": "The photograph shows wheeled racks holding green and yellow bins beside a marked floor boundary.",
+    "relevance": "A designated location makes it clear where the bins belong when they return from the line.",
+    "mediaIds": [
+      "photo-663fd7929121"
+    ],
+    "photoDescriptions": {
+      "photo-663fd7929121": "Color-coded bins on wheeled racks in a designated storage area."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-663fd7929121"
+  },
+  {
+    "slug": "soldering-materials-rolling-rack-proposal-2022-05",
+    "title": "Rolling rack proposal for soldering materials",
+    "category": "improvement",
+    "date": "2022-05",
+    "dateLabel": "May 2022",
+    "summary": "The soldering team’s May 2022 proposal shows how it moved material bins from fixed shelving to a rolling rack near the work area.",
+    "background": "The proposal compared two ways of storing materials used in soldering.",
+    "activity": "The photograph shows blue bins on a wheeled rack beside the production area.",
+    "relevance": "The rack lets the team move a set of bins as a unit when work changes location.",
+    "mediaIds": [
+      "photo-588ca6c8be19"
+    ],
+    "photoDescriptions": {
+      "photo-588ca6c8be19": "Blue material bins on a wheeled rack beside the soldering work area."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-588ca6c8be19"
+  },
+  {
+    "slug": "assembly-workstation-reorganization-proposal-2021-05",
+    "title": "Small-group assembly workstation proposal",
+    "category": "improvement",
+    "date": "2021-05",
+    "dateLabel": "May 2021",
+    "summary": "An assembly proposal from May 2021 documented a move from a long conveyor line to smaller work groups with their own workstations.",
+    "background": "The assembly team recorded the change in a workshop improvement review.",
+    "activity": "The photograph shows work areas and material bins arranged in groups across the assembly floor.",
+    "relevance": "The record documents how the team divided a long line into smaller work areas.",
+    "mediaIds": [
+      "photo-a1ce81eddce0"
+    ],
+    "photoDescriptions": {
+      "photo-a1ce81eddce0": "Small-group assembly work areas with materials staged beside the stations."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-a1ce81eddce0"
+  },
+  {
+    "slug": "soldering-workstation-reorganization-proposal-2021-05",
+    "title": "Small-group soldering workstation proposal",
+    "category": "improvement",
+    "date": "2021-05",
+    "dateLabel": "May 2021",
+    "summary": "The soldering team recorded a May 2021 proposal to organize a long line into smaller groups of workstations.",
+    "background": "The proposal covers the soldering workshop’s layout.",
+    "activity": "The photograph shows operators seated at workstations beneath overhead extraction hoses.",
+    "relevance": "It shows how the workshop organized soldering stations into smaller work areas.",
+    "mediaIds": [
+      "photo-6663069452cd"
+    ],
+    "photoDescriptions": {
+      "photo-6663069452cd": "Operators at soldering stations with overhead extraction hoses."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-6663069452cd"
+  },
+  {
+    "slug": "mobile-electronics-workstation-racks-proposal-2021-03",
+    "title": "Mobile rack proposal for electronics workstations",
+    "category": "improvement",
+    "date": "2021-03",
+    "dateLabel": "March 2021",
+    "summary": "An electronics workshop proposal from March 2021 documented replacing fixed shelves with mobile racks for work-in-process boards.",
+    "background": "The proposal reviewed storage for boards awaiting their next operation.",
+    "activity": "The photograph shows wheeled racks with separate levels for boards and trays.",
+    "relevance": "The arrangement gives the team a way to move work between areas while keeping boards and trays organized.",
+    "mediaIds": [
+      "photo-aaab2a37745b"
+    ],
+    "photoDescriptions": {
+      "photo-aaab2a37745b": "Wheeled racks with separate levels for boards and trays."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-aaab2a37745b"
+  },
+  {
+    "slug": "smt-stencil-storage-proposal-2021-01",
+    "title": "Dedicated storage proposal for SMT stencils",
+    "category": "improvement",
+    "date": "2021-01",
+    "dateLabel": "January 2021",
+    "summary": "A January 2021 proposal documented organizing surface-mount stencils vertically in a dedicated storage rack.",
+    "background": "The workshop reviewed how stencils were stored between runs.",
+    "activity": "The photograph shows stencils standing upright in separate sections of the rack.",
+    "relevance": "The dedicated rack gives each stencil a defined place between uses.",
+    "mediaIds": [
+      "photo-1774cceb83e4"
+    ],
+    "photoDescriptions": {
+      "photo-1774cceb83e4": "Surface-mount stencils stored upright in a dedicated rack."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-1774cceb83e4"
+  },
+  {
+    "slug": "workshop-tool-storage-reorganization-2020-11",
+    "title": "Workshop tool storage reorganization",
+    "category": "improvement",
+    "date": "2020-11-16",
+    "dateLabel": "16–18 November 2020",
+    "summary": "Before-and-after photographs show how a Xinyinhai workshop moved loose tools and supplies into separate bins on a dedicated rack.",
+    "background": "The workshop improvement record pairs two photographs taken on 16 and 18 November.",
+    "activity": "The earlier photograph shows tools and supplies gathered beside a machine. The later photograph shows them grouped in bins and trays on a three-level rack.",
+    "relevance": "The new layout gives the workshop designated places to store items between uses.",
+    "mediaIds": [
+      "photo-280421d994c3",
+      "photo-9e4ddd9abc55"
+    ],
+    "photoDescriptions": {
+      "photo-280421d994c3": "Tools and supplies organized in blue bins and trays on a dedicated rack on 18 November.",
+      "photo-9e4ddd9abc55": "Tools and supplies stored together beside a machine before the rack was installed."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-280421d994c3"
+  },
+  {
+    "slug": "spring-supported-screen-printing-frame-proposal-2021-05",
+    "title": "Spring-supported screen printing frame proposal",
+    "category": "improvement",
+    "date": "2021-05",
+    "dateLabel": "May 2021",
+    "summary": "A May 2021 screen printing proposal documented adding a spring to hold the printing frame open while an operator reached for material.",
+    "background": "The workshop reviewed how operators handled the frame between printing steps.",
+    "activity": "The photograph shows the frame held open above the work surface.",
+    "relevance": "The spring support frees both hands for handling materials while the frame is raised.",
+    "mediaIds": [
+      "photo-c554e0e09e9a"
+    ],
+    "photoDescriptions": {
+      "photo-c554e0e09e9a": "A screen printing frame held open over the workstation."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-c554e0e09e9a"
+  },
+  {
+    "slug": "screen-printing-drying-layout-proposal-2021-03",
+    "title": "Screen printing drying layout proposal",
+    "category": "improvement",
+    "date": "2021-03",
+    "dateLabel": "March 2021",
+    "summary": "A March 2021 proposal documented removing two drying lines after switching to fast-drying ink, opening space around the screen printing stations.",
+    "background": "The screen printing workshop reviewed how drying equipment occupied floor space.",
+    "activity": "The photograph shows the aisle after the drying lines were removed.",
+    "relevance": "The layout provided more space for moving materials within the workshop.",
+    "mediaIds": [
+      "photo-4ad5bba63925"
+    ],
+    "photoDescriptions": {
+      "photo-4ad5bba63925": "The screen printing aisle after the drying lines were removed."
+    },
+    "featured": false,
+    "placements": [],
+    "coverMediaId": "photo-4ad5bba63925"
   }
 ]

@@ -9,6 +9,7 @@ import HomeWorkflowIllustration from './HomeWorkflowIllustration.astro';
 import HomeIpProductScene from './HomeIpProductScene.astro';
 import HomeCapabilityIcon from './HomeCapabilityIcon.astro';
 import { SITE } from '../config/site';
+import { leanInquiryNavigation } from './leanNavigation';
 import { homeCopy, certificationItems, productScope, customerTypes, workflowSteps, testimonials, homeFaqs } from '../data/home';
 import benesse from '../assets/home/partners/benesse.png';
 import bandai from '../assets/home/partners/bandai.png';
@@ -90,7 +91,7 @@ const schema = {
           <p class="xyh-welcome" lang="en"><span aria-hidden="true"></span>{homeCopy.welcome}</p>
           <h1 id="home-title">{homeCopy.title}</h1>
           <p class="xyh-hero-intro">{homeCopy.intro}</p>
-          <div class="xyh-actions" lang="en"><a class="xyh-button" href="/rfq/">Start your inquiry <Icon name="arrow-up-right" /></a><a class="xyh-secondary-link" href="#how-we-work">See how it works <Icon name="arrow-down" /></a></div>
+          <div class="xyh-actions" lang="en"><a class="xyh-button" href={leanInquiryNavigation.href}>{leanInquiryNavigation.label} <Icon name="arrow-up-right" /></a><a class="xyh-secondary-link" href="#how-we-work">See how it works <Icon name="arrow-down" /></a></div>
         </div>
         <div class="xyh-factory-toolbar" lang="en"><a class="xyh-factory-watch" href="/media/home-factory/factory-tour-soft-1080p.mp4" data-factory-watch aria-haspopup="dialog" aria-controls="factory-film"><span class="xyh-factory-play"><Icon name="play" /></span><span>Watch factory film<small>1 min 41 sec</small></span></a></div>
         <div class="xyh-hero-stats">
@@ -115,7 +116,7 @@ const schema = {
 
     <section class="xyh-section xyh-scope" aria-labelledby="scope-title"><div class="xyh-wrap">
       <div class="xyh-section-heading"><h2 id="scope-title">Product Capabilities</h2><span class="xyh-section-rule" aria-hidden="true"></span></div>
-      <ul class="xyh-scope-grid">{productScope.map(item => <li><a class="xyh-scope-link" href={item.href}><div class="xyh-scope-art" aria-hidden="true"><HomeCapabilityIcon name={item.icon} /></div><h3>{item.name}</h3></a></li>)}</ul>
+      <ul class="xyh-scope-grid">{productScope.map(item => <li><div class="xyh-scope-art" aria-hidden="true"><HomeCapabilityIcon name={item.icon} /></div><h3>{item.name}</h3></li>)}</ul>
     </div></section>
 
     <section class="xyh-section xyh-customers" aria-labelledby="customers-title"><div class="xyh-wrap">
@@ -133,7 +134,9 @@ const schema = {
             <div class="xyh-audience-copy">
               <p>{item.text}</p>
               {'audiences' in item && item.audiences && <ul class="xyh-audience-list">{item.audiences.map(audience => <li>{audience}</li>)}</ul>}
+              {'businessModels' in item && item.businessModels && <ul class="xyh-audience-list xyh-business-model-list" aria-label="Core business models">{item.businessModels.map(model => <li><a href={model.href}>{model.label}<span aria-hidden="true">→</span></a></li>)}</ul>}
               {item.details && <p class="xyh-audience-details">{item.details}</p>}
+              {item.href && <a class="xyh-audience-link" href={item.href}>Explore New Product Development <span aria-hidden="true">→</span></a>}
             </div>
             <div class:list={['xyh-audience-art', { 'xyh-audience-art-white': customerScenes[index].whiteBackground }]}>{customerScenes[index].characterScene ? <HomeIpProductScene /> : <Image src={customerScenes[index].image} alt={customerScenes[index].alt} widths={[360, 540, 810, 1080]} sizes="(max-width: 760px) calc(100vw - 88px), (max-width: 1100px) 42vw, (min-width: 1376px) 440px, 32vw" loading="lazy" format="webp" quality={85} />}</div>
           </div>
@@ -201,7 +204,7 @@ const schema = {
 
     <section class="xyh-section xyh-faq" id="faq" aria-labelledby="faq-title"><div class="xyh-wrap xyh-faq-layout"><div><h2 id="faq-title">Frequently Asked Questions</h2><div class="xyh-faq-art" aria-hidden="true"><Icon name="messages-square" /></div></div><div class="xyh-faq-list">{homeFaqs.map(faq => <details><summary><h3>{faq.question}</h3><Icon name="plus" /></summary><div class="xyh-faq-answer"><p>{faq.answer}</p></div></details>)}</div></div></section>
 
-    <section class="xyh-final" aria-labelledby="final-title"><div class="xyh-wrap"><span class="xyh-final-decoration" aria-hidden="true"></span><h2 id="final-title">Build Better Products. Create Lasting Value.</h2><p>Let us help you bring greater certainty to your products and projects.</p><a href="/rfq/">Start your inquiry<Icon name="arrow-up-right" /></a></div></section>
+    <section class="xyh-final" aria-labelledby="final-title"><div class="xyh-wrap"><span class="xyh-final-decoration" aria-hidden="true"></span><h2 id="final-title">Build Better Products. Create Lasting Value.</h2><p>Let us help you bring greater certainty to your products and projects.</p><a href={leanInquiryNavigation.href}>{leanInquiryNavigation.label}<Icon name="arrow-up-right" /></a></div></section>
   </div>
   <HomeFooter slot="footer" />
   <noscript><style>.xyh-ticker-window{overflow:visible;mask-image:none}.xyh-ticker-track{width:100%;display:block}.xyh-ticker-track>ul{width:100%;min-width:0;flex-wrap:wrap;justify-content:center;gap:20px!important}</style></noscript>
@@ -209,9 +212,6 @@ const schema = {
 
 <style>
   .xyh-scope-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .xyh-scope-link { display: block; color: inherit; text-decoration: none; }
-  .xyh-scope-link:is(:hover, :focus-visible) .xyh-scope-art { border-bottom-color: var(--blue); }
-  .xyh-scope-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 7px; }
   @media (max-width: 540px) {
     .xyh-scope-grid { grid-template-columns: 1fr; }
     .xyh-scope-art { height: 190px; }

@@ -1,0 +1,31 @@
+---
+interface ReviewLink { label: string; href: string; }
+interface Props {
+  question: string;
+  links: ReviewLink[];
+  inquiryHref: string;
+  inquiryLabel?: string;
+}
+const { question, links, inquiryHref, inquiryLabel = 'Start a project inquiry' } = Astro.props;
+---
+<aside class="nh-review" data-nonhome-review aria-label="Review guide">
+  <p class="nh-review-question">{question}</p>
+  <nav class="nh-review-links" aria-label="Evidence and next step">
+    {links.map(link => <a href={link.href}>{link.label}</a>)}
+    <a class="nh-review-next" href={inquiryHref}>{inquiryLabel}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+  </nav>
+</aside>
+
+<style>
+  .nh-review { --review-blue: #183ba3; --review-ink: #172335; --review-rule: #dce3ec; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.45fr); align-items: center; gap: 12px 32px; padding-block: 20px; border-bottom: 1px solid var(--review-rule); color: var(--review-ink); }
+  .nh-review .nh-review-question { max-width: 42ch; margin: 0; font-size: 1rem; line-height: 1.55; font-weight: 700; letter-spacing: 0; }
+  .nh-review-links { display: flex; flex-wrap: wrap; align-items: center; gap: 0 24px; min-width: 0; }
+  .nh-review-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; max-width: 100%; color: var(--review-blue); font-size: .875rem; line-height: 1.5; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; overflow-wrap: anywhere; }
+  .nh-review-links a:hover { color: #b91820; }
+  .nh-review-links a:focus-visible { outline: 3px solid var(--review-blue); outline-offset: 4px; border-radius: 2px; }
+  .nh-review-links .nh-review-next { font-weight: 750; }
+  .nh-review-next svg { flex: none; }
+  .nh-review ::selection { background: #dfe7ff; color: var(--review-ink); }
+  @media (max-width: 767px) { .nh-review { grid-template-columns: minmax(0, 1fr); gap: 8px; padding-block: 18px; } .nh-review-links { gap: 0 20px; } }
+  @media print { .nh-review { display: none; } }
+</style>

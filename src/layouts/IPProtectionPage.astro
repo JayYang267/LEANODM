@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import ReviewGuide from '../components/nonhome/ReviewGuide.astro';
 import TechnicalPageFooter from '../components/TechnicalPageFooter.astro';
 import Diagram from '../components/ip/ProtectionDiagram.astro';
 import Icon from '../components/CustomizationIcon.astro';
@@ -9,6 +10,15 @@ import '../styles/ip-protection.css';
 interface Props { pageKey: IPPageKey; }
 const { pageKey } = Astro.props;
 const page = ipPages[pageKey];
+const projectInquiryHref = confidentialInquiryHref.replace(/#.*$/, '#project-inquiry');
+const reviewQuestions: Record<IPPageKey, string> = {
+  overview: 'Which information, rights and physical assets need protection in your project?',
+  confidentiality: 'Who needs access, and how should project information be handled?',
+  ownership: 'What will you own, receive and authorize in writing?',
+  samples: 'Who holds each sample or tool, and how is its movement recorded?',
+  programming: 'Which firmware, key, chip and quantity controls fit your product architecture?',
+  start: 'What can you share now, and what needs an agreed confidentiality process?',
+};
 const canonical = new URL(page.path, SITE.url).href;
 const breadcrumbs = [
   { name: 'Home', path: '/' },
@@ -46,17 +56,17 @@ const schema = { '@context': 'https://schema.org', '@graph': [
       <div class="ip-container">
         <nav class="ip-breadcrumb" aria-label="Breadcrumb"><ol>{breadcrumbs.map((item, index) => <li>{index < breadcrumbs.length - 1 ? <a href={item.path}>{item.name}</a> : <span aria-current="page">{item.name}</span>}</li>)}</ol></nav>
         <div class="ip-hero-grid">
-          <div><h1>{page.title}</h1><p class="ip-lead">{page.lead}</p><p>{page.intro}</p><div class="ip-actions"><a class="ip-button" href={confidentialInquiryHref}>Discuss a confidential project <Icon name="arrow-up-right" /></a><a class="ip-text-link" href={page.sections[0].href}>Explore this topic <Icon name="arrow-down" /></a></div></div>
+          <div><h1>{page.title}</h1><p class="ip-lead">{page.lead}</p><p>{page.intro}</p><div class="ip-actions"><a class="ip-button" href={projectInquiryHref}>Discuss a confidential project <Icon name="arrow-up-right" /></a><a class="ip-text-link" href={page.sections[0].href}>Explore this topic <Icon name="arrow-down" /></a></div></div>
           <Diagram labels={page.diagram} note={page.diagramNote} />
         </div>
-        <nav class="ip-on-page" aria-label="On this page">{page.sections.map(item => <a href={item.href}>{item.label}<Icon name="arrow-down" /></a>)}<a href="#project-faq">Project FAQ<Icon name="arrow-down" /></a></nav>
+        <ReviewGuide question={reviewQuestions[pageKey]} links={[...page.sections, { label: 'Project FAQ', href: '#project-faq' }]} inquiryHref={projectInquiryHref} inquiryLabel="Discuss an NDA" />
       </div>
     </header>
     <div class="ip-container ip-content"><slot /></div>
     {pageKey !== 'ownership' && <aside class="ip-commitment"><div class="ip-container"><Icon name="file-check-2" /><div><h2>Customer-directed ownership. Authorized use only.</h2><p>{ownershipPrinciple}</p><p>{permittedUsePrinciple} <a href={ipPages.ownership.path}>Review ownership and handover</a>.</p></div></div></aside>}
     <section id="project-faq" class="ip-faq-section"><div class="ip-container"><div class="ip-section-heading"><h2>Questions before you share the details</h2><p>Clarify the protection, responsibilities and next step for your project.</p></div><div class="ip-faq">{page.faqs.map(faq => <details><summary>{faq.question}<Icon name="plus" /></summary><p>{faq.answer}</p></details>)}</div></div></section>
     <section class="ip-related"><div class="ip-container"><h2>Continue your project review</h2><div class="ip-related-grid">{page.related.map(key => <a href={ipPages[key].path}><strong>{ipPages[key].title}</strong><span>{ipPages[key].lead}</span><Icon name="arrow-up-right" /></a>)}</div></div></section>
-    <section id="project-inquiry" class="ip-inquiry"><div class="ip-container ip-split"><div><h2>Begin with a non-sensitive overview.</h2><p>Describe the product, your starting point and the support you need. Request an NDA discussion before sharing detailed drawings, programs, keys or restricted commercial information.</p></div><div><a class="ip-button" href={confidentialInquiryHref}>Start an NDA discussion in the RFQ <Icon name="arrow-up-right" /></a><p class="ip-small">This link preselects the NDA discussion request in the existing RFQ. It does not sign an NDA or send an inquiry.</p></div></div></section>
+    <section id="project-inquiry" class="ip-inquiry"><div class="ip-container ip-split"><div><h2>Begin with a non-sensitive overview.</h2><p>Describe the product, your starting point and the support you need. Request an NDA discussion before sharing detailed drawings, programs, keys or restricted commercial information.</p></div><div><a class="ip-button" href={projectInquiryHref}>Start an NDA discussion in the RFQ <Icon name="arrow-up-right" /></a><p class="ip-small">This link preselects the NDA discussion request in the existing RFQ. It does not sign an NDA or send an inquiry.</p></div></div></section>
   </div>
-  <TechnicalPageFooter slot="footer" navigation={ipPageOrder.map(key => ({ label: ipPages[key].label, href: ipPages[key].path }))} pageTitle="IP & Confidentiality" contactHref={confidentialInquiryHref} contactLabel="Discuss a Confidential Project" projectDescription="Start with a non-sensitive product overview and agree confidentiality, information exchange and project terms." />
+  <TechnicalPageFooter slot="footer" navigation={ipPageOrder.map(key => ({ label: ipPages[key].label, href: ipPages[key].path }))} pageTitle="IP & Confidentiality" contactHref={projectInquiryHref} contactLabel="Discuss a Confidential Project" projectDescription="Start with a non-sensitive product overview and agree confidentiality, information exchange and project terms." />
 </BaseLayout>

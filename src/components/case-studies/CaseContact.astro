@@ -1,0 +1,31 @@
+---
+import Button from '../ui/Button.astro';
+import { leanInquiryNavigation } from '../leanNavigation';
+
+interface Props { title?: string }
+const { title = 'Planning a similar project?' } = Astro.props;
+---
+
+<div class="case-contact">
+  <div>
+    <h2>{title}</h2>
+    <p>Share your requirements or arrange a factory visit to discuss your product with our team.</p>
+  </div>
+  <Button href={leanInquiryNavigation.href}>{leanInquiryNavigation.label}</Button>
+</div>
+
+<style>
+  .case-contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.25rem 2rem;
+    border: 1px solid #e0e7ef;
+    border-radius: 6px;
+    background: #f5f8fc;
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  .case-contact h2 { margin: 0; color: #15253b; font-size: clamp(1.35rem, 2.4vw, 1.875rem); font-weight: 700; line-height: 1.2; }
+  .case-contact p { color: #45576b; margin: .5rem 0 0; }
+</style>

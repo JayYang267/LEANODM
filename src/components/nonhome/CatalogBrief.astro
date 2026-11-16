@@ -1,0 +1,17 @@
+---
+interface Props { source: string; }
+const { source } = Astro.props;
+---
+<div class="nh-catalog-brief" data-nonhome-catalog-intro>
+  <span>Explore products and digital concepts. Check each detail page for its development status and project scope.</span>
+  <a href={`/rfq/?source=${encodeURIComponent(source)}#project-inquiry`}>Discuss customization<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></a>
+</div>
+
+<style>
+  .nh-catalog-brief { max-width: 68ch; margin: 12px auto 0; color: #53627a; font-size: .9375rem; line-height: 1.6; text-wrap: pretty; }
+  .nh-catalog-brief a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-left: .5em; color: #183ba3; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+  .nh-catalog-brief a:hover { color: #b91820; }
+  .nh-catalog-brief a:focus-visible { outline: 3px solid #183ba3; outline-offset: 4px; }
+  .nh-catalog-brief svg { flex: none; }
+  @media (max-width: 700px) { .nh-catalog-brief { font-size: .875rem; } }
+</style>

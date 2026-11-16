@@ -1,11 +1,12 @@
 ---
 import BrandWordmark from '../BrandWordmark.astro';
+import { leanInquiryNavigation } from '../leanNavigation';
 const groups = [
   { title: 'Manufacturing & quality', links: [
     ['Capabilities', '/manufacturing/'], ['Quality controls', '/quality/'], ['Lean practice', '/about/activities/?category=improvement#archive'], ['About Us', '/about/'],
   ] },
   { title: 'Your project', links: [
-    ['How we work', '/customization/how-we-work/'], ['Project fit', '/customization/project-fit/'], ['Ethical manufacturing', '/about/ethical-manufacturing/'], ['Start your inquiry', '/rfq/?source=home-footer#rfq-form'],
+    ['How we work', '/customization/how-we-work/'], ['Project fit', '/customization/project-fit/'], ['Ethical manufacturing', '/about/ethical-manufacturing/'], [leanInquiryNavigation.label, `${leanInquiryNavigation.href}?source=home-footer`],
   ] },
 ];
 ---

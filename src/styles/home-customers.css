@@ -33,14 +33,14 @@
 .xyh-audience-indicator::after{transform:rotate(90deg)}
 .is-active .xyh-audience-indicator{color:#ff9ba2}
 .is-active .xyh-audience-indicator::after{transform:rotate(0)}
-.xyh-audience-layout.is-ready .xyh-audience-panel{grid-column:2;grid-row:1 / span 6;min-height:600px;animation:xyh-audience-reveal .28s cubic-bezier(.16,1,.3,1) both}
+.xyh-audience-layout.is-ready .xyh-audience-panel{grid-column:2;grid-row:1 / span 6;min-height:0;height:100%;align-self:stretch;animation:xyh-audience-reveal .28s cubic-bezier(.16,1,.3,1) both}
 @keyframes xyh-audience-reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:1101px) and (max-width:1240px){
   .xyh-audience-layout.is-ready{grid-template-columns:240px minmax(0,1fr);column-gap:28px}
   .xyh-audience-panel{padding:28px}
   .xyh-audience-body{grid-template-columns:1fr;gap:24px}
   .xyh-audience-art{width:min(100%,440px);justify-self:center}
-  .xyh-audience-layout.is-ready .xyh-audience-panel{min-height:600px}
+  .xyh-audience-layout.is-ready .xyh-audience-panel{min-height:0}
 }
 @media(max-width:1100px){
   .xyh-audience-layout.is-ready{display:block}
@@ -61,3 +61,8 @@
   .xyh-audience-layout.is-ready .xyh-audience-panel{animation:none}
   .xyh-audience-trigger,.xyh-audience-indicator::before,.xyh-audience-indicator::after{transition:none}
 }
+.xyh-audience-link{display:inline-flex;align-items:center;gap:8px;margin-top:18px;color:var(--lean-blue,#1246ad);font-size:15px;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px;transition:color .2s ease,gap .2s ease}
+.xyh-audience-link:hover,.xyh-audience-link:focus-visible{color:var(--lean-red,#ed1c24);gap:12px}
+.xyh-business-model-list li a{display:flex;align-items:center;justify-content:space-between;gap:12px;color:inherit;text-decoration:none}
+.xyh-business-model-list li a span{color:var(--lean-red,#ed1c24);font-weight:700;transition:transform .2s ease}
+.xyh-business-model-list li a:hover span,.xyh-business-model-list li a:focus-visible span{transform:translateX(4px)}

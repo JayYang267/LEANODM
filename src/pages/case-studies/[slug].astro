@@ -1,0 +1,25 @@
+---
+import type { GetStaticPaths } from 'astro';
+import CaseStudyLayout from '@layouts/CaseStudyLayout.astro';
+import { getCaseStudies, type CaseStudy } from '../../data/case-studies';
+
+export const getStaticPaths = (async () => {
+  const localPreview = import.meta.env.DEV && import.meta.env.LEANODM_LOCAL_CASE_PREVIEW === true;
+  const studies = await getCaseStudies({ includeLocal: localPreview });
+  return studies.map(study => ({
+    params: { slug: study.data.slug },
+    props: {
+      study,
+      localPreview,
+      related: studies.filter(item => item.id !== study.id).sort((a, b) =>
+        Number(b.data.category === study.data.category) - Number(a.data.category === study.data.category),
+      ).slice(0, 3),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props { study: CaseStudy; related: CaseStudy[]; localPreview: boolean }
+const { study, related, localPreview } = Astro.props;
+---
+
+<CaseStudyLayout study={study} related={related} localPreview={localPreview} />

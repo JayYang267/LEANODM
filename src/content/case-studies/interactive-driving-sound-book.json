@@ -1,0 +1,141 @@
+{
+  "slug": "interactive-driving-sound-book",
+  "title": "Interactive Driving Sound Book",
+  "heading": "Interactive Driving Sound Book Manufacturing Case",
+  "category": "Educational Toys",
+  "description": "See how our factory team assembles and checks a children’s driving sound book, from fitting the dashboard to checking its controls and preparing the finished book for packing.",
+  "summary": "This Japanese-market picture book pairs illustrated vehicle scenes with a working toy dashboard. Children can turn the wheel, move a train-style lever and press vehicle buttons for sounds and lights. The work documented for our factory team covers dashboard and book assembly, product checks and packout.",
+  "visibility": "published",
+  "cover": {
+    "src": "/media/cases/interactive-driving-sound-book/finished-product.webp",
+    "alt": "Finished driving sound book opened above a red dashboard with a black steering wheel and yellow controls.",
+    "caption": "Factory reference photograph of the finished book and red dashboard.",
+    "fit": "contain"
+  },
+  "overview": {
+    "paragraphs": [
+      "The book opens above a red dashboard with a black steering wheel, a yellow train lever and a grid of controls. The publisher’s demonstration shows how the panel extends the illustrated vehicle scenes into pretend driving and train play."
+    ],
+    "features": [
+      "Turning the wheel and using selected dashboard controls triggers sounds or lights.",
+      "The yellow handset is a pretend microphone. It does not amplify the user’s voice.",
+      "The publisher’s catalog identifies the Japanese retail edition first released in 2019."
+    ],
+    "responsibilities": [
+      "Fit and fasten the dashboard components, then attach the dashboard to the book.",
+      "Operate the controls at a test station. The inspection instructions also specify sound checks and a retest after fitting.",
+      "Inspect the book and dashboard before final packing."
+    ],
+    "references": [
+      {
+        "label": "Publisher’s product page",
+        "href": "https://st.benesse.ne.jp/ikuji/content/?id=66256",
+        "note": "Benesse’s original Japanese catalog entry, including the cover and sample pages."
+      },
+      {
+        "label": "Publisher’s demonstration on YouTube",
+        "href": "https://www.youtube.com/watch?v=nOCuTL0q7lU",
+        "note": "The publisher opens the book and operates the dashboard."
+      },
+      {
+        "label": "Third-party photos of the finished book",
+        "href": "https://jp.mercari.com/item/m80736202184",
+        "note": "Photos from a Japanese resale listing showing the cover, back and control panel."
+      }
+    ]
+  },
+  "process": [
+    {
+      "title": "Production film",
+      "description": "See how our factory team assembles and checks a children’s driving sound book, from fitting the dashboard to checking its controls and preparing the finished book for packing.",
+      "video": {
+        "src": "/media/cases/interactive-driving-sound-book/driving-activity-book.mp4",
+        "poster": "/media/cases/interactive-driving-sound-book/driving-activity-book-poster.webp",
+        "captions": "/media/cases/interactive-driving-sound-book/driving-activity-book-en.vtt",
+        "caption": "English captions",
+        "chapters": [
+          {
+            "time": 0,
+            "label": "Finished activity book",
+            "text": "The finished book opens to illustrated vehicle scenes above an electronic driving dashboard."
+          },
+          {
+            "time": 4.9,
+            "label": "Component finishing",
+            "text": "The operator locates a steering wheel component in a fixture. At another station, a printed gear selector label is aligned and smoothed into its recess."
+          },
+          {
+            "time": 29.1,
+            "label": "Dashboard assembly",
+            "text": "Operators fasten the electronics assembly and the wheel area, solder individual leads, and bring the front and rear housings together."
+          },
+          {
+            "time": 62.3,
+            "label": "Dashboard checks",
+            "text": "A gloved operator works the wheel and side controls. Indicator lights visibly respond on the unit shown."
+          },
+          {
+            "time": 73.5,
+            "label": "Book and dashboard",
+            "text": "Operators align the printed pages with the cover, prepare adhesive strips on the dashboard and press the book and dashboard together at a fitting station."
+          },
+          {
+            "time": 91.1,
+            "label": "Page checks and packout",
+            "text": "An operator opens the book and turns its pages during inspection. Another prepares the shipping carton and places wrapped books inside."
+          }
+        ]
+      },
+      "links": [
+        { "label": "Assembly & packaging", "href": "/manufacturing/assembly-packaging/" },
+        { "label": "Quality control process", "href": "/quality/quality-control-process/" },
+        { "label": "Product testing", "href": "/quality/product-testing/" },
+        { "label": "IP & confidentiality", "href": "/customization/ip-protection/" }
+      ]
+    }
+  ],
+  "quality": [
+    {
+      "title": "Check the controls again after fitting",
+      "issue": "A dashboard that responds before assembly can behave differently once it is attached to the book.",
+      "action": "The work instructions call for a button retest after the dashboard is fitted to the book.",
+      "evidence": "Separate factory footage shows a gloved operator working the wheel and buttons on the finished book. The assembly procedure specifies this second check.",
+      "sourcingNote": "For sourcing, agree which inputs must be tested again after final fit, especially when the electronics and paper parts come together late."
+    },
+    {
+      "title": "Define what a working control should do",
+      "issue": "A light or sound on its own does not tell you whether the right control triggered the right response.",
+      "action": "The inspection instructions call for checking the controls and their expected audio and light responses.",
+      "evidence": "At 1:02 in the video, the operator works the controls and the indicators respond. The inspection procedure also specifies expected sounds and lights. The footage shows selected checks on the unit at the bench.",
+      "sourcingNote": "A buyer can define acceptance as an input-and-response list, so an inspector knows what to observe at the bench."
+    },
+    {
+      "title": "Inspect both the printed book and the hardware",
+      "issue": "A working dashboard can still ship with a visible defect on the book or with a part out of place.",
+      "action": "The instructions call for examining the book print and appearance, checking the dashboard’s condition and checking how parts sit before packing.",
+      "evidence": "The book inspection, final appearance and packout procedures describe these checks separately from the functional checks.",
+      "sourcingNote": "Agree visual acceptance samples and the pack configuration separately from the electrical function list."
+    },
+    {
+      "title": "Weigh and log the sealed carton",
+      "issue": "After cartons are closed, missing or extra contents are harder to spot.",
+      "action": "The packout instructions call for weighing the sealed carton and recording the check.",
+      "evidence": "Separate footage shows an operator placing a sealed carton on a scale and writing on the check sheet. The footage does not establish a weight or acceptance decision.",
+      "sourcingNote": "Agree the carton layout, quantity and weight range in advance, and define what to do when a reading falls outside the range."
+    }
+  ],
+  "faq": [
+    {
+      "question": "What did the factory team handle for this project?",
+      "answer": "The project records document assembly, inspection and packing work for this book and dashboard. Design ownership, component sourcing and acceptance requirements for a new program are agreed in the project brief."
+    },
+    {
+      "question": "Can we discuss a similar educational toy or IP hardware project?",
+      "answer": "Yes. Start with the play pattern, target market, age grade, intended release, and the work you need help with. Include which print and electronic parts are already specified, how you want them packed, and which checks matter most."
+    },
+    {
+      "question": "What should we share when artwork or characters are confidential?",
+      "answer": "Start with a non-confidential description of the use case, target market and timing. Discuss confidentiality and approved file sharing before sending unreleased artwork, recordings or drawings."
+    }
+  ]
+}

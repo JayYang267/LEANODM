@@ -16,12 +16,8 @@ export function resolveCanonicalOrigin(configured = ''): string {
 
 // Explicitly published source routes; planned routes and future utility pages do
 // not become index candidates merely because an .astro file was added.
-export const CASE_STUDIES_PATH = '/case-studies/';
-export const DRIVING_SOUND_BOOK_CASE_PATH = `${CASE_STUDIES_PATH}interactive-driving-sound-book/`;
-
 export const PUBLIC_PAGE_PATHS = [
-  '/', '/rfq/', '/about/', '/about/activities/', '/about/ethical-manufacturing/',
-  CASE_STUDIES_PATH, DRIVING_SOUND_BOOK_CASE_PATH,
+  '/', '/case-studies/', '/rfq/', '/about/', '/about/activities/', '/about/ethical-manufacturing/',
   '/customization/ip-protection/', '/customization/ip-protection/confidentiality/',
   '/customization/ip-protection/design-ownership/', '/customization/ip-protection/samples-tooling/',
   '/customization/ip-protection/nda-project-start/', '/manufacturing/secure-programming/',
@@ -34,5 +30,4 @@ export const PUBLIC_PAGE_PATHS = [
   '/quality/quality-control-process/', '/quality/appearance-inspection/',
   '/quality/incoming-inspection/', '/quality/product-testing/',
   '/quality/inspector-training/', '/quality/traceability/',
-  '/products/plastic-electronic-toys/original-product-concepts/say-island-picture-guessing-game-concept/',
 ] as const;
